@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ayan Basheer</title>
+<meta name="description" content="Ayan Basheer. Cofounder of Argus, student at UT Dallas. Projects, links and contact.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chamber:#E6E9EE;   /* page */
+  --foam:#C9D0DA;      /* rules, quiet surfaces */
+  --ink:#151A26;       /* text */
+  --mute:#5B6475;      /* secondary text */
+  --signal:#4B2BFF;    /* links, beam body */
+  --lobe:#FF5A36;      /* beam peak, hover */
+  --col:min(620px, 100% - 40px);
+}
+*{box-sizing:border-box}
+html{background:var(--chamber);color:var(--ink);-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  font-variation-settings:"opsz" 14;font-size:18px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:4px;border-radius:2px}
+
+#beam{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block}
+main,header,footer{position:relative;z-index:1}
+
+header{display:flex;justify-content:space-between;align-items:baseline;padding:22px 28px;font-size:16px}
+header .mark{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+header nav{display:flex;gap:22px}
+header nav a{text-decoration:none;color:var(--mute)}
+header nav a:hover{color:var(--ink)}
+
+.hero{min-height:calc(100vh - 70px);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 28px 56px}
+.hero h1{margin:0;font-weight:760;font-variation-settings:"wdth" 75,"opsz" 96;
+  font-size:clamp(76px,15vw,232px);line-height:.82;letter-spacing:-.035em;max-width:7ch}
+.hero h1 span{display:block}
+.hero p{max-width:34ch;margin:28px 0 0;font-size:clamp(19px,1.7vw,23px);line-height:1.45}
+.hero .caption{margin-top:44px;font-size:14px;color:var(--mute);max-width:38ch}
+
+section.block{padding:120px 28px 40px}
+section.block h2{font-weight:700;font-variation-settings:"wdth" 75,"opsz" 72;
+  font-size:clamp(44px,6vw,80px);line-height:.9;letter-spacing:-.02em;margin:0 0 36px}
+
+.work{list-style:none;margin:0;padding:0;max-width:var(--col)}
+.work li{border-top:1.5px solid var(--foam);padding:22px 0 26px;transition:padding-left .35s cubic-bezier(.2,.7,.2,1)}
+.work li:last-child{border-bottom:1.5px solid var(--foam)}
+.work h3{margin:0;font-size:clamp(26px,2.6vw,34px);font-weight:650;letter-spacing:-.015em;line-height:1.1;
+  font-variation-settings:"wdth" 88,"opsz" 36;transition:color .25s}
+.work p{margin:8px 0 0;color:var(--mute);max-width:52ch}
+.work .meta{display:block;margin-top:10px;font-size:15px;color:var(--ink)}
+.work a.go{color:var(--signal);text-underline-offset:3px}
+.work li:hover,.work li:focus-within{padding-left:14px}
+.work li:hover h3,.work li:focus-within h3{color:var(--lobe)}
+
+.about{max-width:var(--col)}
+.about p{margin:0 0 18px;font-size:21px;line-height:1.5}
+
+.links{list-style:none;padding:0;margin:0;max-width:var(--col);display:grid;grid-template-columns:1fr 1fr;gap:0}
+.links a{display:block;padding:18px 0;border-top:1.5px solid var(--foam);text-decoration:none;font-size:24px;
+  font-weight:600;font-variation-settings:"wdth" 88}
+.links a span{display:block;font-size:15px;font-weight:400;color:var(--mute)}
+.links a:hover{color:var(--signal)}
+
+footer{padding:90px 28px 40px;color:var(--mute);font-size:14px}
+
+@media (max-width:720px){
+  #beam{opacity:.6}
+  header{padding:18px 20px}
+  header nav{gap:16px}
+  .hero{padding:0 20px 40px}
+  section.block{padding:90px 20px 30px}
+  footer{padding:70px 20px 32px}
+  .links{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .work li{transition:none}
+}
+</style>
+</head>
+<body>
+<canvas id="beam" aria-hidden="true"></canvas>
+
+<header>
+  <a class="mark" href="#top" id="top">endyland</a>
+  <nav aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a>
+    <a href="#links">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1><span>Ayan</span><span>Basheer</span></h1>
+    <p>I build the infrastructure behind Argus and study at UT Dallas. Based in Dallas.</p>
+    <p class="caption">That shape is the beam of a 6 by 6 antenna array, drawn live. Move your pointer and it steers toward you.</p>
+  </section>
+
+  <section class="block" id="work" aria-labelledby="work-h">
+    <h2 id="work-h">Work</h2>
+    <ul class="work">
+      <li data-steer="-.55,.35">
+        <h3>Argus</h3>
+        <p>One app for convenience stores and gas stations. Cameras, invoices, money, stock and staff in one place, using the cameras the store already has.</p>
+        <span class="meta">Cofounder. Frontend and backend infrastructure. <a class="go" href="https://useargus.co" rel="noopener">useargus.co</a></span>
+      </li>
+      <li data-steer=".6,.25">
+        <h3>RF direction finder</h3>
+        <p>A four-element antenna array at 5.8 GHz that works out where a signal is coming from and steers a beam toward it. The drawing on this page is a bigger cousin of it.</p>
+        <span class="meta">UT Dallas RIDE, fall 2026. MATLAB.</span>
+      </li>
+      <li data-steer="-.3,-.45">
+        <h3>YoTummy</h3>
+        <p>Homemade food from local sellers and farmstands, found on a map and ordered from them directly.</p>
+        <span class="meta">Developer. <a class="go" href="https://yotummy.com" rel="noopener">yotummy.com</a></span>
+      </li>
+      <li data-steer=".45,-.4">
+        <h3>RION Solutions</h3>
+        <p>Custom AI automation and theft prevention for U.S. businesses: chatbots, voice agents and camera systems.</p>
+        <span class="meta">Co-ran it. <a class="go" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></span>
+      </li>
+      <li data-steer="-.6,-.1">
+        <h3>Claude for GoHighLevel</h3>
+        <p>An MCP server that lets Claude read and work inside a GoHighLevel CRM.</p>
+      </li>
+      <li data-steer=".2,.6">
+        <h3>Park With Love</h3>
+        <p>A small self-hosted tool that registers friends for guest parking, renews it every day and emails them the QR confirmation.</p>
+      </li>
+      <li data-steer=".05,-.65">
+        <h3>SES mailer</h3>
+        <p>A plain bulk email sender on Amazon SES. 25,000 emails a month with attachments for about $8.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <div class="about">
+      <p>I came up through network engineering, and I still like the parts of a product most people never see: the servers, the tunnels, the pipes between things.</p>
+      <p>Right now that means keeping Argus running for stores, and building antennas for school.</p>
+    </div>
+  </section>
+
+  <section class="block" id="links" aria-labelledby="links-h">
+    <h2 id="links-h">Contact</h2>
+    <ul class="links">
+      <li><a href="mailto:ayanbasheer@gmail.com">Email<span>ayanbasheer@gmail.com</span></a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub<span>abasheer-rion</span></a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn<span>in/ayanbasheer</span></a></li>
+      <li><a href="https://useargus.co" rel="noopener">Argus<span>useargus.co</span></a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>© 2026 Ayan Basheer</footer>
+
+<script src="three.min.js"></script>
+<script>
+(function(){
+  if(!window.THREE) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('beam');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true}); }
+  catch(e){ canvas.remove(); return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+
+  // Planar array, half-wavelength spacing. Boresight is +z.
+  const N = 6, FLOOR = -32;
+  const geo = new THREE.SphereGeometry(1, 180, 90);
+  const pos = geo.attributes.position;
+  const dirs = Float32Array.from(pos.array);
+  const colors = new Float32Array(pos.count * 3);
+  geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  const cLow = new THREE.Color('#9AA3B2'), cMid = new THREE.Color('#4B2BFF'), cHi = new THREE.Color('#FF5A36');
+  const tmp = new THREE.Color();
+
+  const beam = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({vertexColors:true, transparent:true, opacity:.92, side:THREE.DoubleSide}));
+  const wire = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({color:'#151A26', wireframe:true, transparent:true, opacity:.07}));
+  const rig = new THREE.Group(); rig.add(beam, wire);
+
+  // the array itself: a small grid of elements at the origin
+  const el = new THREE.BoxGeometry(.07, .07, .015), elMat = new THREE.MeshBasicMaterial({color:'#151A26'});
+  for(let i=0;i<N;i++) for(let j=0;j<N;j++){
+    const m = new THREE.Mesh(el, elMat); m.position.set((i-(N-1)/2)*.11, (j-(N-1)/2)*.11, 0); rig.add(m);
+  }
+  scene.add(rig);
+
+  function af1(x){ // normalised array factor of N elements, psi = pi * x
+    const p = Math.PI * x / 2;
+    const s = Math.sin(p);
+    if (Math.abs(s) < 1e-6) return 1;
+    return Math.abs(Math.sin(N * p) / (N * s));
+  }
+
+  let u0 = 0, v0 = 0, tu = .25, tv = .15, grow = reduce ? 1 : 0;
+  function shape(){
+    const a = pos.array;
+    for(let i=0;i<pos.count;i++){
+      const x = dirs[i*3], y = dirs[i*3+1], z = dirs[i*3+2];
+      const elem = z > 0 ? Math.pow(z, .7) : 0;
+      const g = af1(x - u0) * af1(y - v0) * elem;
+      let db = 20 * Math.log10(g + 1e-6); if (db < FLOOR) db = FLOOR;
+      const t = (db - FLOOR) / -FLOOR;            // 0..1
+      const r = .06 + 1.85 * t;
+      const rr = .55 + (r - .55) * grow;          // starts as a plain sphere, grows into the beam
+      a[i*3] = x * rr; a[i*3+1] = y * rr; a[i*3+2] = z * rr;
+      if (t < .55) tmp.copy(cLow).lerp(cMid, t / .55); else tmp.copy(cMid).lerp(cHi, (t - .55) / .45);
+      colors[i*3] = tmp.r; colors[i*3+1] = tmp.g; colors[i*3+2] = tmp.b;
+    }
+    pos.needsUpdate = true; geo.attributes.color.needsUpdate = true;
+  }
+
+  let W = 0, H = 0;
+  function resize(){
+    W = innerWidth; H = innerHeight;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H;
+    const wide = W > 900;
+    camera.setViewOffset(W, H, wide ? -W * .2 : -W * .1, wide ? 0 : H * .2, W, H);
+    camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize); resize();
+
+  // pointer steers the beam; hovering a project steers it toward that project
+  let lastMove = 0;
+  addEventListener('pointermove', e => {
+    tu = (e.clientX / W - .5) * 1.5; tv = -(e.clientY / H - .5) * 1.3; lastMove = performance.now();
+  }, {passive:true});
+  document.querySelectorAll('[data-steer]').forEach(li => {
+    const [a, b] = li.dataset.steer.split(',').map(Number);
+    const go = () => { tu = a; tv = b; lastMove = performance.now() + 4000; };
+    li.addEventListener('pointerenter', go); li.addEventListener('focusin', go);
+  });
+
+  let orbit = 0;
+  addEventListener('scroll', () => { orbit = scrollY / Math.max(1, document.body.scrollHeight - H); }, {passive:true});
+
+  const start = performance.now();
+  function frame(now){
+    const idle = now - lastMove > 3500;
+    if (idle && !reduce){ const t = now / 1000; tu = .45 * Math.sin(t * .35); tv = .25 * Math.sin(t * .23 + 1); }
+    if (!reduce && grow < 1) grow = Math.min(1, (now - start) / 1600), grow = 1 - Math.pow(1 - grow, 3);
+    const du = tu - u0, dv = tv - v0;
+    if (Math.abs(du) + Math.abs(dv) > .0005 || grow < 1){ u0 += du * .08; v0 += dv * .08; shape(); }
+    const ang = -.75 + orbit * 1.6;
+    camera.position.set(Math.sin(ang) * 6.2, 1.5 - orbit * 1.2, Math.cos(ang) * 6.2);
+    camera.lookAt(0, 0, .6);
+    renderer.render(scene, camera);
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  shape();
+  if (reduce){ addEventListener('pointermove', () => requestAnimationFrame(frame), {passive:true}); addEventListener('scroll', () => requestAnimationFrame(frame), {passive:true}); frame(performance.now()); }
+  else requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
