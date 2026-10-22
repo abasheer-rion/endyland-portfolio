@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<defs><radialGradient id="g" cx="78%" cy="40%" r="70%"><stop offset="0" stop-color="#1B1640"/><stop offset=".55" stop-color="#0D111C"/><stop offset="1" stop-color="#07090F"/></radialGradient></defs>
+<rect width="1280" height="720" fill="url(#g)"/>
+<g fill="none" stroke="#4B2BFF" stroke-opacity=".4" stroke-width="2"><rect x="640" y="120" width="60" height="480" rx="6"/><rect x="730" y="120" width="60" height="480" rx="6"/><rect x="820" y="120" width="60" height="480" rx="6"/><rect x="910" y="120" width="60" height="480" rx="6"/><rect x="1000" y="120" width="60" height="480" rx="6"/><rect x="1090" y="120" width="60" height="480" rx="6"/><rect x="1180" y="120" width="60" height="480" rx="6"/><rect x="1270" y="120" width="60" height="480" rx="6"/></g>
+<rect x="56" y="56" width="1168" height="608" fill="none" stroke="#C9D0DA" stroke-opacity=".25" stroke-width="2" stroke-dasharray="10 10"/>
+<g font-family="ui-monospace, Menlo, monospace" fill="#A4ACBD" font-size="26" letter-spacing="4"><text x="96" y="124">PLACEHOLDER</text></g>
+<text x="96" y="616" font-family="ui-monospace, Menlo, monospace" font-size="26" fill="#FF8A6B">guest parking. Image coming soon.</text>
+</svg>

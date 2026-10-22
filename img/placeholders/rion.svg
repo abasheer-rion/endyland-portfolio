@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<defs><radialGradient id="g" cx="78%" cy="40%" r="70%"><stop offset="0" stop-color="#1B1640"/><stop offset=".55" stop-color="#0D111C"/><stop offset="1" stop-color="#07090F"/></radialGradient></defs>
+<rect width="1280" height="720" fill="url(#g)"/>
+<g fill="#4B2BFF" fill-opacity=".35"><rect x="640" y="540" width="16" height="80"/><rect x="670" y="443" width="16" height="177"/><rect x="700" y="346" width="16" height="274"/><rect x="730" y="249" width="16" height="371"/><rect x="760" y="452" width="16" height="168"/><rect x="790" y="355" width="16" height="265"/><rect x="820" y="258" width="16" height="362"/><rect x="850" y="461" width="16" height="159"/><rect x="880" y="364" width="16" height="256"/><rect x="910" y="267" width="16" height="353"/><rect x="940" y="470" width="16" height="150"/><rect x="970" y="373" width="16" height="247"/><rect x="1000" y="276" width="16" height="344"/><rect x="1030" y="479" width="16" height="141"/><rect x="1060" y="382" width="16" height="238"/><rect x="1090" y="285" width="16" height="335"/><rect x="1120" y="488" width="16" height="132"/><rect x="1150" y="391" width="16" height="229"/><rect x="1180" y="294" width="16" height="326"/><rect x="1210" y="497" width="16" height="123"/></g>
+<rect x="56" y="56" width="1168" height="608" fill="none" stroke="#C9D0DA" stroke-opacity=".25" stroke-width="2" stroke-dasharray="10 10"/>
+<g font-family="ui-monospace, Menlo, monospace" fill="#A4ACBD" font-size="26" letter-spacing="4"><text x="96" y="124">PLACEHOLDER</text></g>
+<text x="96" y="616" font-family="ui-monospace, Menlo, monospace" font-size="26" fill="#FF8A6B">automation. Image coming soon.</text>
+</svg>

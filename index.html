@@ -12,88 +12,20 @@
 <meta property="og:title" content="Ayan Basheer">
 <meta property="og:description" content="Cofounder of Argus, student at UT Dallas. Projects, links and contact.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#E6E9EE">
+<meta name="theme-color" content="#07090F">
+<meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --chamber:#E6E9EE;   /* page */
-  --foam:#C9D0DA;      /* rules, quiet surfaces */
-  --ink:#151A26;       /* text */
-  --mute:#5B6475;      /* secondary text */
-  --signal:#4B2BFF;    /* links, beam body */
-  --lobe:#FF5A36;      /* beam peak, hover */
-  --col:min(620px, 100% - 40px);
-}
-*{box-sizing:border-box}
-html{background:var(--chamber);color:var(--ink);-webkit-text-size-adjust:100%}
-body{margin:0;font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
-  font-variation-settings:"opsz" 14;font-size:18px;line-height:1.55;overflow-x:hidden}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:4px;border-radius:2px}
-
-#beam{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block}
-main,header,footer{position:relative;z-index:1}
-
-header{display:flex;justify-content:space-between;align-items:baseline;padding:22px 28px;font-size:16px}
-header .mark{font-weight:700;text-decoration:none;letter-spacing:-.01em}
-header nav{display:flex;gap:22px}
-header nav a{text-decoration:none;color:var(--mute)}
-header nav a:hover{color:var(--ink)}
-
-.hero{min-height:calc(100vh - 70px);display:flex;flex-direction:column;justify-content:flex-end;
-  padding:0 28px 56px}
-.hero h1{margin:0;font-weight:760;font-variation-settings:"wdth" 75,"opsz" 96;
-  font-size:clamp(76px,15vw,232px);line-height:.82;letter-spacing:-.035em;max-width:7ch}
-.hero h1 span{display:block}
-.hero p{max-width:34ch;margin:28px 0 0;font-size:clamp(19px,1.7vw,23px);line-height:1.45}
-.hero .caption{margin-top:44px;font-size:14px;color:var(--mute);max-width:38ch}
-
-section.block{padding:120px 28px 40px}
-section.block h2{font-weight:700;font-variation-settings:"wdth" 75,"opsz" 72;
-  font-size:clamp(44px,6vw,80px);line-height:.9;letter-spacing:-.02em;margin:0 0 36px}
-
-.work{list-style:none;margin:0;padding:0;max-width:var(--col)}
-.work li{border-top:1.5px solid var(--foam);padding:22px 0 26px;transition:padding-left .35s cubic-bezier(.2,.7,.2,1)}
-.work li:last-child{border-bottom:1.5px solid var(--foam)}
-.work h3{margin:0;font-size:clamp(26px,2.6vw,34px);font-weight:650;letter-spacing:-.015em;line-height:1.1;
-  font-variation-settings:"wdth" 88,"opsz" 36;transition:color .25s}
-.work p{margin:8px 0 0;color:var(--mute);max-width:52ch}
-.work .meta{display:block;margin-top:10px;font-size:15px;color:var(--ink)}
-.work a.go{color:var(--signal);text-underline-offset:3px}
-.work li:hover,.work li:focus-within{padding-left:14px}
-.work li:hover h3,.work li:focus-within h3{color:var(--lobe)}
-
-.about{max-width:var(--col)}
-.about p{margin:0 0 18px;font-size:21px;line-height:1.5}
-
-.links{list-style:none;padding:0;margin:0;max-width:var(--col);display:grid;grid-template-columns:1fr 1fr;gap:0}
-.links a{display:block;padding:18px 0;border-top:1.5px solid var(--foam);text-decoration:none;font-size:24px;
-  font-weight:600;font-variation-settings:"wdth" 88}
-.links a span{display:block;font-size:15px;font-weight:400;color:var(--mute)}
-.links a:hover{color:var(--signal)}
-
-footer{padding:90px 28px 40px;color:var(--mute);font-size:14px}
-
-@media (max-width:720px){
-  #beam{opacity:.6}
-  header{padding:18px 20px}
-  header nav{gap:16px}
-  .hero{padding:0 20px 40px}
-  section.block{padding:90px 20px 30px}
-  footer{padding:70px 20px 32px}
-  .links{grid-template-columns:1fr}
-}
-@media (prefers-reduced-motion:reduce){
-  .work li{transition:none}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="modulepreload" href="/js/main.js">
 </head>
 <body>
-<canvas id="beam" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="still" aria-hidden="true"></div>
 
-<header>
+<header class="top">
   <a class="mark" href="#top" id="top">endyland</a>
   <nav aria-label="Main">
     <a href="#work">Work</a>
@@ -103,73 +35,120 @@ footer{padding:90px 28px 40px;color:var(--mute);font-size:14px}
   </nav>
 </header>
 
-<main>
-  <section class="hero">
-    <h1><span>Ayan</span><span>Basheer</span></h1>
-    <p>I build the infrastructure behind Argus and study at UT Dallas. Based in Dallas.</p>
+<main id="main">
+  <section class="hero stop" data-stop="0" aria-labelledby="name">
+    <p class="tag">Stop 00 / Array</p>
+    <h1 id="name"><span>Ayan</span><span>Basheer</span></h1>
+    <p class="lede">I build the infrastructure behind Argus and study at UT Dallas. Based in Dallas.</p>
     <p class="caption">That shape is the beam of a 6 by 6 antenna array, drawn live. Move your pointer and it steers toward you.</p>
+    <a class="cue" href="#work"><span>Scroll</span></a>
   </section>
 
-  <section class="block" id="work" aria-labelledby="work-h">
-    <h2 id="work-h">Work</h2>
-    <ul class="work">
-      <li id="argus" data-steer="-.55,.35">
-        <h3>Argus</h3>
-        <p>One app for convenience stores and gas stations. Cameras, invoices, money, stock and staff in one place, using the cameras the store already has.</p>
-        <span class="meta">Cofounder. Frontend and backend infrastructure. <a class="go" href="https://useargus.co" rel="noopener">useargus.co</a></span>
-      </li>
-      <li id="rf-direction-finder" data-steer=".6,.25">
-        <h3>RF direction finder</h3>
-        <p>A four-element antenna array at 5.8 GHz that works out where a signal is coming from and steers a beam toward it. The drawing on this page is a bigger cousin of it.</p>
-        <span class="meta">UT Dallas RIDE, fall 2026. MATLAB.</span>
-      </li>
-      <li id="yotummy" data-steer="-.3,-.45">
-        <h3>YoTummy</h3>
-        <p>Homemade food from local sellers and farmstands, found on a map and ordered from them directly.</p>
-        <span class="meta">Developer. <a class="go" href="https://yotummy.com" rel="noopener">yotummy.com</a></span>
-      </li>
-      <li id="rion" data-steer=".45,-.4">
-        <h3>RION Solutions</h3>
-        <p>Custom AI automation and theft prevention for U.S. businesses: chatbots, voice agents and camera systems.</p>
-        <span class="meta">Co-ran it. <a class="go" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></span>
-      </li>
-      <li id="gohighlevel-mcp" data-steer="-.6,-.1">
-        <h3>Claude for GoHighLevel</h3>
-        <p>An MCP server that lets Claude read and work inside a GoHighLevel CRM.</p>
-      </li>
-      <li id="park-with-love" data-steer=".2,.6">
-        <h3>Park With Love</h3>
-        <p>A small self-hosted tool that registers friends for guest parking, renews it every day and emails them the QR confirmation.</p>
-      </li>
-      <li id="ses-mailer" data-steer=".05,-.65">
-        <h3>SES mailer</h3>
-        <p>A plain bulk email sender on Amazon SES. 25,000 emails a month with attachments for about $8.</p>
-      </li>
-    </ul>
+  <section class="work" id="work" aria-labelledby="work-h">
+    <div class="stop stop-argus" data-stop="1">
+      <p class="tag">Stop 01 / Argus</p>
+      <h2 id="work-h">Work</h2>
+      <article class="feature tilt-wrap reveal" id="argus" data-steer="-.55,.35" aria-labelledby="argus-h">
+        <div class="tilt">
+          <img src="/img/placeholders/argus.svg" width="1280" height="720" alt="Placeholder image for Argus. A real screenshot will replace it." decoding="async">
+          <div class="body">
+            <h3 id="argus-h">Argus</h3>
+            <p>One app for convenience stores and gas stations. Cameras, invoices, money, stock and staff in one place, using the cameras the store already has.</p>
+            <span class="meta">Cofounder. Frontend and backend infrastructure. <a class="go" href="https://useargus.co" rel="noopener">useargus.co</a></span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="stop stop-projects" data-stop="2" id="projects">
+      <p class="tag">Stop 02 / Projects</p>
+      <h3 class="sub" id="projects-h">Projects</h3>
+      <p class="hint">Hover or focus a project and the beam swings toward it.</p>
+      <ul class="cards" aria-labelledby="projects-h">
+        <li class="card tilt-wrap reveal" id="rf-direction-finder" data-steer=".6,.25">
+          <div class="tilt">
+            <img src="/img/placeholders/rf-direction-finder.svg" width="1280" height="720" alt="Placeholder image for the RF direction finder. A real photo will replace it." loading="lazy" decoding="async">
+            <div class="body">
+              <h4>RF direction finder</h4>
+              <p>A four-element antenna array at 5.8 GHz that works out where a signal is coming from and steers a beam toward it. The drawing on this page is a bigger cousin of it.</p>
+              <span class="meta">UT Dallas RIDE, fall 2026. MATLAB.</span>
+            </div>
+          </div>
+        </li>
+        <li class="card tilt-wrap reveal" id="yotummy" data-steer="-.3,-.45">
+          <div class="tilt">
+            <img src="/img/placeholders/yotummy.svg" width="1280" height="720" alt="Placeholder image for YoTummy. A real screenshot will replace it." loading="lazy" decoding="async">
+            <div class="body">
+              <h4>YoTummy</h4>
+              <p>Homemade food from local sellers and farmstands, found on a map and ordered from them directly.</p>
+              <span class="meta">Developer. <a class="go" href="https://yotummy.com" rel="noopener">yotummy.com</a></span>
+            </div>
+          </div>
+        </li>
+        <li class="card tilt-wrap reveal" id="rion" data-steer=".45,-.4">
+          <div class="tilt">
+            <img src="/img/placeholders/rion.svg" width="1280" height="720" alt="Placeholder image for RION Solutions. A real screenshot will replace it." loading="lazy" decoding="async">
+            <div class="body">
+              <h4>RION Solutions</h4>
+              <p>Custom AI automation and theft prevention for U.S. businesses: chatbots, voice agents and camera systems.</p>
+              <span class="meta">Co-ran it. <a class="go" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></span>
+            </div>
+          </div>
+        </li>
+        <li class="card tilt-wrap reveal" id="gohighlevel-mcp" data-steer="-.6,-.1">
+          <div class="tilt">
+            <img src="/img/placeholders/gohighlevel-mcp.svg" width="1280" height="720" alt="Placeholder image for Claude for GoHighLevel. A real screenshot will replace it." loading="lazy" decoding="async">
+            <div class="body">
+              <h4>Claude for GoHighLevel</h4>
+              <p>An MCP server that lets Claude read and work inside a GoHighLevel CRM.</p>
+            </div>
+          </div>
+        </li>
+        <li class="card tilt-wrap reveal" id="park-with-love" data-steer=".2,.6">
+          <div class="tilt">
+            <img src="/img/placeholders/park-with-love.svg" width="1280" height="720" alt="Placeholder image for Park With Love. A real screenshot will replace it." loading="lazy" decoding="async">
+            <div class="body">
+              <h4>Park With Love</h4>
+              <p>A small self-hosted tool that registers friends for guest parking, renews it every day and emails them the QR confirmation.</p>
+            </div>
+          </div>
+        </li>
+        <li class="card tilt-wrap reveal" id="ses-mailer" data-steer=".05,-.65">
+          <div class="tilt">
+            <img src="/img/placeholders/ses-mailer.svg" width="1280" height="720" alt="Placeholder image for the SES mailer. A real screenshot will replace it." loading="lazy" decoding="async">
+            <div class="body">
+              <h4>SES mailer</h4>
+              <p>A plain bulk email sender on Amazon SES. 25,000 emails a month with attachments for about $8.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <section class="block" id="about" aria-labelledby="about-h">
+  <section class="stop stop-about" id="about" data-stop="3" aria-labelledby="about-h">
+    <p class="tag">Stop 03 / About</p>
     <h2 id="about-h">About</h2>
-    <div class="about">
+    <div class="about panel reveal">
       <p>I came up through network engineering, and I still like the parts of a product most people never see: the servers, the tunnels, the pipes between things.</p>
       <p>Right now that means keeping Argus running for stores, and building antennas for school.</p>
     </div>
   </section>
 
-  <section class="block" id="links" aria-labelledby="links-h">
-    <h2 id="links-h">Contact</h2>
+  <section class="stop stop-contact" id="links" data-stop="4" aria-labelledby="contact">
+    <p class="tag">Stop 04 / Contact</p>
+    <h2 id="contact">Contact</h2>
     <ul class="links">
-      <li><a href="mailto:ayanbasheer@gmail.com">Email<span>ayanbasheer@gmail.com</span></a></li>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub<span>abasheer-rion</span></a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn<span>in/ayanbasheer</span></a></li>
-      <li><a href="https://useargus.co" rel="noopener">Argus<span>useargus.co</span></a></li>
+      <li class="reveal"><a href="mailto:ayanbasheer@gmail.com">Email<span>ayanbasheer@gmail.com</span></a></li>
+      <li class="reveal"><a href="https://github.com/abasheer-rion" rel="noopener">GitHub<span>abasheer-rion</span></a></li>
+      <li class="reveal"><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn<span>in/ayanbasheer</span></a></li>
+      <li class="reveal"><a href="https://useargus.co" rel="noopener">Argus<span>useargus.co</span></a></li>
     </ul>
   </section>
 </main>
 
 <footer>© 2026 Ayan Basheer</footer>
 
-<script src="three.min.js" defer></script>
-<script src="beam.js" defer></script>
+<script type="module" src="/js/main.js"></script>
 </body>
 </html>

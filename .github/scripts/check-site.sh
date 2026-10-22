@@ -31,6 +31,24 @@ for page in index.html 404.html; do
   done
 done
 
+# 1b. Every relative import in js/*.js points at a real file.
+for js in js/*.js; do
+  [ -f "$js" ] || continue
+  imps=$(grep -oE "(from|import\()[[:space:]]*'[.][^']*'" "$js" | sed -E "s/^[^']*'//; s/'$//" || true)
+  for imp in $imps; do
+    target="$(dirname "$js")/$imp"
+    [ -f "$target" ] || err "$js imports $imp but $target does not exist"
+  done
+done
+
+# 1c. No inline scripts. The CSP blocks them, so they would silently not run.
+for page in index.html 404.html; do
+  [ -f "$page" ] || continue
+  if grep -qE '<script( [^>]*)?>[[:space:]]*[^<[:space:]]' "$page" || grep -E '<script' "$page" | grep -vq 'src='; then
+    err "$page has an inline <script>. Move it to a .js file."
+  fi
+done
+
 # 2. _redirects: 2 or 3 fields, status 301/302/307/308.
 if [ -f _redirects ]; then
   n=0
@@ -76,6 +94,9 @@ fi
 
 # 4. _headers sets a Content-Security-Policy.
 grep -q 'Content-Security-Policy' _headers 2>/dev/null || err "_headers has no Content-Security-Policy"
+if grep -E 'Content-Security-Policy' _headers 2>/dev/null | grep -oE "script-src[^;]*" | grep -qE "unsafe-inline|unsafe-eval"; then
+  err "_headers script-src allows unsafe-inline or unsafe-eval"
+fi
 
 # 5. No file over 25 MiB (Cloudflare Pages limit).
 limit=$((25 * 1024 * 1024))

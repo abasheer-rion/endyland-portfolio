@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<defs><radialGradient id="g" cx="78%" cy="40%" r="70%"><stop offset="0" stop-color="#1B1640"/><stop offset=".55" stop-color="#0D111C"/><stop offset="1" stop-color="#07090F"/></radialGradient></defs>
+<rect width="1280" height="720" fill="url(#g)"/>
+<g stroke="#A597FF" stroke-opacity=".35" stroke-width="2"><path d="M760 180L980 140M760 180L900 420"/><path d="M980 140L1120 320M980 140L900 420"/><path d="M1120 320L900 420M1120 320L900 420"/><path d="M900 420L1060 560M900 420L900 420"/><path d="M1060 560L780 520M1060 560L900 420"/><path d="M780 520L760 180M780 520L900 420"/></g><g fill="#4B2BFF"><circle cx="760" cy="180" r="12"/><circle cx="980" cy="140" r="12"/><circle cx="1120" cy="320" r="12"/><circle cx="900" cy="420" r="12"/><circle cx="1060" cy="560" r="12"/><circle cx="780" cy="520" r="12"/></g>
+<rect x="56" y="56" width="1168" height="608" fill="none" stroke="#C9D0DA" stroke-opacity=".25" stroke-width="2" stroke-dasharray="10 10"/>
+<g font-family="ui-monospace, Menlo, monospace" fill="#A4ACBD" font-size="26" letter-spacing="4"><text x="96" y="124">PLACEHOLDER</text></g>
+<text x="96" y="616" font-family="ui-monospace, Menlo, monospace" font-size="26" fill="#FF8A6B">MCP server. Image coming soon.</text>
+</svg>

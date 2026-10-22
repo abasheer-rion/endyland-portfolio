@@ -1,0 +1,157 @@
+:root{
+  --void:#07090F;      /* page, the chamber at night */
+  --deep:#0D111C;      /* panels */
+  --rule:rgba(201,208,218,.14);
+  --ink:#ECEFF4;       /* text */
+  --mute:#A4ACBD;      /* secondary text, 8:1 on --void */
+  --signal:#4B2BFF;    /* beam body */
+  --signal-hi:#A597FF; /* links on dark, 7:1 on --void */
+  --lobe:#FF5A36;      /* beam peak, hover */
+  --lobe-hi:#FF8A6B;
+  --mono:"Martian Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gut:clamp(20px,4vw,56px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{background:var(--void);color:var(--ink);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--void);font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  font-variation-settings:"opsz" 14;font-size:18px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal-hi);outline-offset:4px;border-radius:4px}
+
+.skip{position:absolute;left:var(--gut);top:-80px;z-index:10;background:var(--ink);color:var(--void);
+  padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip:focus{top:14px}
+
+/* The 3D scene sits behind everything. Fixed and sized up front, so it never shifts the page. */
+#scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block;opacity:0;transition:opacity 1.4s ease}
+#scene.on{opacity:1}
+.still{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;
+  background:
+    radial-gradient(ellipse 42% 30% at 72% 42%, rgba(255,90,54,.30), transparent 70%),
+    radial-gradient(ellipse 60% 48% at 70% 45%, rgba(75,43,255,.36), transparent 72%),
+    radial-gradient(ellipse 90% 70% at 50% 120%, rgba(75,43,255,.14), transparent 70%)}
+html.no-webgl #scene{display:none}
+html.no-webgl .still{display:block}
+
+/* Grain and a vignette over the scene, for depth. Pure CSS, no image. */
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 120% 90% at 50% 40%, transparent 55%, rgba(3,4,8,.65))}
+
+header.top,main,footer{position:relative;z-index:1}
+
+header.top{display:flex;justify-content:space-between;align-items:baseline;padding:22px var(--gut);font-size:16px}
+header .mark{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+header nav{display:flex;gap:22px;flex-wrap:wrap}
+header nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+header nav a:hover{color:var(--ink)}
+
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);
+  margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.tag::before{content:"";width:28px;height:1.5px;background:var(--lobe)}
+
+/* Each stop is a place the camera rests. */
+.stop{padding:16vh var(--gut) 10vh;max-width:1400px;margin:0 auto}
+
+.hero{min-height:calc(100vh - 70px);min-height:calc(100svh - 70px);display:flex;flex-direction:column;
+  justify-content:flex-end;padding-top:0;padding-bottom:56px;position:relative;max-width:none}
+.hero h1{margin:0;font-weight:760;font-variation-settings:"wdth" 75,"opsz" 96;
+  font-size:clamp(76px,15vw,232px);line-height:.82;letter-spacing:-.035em;max-width:7ch;
+  text-shadow:0 2px 40px rgba(7,9,15,.6)}
+.hero h1 span{display:block}
+.hero h1 span:last-child{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+@supports not (-webkit-text-stroke:1px black){.hero h1 span:last-child{color:var(--ink)}}
+.hero .lede{max-width:34ch;margin:28px 0 0;font-size:clamp(19px,1.7vw,23px);line-height:1.45}
+.hero .caption{margin-top:28px;font-size:14px;color:var(--mute);max-width:38ch}
+.cue{position:absolute;right:var(--gut);bottom:56px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mute);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:12px}
+.cue::after{content:"";width:1.5px;height:56px;background:linear-gradient(var(--lobe),transparent);
+  transform-origin:top;animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+h2{font-weight:700;font-variation-settings:"wdth" 75,"opsz" 72;
+  font-size:clamp(48px,7vw,104px);line-height:.88;letter-spacing:-.025em;margin:0 0 40px}
+h3.sub{font-weight:700;font-variation-settings:"wdth" 75,"opsz" 72;
+  font-size:clamp(36px,4.6vw,64px);line-height:.9;letter-spacing:-.02em;margin:0 0 36px}
+
+/* Panels: solid enough to read over the scene. No backdrop blur, it costs a full redraw each frame. */
+.panel,.tilt{background:linear-gradient(160deg,rgba(18,22,36,.92),rgba(10,13,22,.88));
+  border:1px solid var(--rule);border-radius:18px}
+
+/* Tilt cards. The wrapper handles the reveal, the inner layer handles the tilt. */
+.tilt-wrap{perspective:1000px}
+.tilt{position:relative;overflow:hidden;height:100%;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0);
+  transition:transform .5s var(--ease),border-color .3s,box-shadow .4s;transform-style:preserve-3d}
+.tilt::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,30%), rgba(255,90,54,.20), rgba(75,43,255,.10) 45%, transparent 70%)}
+.tilt-wrap:hover .tilt,.tilt-wrap:focus-within .tilt{border-color:rgba(165,151,255,.5);
+  box-shadow:0 30px 80px -30px rgba(75,43,255,.65),0 0 0 1px rgba(255,90,54,.15)}
+.tilt-wrap:hover .tilt::before,.tilt-wrap:focus-within .tilt::before{opacity:1}
+.tilt-wrap.moving .tilt{transition:transform .08s linear,border-color .3s,box-shadow .4s}
+.tilt img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--rule)}
+.tilt .body{position:relative;z-index:2;padding:22px 24px 26px}
+.tilt h3,.tilt h4{margin:0;font-weight:650;letter-spacing:-.015em;line-height:1.1;
+  font-variation-settings:"wdth" 88,"opsz" 36;transition:color .25s}
+.tilt h4{font-size:clamp(24px,2.2vw,30px)}
+.tilt h3{font-size:clamp(34px,3.6vw,52px)}
+.tilt p{margin:10px 0 0;color:var(--mute)}
+.tilt-wrap:hover h3,.tilt-wrap:hover h4,.tilt-wrap:focus-within h3,.tilt-wrap:focus-within h4{color:var(--lobe-hi)}
+.meta{display:block;margin-top:14px;font-size:15px;color:var(--ink)}
+a.go{color:var(--signal-hi);text-underline-offset:3px}
+a.go:hover{color:var(--lobe-hi)}
+
+.stop-argus{min-height:100vh}
+.feature{max-width:600px}
+.feature p{font-size:19px}
+
+.hint{margin:-18px 0 40px;color:var(--mute);max-width:48ch}
+/* Two columns on the left, so the beam and the project nodes stay in view on the right. */
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
+
+/* Staggered reveal. Only cards below the fold at load get the hidden start state, so nothing flashes. */
+.reveal.pre{opacity:0;transform:translateY(48px) scale(.97)}
+.reveal.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform 1s var(--ease);
+  transition-delay:calc(var(--i,0) * 90ms)}
+
+.stop-about{min-height:90vh}
+.about{max-width:640px;padding:30px 32px}
+.about p{margin:0 0 18px;font-size:21px;line-height:1.5}
+.about p:last-child{margin-bottom:0}
+
+.stop-contact{min-height:90vh}
+.links{list-style:none;padding:0;margin:0;max-width:720px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.links a{display:block;padding:20px 22px;border:1px solid var(--rule);border-radius:14px;text-decoration:none;font-size:24px;
+  font-weight:600;font-variation-settings:"wdth" 88;background:rgba(10,13,22,.86);
+  transition:border-color .25s,color .25s,transform .35s var(--ease)}
+.links a span{display:block;font-size:15px;font-weight:400;color:var(--mute);font-family:var(--mono);font-size:12.5px;margin-top:4px}
+.links a:hover{color:var(--signal-hi);border-color:rgba(165,151,255,.5);transform:translateY(-3px)}
+
+footer{padding:60px var(--gut) 40px;color:var(--mute);font-size:14px;max-width:1400px;margin:0 auto}
+
+@media (max-width:1100px){
+  .cards{max-width:none}
+}
+@media (max-width:720px){
+  body{font-size:17px}
+  header.top{padding:18px 20px}
+  header nav{gap:16px}
+  .stop{padding:12vh 20px 8vh}
+  .hero{padding:0 20px 40px}
+  .cue{display:none}
+  .cards{grid-template-columns:1fr}
+  .links{grid-template-columns:1fr}
+  .tilt .body{padding:18px 18px 22px}
+  footer{padding:50px 20px 32px}
+}
+
+/* Reduced motion: still picture at the top, no tilt, no reveal, no smooth scroll. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  #scene{position:absolute;height:100vh;height:100svh;transition:none}
+  .still{position:absolute;height:100vh}
+  .cue::after{animation:none}
+  .tilt,.links a{transition:none;transform:none}
+  .reveal.pre,.reveal.in{opacity:1;transform:none;transition:none}
+}
