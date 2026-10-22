@@ -19,7 +19,13 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:84px}
-body{margin:0;overflow-x:hidden}
+/* Phones: the tab bar takes two rows (about 104px), so jumps to an item leave more room. */
+@media (max-width:760px){html{scroll-padding-top:116px}}
+/* Glows and decorations may reach past the screen edge. body clips them sideways (clip, unlike hidden,
+   does not turn body into a scroller, so the sticky tab bar and window scrolling still work). html needs
+   its own value, or body's would pass to the window and phones would still let the page pan sideways. */
+html{overflow-x:hidden}
+body{margin:0;overflow-x:clip}
 img,svg,canvas{display:block;max-width:100%}
 img{height:auto}
 a{color:inherit}
@@ -35,26 +41,28 @@ a{color:inherit}
 .tabbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;
   padding:12px var(--gut);background:var(--tb-bg);border-bottom:1px solid var(--tb-border);
   font-family:var(--tb-font);color:var(--tb-fg);view-transition-name:tabbar}
-.tabbar-home{font-weight:700;font-size:17px;letter-spacing:-.01em;text-decoration:none;padding:6px 0;margin-right:auto}
+.tabbar-home{font-weight:700;font-size:17px;line-height:24px;letter-spacing:-.01em;text-decoration:none;padding:6px 0;margin-right:auto}
 .tabbar-home[aria-current="page"]{color:var(--tb-accent)}
 .tabbar ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
   max-width:100%;-webkit-overflow-scrolling:touch}
 .tabbar ul::-webkit-scrollbar{display:none}
-.tabbar li{flex:0 0 auto}
+/* Every tab is the same width on every page, whatever the font, so the tabs never jump and the marker
+   slides straight across during the page transition. 136px fits "Startup work" in a 15px monospace. */
+.tabbar li{flex:0 0 136px}
 .tabbar ul a{position:relative;display:block;padding:9px 14px;border-radius:var(--tb-radius);font-size:15px;
-  line-height:1.2;text-decoration:none;color:var(--tb-mute);white-space:nowrap;transition:color .2s}
+  line-height:18px;text-align:center;text-decoration:none;color:var(--tb-mute);white-space:nowrap;transition:color .2s}
 .tabbar ul a:hover{color:var(--tb-fg)}
 .tabbar ul a[aria-current="page"]{color:var(--tb-fg);font-weight:600}
 /* The marker under the current tab. It slides from tab to tab during the page transition. */
 .tab-ind{position:absolute;left:14px;right:14px;bottom:3px;height:3px;border-radius:3px;background:var(--tb-accent);
   view-transition-name:tab-ind}
-/* Phones: the four tabs share one row in equal columns, so none hide off screen. */
-@media (max-width:640px){
+/* Phones and narrow tablets: the four tabs share one row in equal columns, so none hide off screen. */
+@media (max-width:760px){
   .tabbar{padding-top:8px;padding-bottom:6px;gap:4px}
   .tabbar nav{width:100%}
   .tabbar ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;overflow:visible}
   .tabbar ul a{display:flex;align-items:center;justify-content:center;height:100%;min-height:44px;padding:6px 4px;
-    font-size:14px;text-align:center;white-space:normal}
+    font-size:14px;line-height:1.2;white-space:normal}
   .tab-ind{left:18%;right:18%;bottom:2px}
 }
 
@@ -75,7 +83,10 @@ a{color:inherit}
    The tab bar stays put, the marker slides, and the page content slides by direction
    (shared/nav.js adds "forward" or "back"). Browsers without it get a short fade in on load. */
 @view-transition{navigation:auto}
-main{view-transition-name:page}
+/* main gets its name only while a transition runs (shared/nav.js adds class "vt"). A name all the time
+   would stop glass panels inside main from blurring the 3D scene behind them. Without JS the whole
+   page cross-fades and the tab bar still stays put. */
+html.vt main{view-transition-name:page}
 ::view-transition-group(tab-ind){animation-duration:.45s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
 ::view-transition-old(page){animation:vt-out .28s cubic-bezier(.4,0,1,1) both}
 ::view-transition-new(page){animation:vt-in .5s cubic-bezier(.2,.7,.2,1) both}

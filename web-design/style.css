@@ -1,43 +1,202 @@
-/* web-design tab. Only this page loads this file. See docs/DESIGN.md for the art direction.
-   TODO(web-design builder): this is shell styling only, enough to read the content. Make it yours. */
+/* web-design tab. Only this page loads this file. Art direction: docs/DESIGN.md, "Web design".
+   Bright Memphis and Bauhaus: cream paper, chunky ink outlines, hard offset shadows, springy motion.
+   Motion only runs when main.js adds .wd-motion to <html> (JS on and no reduced motion).
+   Without it every card shows both faces, stacked, with no flip. */
 :root{
-  --bg:#FFF4E0; --ink:#1B1B1F; --mute:#4A4A55;
-  --card:#FFFFFF; --card-ink:#1B1B1F; --card-mute:#4A4A55; --card-border:3px solid #1B1B1F; --radius:22px;
-  --link:#B8281E;
-  --coral:#FF5A4E; --sun:#FFC93C; --blue:#2D5BFF; --mint:#2EC4B6;
+  --bg:#FFF4E0; --tint:#FFF4E0; --ink:#1B1B1F; --mute:#45454F; --paper:#FFFDF7;
+  --coral:#FF5A4E; --sun:#FFC93C; --blue:#2D5BFF; --mint:#2EC4B6; --pink:#FF8FC7;
   --display:"Archivo",ui-sans-serif,system-ui,sans-serif; --body:"DM Sans",ui-sans-serif,system-ui,sans-serif;
-  --fallback:radial-gradient(circle at 80% 30%,rgba(255,90,78,.25),transparent 40%),radial-gradient(circle at 20% 80%,rgba(45,91,255,.18),transparent 40%);
-  --tb-bg:rgba(255,244,224,.92); --tb-fg:#1B1B1F; --tb-mute:#4A4A55; --tb-accent:#2D5BFF; --tb-border:rgba(27,27,31,.18);
-  --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --focus:#2D5BFF; --ft-fg:#4A4A55;
+  --line:4px solid var(--ink);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --tb-bg:rgba(255,244,224,.94); --tb-fg:#1B1B1F; --tb-mute:#45454F; --tb-accent:#FF5A4E; --tb-border:#1B1B1F;
+  --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --focus:#1B1B1F; --ft-fg:#1B1B1F;
   --badge-bg:#FFC93C; --badge-fg:#1B1B1F; --badge-border:#1B1B1F;
 }
-html{background:var(--bg);color:var(--ink)}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+/* A real spring curve where the browser supports linear() easing. */
+@supports (transition-timing-function:linear(0,1)){
+  :root{--spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1.004 83.8%,1)}
+}
+/* The page tint follows the card in view. Every tint keeps ink text well above AA. */
+html[data-pal="1"]{--tint:#FFEDE4}
+html[data-pal="2"]{--tint:#FFF3CF}
+html[data-pal="3"]{--tint:#E9EFFF}
+html[data-pal="4"]{--tint:#E2F6F1}
+html[data-pal="5"]{--tint:#FFE9F3}
 
-/* The 3D scene sits behind the content. shared/scene-loader.js adds .on after the first frame. */
-.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 1s ease}
+html{background:var(--bg);color:var(--ink)}
+html.wd-motion{scroll-behavior:smooth}
+body{background:var(--tint);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;transition:background-color .9s ease}
+/* Dot paper behind everything. Fixed, so it costs nothing while scrolling. */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(27,27,31,.13) 1.6px,transparent 1.8px);background-size:30px 30px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 3px #fff}
+
+/* ---------- Tab bar and footer, themed ---------- */
+.tabbar{border-bottom-color:var(--ink);box-shadow:0 2px 0 var(--ink)}
+.tabbar-home{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 120}
+.site-footer{gap:12px 14px;padding-top:72px}
+.site-footer p,.site-footer ul a{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);
+  border-radius:999px;padding:4px 14px;box-shadow:3px 3px 0 var(--ink)}
+.site-footer ul a{font-weight:600;text-decoration:none;transition:transform .35s var(--spring),box-shadow .35s var(--spring)}
+.site-footer ul a:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral)}
+
+/* ---------- 3D scene ---------- */
+/* shared/scene-loader.js adds .on after the first frame. */
+.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity .9s ease}
 .scene.on{opacity:1}
-.scene-fallback{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;background:var(--fallback)}
+html.wd-grab{cursor:grab}
+html.wd-grabbing,html.wd-grabbing *{cursor:grabbing!important;-webkit-user-select:none;user-select:none}
+/* No WebGL: flat Memphis shapes in CSS instead. */
+.scene-fallback{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;overflow:hidden}
 html.no-webgl .scene{display:none}
 html.no-webgl .scene-fallback{display:block}
-main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.scene-fallback::before,.scene-fallback::after{content:"";position:absolute;border:var(--line)}
+.scene-fallback::before{width:min(34vw,320px);aspect-ratio:1;right:8vw;top:18vh;border-radius:50%;background:var(--coral);box-shadow:14px 14px 0 rgba(27,27,31,.16)}
+.scene-fallback::after{width:min(30vw,280px);aspect-ratio:2/1;right:22vw;top:52vh;border-radius:999px 999px 0 0;background:var(--sun);
+  transform:rotate(-14deg);box-shadow:14px 14px 0 rgba(27,27,31,.16)}
+html.no-webgl body::before{background-image:radial-gradient(rgba(27,27,31,.13) 1.6px,transparent 1.8px),
+  linear-gradient(135deg,transparent 46%,var(--mint) 46% 54%,transparent 54%);background-size:30px 30px,100% 100%;
+  background-position:0 0,0 0;opacity:1}
 
-.intro{padding:14vh 0 8vh}
-.kicker{margin:0 0 14px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.intro h1{margin:0;font-family:var(--display);font-size:clamp(48px,9vw,128px);line-height:.95}
-.lede{max-width:40ch;margin:24px 0 0;font-size:clamp(19px,1.8vw,23px)}
+/* ---------- Layout ---------- */
+main{position:relative;z-index:1}
+.intro,.items{max-width:1240px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
 
-.items{display:grid;gap:28px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));padding-bottom:10vh}
-.item{background:var(--card);color:var(--card-ink);border:var(--card-border);border-radius:var(--radius);overflow:hidden}
+/* ---------- Intro ---------- */
+.intro{position:relative;min-height:calc(100vh - 66px);min-height:calc(100svh - 66px);display:flex;flex-direction:column;
+  justify-content:center;padding-top:6vh;padding-bottom:12vh}
+.kicker{align-self:flex-start;margin:0 0 22px;padding:6px 16px;font:700 14px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;
+  background:var(--sun);border:3px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);rotate:-4deg}
+.intro h1{margin:0;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;font-size:clamp(58px,11.5vw,172px);
+  line-height:.9;letter-spacing:-.03em;color:var(--ink);max-width:7ch;
+  /* A cream halo keeps the letters readable when a shape drifts behind them. */
+  text-shadow:-3px -3px 0 var(--tint),3px -3px 0 var(--tint),-3px 3px 0 var(--tint),3px 3px 0 var(--tint),
+    0 -4px 0 var(--tint),0 4px 0 var(--tint),-4px 0 0 var(--tint),4px 0 0 var(--tint),10px 10px 0 var(--coral)}
+.intro h1 .word{display:inline-block;white-space:nowrap}
+.intro h1 .ch{display:inline-block;transform-origin:50% 90%}
+.lede{max-width:28ch;margin:30px 0 0;padding:14px 20px;font-size:clamp(19px,1.7vw,23px);line-height:1.45;
+  background:#fff;border:3px solid var(--ink);border-radius:20px;box-shadow:7px 7px 0 var(--ink);rotate:1deg}
+/* A bouncing arrow that says "scroll". Decoration only. */
+.intro::after{content:"";position:absolute;left:var(--gut);bottom:5vh;width:54px;height:54px;border:3px solid var(--ink);border-radius:50%;
+  background:var(--mint) url("img/arrow.svg") center/26px no-repeat;box-shadow:4px 4px 0 var(--ink)}
+
+/* ---------- Crossed ribbons ---------- */
+.ribbons{position:relative;height:170px;overflow:hidden;margin:-30px 0 30px;pointer-events:none}
+.ribbon{position:absolute;left:-300px;right:-300px;top:50%;border-block:3px solid var(--ink);background-repeat:repeat-x}
+.ribbon-a{height:62px;margin-top:-31px;background-image:url("img/ribbon-a.svg");background-size:auto 56px;background-position:0 center;
+  transform:rotate(-4deg) translateX(var(--rba,0px))}
+.ribbon-b{height:48px;margin-top:-24px;background-image:url("img/ribbon-b.svg");background-size:auto 42px;background-position:0 center;
+  transform:rotate(3deg) translateX(var(--rbb,0px))}
+
+/* ---------- Cards ---------- */
+.items{display:grid;gap:56px 34px;grid-template-columns:minmax(0,1fr);padding-bottom:12vh;counter-reset:item}
+.item{--c1:var(--coral);--c2:var(--sun);--c3:var(--blue);--on1:var(--ink);--tilt:-1deg;
+  position:relative;counter-increment:item;perspective:1300px}
+#endyland{--c1:#FF5A4E;--c2:#FFC93C;--c3:#2D5BFF;--tilt:-1.6deg}
+#yotummy{--c1:#FFC93C;--c2:#FF5A4E;--c3:#2EC4B6;--tilt:1.8deg}
+#rion-website{--c1:#2D5BFF;--c2:#FFC93C;--c3:#2EC4B6;--on1:#fff;--tilt:-1.2deg}
+#rion-admin{--c1:#2EC4B6;--c2:#2D5BFF;--c3:#FF5A4E;--tilt:1.3deg}
+#park-with-love{--c1:#FF8FC7;--c2:#FFC93C;--c3:#FF5A4E;--tilt:-1.4deg}
+@media (min-width:900px){
+  .items{grid-template-columns:repeat(12,minmax(0,1fr))}
+  #endyland{grid-column:1/8}
+  #yotummy{grid-column:8/13;margin-top:150px}
+  #rion-website{grid-column:2/7}
+  #rion-admin{grid-column:7/13;margin-top:90px}
+  #park-with-love{grid-column:3/10}
+}
+
+.card{position:relative;transform-style:preserve-3d;
+  transform:rotate(var(--tilt)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1))}
+.flip{position:relative;transform-style:preserve-3d}
+.face{position:relative;border:var(--line);color:var(--ink)}
+.face-front{background:var(--c1);color:var(--on1);padding:16px 16px 22px;border-radius:26px 26px 0 0;
+  background-image:radial-gradient(color-mix(in srgb,var(--c2) 70%,transparent) 3px,transparent 3.5px);background-size:22px 22px}
+.face-back{background:var(--paper);border-top:0;border-radius:0 0 26px 26px;padding:24px 26px 28px;box-shadow:10px 10px 0 var(--ink)}
+.face-front{box-shadow:10px 0 0 var(--ink)}
+/* The number sticker on each card. The "/ ''" keeps it out of screen readers. */
+.face-front::before{content:counter(item,decimal-leading-zero) / "";position:absolute;z-index:2;right:-14px;top:-18px;width:62px;height:62px;
+  display:grid;place-items:center;border-radius:50%;border:var(--line);background:var(--c2);color:var(--ink);
+  font:900 22px/1 var(--display);box-shadow:4px 4px 0 var(--ink);rotate:12deg}
+.frame{border:var(--line);border-radius:16px;overflow:hidden;background:#fff}
 .item-img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.item-body{padding:20px 22px 24px}
-.item h2{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,28px);line-height:1.15}
-.item p{margin:10px 0 0}
-.item-role{color:var(--card-mute)}
-.item-links{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
-.item-links a{color:var(--link);font-weight:600;text-underline-offset:3px}
-.item-small{align-self:start}
-.intro h1{font-weight:900;font-variation-settings:"wdth" 112;letter-spacing:-.02em}
-.item h2{font-weight:800}
-.item{box-shadow:8px 8px 0 #1B1B1F}
-@media (prefers-reduced-motion:reduce){.scene{transition:none}}
+.item h2{margin:16px 4px 0;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 115;
+  font-size:clamp(26px,2.6vw,38px);line-height:1.05;letter-spacing:-.01em}
+.face-back p{margin:0 0 12px}
+.face-back::before{content:"";display:block;height:14px;margin:-24px -26px 20px;border-bottom:3px solid var(--ink);
+  background:repeating-linear-gradient(-45deg,var(--c1) 0 12px,var(--c2) 12px 24px)}
+.item-role{color:var(--mute);font-weight:600}
+.item-links{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
+.item-links a{display:inline-block;padding:6px 14px;font-weight:700;color:var(--ink);text-decoration:none;background:#fff;
+  border:3px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--c1);
+  transition:transform .4s var(--spring),box-shadow .4s var(--spring),background-color .2s}
+.item-links a:hover{background:var(--c2);transform:translate(-2px,-3px) rotate(-2deg);box-shadow:6px 7px 0 var(--ink)}
+.item-links a::after{content:" \2197" / ""}
+.badge-private{font-weight:600;padding:5px 12px 5px 10px;border-width:2px}
+
+/* The flip buttons are added by main.js and only shown when cards can flip. */
+.flip-btn{display:none}
+
+/* ---------- Motion on ---------- */
+html.wd-motion .flip{display:grid;transition:transform 1.1s var(--spring)}
+html.wd-motion .face{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:26px;
+  border:var(--line);box-shadow:10px 10px 0 var(--ink);transition:box-shadow .45s var(--spring)}
+html.wd-motion .face-back{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;padding-top:44px}
+html.wd-motion .face-back::before{position:absolute;left:0;right:0;top:0;margin:0;border-radius:22px 22px 0 0}
+html.wd-motion .item.flipped .flip{transform:rotateY(180deg)}
+html.wd-motion .face-front{cursor:pointer}
+html.wd-motion .card:hover .face,html.wd-motion .item:focus-within .face{box-shadow:16px 16px 0 var(--c3)}
+html.wd-motion .face-front::after{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:var(--glare,0);
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.5),transparent 45%);transition:opacity .3s}
+
+html.wd-motion .flip-btn{display:inline-flex;align-items:center;gap:8px;position:absolute;z-index:3;padding:8px 16px 8px 10px;
+  font:700 16px/1 var(--body);color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:999px;cursor:pointer;
+  box-shadow:4px 4px 0 var(--ink);transition:transform .45s var(--spring),box-shadow .45s var(--spring)}
+html.wd-motion .face-front .flip-btn{right:26px;bottom:24px}
+html.wd-motion .face-back .flip-btn{right:22px;top:30px}
+.flip-btn svg{width:26px;height:26px;transition:rotate .6s var(--spring)}
+.flip-btn:hover{transform:translate(-2px,-2px) scale(1.05);box-shadow:6px 6px 0 var(--ink)}
+.flip-btn:hover svg{rotate:180deg}
+html.wd-motion .face-front h2{padding-right:120px}
+
+/* Reveal: cards drop in and spring upright as they scroll into view. */
+html.wd-motion .item{transition:transform 1.2s var(--spring) var(--d,0s),opacity .5s ease var(--d,0s)}
+html.wd-motion .item:not(.in){opacity:0;transform:translateY(120px) rotateX(-38deg) rotateZ(calc(var(--tilt) * 5)) scale(.86)}
+html.wd-motion .frame{transition:transform 1s var(--spring) calc(var(--d,0s) + .18s)}
+html.wd-motion .item:not(.in) .frame{transform:scale(.7) rotate(-6deg)}
+html.wd-motion .item h2{transition:transform .9s var(--spring) calc(var(--d,0s) + .3s),opacity .4s calc(var(--d,0s) + .3s)}
+html.wd-motion .item:not(.in) h2{transform:translateY(30px);opacity:0}
+html.wd-motion .face-front::before{transition:transform 1s var(--spring) calc(var(--d,0s) + .45s)}
+html.wd-motion .item:not(.in) .face-front::before{transform:scale(0) rotate(-200deg)}
+
+/* Intro: letters fall in one by one, then jiggle on hover. Scroll pulls them apart (translate, set by main.js). */
+html.wd-motion .intro h1 .ch{transition:transform 1.1s var(--spring) calc(var(--i) * 55ms + 120ms),opacity .3s calc(var(--i) * 55ms + 120ms);
+  translate:0 calc(var(--hp,0) * var(--dy,0) * 1px);rotate:calc(var(--hp,0) * var(--dr,0) * 1deg)}
+html.wd-motion .intro.pre h1 .ch{transform:translateY(-110%) rotate(-18deg) scale(.4);opacity:0}
+html.wd-motion .intro h1 .ch.boing{animation:boing .8s var(--spring)}
+@keyframes boing{0%{scale:1}25%{scale:1.25 .75}50%{scale:.85 1.2}75%{scale:1.08 .94}100%{scale:1}}
+html.wd-motion .kicker,html.wd-motion .lede{transition:transform 1s var(--spring) .7s,opacity .4s .7s}
+html.wd-motion .lede{transition-delay:.85s}
+html.wd-motion .intro.pre .kicker{transform:scale(0) rotate(-30deg);opacity:0}
+html.wd-motion .intro.pre .lede{transform:translateY(40px) rotate(6deg);opacity:0}
+html.wd-motion .intro::after{animation:nudge 1.8s var(--spring) infinite}
+@keyframes nudge{0%,60%,100%{translate:0 0}30%{translate:0 12px}}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .intro{justify-content:flex-start;padding-top:9vh;padding-bottom:40vh}
+  .intro::after{left:auto;right:var(--gut);bottom:auto;top:9vh}
+  .lede{margin-top:24px}
+  .items{gap:48px}
+  .card{transform:rotate(calc(var(--tilt) * .5)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1))}
+  .face-front::before{right:-6px;width:52px;height:52px;font-size:19px}
+  html.wd-motion .face-front h2{padding-right:0;margin-bottom:58px}
+  html.wd-motion .face-front .flip-btn{left:16px;right:auto;bottom:18px}
+  html.wd-motion .face-back .flip-btn{position:static;align-self:flex-start;margin-top:22px;order:9}
+  html.wd-motion .face-back{padding-top:40px}
+  .ribbons{height:120px;margin:-20px 0 10px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .scene,body{transition:none}
+}

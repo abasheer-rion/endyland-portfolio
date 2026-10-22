@@ -27,6 +27,9 @@
 <!-- The 3D scene for this tab. Decoration only: everything it shows is also in the HTML below. -->
 <canvas id="scene" class="scene" aria-hidden="true"></canvas>
 <div class="scene-fallback" aria-hidden="true"></div>
+<!-- CRT glass: scanlines, a rolling bar and rounded screen corners. Decoration only. -->
+<div class="crt" aria-hidden="true"></div>
+<div class="crt-edge" aria-hidden="true"></div>
 
 <header class="tabbar">
   <a class="tabbar-home" href="/">endyland</a>
@@ -40,43 +43,74 @@
   </nav>
 </header>
 
+<!-- Score display. Decoration only. -->
+<div class="hud" aria-hidden="true">
+  <p class="hud-row"><span class="hud-k">1UP</span> <span class="hud-v" data-score>000000</span></p>
+  <p class="hud-row"><span class="hud-k">HI</span> <span class="hud-v" data-hi>000000</span></p>
+  <p class="hud-row"><span class="hud-k">STAGE</span> <span class="hud-v" data-stage>1-0</span></p>
+  <p class="hud-bar"><span data-bar></span></p>
+</div>
+
 <main id="main">
 <section class="intro" aria-labelledby="page-h">
-  <p class="kicker">Tab 04</p>
-  <h1 id="page-h">Projects</h1>
-  <p class="lede">Things I built for myself and my friends. Insert coin.</p>
+  <div class="intro-screen">
+    <p class="kicker">Tab 04</p>
+    <h1 id="page-h"><span class="h1-text">Projects</span></h1>
+    <p class="lede">Things I built for myself and my friends. Insert coin.</p>
+    <p class="start-row"><a class="start" href="#gohighlevel-mcp">Press start</a><span class="credit" aria-hidden="true">Credit 01</span></p>
+  </div>
 </section>
 
 <div class="items">
-  <article class="item" id="gohighlevel-mcp" aria-labelledby="gohighlevel-mcp-h">
-    <img class="item-img" src="/projects/img/gohighlevel-mcp.svg" width="1280" height="720" alt="Placeholder image for Claude for GoHighLevel. A real screenshot will replace it." loading="lazy" decoding="async">
-    <div class="item-body">
-      <h2 id="gohighlevel-mcp-h">Claude for GoHighLevel</h2>
-      <p>An MCP server that lets Claude read and work inside a GoHighLevel CRM.</p>
-      <ul class="item-links">
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-      </ul>
+  <article class="item cab cab-pink" id="gohighlevel-mcp" aria-labelledby="gohighlevel-mcp-h" data-color="#FF4FD8">
+    <header class="cab-top"><h2 id="gohighlevel-mcp-h" class="cab-marquee">Claude for GoHighLevel</h2></header>
+    <div class="cab-body">
+      <div class="cab-screen">
+        <img class="item-img" src="/projects/img/gohighlevel-mcp.svg" width="1280" height="720" alt="Placeholder image for Claude for GoHighLevel. A real screenshot will replace it." loading="lazy" decoding="async">
+        <span class="cab-glass" aria-hidden="true"></span>
+      </div>
+      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
+      <div class="item-body">
+        <p>An MCP server that lets Claude read and work inside a GoHighLevel CRM.</p>
+        <ul class="item-links">
+          <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
+        </ul>
+      </div>
     </div>
+    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item" id="endyland-infra" aria-labelledby="endyland-infra-h">
-    <img class="item-img" src="/projects/img/endyland-infra.svg" width="1280" height="720" alt="Placeholder image for the endyland infrastructure. A real screenshot will replace it." loading="lazy" decoding="async">
-    <div class="item-body">
-      <h2 id="endyland-infra-h">endyland infrastructure</h2>
-      <p>The servers behind this site. A public status page, and deploys that run on their own when new code lands.</p>
-      <ul class="item-links">
-        <li><a class="link-site" href="https://endyland-status.ayanbasheer.workers.dev" rel="noopener">Status page</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-      </ul>
+  <article class="item cab cab-cyan" id="endyland-infra" aria-labelledby="endyland-infra-h" data-color="#3DF2FF">
+    <header class="cab-top"><h2 id="endyland-infra-h" class="cab-marquee">endyland infrastructure</h2></header>
+    <div class="cab-body">
+      <div class="cab-screen">
+        <img class="item-img" src="/projects/img/endyland-infra.svg" width="1280" height="720" alt="Placeholder image for the endyland infrastructure. A real screenshot will replace it." loading="lazy" decoding="async">
+        <span class="cab-glass" aria-hidden="true"></span>
+      </div>
+      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
+      <div class="item-body">
+        <p>The servers behind this site. A public status page, and deploys that run on their own when new code lands.</p>
+        <ul class="item-links">
+          <li><a class="link-site" href="https://endyland-status.ayanbasheer.workers.dev" rel="noopener">Status page</a></li>
+          <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
+        </ul>
+      </div>
     </div>
+    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item item-small" id="park-with-love-card" aria-labelledby="park-with-love-card-h">
-    <div class="item-body">
-      <h2 id="park-with-love-card-h">Park With Love</h2>
-      <p>Guest parking for friends, renewed every day. It lives on the Web design tab.</p>
-      <ul class="item-links">
-        <li><a class="link-tab" href="/web-design/#park-with-love">See Park With Love</a></li>
-      </ul>
+  <article class="item item-small cart" id="park-with-love-card" aria-labelledby="park-with-love-card-h" data-color="#FFE14D">
+    <div class="cart-shell">
+      <div class="cart-grip" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="item-body cart-label">
+        <p class="cart-tag" aria-hidden="true">Bonus stage</p>
+        <h2 id="park-with-love-card-h">Park With Love</h2>
+        <p>Guest parking for friends, renewed every day. It lives on the Web design tab.</p>
+        <ul class="item-links">
+          <li><a class="link-tab" href="/web-design/#park-with-love">See Park With Love</a></li>
+        </ul>
+      </div>
+      <div class="cart-pins" aria-hidden="true"></div>
     </div>
+    <div class="cart-slot" aria-hidden="true"></div>
   </article>
 </div>
 </main>

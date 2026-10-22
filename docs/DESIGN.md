@@ -36,7 +36,8 @@ Rules:
 - **YoTummy** (`#yotummy`). https://yotummy.com. Private repo.
 - **RION Solutions website** (`#rion-website`). https://rionsolution.com. Private repo
   (RION-Solutions-Development org).
-- **RION admin dashboard** (`#rion-admin`). https://rion-admin-five.vercel.app. Private repo.
+- **RION admin dashboard** (`#rion-admin`). Private repo. No live link: rion-admin-five.vercel.app
+  answered "deployment not found" on 2026-10-22, so the link is off until the owner gives a working one.
 - **Park With Love** guest parking app (`#park-with-love`). No public link, friends get a private
   link. Private repo.
 
@@ -138,7 +139,13 @@ If you need a shared change, ask the controller.
   Theme it from your `style.css` by setting these on `:root`:
   `--tb-bg --tb-fg --tb-mute --tb-accent --tb-border --tb-font --tb-radius --focus --ft-fg
   --badge-bg --badge-fg --badge-border`.
-- `nav.js`: plain script in `<head>`. Adds a direction ("forward" or "back") to the page transition.
+- `nav.js`: plain script in `<head>`. Adds a direction ("forward" or "back") to the page transition,
+  and names `<main>` only while a transition runs (a name all the time stops glass panels from
+  blurring the scene behind them).
+- The tab bar is the same size on every page: each tab is 136px wide on desktop and a quarter of the
+  row on screens up to 760px. Tabs may change its colors and fonts, not its size.
+- `body` clips anything that reaches past the screen edge sideways, so glows cannot make phones pan.
+  Do not set `overflow-x` on `html` or `body` in a tab.
 - `motion.js`: `prefersReducedMotion()`, `onReducedMotionChange(cb)`, `finePointer()`,
   `isLowPower()`, `onVisible(els, cb, opts)` (runs cb when each element scrolls into view; runs
   right away with reduced motion).

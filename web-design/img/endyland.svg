@@ -1,7 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
-<rect width="1280" height="720" fill="#FFF4E0"/>
-<circle cx="980" cy="300" r="170" fill="#FF5A4E"/><rect x="700" y="380" width="260" height="190" rx="18" fill="#2D5BFF" transform="rotate(-12 830 475)"/>
-<path d="M1060 520l120 -200l60 260z" fill="#FFC93C"/><path d="M640 200q40 -60 80 0t80 0t80 0" fill="none" stroke="#1B1B1F" stroke-width="10" stroke-linecap="round"/>
-<rect x="56" y="56" width="1168" height="608" fill="none" stroke="#1B1B1F" stroke-opacity=".35" stroke-width="3" stroke-dasharray="12 10"/>
-<g font-family="ui-monospace, Menlo, monospace" font-size="26" letter-spacing="4" fill="#1B1B1F"><text x="96" y="124">PLACEHOLDER</text><text x="96" y="616">endyland.com. Image coming soon.</text></g>
+<defs><pattern id="d" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="3" fill="#1B1B1F" fill-opacity=".16"/></pattern></defs>
+<rect width="1280" height="720" fill="#FFF4E0"/><rect width="1280" height="720" fill="url(#d)"/>
+
+<circle cx="900" cy="330" r="190" fill="#FF5A4E" stroke="#1B1B1F" stroke-width="8" stroke-linejoin="round"/>
+<rect x="560" y="360" width="240" height="190" rx="20" fill="#2D5BFF" stroke="#1B1B1F" stroke-width="8" stroke-linejoin="round" transform="rotate(-10 680 455)"/>
+<path d="M1010 560l110-210l90 250z" fill="#FFC93C" stroke="#1B1B1F" stroke-width="8" stroke-linejoin="round"/>
+<path d="M560 210l40-50l40 50l40-50l40 50l40-50" fill="none" stroke="#1B1B1F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+<g font-family="ui-monospace, Menlo, monospace" font-size="26" letter-spacing="4" fill="#1B1B1F"><rect x="76" y="88" width="250" height="52" rx="26" fill="#FFFFFF" stroke="#1B1B1F" stroke-width="4"/><text x="98" y="124">PLACEHOLDER</text><text x="96" y="640">endyland.com. Image coming soon.</text></g>
 </svg>

@@ -9,7 +9,7 @@
   --lobe:#FF5A36;      /* beam peak, hover */
   --lobe-hi:#FF8A6B;
   --mono:"Martian Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --gut:clamp(20px,4vw,56px);
+  --gut:clamp(16px,4vw,56px);
   --ease:cubic-bezier(.2,.7,.2,1);
   /* Shared tab bar and footer, themed for home. */
   --tb-bg:rgba(7,9,15,.82); --tb-fg:#ECEFF4; --tb-mute:#A4ACBD; --tb-accent:#FF5A36;
@@ -19,7 +19,7 @@
 *{box-sizing:border-box}
 html{background:var(--void);color:var(--ink);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--void);font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
-  font-variation-settings:"opsz" 14;font-size:18px;line-height:1.55;overflow-x:hidden}
+  font-variation-settings:"opsz" 14;font-size:18px;line-height:1.55}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:3px solid var(--signal-hi);outline-offset:4px;border-radius:4px}
