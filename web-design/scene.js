@@ -303,8 +303,11 @@ export async function start({ canvas, low, reduced: reducedAtStart, onReducedCha
     canGrab = !isUI(e.target);
     if (drag && e.pointerId === drag.id) worldAt(drag.b.z, drag.to) && drag.to.add(drag.off3);
   }
+  // Touch never grabs, so a swipe always scrolls the page. A quick tap on a toy pokes it instead.
+  let tap = null;
   function onDown(e) {
     if (reduced || !e.isPrimary || e.button > 0 || isUI(e.target)) return;
+    if (e.pointerType !== 'mouse') { tap = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now() }; return; }
     setNdc(e);
     const b = pick();
     if (!b) return;
@@ -316,7 +319,22 @@ export async function start({ canvas, low, reduced: reducedAtStart, onReducedCha
     root.classList.add('wd-grabbing');
     if (e.pointerType === 'mouse') e.preventDefault();
   }
+  function poke(e) {
+    const t0 = tap;
+    tap = null;
+    if (!t0 || e.type !== 'pointerup' || e.pointerId !== t0.id || reduced) return;
+    if (Math.hypot(e.clientX - t0.x, e.clientY - t0.y) > 12 || performance.now() - t0.t > 450) return;
+    setNdc(e);
+    const b = pick();
+    if (!b) return;
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    b.vel.set(dir * (4 + Math.random() * 4), 7 + Math.random() * 5);
+    b.w.set((Math.random() - 0.5) * 6, dir * (4 + Math.random() * 4), (Math.random() - 0.5) * 4);
+    b.free = 2.2;
+    b.sv += 3;
+  }
   function onUp(e) {
+    if (e && e.pointerType && e.pointerType !== 'mouse') { poke(e); return; }
     if (!drag || (e && e.pointerId !== drag.id)) return;
     const b = drag.b;
     const sp = b.vel.length();
@@ -326,15 +344,11 @@ export async function start({ canvas, low, reduced: reducedAtStart, onReducedCha
     drag = null;
     root.classList.remove('wd-grabbing');
   }
-  // A touch that lands on a toy holds it, so the page does not scroll under your finger.
-  const onTouch = (e) => { if (drag) e.preventDefault(); };
   const onBlur = () => onUp(drag ? { pointerId: drag.id } : null);
   addEventListener('pointermove', onMove, { passive: true });
   addEventListener('pointerdown', onDown);
   addEventListener('pointerup', onUp);
   addEventListener('pointercancel', onUp);
-  addEventListener('touchstart', onTouch, { passive: false });
-  addEventListener('touchmove', onTouch, { passive: false });
   addEventListener('blur', onBlur);
 
   // A new palette makes every toy hop and spin.
@@ -584,8 +598,6 @@ export async function start({ canvas, low, reduced: reducedAtStart, onReducedCha
       removeEventListener('pointerdown', onDown);
       removeEventListener('pointerup', onUp);
       removeEventListener('pointercancel', onUp);
-      removeEventListener('touchstart', onTouch);
-      removeEventListener('touchmove', onTouch);
       removeEventListener('blur', onBlur);
       bus.removeEventListener('palette', onPalette);
       offReduced();

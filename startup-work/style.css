@@ -13,7 +13,7 @@
     radial-gradient(ellipse 40% 30% at 20% 80%,rgba(229,140,255,.16),transparent 70%),
     radial-gradient(circle at 72% 34%,rgba(255,255,255,.10) 0 2px,transparent 3px) 0 0/38px 38px,
     linear-gradient(180deg,#070818,#1A0F3A);
-  --tb-bg:rgba(8,9,26,.78); --tb-fg:#F3F4FA; --tb-mute:#BDC1D8; --tb-accent:#9CB8FF; --tb-border:rgba(255,255,255,.10);
+  --tb-bg:rgba(8,9,26,.9); --tb-fg:#F3F4FA; --tb-mute:#BDC1D8; --tb-accent:#9CB8FF; --tb-border:rgba(255,255,255,.10);
   --tb-font:"Inter Tight",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#B9CCFF; --ft-fg:#BDC1D8;
   --badge-bg:rgba(255,255,255,.07); --badge-fg:#F3F4FA; --badge-border:rgba(255,255,255,.28);
 }

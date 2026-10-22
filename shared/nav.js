@@ -14,8 +14,11 @@
     } catch (e) { return -1; }
   }
   var root = document.documentElement;
+  function quiet() { /* a skipped or aborted transition is fine, the page still loads */ }
   function done(vt) {
     vt.finished.then(off, off);
+    if (vt.ready) vt.ready.catch(quiet);
+    if (vt.updateCallbackDone) vt.updateCallbackDone.catch(quiet);
   }
   function off() { root.classList.remove('vt'); }
   // Old page: name <main> just before the browser takes its picture.

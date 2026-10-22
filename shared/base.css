@@ -3,7 +3,7 @@
    A tab themes the shared parts by setting these on :root in its own CSS: */
 :root{
   --gut:clamp(16px,4vw,56px);
-  --tb-bg:rgba(7,9,15,.86);    /* tab bar background */
+  --tb-bg:rgba(7,9,15,.97);    /* tab bar background */
   --tb-fg:#ECEFF4;             /* tab bar text */
   --tb-mute:#A4ACBD;           /* tabs that are not current */
   --tb-accent:#A597FF;         /* current tab marker */

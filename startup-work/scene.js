@@ -267,7 +267,10 @@ function along(arr, m) { // arr of numbers or arrays, sampled at chapter m
   return Array.isArray(a) ? a.map((v, k) => lerp(v, b[k], f)) : lerp(a, b, f);
 }
 
-export function start(ctx) {
+// Setup is split into small steps with pauses between them, so phones never freeze while it builds.
+const pause = () => (globalThis.scheduler?.yield ? globalThis.scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+
+export async function start(ctx) {
   const { canvas, low } = ctx;
   const N = low ? 5200 : 15000;
   const baseSize = low ? 0.034 : 0.028;
@@ -290,6 +293,7 @@ export function start(ctx) {
     scene.add(sp); nebula.push(sp);
   }
 
+  await pause();
   // Warp dust
   const DN = low ? 700 : 1800;
   const dpos = new Float32Array(DN * 3), ds = new Float32Array(DN);
@@ -300,6 +304,7 @@ export function start(ctx) {
     uniforms: { uZ: { value: 0 }, uPx: { value: 800 }, uT: { value: 0 }, uColor: { value: new Color('#B7C4FF') } } }));
   const dust = new Points(dg, dm); dust.frustumCulled = false; scene.add(dust);
 
+  await pause();
   // Glass shards drifting around the swarm
   const shards = [];
   const SH = low ? 3 : 7;
@@ -328,9 +333,10 @@ export function start(ctx) {
     rings.add(line); ringMats.push(mat);
   }
 
+  await pause();
   // The swarm
   const p0 = new Float32Array(N * 3), p1 = new Float32Array(N * 3), p2 = new Float32Array(N * 3), p3 = new Float32Array(N * 3), rnd = new Float32Array(N * 4);
-  galaxy(p0, N); eye(p1, N); knot(p2, N); envelope(p3, N);
+  galaxy(p0, N); await pause(); eye(p1, N); await pause(); knot(p2, N); await pause(); envelope(p3, N); await pause();
   for (let i = 0; i < N; i++) rnd.set([R(), R() < 0.02 ? 2.6 : 0.55 + R() * 0.9, R(), R()], i * 4);
   const sg = keep(new BufferGeometry());
   sg.setAttribute('position', new BufferAttribute(p0, 3)); sg.setAttribute('aP1', new BufferAttribute(p1, 3));
@@ -345,6 +351,7 @@ export function start(ctx) {
   const swarmG = new Group(); scene.add(swarmG);
   const swarm = new Points(sg, sm); swarm.frustumCulled = false; swarmG.add(swarm);
 
+  await pause();
   // Core flare
   const flareMat = keep(new SpriteMaterial({ map: tex, color: new Color(ACC[0]), blending: AdditiveBlending, transparent: true, depthWrite: false, opacity: 0.2 }));
   const flare = new Sprite(flareMat); flare.scale.set(6, 6, 1); swarmG.add(flare);
@@ -437,6 +444,11 @@ export function start(ctx) {
     render();
   }
   state.redraw = () => { if (ctx.reduced) still(); };
+
+  // Compile the shaders ahead of the first frame, without blocking the page where the browser allows it.
+  await pause();
+  try { await renderer.compileAsync(scene, camera); } catch { /* the first frame compiles them instead */ }
+  await pause();
 
   return {
     resize(w, h, dpr) {

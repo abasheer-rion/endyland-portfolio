@@ -8,7 +8,7 @@
   --display:"Archivo",ui-sans-serif,system-ui,sans-serif; --body:"DM Sans",ui-sans-serif,system-ui,sans-serif;
   --line:4px solid var(--ink);
   --spring:cubic-bezier(.34,1.56,.64,1);
-  --tb-bg:rgba(255,244,224,.94); --tb-fg:#1B1B1F; --tb-mute:#45454F; --tb-accent:#FF5A4E; --tb-border:#1B1B1F;
+  --tb-bg:rgba(255,244,224,.97); --tb-fg:#1B1B1F; --tb-mute:#45454F; --tb-accent:#FF5A4E; --tb-border:#1B1B1F;
   --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --focus:#1B1B1F; --ft-fg:#1B1B1F;
   --badge-bg:#FFC93C; --badge-fg:#1B1B1F; --badge-border:#1B1B1F;
 }
@@ -81,7 +81,7 @@ main{position:relative;z-index:1}
   background:var(--mint) url("img/arrow.svg") center/26px no-repeat;box-shadow:4px 4px 0 var(--ink)}
 
 /* ---------- Crossed ribbons ---------- */
-.ribbons{position:relative;height:170px;overflow:hidden;margin:-30px 0 30px;pointer-events:none}
+.ribbons{position:relative;height:170px;overflow:hidden;margin:-30px 0 64px;pointer-events:none}
 .ribbon{position:absolute;left:-300px;right:-300px;top:50%;border-block:3px solid var(--ink);background-repeat:repeat-x}
 .ribbon-a{height:62px;margin-top:-31px;background-image:url("img/ribbon-a.svg");background-size:auto 56px;background-position:0 center;
   transform:rotate(-4deg) translateX(var(--rba,0px))}
@@ -194,9 +194,12 @@ html.wd-motion .intro::after{animation:nudge 1.8s var(--spring) infinite}
   html.wd-motion .face-front .flip-btn{left:16px;right:auto;bottom:18px}
   html.wd-motion .face-back .flip-btn{position:static;align-self:flex-start;margin-top:22px;order:9}
   html.wd-motion .face-back{padding-top:40px}
-  .ribbons{height:120px;margin:-20px 0 10px}
+  .ribbons{height:120px;margin:-20px 0 36px}
 }
 
 @media (prefers-reduced-motion:reduce){
   .scene,body{transition:none}
 }
+/* The hint under the title matches the device: grab and throw with a mouse, tap on a touch screen. */
+.hint-touch{display:none}
+@media (hover:none),(pointer:coarse){.hint-fine{display:none}.hint-touch{display:inline}}

@@ -43,7 +43,10 @@ const hash = (x, z) => {
 const lerp = (a, b, k) => a + (b - a) * k;
 const smooth = (x) => x * x * (3 - 2 * x);
 
-export function start({ canvas, low, dpr: dpr0 }) {
+// Setup is split into small steps with pauses between them, so phones never freeze while it builds.
+const pause = () => (globalThis.scheduler?.yield ? globalThis.scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+
+export async function start({ canvas, low, dpr: dpr0 }) {
   const renderer = new WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: low ? 'low-power' : 'default' });
   renderer.setClearColor(NIGHT, 1);
   const scene = new Scene();
@@ -74,6 +77,7 @@ export function start({ canvas, low, dpr: dpr0 }) {
   starLayer(low ? 90 : 220, 1, 1, '#B8AEF0');
   const blinkStars = starLayer(low ? 50 : 110, 2, 2, CYAN);
 
+  await pause();
   // ---------- Pixel moon ----------
   {
     const R = 8, list = [];
@@ -89,6 +93,7 @@ export function start({ canvas, low, dpr: dpr0 }) {
     scene.add(moon);
   }
 
+  await pause();
   // ---------- Voxel terrain: a valley between stepped mountains, scrolling toward the camera ----------
   const TW = low ? 30 : 46, TD = low ? 30 : 44, NEAR_Z = 16;
   const terr = new InstancedMesh(unit, keep(new MeshLambertMaterial()), TW * TD);
@@ -131,6 +136,7 @@ export function start({ canvas, low, dpr: dpr0 }) {
     if (k !== rowShift) { rowShift = k; buildTerrain(k); }
   };
 
+  await pause();
   // ---------- Invaders: one group per row, two meshes per row (one per animation frame) ----------
   const ROWS = low ? 2 : 3, COLS = low ? 4 : 5, VOX = 0.38, SP = 4.6, RS = 3.4;
   const formation = new Group();
@@ -201,6 +207,7 @@ export function start({ canvas, low, dpr: dpr0 }) {
   scene.add(shotMesh);
   for (let i = 0; i < BMAX; i++) shots.push({ on: false, x: 0, y: 0, z: 0, dx: 0, dy: 0, dz: 0, left: 0, target: null });
 
+  await pause();
   // ---------- Pixel explosions ----------
   const PMAX = low ? 90 : 240;
   const parts = new InstancedMesh(unit, keep(new MeshBasicMaterial()), PMAX);
@@ -261,6 +268,7 @@ export function start({ canvas, low, dpr: dpr0 }) {
   const placeCoin = (cn, z) => { cn.x = Math.round((rnd() - 0.5) * 8); cn.z = z; };
   coins.forEach((cn, k) => placeCoin(cn, NEAR_Z - 8 - k * (TD / coins.length)));
 
+  await pause();
   // ---------- Firing and hits ----------
   let pendingShots = 0, nextShot = 0, lastFire = bus.fire, lastHoverAt = bus.hoverAt, autoFireAt = 1.2;
   let cleared = false, clearQueue = [], clearAt = 0;
@@ -416,6 +424,11 @@ export function start({ canvas, low, dpr: dpr0 }) {
     }
     placeCamera();
   };
+
+  // Compile the shaders ahead of the first frame, without blocking the page where the browser allows it.
+  await pause();
+  try { await renderer.compileAsync(scene, camera); } catch { /* the first frame compiles them instead */ }
+  await pause();
 
   return {
     resize(w, h, dpr) {

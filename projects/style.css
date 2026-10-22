@@ -1,14 +1,18 @@
 /* Projects tab: retro arcade. Only this page loads this file. See docs/DESIGN.md.
    Look: a pixel voxel world behind CRT glass, projects as arcade cabinets, a bonus cartridge.
    Motion is stepped (steps()) on purpose, so it feels 8-bit. All of it is off with reduced motion. */
+/* Until the pixel font loads, a system monospace stretched to the same width holds its place,
+   so headings keep their size and the page does not jump. Every pixel-font letter is 1em wide. */
+@font-face{font-family:"Press Start Fallback";src:local("Menlo"),local("Courier New"),local("DejaVu Sans Mono"),local("Liberation Mono");
+  size-adjust:166%;ascent-override:60%;descent-override:0%;line-gap-override:0%}
 :root{
   --bg:#0B0420; --ink:#F5F1FF; --mute:#C9BFEA; --deep:#160A3A; --plum:#24104F; --violet:#6B2BD0;
   --pink:#FF4FD8; --cyan:#3DF2FF; --yellow:#FFE14D; --green:#3DFF8A;
   --link:#FFE14D;
-  --display:"Press Start 2P",ui-monospace,monospace; --body:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --display:"Press Start 2P","Press Start Fallback",ui-monospace,monospace; --body:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --px:4px; /* one "pixel" for borders and shadows */
   --fallback:url(img/fallback.svg) center bottom/cover no-repeat,#0B0420;
-  --tb-bg:rgba(11,4,32,.94); --tb-fg:#F5F1FF; --tb-mute:#C9BFEA; --tb-accent:#FF4FD8; --tb-border:rgba(61,242,255,.3);
+  --tb-bg:rgba(11,4,32,.97); --tb-fg:#F5F1FF; --tb-mute:#C9BFEA; --tb-accent:#FF4FD8; --tb-border:rgba(61,242,255,.3);
   --tb-font:"IBM Plex Mono",ui-monospace,Menlo,monospace; --tb-radius:0; --focus:#FFE14D; --ft-fg:#C9BFEA;
   --badge-bg:transparent; --badge-fg:#3DF2FF; --badge-border:#3DF2FF;
 }
@@ -60,7 +64,7 @@ main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--
 .arcade-anim .hud{animation:hud-in .6s steps(4) both .3s}
 @keyframes hud-in{from{transform:translateX(140%)}}
 .hud{transition:opacity .3s steps(3)}
-.hud.away{opacity:0}
+.hud.away{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s steps(3),visibility 0s .3s}
 @media (max-width:900px){.hud{display:none}}
 
 /* ---------- Intro ---------- */

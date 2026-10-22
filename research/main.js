@@ -20,9 +20,24 @@ mountScene({ canvas: $('#polar'), load: () => import('./polar.js'), webgl: false
 
 // ---------- reveals: each channel powers on like a CRT, then its parts come in one by one ----------
 $$('.ch').forEach((ch) => $$('.rv', ch).forEach((el, i) => el.style.setProperty('--i', i)));
-// threshold 0: until it powers on, only the thin trace at the top of a channel is showing.
-onVisible('.ch', (el) => el.classList.add('is-in'), { threshold: 0 });
-onVisible('.plot', (el) => el.classList.add('is-in'), { threshold: 0.35 });
+// Channels and plots are checked by position on every scroll, not with an IntersectionObserver.
+// A closed channel is clipped to a thin trace, so an observer can miss it after a jump or a fast
+// fling, and the channel would stay dark. Plots start drawing as soon as they are on screen.
+const pending = [...$$('.ch'), ...$$('.plot')];
+function reveal() {
+  const vh = innerHeight;
+  // Channels come first in the list, so a plot can start in the same pass as its channel.
+  for (const el of [...pending]) {
+    const plot = el.classList.contains('plot');
+    if (plot && !el.closest('.ch.is-in')) continue;
+    const r = el.getBoundingClientRect();
+    if (r.top < vh * (plot ? 0.85 : 0.9) && r.bottom > vh * (plot ? 0.1 : 0)) {
+      el.classList.add('is-in');
+      pending.splice(pending.indexOf(el), 1);
+    }
+  }
+}
+if (prefersReducedMotion()) pending.splice(0).forEach((el) => el.classList.add('is-in'));
 onVisible('.stage', (el) => el.classList.add('is-in'), { threshold: 0.6 });
 
 // ---------- readouts that follow the beam ----------
@@ -65,6 +80,7 @@ function measure() {
   onScroll();
 }
 function onScroll() {
+  if (pending.length) reveal();
   const y = scrollY;
   const s = y <= marks[1] ? y / marks[1] : 1 + Math.min(1, (y - marks[1]) / (marks[2] - marks[1]));
   state.scroll = Math.max(0, Math.min(2, s));

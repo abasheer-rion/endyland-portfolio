@@ -12,7 +12,7 @@
   --gut:clamp(16px,4vw,56px);
   --ease:cubic-bezier(.2,.7,.2,1);
   /* Shared tab bar and footer, themed for home. */
-  --tb-bg:rgba(7,9,15,.82); --tb-fg:#ECEFF4; --tb-mute:#A4ACBD; --tb-accent:#FF5A36;
+  --tb-bg:rgba(7,9,15,.97); --tb-fg:#ECEFF4; --tb-mute:#A4ACBD; --tb-accent:#FF5A36;
   --tb-font:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif; --focus:#A597FF; --ft-fg:#A4ACBD;
 }
 /* Home page only. Shared parts (tab bar, footer, transitions) live in /shared/base.css. */
