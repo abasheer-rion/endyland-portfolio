@@ -1,10 +1,11 @@
 # Short links. endyland.com/github and so on.
-/github    https://github.com/abasheer-rion            302
-/linkedin  https://www.linkedin.com/in/ayanbasheer     302
-/argus     https://useargus.co                         302
-/yotummy   https://yotummy.com                         302
-/rion      https://rionsolution.com                    302
-/work      /#work                                      301
-/about     /#about                                     301
-/contact   /#links                                     301
-/index.html /                                          301
+/github     https://github.com/abasheer-rion            302
+/linkedin   https://www.linkedin.com/in/ayanbasheer     302
+/argus      /startup-work/#argus                        301
+/rion       /startup-work/#rion                         301
+/yotummy    /web-design/#yotummy                        301
+/work       /projects/                                  301
+/about      /#about                                     301
+/contact    /#contact                                   301
+/index.html /                                           301
+# Old one-page anchors like /#argus are sent on by /shared/legacy-hash.js (hashes never reach the server).

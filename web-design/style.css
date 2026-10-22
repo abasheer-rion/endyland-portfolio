@@ -1,0 +1,43 @@
+/* web-design tab. Only this page loads this file. See docs/DESIGN.md for the art direction.
+   TODO(web-design builder): this is shell styling only, enough to read the content. Make it yours. */
+:root{
+  --bg:#FFF4E0; --ink:#1B1B1F; --mute:#4A4A55;
+  --card:#FFFFFF; --card-ink:#1B1B1F; --card-mute:#4A4A55; --card-border:3px solid #1B1B1F; --radius:22px;
+  --link:#B8281E;
+  --coral:#FF5A4E; --sun:#FFC93C; --blue:#2D5BFF; --mint:#2EC4B6;
+  --display:"Archivo",ui-sans-serif,system-ui,sans-serif; --body:"DM Sans",ui-sans-serif,system-ui,sans-serif;
+  --fallback:radial-gradient(circle at 80% 30%,rgba(255,90,78,.25),transparent 40%),radial-gradient(circle at 20% 80%,rgba(45,91,255,.18),transparent 40%);
+  --tb-bg:rgba(255,244,224,.92); --tb-fg:#1B1B1F; --tb-mute:#4A4A55; --tb-accent:#2D5BFF; --tb-border:rgba(27,27,31,.18);
+  --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --focus:#2D5BFF; --ft-fg:#4A4A55;
+  --badge-bg:#FFC93C; --badge-fg:#1B1B1F; --badge-border:#1B1B1F;
+}
+html{background:var(--bg);color:var(--ink)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+
+/* The 3D scene sits behind the content. shared/scene-loader.js adds .on after the first frame. */
+.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 1s ease}
+.scene.on{opacity:1}
+.scene-fallback{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;background:var(--fallback)}
+html.no-webgl .scene{display:none}
+html.no-webgl .scene-fallback{display:block}
+main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+
+.intro{padding:14vh 0 8vh}
+.kicker{margin:0 0 14px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.intro h1{margin:0;font-family:var(--display);font-size:clamp(48px,9vw,128px);line-height:.95}
+.lede{max-width:40ch;margin:24px 0 0;font-size:clamp(19px,1.8vw,23px)}
+
+.items{display:grid;gap:28px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));padding-bottom:10vh}
+.item{background:var(--card);color:var(--card-ink);border:var(--card-border);border-radius:var(--radius);overflow:hidden}
+.item-img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.item-body{padding:20px 22px 24px}
+.item h2{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,28px);line-height:1.15}
+.item p{margin:10px 0 0}
+.item-role{color:var(--card-mute)}
+.item-links{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.item-links a{color:var(--link);font-weight:600;text-underline-offset:3px}
+.item-small{align-self:start}
+.intro h1{font-weight:900;font-variation-settings:"wdth" 112;letter-spacing:-.02em}
+.item h2{font-weight:800}
+.item{box-shadow:8px 8px 0 #1B1B1F}
+@media (prefers-reduced-motion:reduce){.scene{transition:none}}

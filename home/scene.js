@@ -1,15 +1,15 @@
-// One 3D scene, five stops. The camera flies a fixed path as you scroll.
+// The home page scene: the hub. One 3D scene, four stops. The camera flies a fixed path as you scroll.
 // Stop 0: a 6 by 6 phased array and its beam, which steers toward the pointer.
-// Stop 1: Argus, a store floor watched by cameras.
-// Stop 2: projects, one node in the sky per project. The beam swings to the one you hover.
-// Stop 3: about, a tunnel of rings with pipes and packets.
-// Stop 4: contact, a beacon sending ripples across the floor.
+// Stop 1: four rooms, one node in the sky per tab. The beam swings to the one you hover.
+// Stop 2: about, a tunnel of rings with pipes and packets.
+// Stop 3: contact, a beacon sending ripples across the floor.
+// shared/scene-loader.js runs the loop, pauses it off screen and handles reduced motion.
 import {
   WebGLRenderer, Scene, PerspectiveCamera, Color, ColorManagement, Vector2, Vector3, Matrix4, Object3D,
   Group, Mesh, Points, LineSegments, InstancedMesh, BufferGeometry, BufferAttribute, InstancedBufferAttribute,
   SphereGeometry, BoxGeometry, ConeGeometry, TorusGeometry, TubeGeometry, CircleGeometry, IcosahedronGeometry,
-  CapsuleGeometry, CylinderGeometry, EdgesGeometry, Curve, CatmullRomCurve3, ShaderMaterial, AdditiveBlending, DoubleSide,
-} from '../vendor/three-r186.min.js';
+  CylinderGeometry, Curve, CatmullRomCurve3, ShaderMaterial, AdditiveBlending, DoubleSide,
+} from '../shared/vendor/three-r186.module.min.js';
 
 ColorManagement.enabled = false; // colors below are plain sRGB hex values, written straight out
 
@@ -19,22 +19,15 @@ const LOBE = new Color('#FF5A36');
 const FOAM = new Color('#C9D0DA');
 const N = 6; // array size, N by N
 
-export function start(canvas, reduceQ) {
-  const coarse = matchMedia('(pointer: coarse)').matches;
-  const small = Math.min(innerWidth, innerHeight) < 600;
-  const low = coarse || small || (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+export async function start(ctx) {
+  const { canvas, low } = ctx;
+  const reduceQ = { get matches() { return ctx.reduced; } };
   const Q = low
-    ? { dpr: 1, sphere: [120, 60], waves: 700, dust: 260, pitch: 1.5, aa: false }
-    : { dpr: 1.5, sphere: [180, 90], waves: 1800, dust: 900, pitch: 1.0, aa: true };
+    ? { sphere: [120, 60], waves: 700, dust: 260, pitch: 1.5, aa: false }
+    : { sphere: [180, 90], waves: 1800, dust: 900, pitch: 1.0, aa: true };
 
-  let renderer;
-  try {
-    renderer = new WebGLRenderer({ canvas, antialias: Q.aa, alpha: false, powerPreference: 'high-performance' });
-  } catch {
-    document.documentElement.classList.add('no-webgl');
-    return;
-  }
-  let dpr = Math.min(devicePixelRatio || 1, Q.dpr);
+  const renderer = new WebGLRenderer({ canvas, antialias: Q.aa, alpha: false, powerPreference: 'high-performance' });
+  let dpr = ctx.dpr;
   renderer.setPixelRatio(dpr);
   renderer.setClearColor(BG, 1);
 
@@ -195,7 +188,6 @@ export function start(canvas, reduceQ) {
   {
     const pitch = Q.pitch, list = [];
     for (let x = -26; x <= 22; x += pitch) for (let z = -42; z <= 10; z += pitch) {
-      if (x > 3.5 && x < 16.5 && z > -14.5 && z < -1.5) continue;          // Argus floor
       if (Math.hypot(x, z + 30) < 9.4) continue;                           // contact disc
       list.push([x + (Math.random() - 0.5) * 0.04, z]);
     }
@@ -208,75 +200,7 @@ export function start(canvas, reduceQ) {
     add(foam);
   }
 
-  // ---------- Stop 1: Argus ----------
-  const people = [];
-  const cams = [];
-  staged.push(() => {
-  const argus = add(new Group());
-  argus.position.set(10, -2.2, -8);
-
-
-  {
-    const floor = new Mesh(new BoxGeometry(13, 0.1, 13), mat({
-      vertexShader: /* glsl */`varying vec3 vW; varying float vDepth;
-        void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; vec4 mv = viewMatrix * w; vDepth = -mv.z; gl_Position = projectionMatrix * mv; }`,
-      fragmentShader: /* glsl */`varying vec3 vW; varying float vDepth; ${FOG}
-        void main(){
-          vec2 g = abs(fract(vW.xz) - 0.5); float line = smoothstep(0.47, 0.5, max(g.x, g.y));
-          vec3 c = vec3(0.05, 0.065, 0.11) + line * vec3(0.16, 0.18, 0.42);
-          gl_FragColor = vec4(fogMix(c, vDepth), 1.0);
-        }`,
-    }));
-    floor.position.y = 0.05;
-    add(floor, argus);
-
-    const shelves = new InstancedMesh(new BoxGeometry(2.6, 1.15, 0.55), solid('#1a2032'), 12);
-    const m = new Matrix4(); let k = 0;
-    for (const x of [-3.4, 0, 3.4]) for (const z of [-3.6, -1.2, 1.2, 3.6]) { m.makeTranslation(x, 0.68, z); shelves.setMatrixAt(k++, m); }
-    add(shelves, argus);
-
-    // Cameras on poles, each with a view cone sweeping the floor.
-    const coneGeo = new ConeGeometry(1.7, 4.2, 32, 1, true);
-    coneGeo.translate(0, -2.1, 0); // apex at the origin
-    const coneMat = mat({
-      vertexShader: /* glsl */`varying float vY; varying vec3 vN; varying vec3 vV; varying float vDepth;
-        void main(){ vY = -position.y / 4.2; vec4 w = modelMatrix * vec4(position, 1.0);
-          vN = normalize(mat3(modelMatrix) * normal); vV = normalize(cameraPosition - w.xyz);
-          vec4 mv = viewMatrix * w; vDepth = -mv.z; gl_Position = projectionMatrix * mv; }`,
-      fragmentShader: /* glsl */`varying float vY; varying vec3 vN; varying vec3 vV; varying float vDepth; ${FOG}
-        void main(){ float f = pow(1.0 - abs(dot(normalize(vN), vV)), 1.5);
-          gl_FragColor = vec4(vec3(0.45, 0.55, 1.0), (0.05 + 0.32 * f) * (1.0 - vY * 0.7) * fogKeep(vDepth)); }`,
-      transparent: true, blending: AdditiveBlending, depthWrite: false, side: DoubleSide,
-    });
-    const head = new BoxGeometry(0.34, 0.22, 0.5), pole = new CylinderGeometry(0.04, 0.04, 3.4, 8);
-    for (const [x, z] of [[-5.6, -5.6], [5.6, -5.6], [5.6, 5.6], [-5.6, 5.6]]) {
-      const p = new Mesh(pole, solid('#1d2438')); p.position.set(x, 1.7, z); add(p, argus);
-      const rig = new Group(); rig.position.set(x, 3.5, z); add(rig, argus);
-      const c = new Mesh(coneGeo, coneMat); add(c, rig);
-      const h = new Mesh(head, solid('#2a3350')); add(h, rig);
-      cams.push({ rig, base: Math.atan2(-x, -z), phase: Math.random() * 6 });
-    }
-
-    // People in the aisles, each in a tracking box.
-    const body = new CapsuleGeometry(0.17, 0.55, 4, 10);
-    const box = new EdgesGeometry(new BoxGeometry(0.7, 1.15, 0.7));
-    const bodyMat = solid('#FF7A55');
-    const boxMat = mat({
-      vertexShader: /* glsl */`varying float vDepth; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); vDepth = -mv.z; gl_Position = projectionMatrix * mv; }`,
-      fragmentShader: /* glsl */`varying float vDepth; ${FOG} void main(){ gl_FragColor = vec4(1.0, 0.45, 0.3, 0.85 * fogKeep(vDepth)); }`,
-      transparent: true, blending: AdditiveBlending, depthWrite: false,
-    });
-    for (let i = 0; i < 5; i++) {
-      const g = new Group();
-      add(new Mesh(body, bodyMat), g).position.y = 0.45;
-      add(new LineSegments(box, boxMat), g).position.y = 0.6;
-      add(g, argus);
-      people.push({ g, lane: [-1.7, 1.7, 0, -2.4, 2.4][i], sp: 0.3 + i * 0.07, ph: i * 1.3, axis: i < 2 ? 'z' : 'x' });
-    }
-  }
-  });
-
-  // ---------- Stop 2: projects, nodes in the sky where the beam can point ----------
+  // ---------- Stop 1: four rooms, nodes in the sky where the beam can point ----------
   const nodes = [];
   staged.push(() => {
     const R = 4.4;
@@ -317,7 +241,7 @@ export function start(canvas, reduceQ) {
     })));
   });
 
-  // ---------- Stop 3: about, the tunnel ----------
+  // ---------- Stop 2: about, the tunnel ----------
   const TUN = { x: -14, y: 0.5, z0: -9, len: 19 };
   staged.push(() => {
     const rings = 26;
@@ -367,7 +291,7 @@ export function start(canvas, reduceQ) {
     pk.frustumCulled = false;
   });
 
-  // ---------- Stop 4: contact, the beacon ----------
+  // ---------- Stop 3: contact, the beacon ----------
   staged.push(() => {
     const disc = new Mesh(new CircleGeometry(9.2, 120), mat({
       vertexShader: /* glsl */`varying vec2 vP; varying float vDepth; void main(){ vP = position.xy; vec4 mv = modelViewMatrix * vec4(position, 1.0); vDepth = -mv.z; gl_Position = projectionMatrix * mv; }`,
@@ -441,15 +365,13 @@ export function start(canvas, reduceQ) {
   const KEYS = [
     // [position, look at, stop]
     [[-4.3, 1.3, 4.7], [0, 0.05, 0.7], 0],
-    [[1.5, 2.8, 7.2], [4, 0, 0]],
-    [[15.5, 3.6, -0.5], [10, -0.6, -8], 1],
-    [[7, 6.2, -6], [3, 0.6, -1]],
-    [[-6.9, 3.4, -4.4], [2.4, -0.9, 1.6], 2],
+    [[-7.4, 2.6, 2.2], [0.6, 0.2, 1.4]],
+    [[-6.9, 3.4, -4.4], [2.4, -0.9, 1.6], 1],
     [[-12, 2, -4.5], [-14, 0.5, -14]],
-    [[-14, 0.55, -6.6], [-14, 0.5, -20], 3],
+    [[-14, 0.55, -6.6], [-14, 0.5, -20], 2],
     [[-14, 0.5, -24], [-14, 0.5, -34]],
     [[-12.5, 1.6, -31.5], [-4, -1.4, -31]],
-    [[4.6, 4.9, -22.6], [0, -1.6, -30.4], 4],
+    [[4.6, 4.9, -22.6], [0, -1.6, -30.4], 3],
   ];
   const posCurve = new CatmullRomCurve3(KEYS.map((k) => new Vector3(...k[0])), false, 'centripetal');
   const tgtCurve = new CatmullRomCurve3(KEYS.map((k) => new Vector3(...k[1])), false, 'centripetal');
@@ -483,9 +405,11 @@ export function start(canvas, reduceQ) {
   }
 
   // ---------- Sizing ----------
-  let W = 0, H = 0, portrait = false;
-  function resize() {
-    W = innerWidth; H = innerHeight; portrait = W / H < 0.9;
+  // The loader calls resize(width, height, dpr) first and on every change.
+  let W = 1, H = 1, portrait = false;
+  function resize(w, h, d) {
+    W = w; H = h; portrait = W / H < 0.9;
+    if (d !== dpr) { dpr = d; renderer.setPixelRatio(dpr); U.uPR.value = dpr; }
     renderer.setSize(W, H, false);
     camera.aspect = W / H;
     camera.fov = portrait ? 52 : 36;
@@ -494,26 +418,25 @@ export function start(canvas, reduceQ) {
     camera.setViewOffset(W, H, wide ? -W * 0.18 : -W * 0.08, wide ? 0 : H * 0.14, W, H);
     camera.updateProjectionMatrix();
     measure();
-    if (reduceQ.matches) renderStill();
   }
-  addEventListener('resize', resize);
   new ResizeObserver(() => measure()).observe(document.body);
 
   // ---------- Input ----------
+  // Pointer times use the scene clock (seconds), so they pause with the loop.
   const target = new Vector2(0.25, 0.15), steer = U.uSteer.value, pointer = new Vector2();
-  let lastMove = -1e9, active = -1;
+  let clock = 0, lastMove = -1e9, active = -1;
   addEventListener('pointermove', (e) => {
     if (e.pointerType === 'touch') return;
     target.set((e.clientX / W - 0.5) * 1.5, -(e.clientY / H - 0.5) * 1.3);
     pointer.set(e.clientX / W - 0.5, e.clientY / H - 0.5);
-    lastMove = performance.now();
+    lastMove = clock;
     if (reduceQ.matches) { steer.copy(target); renderStill(); }
   }, { passive: true });
-  // Hovering or focusing a project steers the beam to it. Same order as the nodes.
+  // Hovering or focusing a room steers the beam to it. Same order as the nodes.
   document.querySelectorAll('[data-steer]').forEach((el, i) => {
     const [u, v] = el.dataset.steer.split(',').map(Number);
     const go = () => {
-      target.set(u, v); active = i; lastMove = performance.now() + 4000;
+      target.set(u, v); active = i; lastMove = clock + 4;
       if (reduceQ.matches) { steer.copy(target); renderStill(); }
     };
     const stop = () => { if (active === i) active = -1; };
@@ -521,11 +444,10 @@ export function start(canvas, reduceQ) {
     el.addEventListener('pointerleave', stop); el.addEventListener('focusout', stop);
   });
 
-  // ---------- Loop ----------
+  // ---------- Frames ----------
   const camPos = new Vector3(), camTgt = new Vector3(), tmp = new Vector3();
   const intro = new Vector3(-10, 4.2, 12.5);
-  let pathCur = 0, running = false, raf = 0, prev = 0, t0 = performance.now();
-  let slow = 0, fast = 0;
+  let pathCur = 0;
 
   function place(idx, introK) {
     const t = idx / last;
@@ -537,10 +459,10 @@ export function start(canvas, reduceQ) {
     camera.lookAt(camTgt);
   }
 
-  function update(now, dt) {
-    const t = (now - t0) / 1000;
+  function frame(t, dt) {
+    clock = t;
     U.uTime.value = t;
-    if (now - lastMove > 3500) target.set(0.45 * Math.sin(t * 0.35), 0.25 * Math.sin(t * 0.23 + 1));
+    if (t - lastMove > 3.5) target.set(0.45 * Math.sin(t * 0.35), 0.25 * Math.sin(t * 0.23 + 1));
     const k = 1 - Math.exp(-dt * 4.5);
     steer.x += (target.x - steer.x) * k; steer.y += (target.y - steer.y) * k;
     U.uGrow.value = 1 - Math.pow(1 - Math.min(1, t / 1.8), 3);
@@ -548,14 +470,8 @@ export function start(canvas, reduceQ) {
     const introK = 1 - Math.pow(1 - Math.min(1, t / 2.6), 3);
     place(pathCur, introK);
 
-    for (const c of cams) c.rig.rotation.set(-0.85, c.base + Math.sin(t * 0.4 + c.phase) * 0.55, 0, 'YXZ');
-    for (const p of people) {
-      const s = Math.sin(t * p.sp + p.ph) * 4.6;
-      if (p.axis === 'z') p.g.position.set(p.lane, 0, s);
-      else p.g.position.set(s, 0, p.lane);
-    }
-    // Project nodes only appear near the projects stop.
-    const vis = ease(Math.min(1, Math.max(0, 1 - Math.abs(pathCur - stopIdx[2]) / 1.6)));
+    // Room nodes only appear near the rooms stop.
+    const vis = ease(Math.min(1, Math.max(0, 1 - Math.abs(pathCur - stopIdx[1]) / 1.6)));
     U.uNodes.value = vis;
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
@@ -566,44 +482,17 @@ export function start(canvas, reduceQ) {
       n.halo.rotation.set(t * 0.7 + n.spin, t * 0.5, 0);
       n.core.rotation.y = t * 0.4 + n.spin;
     }
-  }
-
-  function frame(now) {
-    raf = 0;
-    if (!running) return;
-    const dt = Math.min(0.1, (now - (prev || now)) / 1000); prev = now;
-    update(now, dt);
     renderer.render(scene, camera);
-    // Drop resolution if frames are slow for a while, raise it back if there is headroom.
-    if (dt > 0.028) { slow++; fast = 0; } else if (dt < 0.014) { fast++; slow = 0; }
-    if (slow > 45 && dpr > 0.75) { dpr = Math.max(0.75, dpr - 0.25); applyDpr(); slow = 0; }
-    if (fast > 240 && dpr < Math.min(devicePixelRatio || 1, Q.dpr)) { dpr = Math.min(Q.dpr, dpr + 0.25); applyDpr(); fast = 0; }
-    raf = requestAnimationFrame(frame);
   }
-  function applyDpr() { renderer.setPixelRatio(dpr); U.uPR.value = dpr; renderer.setSize(W, H, false); }
 
+  // Reduced motion: one still picture of the array.
   function renderStill() {
+    if (!reduceQ.matches) return;
     U.uGrow.value = 1; U.uTime.value = 2.0; pointer.set(0, 0);
     place(stopIdx[0], 1);
     renderer.render(scene, camera);
   }
 
-  let onScreen = true;
-  function sync() {
-    const want = !reduceQ.matches && !document.hidden && onScreen;
-    if (want && !running) { running = true; prev = 0; raf = requestAnimationFrame(frame); }
-    if (!want && running) { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
-    if (reduceQ.matches) { steer.set(0.25, 0.15); renderStill(); }
-  }
-  document.addEventListener('visibilitychange', sync);
-  new IntersectionObserver((e) => { onScreen = e[0].isIntersecting; sync(); }).observe(canvas);
-  reduceQ.addEventListener('change', () => { t0 = performance.now(); sync(); });
-
-  canvas.addEventListener('webglcontextlost', (e) => {
-    e.preventDefault(); running = false; document.documentElement.classList.add('no-webgl');
-  });
-
-  resize();
   pathCur = pathAt(scrollY);
   place(stopIdx[0], 0);
 
@@ -620,13 +509,18 @@ export function start(canvas, reduceQ) {
       build();
       const g = stage;
       stage = scene;
-      compile(g).then(() => { scene.add(g); if (reduceQ.matches) renderStill(); next(); });
+      compile(g).then(() => { scene.add(g); renderStill(); next(); });
     });
   };
-  compile(scene).then(() => {
-    t0 = performance.now(); canvas.classList.add('on'); sync();
-    // Dust first, it shows at every stop. Then the stops in scroll order.
-    staged.unshift(staged.pop());
-    next();
-  });
+  await compile(scene);
+  // Dust first, it shows at every stop. Then the stops in scroll order.
+  staged.unshift(staged.pop());
+  next();
+
+  return {
+    resize,
+    frame,
+    still() { steer.set(0.25, 0.15); U.uGrow.value = 1; U.uTime.value = 2.0; pointer.set(0, 0); place(stopIdx[0], 1); renderer.render(scene, camera); },
+    dispose() { renderer.dispose(); },
+  };
 }

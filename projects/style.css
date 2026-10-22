@@ -1,0 +1,43 @@
+/* projects tab. Only this page loads this file. See docs/DESIGN.md for the art direction.
+   TODO(projects builder): this is shell styling only, enough to read the content. Make it yours. */
+:root{
+  --bg:#0B0420; --ink:#F5F1FF; --mute:#C9BFEA;
+  --card:#16093A; --card-ink:#F5F1FF; --card-mute:#C9BFEA; --card-border:4px solid #3DF2FF; --radius:0;
+  --link:#FFE14D;
+  --pink:#FF4FD8; --cyan:#3DF2FF; --yellow:#FFE14D;
+  --display:"Press Start 2P",ui-monospace,monospace; --body:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fallback:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 4px),radial-gradient(ellipse at 50% 40%,rgba(255,79,216,.2),transparent 60%);
+  --tb-bg:rgba(11,4,32,.94); --tb-fg:#F5F1FF; --tb-mute:#C9BFEA; --tb-accent:#FF4FD8; --tb-border:rgba(61,242,255,.3);
+  --tb-font:"IBM Plex Mono",ui-monospace,Menlo,monospace; --tb-radius:0; --focus:#FFE14D; --ft-fg:#C9BFEA;
+  --badge-bg:transparent; --badge-fg:#3DF2FF; --badge-border:#3DF2FF;
+}
+html{background:var(--bg);color:var(--ink)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+
+/* The 3D scene sits behind the content. shared/scene-loader.js adds .on after the first frame. */
+.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 1s ease}
+.scene.on{opacity:1}
+.scene-fallback{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;background:var(--fallback)}
+html.no-webgl .scene{display:none}
+html.no-webgl .scene-fallback{display:block}
+main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+
+.intro{padding:14vh 0 8vh}
+.kicker{margin:0 0 14px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.intro h1{margin:0;font-family:var(--display);font-size:clamp(48px,9vw,128px);line-height:.95}
+.lede{max-width:40ch;margin:24px 0 0;font-size:clamp(19px,1.8vw,23px)}
+
+.items{display:grid;gap:28px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));padding-bottom:10vh}
+.item{background:var(--card);color:var(--card-ink);border:var(--card-border);border-radius:var(--radius);overflow:hidden}
+.item-img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.item-body{padding:20px 22px 24px}
+.item h2{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,28px);line-height:1.15}
+.item p{margin:10px 0 0}
+.item-role{color:var(--card-mute)}
+.item-links{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.item-links a{color:var(--link);font-weight:600;text-underline-offset:3px}
+.item-small{align-self:start}
+body{font-size:16px}
+.intro h1{font-size:clamp(30px,6vw,72px);line-height:1.15;color:var(--yellow)}
+.item h2{font-size:clamp(15px,1.4vw,18px);line-height:1.5}
+@media (prefers-reduced-motion:reduce){.scene{transition:none}}

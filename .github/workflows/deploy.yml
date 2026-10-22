@@ -67,7 +67,7 @@ jobs:
           mkdir -p "$RUNNER_TEMP/site"
           rsync -a --exclude '.git' --exclude '.github' --exclude '.gitignore' \
             --exclude '.DS_Store' --exclude '.wrangler' \
-            --exclude 'README.md' --exclude 'THIRD_PARTY.md' ./ "$RUNNER_TEMP/site/"
+            --exclude 'README.md' --exclude 'THIRD_PARTY.md' --exclude 'docs' ./ "$RUNNER_TEMP/site/"
           # Marks this build so the check below can tell it went live.
           echo "$GITHUB_SHA" > "$RUNNER_TEMP/site/version.txt"
           echo "Uploading:"

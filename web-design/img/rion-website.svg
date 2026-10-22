@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<rect width="1280" height="720" fill="#FFF4E0"/>
+<circle cx="980" cy="300" r="170" fill="#2D5BFF"/><rect x="700" y="380" width="260" height="190" rx="18" fill="#FFC93C" transform="rotate(-12 830 475)"/>
+<path d="M1060 520l120 -200l60 260z" fill="#2EC4B6"/><path d="M640 200q40 -60 80 0t80 0t80 0" fill="none" stroke="#1B1B1F" stroke-width="10" stroke-linecap="round"/>
+<rect x="56" y="56" width="1168" height="608" fill="none" stroke="#1B1B1F" stroke-opacity=".35" stroke-width="3" stroke-dasharray="12 10"/>
+<g font-family="ui-monospace, Menlo, monospace" font-size="26" letter-spacing="4" fill="#1B1B1F"><text x="96" y="124">PLACEHOLDER</text><text x="96" y="616">RION Solutions website. Image coming soon.</text></g>
+</svg>

@@ -7,17 +7,9 @@
   Cross-Origin-Opener-Policy: same-origin
 
 # The three.js file name carries its version, so it can be cached for a year.
-/vendor/*
+# Everything else (pages, tab CSS and JS, shared helpers) uses the Pages default: revalidate every time.
+/shared/vendor/*
   Cache-Control: public, max-age=31536000, immutable
-
-/js/*
-  Cache-Control: public, max-age=3600
-
-/css/*
-  Cache-Control: public, max-age=3600
-
-/img/*
-  Cache-Control: public, max-age=86400
 
 /favicon.svg
   Cache-Control: public, max-age=2592000

@@ -1,0 +1,42 @@
+/* startup-work tab. Only this page loads this file. See docs/DESIGN.md for the art direction.
+   TODO(startup-work builder): this is shell styling only, enough to read the content. Make it yours. */
+:root{
+  --bg:#070818; --ink:#F3F4FA; --mute:#B4B8D0;
+  --card:rgba(20,22,48,.78); --card-ink:#F3F4FA; --card-mute:#B4B8D0; --card-border:1px solid rgba(255,255,255,.16); --radius:20px;
+  --link:#A9C6FF;
+  --glow:#8AB4FF; --violet:#9B7BFF;
+  --display:"Instrument Serif",ui-serif,Georgia,serif; --body:"Inter Tight",ui-sans-serif,system-ui,sans-serif;
+  --fallback:radial-gradient(ellipse at 60% 30%,rgba(155,123,255,.28),transparent 60%),linear-gradient(180deg,#070818,#1A0F3A);
+  --tb-bg:rgba(10,12,30,.82); --tb-fg:#F3F4FA; --tb-mute:#B4B8D0; --tb-accent:#8AB4FF; --tb-border:rgba(255,255,255,.12);
+  --tb-font:"Inter Tight",ui-sans-serif,system-ui,sans-serif; --focus:#A9C6FF; --ft-fg:#B4B8D0;
+}
+html{background:var(--bg);color:var(--ink)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+
+/* The 3D scene sits behind the content. shared/scene-loader.js adds .on after the first frame. */
+.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 1s ease}
+.scene.on{opacity:1}
+.scene-fallback{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;background:var(--fallback)}
+html.no-webgl .scene{display:none}
+html.no-webgl .scene-fallback{display:block}
+main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+
+.intro{padding:14vh 0 8vh}
+.kicker{margin:0 0 14px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.intro h1{margin:0;font-family:var(--display);font-size:clamp(48px,9vw,128px);line-height:.95}
+.lede{max-width:40ch;margin:24px 0 0;font-size:clamp(19px,1.8vw,23px)}
+
+.items{display:grid;gap:28px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));padding-bottom:10vh}
+.item{background:var(--card);color:var(--card-ink);border:var(--card-border);border-radius:var(--radius);overflow:hidden}
+.item-img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.item-body{padding:20px 22px 24px}
+.item h2{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,28px);line-height:1.15}
+.item p{margin:10px 0 0}
+.item-role{color:var(--card-mute)}
+.item-links{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.item-links a{color:var(--link);font-weight:600;text-underline-offset:3px}
+.item-small{align-self:start}
+body{background:linear-gradient(180deg,#070818 0%,#120c2e 60%,#1A0F3A 100%) fixed}
+.intro h1{font-weight:400;letter-spacing:-.02em}
+.item h2{font-weight:400;font-size:clamp(28px,3vw,40px)}
+@media (prefers-reduced-motion:reduce){.scene{transition:none}}
