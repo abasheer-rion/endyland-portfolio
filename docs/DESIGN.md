@@ -1,7 +1,8 @@
-# endyland.com redesign: four tabs
+# endyland.com redesign: five tabs and a page per project
 
 The owner asked (2026-10-22): separate the site into web design, research, startup work and
-individual projects. Link every repo or website. Every tab looks and moves differently: its own art
+individual projects, and later added a fifth tab, Experience, plus a page for every project. Clicking a branded project
+switches the whole page to that brand's theme. Link every repo or website. Every tab looks and moves differently: its own art
 style and its own animations. Earlier direction: very 3D, plenty of animation, placeholder images for
 now, build on a preview address first, ship to endyland.com only when the owner says ship.
 
@@ -11,55 +12,71 @@ This file is not deployed (the deploy skips `docs/`).
 
 | Address | Folder | What it is |
 |---|---|---|
-| `/` | `index.html`, `home/` | The hub. Beam hero, four room cards that lead to the tabs, about, contact. |
+| `/` | `index.html`, `home/` | The hub. Beam hero, five room cards that lead to the tabs, about, contact. |
 | `/web-design/` | `web-design/` | Tab 01 |
 | `/research/` | `research/` | Tab 02 |
 | `/startup-work/` | `startup-work/` | Tab 03 |
 | `/projects/` | `projects/` | Tab 04, individual projects |
+| `/experience/` | `experience/` | Tab 05, jobs and roles |
+| `/<tab>/<slug>/` | `<tab>/<slug>/` | One page per project. The full list is `docs/projects.json`. |
 | any other | `404.html` | Not found |
 
-Each tab folder holds `index.html`, `style.css`, `main.js`, `scene.js` and `img/`. A page loads only
-`/shared/*` and its own folder.
+Each tab folder holds `index.html`, `style.css`, `main.js`, `scene.js`, and `project-theme.css` for its unbranded
+project pages. Each project folder holds `index.html`, `style.css`, `main.js`, `img/`, and an optional `scene.js`.
+A page loads only `/shared/*`, its tab's or brand's theme file, and its own folder.
 
 ## Content map
 
-Decided by the controller. The owner can correct it after the preview.
+Decided by the controller from `CONTENT.md` and the owner's answers of 2026-10-22. The manifest with every page,
+its theme and its images is `docs/projects.json`.
 
-Rules:
-- Public repo: link it ("Code on GitHub").
-- Private repo: show the lock badge "Private repo" and do not link the repo. It would 404 for visitors.
-- Link the live website when there is one.
-- Each item keeps its id, so old links like `/#argus` still land on it (see "Old links" below).
+Owner rules:
+- Big numbers, client logos, client photos and screenshots are OK to show.
+- Never name teammates, cofounders or collaborators. Say "a 3-person team" or "a small team".
+- One personal project is off the site everywhere (pages, redirects, sitemap). `check-site.sh` fails if its name appears.
+- The Butler matrix and the RF direction finder are one project.
+- Public repo: link it ("Code on GitHub"). Only `endyland-portfolio` is public. Every other repo shows the
+  "Private repo" badge and is not linked. Projects with no repo and no site say "No public link."
+- Ship to endyland.com only when the owner says ship.
 
-### Web design
-- **endyland.com** (`#endyland`). This site. Public repo https://github.com/abasheer-rion/endyland-portfolio
-- **YoTummy** (`#yotummy`). https://yotummy.com. Private repo.
-- **RION Solutions website** (`#rion-website`). https://rionsolution.com. Private repo
-  (RION-Solutions-Development org).
-- **RION admin dashboard** (`#rion-admin`). Private repo. No live link: rion-admin-five.vercel.app
-  answered "deployment not found" on 2026-10-22, so the link is off until the owner gives a working one.
-- **Park With Love** guest parking app (`#park-with-love`). No public link, friends get a private
-  link. Private repo.
+### Web design (`/web-design/`)
+- YoTummy (`yotummy`, branded). https://yotummy.com
+- New Door Investments (`new-door`, branded). https://newdoorinvestments.net and the inventory site.
+- Detail Theory (`detail-theory`, branded). The "gloss detailing company". https://detail-theory.com
+- Swadesi Mangoes (`swadesi-mangoes`, branded from a screenshot). https://swadesimangoes.com (not confirmed it runs his build; the caption says so).
+- RION Solutions website (`rion-website`, RION brand). Also listed under RION.
+- endyland.com (`endyland`, tab style). Public repo.
 
-### Research
-- **RF direction finder and beam steering at 5.8 GHz** (`#rf-direction-finder`). UT Dallas RIDE,
-  fall 2026, MATLAB. Private repo (ride-beamforming). Text kept from the old site.
-- **Parity: can a currency strategy beat the S&P 500?** (`#parity`). Private repo.
+### Research (`/research/`)
+- RF direction finder and Butler matrix (`rf-direction-finder`). UT Dallas RIDE. Merged project.
+- Parity (`parity`).
+- DFW rental pricing model (`dfw-rent-model`). Resume only, diagram figure.
+- Public spending data explorer (`spending-explorer`). Resume only, diagram figure.
 
-### Startup work
-- **Argus** (`#argus`), cofounder. https://useargus.co. Text kept from the old site.
-- **RION Solutions** (`#rion`), co-ran it. https://rionsolution.com. Text kept from the old site.
-- **New Door team email tool** (`#ses-mailer`). Minimal self-hosted SES mailer built for the team.
-  Private repo (email-SES-LocalHosted). Text kept from the old SES mailer card.
+### Startup work (`/startup-work/`)
+- Argus (`argus`, branded), with sub-projects: Argus Dashboard (`argus-dashboard`, the app's dark theme), Argus One
+  (`argus-one`, includes the model tuning and the streaming agent), In-store AI board (`argus-edge-board`), useargus.co
+  (`argus-site`). Smaller pieces (docs site, status page, ops console, audit logging) are listed on the Argus page.
+- RION Solutions (`rion`, branded), with sub-projects: NEXUS Command Center (`nexus-command-center`), County records API
+  and client intake (`rion-county-api`), and the website (`/web-design/rion-website/`). The RION page links across to
+  the client work delivered through RION.
 
-### Individual projects
-- **Claude for GoHighLevel** (`#gohighlevel-mcp`). MCP server. Private repo. Text kept.
-- **endyland infrastructure** (`#endyland-infra`). Status page
-  https://endyland-status.ayanbasheer.workers.dev and automatic deploys. Private repo.
-- **Park With Love** (`#park-with-love-card`). A small card that links to
-  `/web-design/#park-with-love`. Not a second copy.
+### Individual projects (`/projects/`)
+- 8-bit RISC processor on FPGA (`fpga-risc`), Low-power wireless sensor node (`sensor-node`), Automated bench test rig
+  (`bench-rig`): resume projects, stock photos.
+- Claude for GoHighLevel (`gohighlevel-mcp`) and the bulk email app on Amazon SES (`ses-mailer`): built for New Door.
+- endyland hosting and status page (`endyland-infra`). The status page link is off the site for now because the live
+  status page lists the off-site project. The screenshot is cropped to the portfolio card.
 
-Left out on purpose: the movie site, p-stream, userscript, backend, the Valentine fork.
+### Experience (`/experience/`)
+- Verizon (`verizon`), network engineer intern, two summers, with sub-pages: Carrier Trunk Provisioning Tool
+  (`verizon-trunk-tool`), voice network device backups (`verizon-backups`), moving apps off VMware (`verizon-cloud-move`).
+  No Verizon logo (no permission).
+- Property manager, ZAYKS at Parker (`property-manager`).
+- Food bank coordinator, IAA and IACC (`food-bank`).
+- Education and memberships are a small sheet on the tab page.
+
+Left out on purpose: the movie site, p-stream, userscript, backend, the Valentine fork, the off-site project above.
 
 Profile links on every page: GitHub https://github.com/abasheer-rion,
 LinkedIn https://www.linkedin.com/in/ayanbasheer.
@@ -100,8 +117,38 @@ beyond the tab bar and the page transition.
 - Starting palette: night `#0B0420`, pink `#FF4FD8`, cyan `#3DF2FF`, yellow `#FFE14D`.
   Fonts: Press Start 2P (headings only, it is hard to read in long text), IBM Plex Mono (body).
 
+### Experience: blueprint of a network
+- Navy drafting paper `#0B2545` with a fine grid and a heavier line every fifth square, all in CSS.
+- White and cyan linework (`#9CC9FF`, `#8FD8FF`), amber packets `#FFC857`.
+- A network topology behind the page: routers drawn as circles with a cross, dashed links, amber packets moving
+  between them (`experience/scene.js`, a plain 2D canvas, so it is light on phones).
+- Each job is a drawing sheet: corner ticks that draw on, a dashed title block, uppercase condensed headings.
+- Fonts: Barlow Condensed (display, uppercase), Barlow (body), system monospace for labels.
+
 The palettes and fonts above are starting points already in each tab's `style.css`. A tab builder
 can change them, as long as the tab stays clearly different from the others.
+
+## Project pages
+
+Every project has a page at `/<tab>/<slug>/`. The stubs already hold the real content: title, one-line summary,
+role, dates, stack, links or the private badge, big numbers, "What I did", gallery or figure with credits, related
+links and back links. Page builders add art and motion only.
+
+- Layout: `/shared/project.css`. Behaviour: `/shared/project.js` (see Shared code).
+- Theme: set the `--p-*` tokens and the tab bar tokens on `:root`.
+  - Branded pages adopt the brand: YoTummy, New Door, Detail Theory and Swadesi set tokens in their own `style.css`.
+    Argus pages share `/startup-work/argus/brand.css` (the Dashboard page switches to the app's dark mode in its own
+    `style.css`). RION pages, including `/web-design/rion-website/`, share `/startup-work/rion/brand.css`.
+  - Unbranded pages use their tab's `project-theme.css`.
+  - Each brand's brief (colors, fonts, logo, motifs, motion ideas, which assets exist) is in `docs/themes/`.
+  - The theme files are checked for WCAG AA: ink, muted text and links on the page and surface colors, and button
+    text on the button color. Brand colors that fail AA as text (YoTummy orange, New Door blue) are used for shapes only.
+- Fonts come from Google Fonts. Every brand font is on Google Fonts, so nothing needs self-hosting.
+- Images live in each page's `img/`. Every photo is WebP under 200 KB with `width` and `height` set. `img/thumb.webp`
+  (800 by 450) is the card picture on the tab page. Stock photos carry a credit line on the page and in `THIRD_PARTY.md`.
+  Projects with no photo use a diagram drawn for this site (`img/figure.svg`) that shows only the stated facts.
+- A page may add a scene: `<canvas class="proj-scene" aria-hidden="true">` plus `mountScene` with a `scene.js` in its folder.
+- Tab pages list every project as a card linking to its page (link class `link-more`, "See the project").
 
 ## Rules for every tab
 
@@ -119,16 +166,18 @@ can change them, as long as the tab stays clearly different from the others.
 - Libraries are pinned to a release at least 2 weeks old.
 - Text: short and plain. No em dashes. `.github/scripts/check-site.sh` fails on them.
 
-## What a tab builder may touch
+## What a page builder may touch
 
-Only your own folder: `web-design/`, `research/`, `startup-work/` or `projects/`.
+Only the folders you were given: a tab folder (`web-design/`, `research/`, `startup-work/`, `projects/`,
+`experience/`) and/or project folders inside it, plus that tab's `project-theme.css` or the brand's `brand.css`.
 That means its `index.html`, `style.css`, `main.js`, `scene.js`, `img/`, and any new files you add
 inside it. Keep these as they are in your `index.html`:
 - the `<head>` lines for `/shared/nav.js` and `/shared/base.css`,
 - the tab bar markup, exactly (it is the same on every page),
 - the footer markup,
 - `<main id="main">` and each item's `id`,
-- every link, badge and text in the content map (you may restyle and rearrange them).
+- every link, badge and text in the content map and on each project page (you may restyle and rearrange them),
+- the crumbs, the back links (class `back-link`), and the credit lines under stock photos.
 
 Do not edit `/shared/`, `/home/`, `index.html`, `404.html`, `_headers`, `_redirects` or `sitemap.xml`.
 If you need a shared change, ask the controller.
@@ -136,16 +185,27 @@ If you need a shared change, ask the controller.
 ## Shared code (`/shared/`)
 
 - `base.css`: reset, skip link, tab bar, footer, the private repo badge, page transitions.
-  Theme it from your `style.css` by setting these on `:root`:
+  Theme it from your `style.css` by setting these on `:root`. A tab page marks its tab `aria-current="page"`;
+  a project page marks its parent tab `aria-current="true"` and keeps the `.tab-ind` marker there.
   `--tb-bg --tb-fg --tb-mute --tb-accent --tb-border --tb-font --tb-radius --focus --ft-fg
   --badge-bg --badge-fg --badge-border`.
 - `nav.js`: plain script in `<head>`. Adds a direction ("forward" or "back") to the page transition,
   and names `<main>` only while a transition runs (a name all the time stops glass panels from
   blurring the scene behind them).
-- The tab bar is the same size on every page: each tab is 136px wide on desktop and a quarter of the
+- The tab bar is the same size on every page: each tab is 136px wide on desktop and a fifth of the
   row on screens up to 760px. Tabs may change its colors and fonts, not its size.
 - `body` clips anything that reaches past the screen edge sideways, so glows cannot make phones pan.
   Do not set `overflow-x` on `html` or `body` in a tab.
+- `project.css`: the project page layout, themed by `--p-bg --p-surface --p-ink --p-mute --p-accent --p-accent-bg
+  --p-on-accent --p-link --p-line --p-display --p-display-weight --p-body --p-mono --p-radius`. Blocks: `.proj-crumbs`,
+  `.proj-hero` (`.proj-logo .proj-kicker .proj-summary .proj-meta .proj-stack .proj-links .proj-nolink .proj-hero-media`),
+  `.proj-section`, `.stats` / `.stat`, `.did-list`, `.cards` / `.card-link`, `.products`, `.plain-list`, `.gallery`,
+  `.lightbox`, `.credit`, `.proj-back`, `.back-link`, `.proj-scene`.
+- `project.js`: `initProject({ reveal, counts, gallery, back })` runs all four; each is also exported alone:
+  `setupReveal(sel)` ("What I did" items rise in one after another), `setupCounts(sel)` (numbers in `[data-count]`
+  count up once; the HTML holds the final value and a hidden copy for screen readers), `setupGallery(sel)` (links
+  `a.lb` open a `<dialog>` lightbox with arrows, Escape and focus return), `setupBackLinks(sel)` (`a.back-link` goes
+  back in history when you came from that page, so the tab keeps its scroll). Adds `pj-anim` to `<html>` when motion is allowed.
 - `motion.js`: `prefersReducedMotion()`, `onReducedMotionChange(cb)`, `finePointer()`,
   `isLowPower()`, `onVisible(els, cb, opts)` (runs cb when each element scrolls into view; runs
   right away with reduced motion).
@@ -164,15 +224,19 @@ If you need a shared change, ask the controller.
 ## Page transitions
 
 CSS only (`@view-transition { navigation: auto; }` in `base.css`), so they work without JS.
+Between a tab and its project pages (and between sibling project pages) the transition is the page-theme wipe:
+`nav.js` saves where you clicked and adds type `deeper` or `up`, and the new page with its own theme grows in as a
+circle from that point (`--vt-x`, `--vt-y`). The tab bar marker stays on the parent tab.
 The tab bar stays still, the marker under the current tab slides to the new tab, and the page content
 slides left or right by tab order. Browsers without view transitions get a short fade in on load.
 Reduced motion turns all of it off.
 
 ## Old links
 
-- Short links in `_redirects`: `/github`, `/linkedin`, `/argus` (to `/startup-work/#argus`),
-  `/rion` (`/startup-work/#rion`), `/yotummy` (`/web-design/#yotummy`), `/work` (`/projects/`),
-  `/about` (`/#about`), `/contact` (`/#contact`).
+- Short links in `_redirects`: `/github`, `/linkedin`, `/argus` (to `/startup-work/argus/`),
+  `/rion` (`/startup-work/rion/`), `/yotummy` (`/web-design/yotummy/`), `/verizon` (`/experience/verizon/`),
+  `/work` (`/projects/`), `/about` (`/#about`), `/contact` (`/#contact`).
 - Old one-page anchors such as `/#argus`, `/#yotummy`, `/#rf-direction-finder`, `/#gohighlevel-mcp`,
-  `/#park-with-love`, `/#ses-mailer`, `/#work`, `/#projects` and `/#links` are sent on by
-  `shared/legacy-hash.js`.
+  `/#ses-mailer`, `/#work`, `/#projects` and `/#links` are sent on by `shared/legacy-hash.js`, now straight to the
+  project pages. The old anchor of the off-site project is gone and simply lands on the home page.
+- Tab pages keep an `id` on each card (the project slug), so `/<tab>/#<slug>` still works.

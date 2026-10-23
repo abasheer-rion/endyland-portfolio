@@ -80,12 +80,13 @@ for page in $pages; do
   fi
 done
 
-# 1d. The tab bar is on every main page, with all four tabs and exactly the right one marked current.
-tabpages="index.html web-design/index.html research/index.html startup-work/index.html projects/index.html"
+# 1d. The tab bar is on every main page, with all five tabs and exactly the right one marked current.
+tabs="web-design research startup-work projects experience"
+tabpages="index.html web-design/index.html research/index.html startup-work/index.html projects/index.html experience/index.html"
 for page in $tabpages; do
   [ -f "$page" ] || { err "$page is missing"; continue; }
   grep -q 'class="tabbar"' "$page" || err "$page has no tab bar"
-  for t in web-design research startup-work projects; do
+  for t in $tabs; do
     grep -q "href=\"/$t/\"" "$page" || err "$page tab bar has no link to /$t/"
   done
   want="/$(dirname "$page")/"; [ "$page" = index.html ] && want="/"
@@ -93,6 +94,39 @@ for page in $tabpages; do
   [ "$n" = 1 ] || err "$page marks $n links as the current page, want 1"
   grep -qE "href=\"$want\"( [^>]*)? aria-current=\"page\"" "$page" || err "$page does not mark $want as the current tab"
 done
+
+# 1d2. Every project page (/<tab>/<slug>/index.html) has the tab bar with its own tab marked, and a link back to its tab.
+for t in $tabs; do
+  for page in $(find "$t" -mindepth 2 -maxdepth 2 -name index.html 2>/dev/null | sort); do
+    grep -q 'class="tabbar"' "$page" || err "$page has no tab bar"
+    for u in $tabs; do
+      grep -q "href=\"/$u/\"" "$page" || err "$page tab bar has no link to /$u/"
+    done
+    n=$(grep -oE 'aria-current="(page|true)"' "$page" | wc -l | tr -d ' ')
+    [ "$n" = 1 ] || err "$page marks $n tab links as current, want 1"
+    grep -qE "href=\"/$t/\"( [^>]*)? aria-current=\"true\"" "$page" || err "$page does not mark /$t/ as its tab"
+    grep -qE "class=\"back-link\" href=\"/$t/\"" "$page" || err "$page has no back link to /$t/"
+  done
+done
+
+# 1d3. Every <img> in a page has width and height, so nothing jumps while it loads.
+for page in $pages; do
+  bad=$(grep -oE '<img [^>]*>' "$page" | grep -vE 'width="[0-9]+"' | head -1 || true)
+  [ -z "$bad" ] || err "$page has an <img> with no width: $bad"
+  bad=$(grep -oE '<img [^>]*>' "$page" | grep -vE 'height="[0-9]+"' | head -1 || true)
+  [ -z "$bad" ] || err "$page has an <img> with no height: $bad"
+done
+
+# 1d4. Photos in the site stay small (200 KB). Optimize to WebP or AVIF first.
+while IFS= read -r f; do
+  size=$(wc -c < "$f" | tr -d ' ')
+  [ "$size" -le 204800 ] || err "$f is $size bytes, over 200 KB. Optimize it."
+done < <(find . -type f \( -name '*.webp' -o -name '*.avif' -o -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -not -path './.git/*' -not -path './docs/*')
+
+# 1d5. The owner asked that one personal project never appears on the site. Keep it out of every file.
+if grep -rIilE 'park[ -]?with[ -]?love' --exclude-dir=.git --exclude-dir=.github . >/dev/null 2>&1; then
+  err "the site mentions a project the owner asked to keep off it: $(grep -rIilE 'park[ -]?with[ -]?love' --exclude-dir=.git --exclude-dir=.github . | tr '\n' ' ')"
+fi
 
 # 1e. Every sitemap address is a real page.
 if [ -f sitemap.xml ]; then

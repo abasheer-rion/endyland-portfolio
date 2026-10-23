@@ -1,0 +1,16 @@
+/* Research tab look for its project pages. Matches research/style.css.
+   Brief: docs/themes/tab-research.md (not deployed). */
+:root{
+  --p-bg:#050705; --p-surface:#07100A; --p-ink:#CFFFE0; --p-mute:#8FBF9F;
+  --p-accent:#39FF88; --p-accent-bg:#39FF88; --p-on-accent:#021A0C; --p-link:#39FF88; --p-line:rgba(57,255,136,.32);
+  --p-display:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-display-weight:700;
+  --p-body:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-radius:2px;
+  --tb-bg:rgba(5,7,5,.97); --tb-fg:#CFFFE0; --tb-mute:#8FBF9F; --tb-accent:#39FF88; --tb-border:rgba(57,255,136,.25);
+  --tb-font:"JetBrains Mono",ui-monospace,Menlo,monospace; --tb-radius:2px; --focus:#FFB000; --ft-fg:#8FBF9F;
+  --badge-bg:transparent; --badge-fg:#FFB000; --badge-border:rgba(255,176,0,.6);
+}
+/* Long monospace titles: keep headings a size that wraps well. A faint graticule behind the page. */
+.proj h1{font-size:clamp(32px,5vw,58px);line-height:1.08;letter-spacing:-.01em}
+.proj h2{font-size:clamp(24px,3vw,34px)}
+body.proj-page{background-image:linear-gradient(rgba(57,255,136,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,136,.05) 1px,transparent 1px);
+  background-size:24px 24px;background-attachment:fixed}

@@ -1,0 +1,11 @@
+/* RION Solutions brand tokens. Used by /startup-work/rion/, its sub-project pages and /web-design/rion-website/.
+   Brief: docs/themes/rion.md (not deployed). */
+:root{
+  --p-bg:#04070D; --p-surface:#10131C; --p-ink:#FFFFFF; --p-mute:#B4BCCB;
+  --p-accent:#FF3131; --p-accent-bg:#C9182A; --p-on-accent:#FFFFFF; --p-link:#FF6B6B; --p-line:rgba(255,255,255,.12);
+  --p-display:"Figtree",ui-sans-serif,system-ui,sans-serif; --p-display-weight:300;
+  --p-body:"Figtree",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace; --p-radius:16px;
+  --tb-bg:rgba(4,7,13,.92); --tb-fg:#FFFFFF; --tb-mute:#B4BCCB; --tb-accent:#FF3131; --tb-border:rgba(255,255,255,.1);
+  --tb-font:"Figtree",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#FF6B6B; --ft-fg:#B4BCCB;
+  --badge-bg:rgba(255,255,255,.05); --badge-fg:#FFFFFF; --badge-border:rgba(255,255,255,.22);
+}

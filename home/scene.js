@@ -1,6 +1,6 @@
 // The home page scene: the hub. One 3D scene, four stops. The camera flies a fixed path as you scroll.
 // Stop 0: a 6 by 6 phased array and its beam, which steers toward the pointer.
-// Stop 1: four rooms, one node in the sky per tab. The beam swings to the one you hover.
+// Stop 1: five rooms, one node in the sky per tab. The beam swings to the one you hover.
 // Stop 2: about, a tunnel of rings with pipes and packets.
 // Stop 3: contact, a beacon sending ripples across the floor.
 // shared/scene-loader.js runs the loop, pauses it off screen and handles reduced motion.
@@ -200,7 +200,7 @@ export async function start(ctx) {
     add(foam);
   }
 
-  // ---------- Stop 1: four rooms, nodes in the sky where the beam can point ----------
+  // ---------- Stop 1: five rooms, nodes in the sky where the beam can point ----------
   const nodes = [];
   staged.push(() => {
     const R = 4.4;

@@ -139,6 +139,8 @@ html.no-webgl .stage{height:24vh}
 .ch-grid{display:grid;gap:0}
 @media (min-width:980px){.ch-grid{grid-template-columns:1fr 1fr}.ch-inst{border-left:1px solid var(--line)}}
 .ch-main,.ch-inst{position:relative;z-index:1;min-width:0}
+/* Channels 3 and 4 have no instrument column: picture and text sit side by side instead. */
+@media (min-width:980px){.ch-short .ch-grid{grid-template-columns:1fr}.ch-short .ch-main{display:grid;grid-template-columns:1fr 1fr;align-items:center}}
 .ch-inst{display:flex;flex-direction:column;gap:18px;padding:20px}
 
 .img-frame{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#000}

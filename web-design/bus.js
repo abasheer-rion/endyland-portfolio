@@ -5,11 +5,12 @@
 // Slots: [main, second, third, fourth]. Ink (#1B1B1F) is always the outline color.
 export const PALETTES = [
   ['#FF5A4E', '#FFC93C', '#2D5BFF', '#2EC4B6'], // intro
-  ['#FF5A4E', '#2D5BFF', '#FFC93C', '#FF8FC7'], // endyland.com
   ['#FFC93C', '#FF5A4E', '#2EC4B6', '#FF8A3D'], // YoTummy
-  ['#2D5BFF', '#2EC4B6', '#FFC93C', '#A98BFF'], // RION Solutions website
-  ['#2EC4B6', '#FF5A4E', '#2D5BFF', '#FFC93C'], // RION admin dashboard
-  ['#FF8FC7', '#FF5A4E', '#FFC93C', '#7FD3FF'], // Park With Love
+  ['#2D5BFF', '#2EC4B6', '#FFC93C', '#A98BFF'], // New Door Investments
+  ['#FFC93C', '#1B1B1F', '#FF5A4E', '#2D5BFF'], // Detail Theory
+  ['#2EC4B6', '#FF8A3D', '#FFC93C', '#FF5A4E'], // Swadesi Mangoes
+  ['#FF5A4E', '#2D5BFF', '#2EC4B6', '#FFC93C'], // RION Solutions website
+  ['#FF5A4E', '#2D5BFF', '#FFC93C', '#FF8FC7'], // endyland.com
 ];
 
 export const bus = new EventTarget();

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-theme="tab-research">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RF direction finder and Butler matrix | Ayan Basheer</title>
+<meta name="description" content="A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://endyland.com/research/rf-direction-finder/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://endyland.com/research/rf-direction-finder/">
+<meta property="og:title" content="RF direction finder and Butler matrix | Ayan Basheer">
+<meta property="og:description" content="A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#050705">
+<meta name="color-scheme" content="dark">
+<script src="/shared/nav.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/project.css">
+<link rel="stylesheet" href="/research/project-theme.css">
+<link rel="stylesheet" href="/research/rf-direction-finder/style.css">
+<link rel="modulepreload" href="/shared/project.js">
+</head>
+<body class="proj-page proj-rf-direction-finder">
+<a class="skip" href="#main">Skip to content</a>
+<header class="tabbar">
+  <a class="tabbar-home" href="/">endyland</a>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="/web-design/">Web design</a></li>
+      <li><a href="/research/" aria-current="true">Research<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/">Startup work</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/experience/">Experi&shy;ence</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="proj">
+  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>RF direction finder and Butler matrix</span></li></ol></nav>
+
+  <header class="proj-hero">
+    <div class="proj-intro">
+    <p class="proj-kicker">UT Dallas RIDE</p>
+    <h1>RF direction finder and Butler matrix</h1>
+    <p class="proj-summary">A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts.</p>
+    <dl class="proj-meta"><div><dt>Role</dt><dd>Models, experiments and reports. One of 3 on the team.</dd></div><div><dt>Dates</dt><dd>Sep 2026 to now</dd></div><div><dt>Program</dt><dd>UT Dallas RIDE</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>MATLAB</li><li>LaTeX</li><li>RF design</li><li>Vector network analyzer</li></ul></dd></div></dl>
+    <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    </div>
+    <figure class="proj-hero-media"><img src="img/find-then-steer.webp" width="1600" height="683" alt="Two plots. Left: the direction finder finds the beacon at 25 degrees. Right: the beam steered toward it." fetchpriority="high" decoding="async"><figcaption>The whole loop: listen, find the beacon at 25 degrees, then steer the beam to it.</figcaption></figure>
+  </header>
+
+  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">By the numbers</h2>
+    <ul class="stats"><li class="stat"><b>5.8 GHz</b><span>operating frequency</span></li><li class="stat"><b>2x2 and 4x4</b><span>arrays compared</span></li><li class="stat"><b>4</b><span>phase shift values: 22.5, 45, 90, 180 degrees</span></li><li class="stat"><b>About half</b><span>of the team&#8217;s commits</span></li></ul>
+  </section>
+
+  <section class="proj-section proj-did" aria-labelledby="did-h">
+    <h2 id="did-h">What I did</h2>
+    <ul class="did-list">
+      <li>Wrote the MATLAB models and experiments that find a signal&#8217;s direction and steer the beam.</li>
+      <li>Compared 2x2 and 4x4 antenna arrays.</li>
+      <li>Designed and simulated a Butler matrix network with 22.5, 45, 90 and 180 degree phase shifters.</li>
+      <li>Measured the network on a vector network analyzer and checked it against the simulation.</li>
+      <li>Wrote most of the reports and docs, and about half the commits on a 3-person team.</li>
+    </ul>
+  </section>
+
+  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
+    <h2 id="gallery-h">Gallery</h2>
+    <ul class="gallery">
+      <li><figure><a class="lb" href="img/music-maps.webp" data-w="1600" data-h="538"><img src="img/music-maps.webp" width="1600" height="538" alt="Three 4x4 direction maps, each with the true signal sources circled." loading="lazy" decoding="async"></a><figcaption>4x4 direction maps. The circles mark the true sources.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+      <li><figure><a class="lb" href="img/gain-coverage.webp" data-w="1600" data-h="681"><img src="img/gain-coverage.webp" width="1600" height="681" alt="Two charts: signal drop between beam steps, and estimated gain, for 2 to 4 phase-shifter bits." loading="lazy" decoding="async"></a><figcaption>Signal drop and gain against phase-shifter bits.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+      <li class="on-dark"><figure><a class="lb" href="img/butler-beams.webp" data-w="1227" data-h="787"><img src="img/butler-beams.webp" width="1227" height="787" alt="Four heat maps, one receiving beam per Butler matrix port." loading="lazy" decoding="async"></a><figcaption>The four receiving beams of an ideal 2x2 Butler matrix.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+    </ul>
+  </section>
+
+  <section class="proj-section proj-related" aria-labelledby="related-h">
+    <h2 id="related-h">Related</h2>
+    <ul class="plain-list"><li><a href="/">The beam on the home page is a bigger cousin of this array</a></li></ul>
+  </section>
+
+  <p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Ayan Basheer</p>
+  <ul>
+    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script type="module" src="/research/rf-direction-finder/main.js"></script>
+</body>
+</html>

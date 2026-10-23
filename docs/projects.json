@@ -1,0 +1,471 @@
+[
+  {
+    "slug": "yotummy",
+    "tab": "web-design",
+    "url": "/web-design/yotummy/",
+    "title": "YoTummy",
+    "parent": null,
+    "branded": true,
+    "theme": "yotummy",
+    "theme_brief_path": "docs/themes/yotummy.md",
+    "thumb": "/web-design/yotummy/img/thumb.webp",
+    "images": [
+      "/web-design/yotummy/img/app.webp",
+      "/web-design/yotummy/img/hero.webp",
+      "/web-design/yotummy/img/logo.webp",
+      "/web-design/yotummy/img/phone.webp",
+      "/web-design/yotummy/img/thumb.webp",
+      "/web-design/yotummy/img/trending.webp"
+    ]
+  },
+  {
+    "slug": "new-door",
+    "tab": "web-design",
+    "url": "/web-design/new-door/",
+    "title": "New Door Investments",
+    "parent": null,
+    "branded": true,
+    "theme": "new-door",
+    "theme_brief_path": "docs/themes/new-door.md",
+    "thumb": "/web-design/new-door/img/thumb.webp",
+    "images": [
+      "/web-design/new-door/img/expertise.webp",
+      "/web-design/new-door/img/hero.webp",
+      "/web-design/new-door/img/inventory.webp",
+      "/web-design/new-door/img/logo.webp",
+      "/web-design/new-door/img/services.webp",
+      "/web-design/new-door/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "detail-theory",
+    "tab": "web-design",
+    "url": "/web-design/detail-theory/",
+    "title": "Detail Theory",
+    "parent": null,
+    "branded": true,
+    "theme": "detail-theory",
+    "theme_brief_path": "docs/themes/detail-theory.md",
+    "thumb": "/web-design/detail-theory/img/thumb.webp",
+    "images": [
+      "/web-design/detail-theory/img/gallery.webp",
+      "/web-design/detail-theory/img/hero.webp",
+      "/web-design/detail-theory/img/jobs.webp",
+      "/web-design/detail-theory/img/logo.webp",
+      "/web-design/detail-theory/img/phone.webp",
+      "/web-design/detail-theory/img/pricing.webp",
+      "/web-design/detail-theory/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "swadesi-mangoes",
+    "tab": "web-design",
+    "url": "/web-design/swadesi-mangoes/",
+    "title": "Swadesi Mangoes",
+    "parent": null,
+    "branded": true,
+    "theme": "swadesi",
+    "theme_brief_path": "docs/themes/swadesi.md",
+    "thumb": "/web-design/swadesi-mangoes/img/thumb.webp",
+    "images": [
+      "/web-design/swadesi-mangoes/img/logo.webp",
+      "/web-design/swadesi-mangoes/img/site.webp",
+      "/web-design/swadesi-mangoes/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "rion-website",
+    "tab": "web-design",
+    "url": "/web-design/rion-website/",
+    "title": "RION Solutions website",
+    "parent": "rion",
+    "branded": true,
+    "theme": "rion",
+    "theme_brief_path": "docs/themes/rion.md",
+    "thumb": "/web-design/rion-website/img/thumb.webp",
+    "images": [
+      "/startup-work/rion/img/logo.webp",
+      "/web-design/rion-website/img/site.webp",
+      "/web-design/rion-website/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "endyland",
+    "tab": "web-design",
+    "url": "/web-design/endyland/",
+    "title": "endyland.com",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-web-design",
+    "theme_brief_path": "docs/themes/tab-web-design.md",
+    "thumb": "/web-design/endyland/img/thumb.webp",
+    "images": [
+      "/web-design/endyland/img/site.webp",
+      "/web-design/endyland/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "rf-direction-finder",
+    "tab": "research",
+    "url": "/research/rf-direction-finder/",
+    "title": "RF direction finder and Butler matrix",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-research",
+    "theme_brief_path": "docs/themes/tab-research.md",
+    "thumb": "/research/rf-direction-finder/img/thumb.webp",
+    "images": [
+      "/research/rf-direction-finder/img/butler-beams.webp",
+      "/research/rf-direction-finder/img/find-then-steer.webp",
+      "/research/rf-direction-finder/img/gain-coverage.webp",
+      "/research/rf-direction-finder/img/music-maps.webp",
+      "/research/rf-direction-finder/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "parity",
+    "tab": "research",
+    "url": "/research/parity/",
+    "title": "Parity",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-research",
+    "theme_brief_path": "docs/themes/tab-research.md",
+    "thumb": "/research/parity/img/thumb.webp",
+    "images": [
+      "/research/parity/img/home.webp",
+      "/research/parity/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "dfw-rent-model",
+    "tab": "research",
+    "url": "/research/dfw-rent-model/",
+    "title": "DFW rental pricing model",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-research",
+    "theme_brief_path": "docs/themes/tab-research.md",
+    "thumb": "/research/dfw-rent-model/img/figure.svg",
+    "images": [
+      "/research/dfw-rent-model/img/figure.svg"
+    ]
+  },
+  {
+    "slug": "spending-explorer",
+    "tab": "research",
+    "url": "/research/spending-explorer/",
+    "title": "Public spending data explorer",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-research",
+    "theme_brief_path": "docs/themes/tab-research.md",
+    "thumb": "/research/spending-explorer/img/figure.svg",
+    "images": [
+      "/research/spending-explorer/img/figure.svg"
+    ]
+  },
+  {
+    "slug": "argus",
+    "tab": "startup-work",
+    "url": "/startup-work/argus/",
+    "title": "Argus",
+    "parent": null,
+    "branded": true,
+    "theme": "argus",
+    "theme_brief_path": "docs/themes/argus.md",
+    "thumb": "/startup-work/argus/img/thumb.webp",
+    "images": [
+      "/startup-work/argus/img/hero.webp",
+      "/startup-work/argus/img/logo.webp",
+      "/startup-work/argus/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "argus-dashboard",
+    "tab": "startup-work",
+    "url": "/startup-work/argus-dashboard/",
+    "title": "Argus Dashboard",
+    "parent": "argus",
+    "branded": true,
+    "theme": "argus-app",
+    "theme_brief_path": "docs/themes/argus.md",
+    "thumb": "/startup-work/argus-dashboard/img/thumb.webp",
+    "images": [
+      "/startup-work/argus-dashboard/img/dashboard.webp",
+      "/startup-work/argus-dashboard/img/thumb.webp",
+      "/startup-work/argus/img/logo.webp"
+    ]
+  },
+  {
+    "slug": "argus-one",
+    "tab": "startup-work",
+    "url": "/startup-work/argus-one/",
+    "title": "Argus One",
+    "parent": "argus",
+    "branded": true,
+    "theme": "argus",
+    "theme_brief_path": "docs/themes/argus.md",
+    "thumb": "/startup-work/argus-one/img/thumb.webp",
+    "images": [
+      "/startup-work/argus-one/img/camera.webp",
+      "/startup-work/argus-one/img/thumb.webp",
+      "/startup-work/argus/img/logo.webp"
+    ]
+  },
+  {
+    "slug": "argus-edge-board",
+    "tab": "startup-work",
+    "url": "/startup-work/argus-edge-board/",
+    "title": "In-store AI board",
+    "parent": "argus",
+    "branded": true,
+    "theme": "argus",
+    "theme_brief_path": "docs/themes/argus.md",
+    "thumb": "/startup-work/argus-edge-board/img/thumb.webp",
+    "images": [
+      "/startup-work/argus-edge-board/img/board.webp",
+      "/startup-work/argus-edge-board/img/thumb.webp",
+      "/startup-work/argus/img/logo.webp"
+    ]
+  },
+  {
+    "slug": "argus-site",
+    "tab": "startup-work",
+    "url": "/startup-work/argus-site/",
+    "title": "useargus.co",
+    "parent": "argus",
+    "branded": true,
+    "theme": "argus",
+    "theme_brief_path": "docs/themes/argus.md",
+    "thumb": "/startup-work/argus-site/img/thumb.webp",
+    "images": [
+      "/startup-work/argus-site/img/phone.webp",
+      "/startup-work/argus-site/img/site.webp",
+      "/startup-work/argus-site/img/thumb.webp",
+      "/startup-work/argus/img/logo.webp"
+    ]
+  },
+  {
+    "slug": "rion",
+    "tab": "startup-work",
+    "url": "/startup-work/rion/",
+    "title": "RION Solutions",
+    "parent": null,
+    "branded": true,
+    "theme": "rion",
+    "theme_brief_path": "docs/themes/rion.md",
+    "thumb": "/startup-work/rion/img/thumb.webp",
+    "images": [
+      "/startup-work/rion/img/hero.webp",
+      "/startup-work/rion/img/logo.webp",
+      "/startup-work/rion/img/products.webp",
+      "/startup-work/rion/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "nexus-command-center",
+    "tab": "startup-work",
+    "url": "/startup-work/nexus-command-center/",
+    "title": "NEXUS Command Center",
+    "parent": "rion",
+    "branded": true,
+    "theme": "rion",
+    "theme_brief_path": "docs/themes/rion.md",
+    "thumb": "/startup-work/nexus-command-center/img/figure.svg",
+    "images": [
+      "/startup-work/nexus-command-center/img/figure.svg",
+      "/startup-work/rion/img/logo.webp"
+    ]
+  },
+  {
+    "slug": "rion-county-api",
+    "tab": "startup-work",
+    "url": "/startup-work/rion-county-api/",
+    "title": "County records API and client intake",
+    "parent": "rion",
+    "branded": true,
+    "theme": "rion",
+    "theme_brief_path": "docs/themes/rion.md",
+    "thumb": "/startup-work/rion-county-api/img/figure.svg",
+    "images": [
+      "/startup-work/rion-county-api/img/figure.svg",
+      "/startup-work/rion/img/logo.webp"
+    ]
+  },
+  {
+    "slug": "fpga-risc",
+    "tab": "projects",
+    "url": "/projects/fpga-risc/",
+    "title": "8-bit RISC processor on FPGA",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/fpga-risc/img/thumb.webp",
+    "images": [
+      "/projects/fpga-risc/img/photo.webp",
+      "/projects/fpga-risc/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "sensor-node",
+    "tab": "projects",
+    "url": "/projects/sensor-node/",
+    "title": "Low-power wireless sensor node",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/sensor-node/img/thumb.webp",
+    "images": [
+      "/projects/sensor-node/img/photo.webp",
+      "/projects/sensor-node/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "bench-rig",
+    "tab": "projects",
+    "url": "/projects/bench-rig/",
+    "title": "Automated bench test rig",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/bench-rig/img/thumb.webp",
+    "images": [
+      "/projects/bench-rig/img/photo.webp",
+      "/projects/bench-rig/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "gohighlevel-mcp",
+    "tab": "projects",
+    "url": "/projects/gohighlevel-mcp/",
+    "title": "Claude for GoHighLevel",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/gohighlevel-mcp/img/thumb.webp",
+    "images": [
+      "/projects/gohighlevel-mcp/img/photo.webp",
+      "/projects/gohighlevel-mcp/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "ses-mailer",
+    "tab": "projects",
+    "url": "/projects/ses-mailer/",
+    "title": "Bulk email app on Amazon SES",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/ses-mailer/img/thumb.webp",
+    "images": [
+      "/projects/ses-mailer/img/photo.webp",
+      "/projects/ses-mailer/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "endyland-infra",
+    "tab": "projects",
+    "url": "/projects/endyland-infra/",
+    "title": "endyland hosting and status page",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/endyland-infra/img/thumb.webp",
+    "images": [
+      "/projects/endyland-infra/img/status.webp",
+      "/projects/endyland-infra/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "verizon",
+    "tab": "experience",
+    "url": "/experience/verizon/",
+    "title": "Verizon",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-experience",
+    "theme_brief_path": "docs/themes/tab-experience.md",
+    "thumb": "/experience/verizon/img/thumb.webp",
+    "images": [
+      "/experience/verizon/img/photo.webp",
+      "/experience/verizon/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "verizon-trunk-tool",
+    "tab": "experience",
+    "url": "/experience/verizon-trunk-tool/",
+    "title": "Carrier Trunk Provisioning Tool",
+    "parent": "verizon",
+    "branded": false,
+    "theme": "tab-experience",
+    "theme_brief_path": "docs/themes/tab-experience.md",
+    "thumb": "/experience/verizon-trunk-tool/img/figure.svg",
+    "images": [
+      "/experience/verizon-trunk-tool/img/figure.svg"
+    ]
+  },
+  {
+    "slug": "verizon-backups",
+    "tab": "experience",
+    "url": "/experience/verizon-backups/",
+    "title": "Voice network device backups",
+    "parent": "verizon",
+    "branded": false,
+    "theme": "tab-experience",
+    "theme_brief_path": "docs/themes/tab-experience.md",
+    "thumb": "/experience/verizon-backups/img/figure.svg",
+    "images": [
+      "/experience/verizon-backups/img/figure.svg"
+    ]
+  },
+  {
+    "slug": "verizon-cloud-move",
+    "tab": "experience",
+    "url": "/experience/verizon-cloud-move/",
+    "title": "Moving apps off VMware",
+    "parent": "verizon",
+    "branded": false,
+    "theme": "tab-experience",
+    "theme_brief_path": "docs/themes/tab-experience.md",
+    "thumb": "/experience/verizon-cloud-move/img/figure.svg",
+    "images": [
+      "/experience/verizon-cloud-move/img/figure.svg"
+    ]
+  },
+  {
+    "slug": "property-manager",
+    "tab": "experience",
+    "url": "/experience/property-manager/",
+    "title": "Property manager",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-experience",
+    "theme_brief_path": "docs/themes/tab-experience.md",
+    "thumb": "/experience/property-manager/img/figure.svg",
+    "images": [
+      "/experience/property-manager/img/figure.svg"
+    ]
+  },
+  {
+    "slug": "food-bank",
+    "tab": "experience",
+    "url": "/experience/food-bank/",
+    "title": "Food bank coordinator",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-experience",
+    "theme_brief_path": "docs/themes/tab-experience.md",
+    "thumb": "/experience/food-bank/img/figure.svg",
+    "images": [
+      "/experience/food-bank/img/figure.svg"
+    ]
+  }
+]

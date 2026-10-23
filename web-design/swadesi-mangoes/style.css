@@ -1,0 +1,13 @@
+/* Swadesi Mangoes project page. Only this page loads this file.
+   Theme: Swadesi Mangoes. Brief: docs/themes/swadesi.md (not deployed).
+   Shared layout: /shared/project.css. Theme tokens are set below.
+   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+:root{
+  --p-bg:#FFFCF3; --p-surface:#FFFFFF; --p-ink:#1E2A16; --p-mute:#55604C;
+  --p-accent:#E8892B; --p-accent-bg:#12850A; --p-on-accent:#FFFFFF; --p-link:#0E6C08; --p-line:rgba(30,42,22,.14);
+  --p-display:"Kalam",ui-rounded,cursive; --p-display-weight:700;
+  --p-body:"Cabin",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace; --p-radius:18px;
+  --tb-bg:rgba(255,252,243,.96); --tb-fg:#1E2A16; --tb-mute:#55604C; --tb-accent:#E8892B; --tb-border:rgba(30,42,22,.14);
+  --tb-font:"Cabin",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#0E6C08; --ft-fg:#55604C;
+  --badge-bg:#EAF5E6; --badge-fg:#1E2A16; --badge-border:#A9D29F;
+}

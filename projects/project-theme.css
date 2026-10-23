@@ -1,0 +1,16 @@
+/* Projects tab look for its project pages. Matches projects/style.css.
+   Brief: docs/themes/tab-projects.md (not deployed). */
+:root{
+  --p-bg:#0B0420; --p-surface:#160A3A; --p-ink:#F5F1FF; --p-mute:#C9BFEA;
+  --p-accent:#FF4FD8; --p-accent-bg:#FF4FD8; --p-on-accent:#0B0420; --p-link:#FFE14D; --p-line:rgba(61,242,255,.35);
+  --p-display:"Press Start 2P",ui-monospace,monospace; --p-display-weight:400;
+  --p-body:"IBM Plex Mono",ui-monospace,Menlo,monospace; --p-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --p-radius:0px;
+  --tb-bg:rgba(11,4,32,.97); --tb-fg:#F5F1FF; --tb-mute:#C9BFEA; --tb-accent:#FF4FD8; --tb-border:rgba(61,242,255,.3);
+  --tb-font:"IBM Plex Mono",ui-monospace,Menlo,monospace; --tb-radius:0; --focus:#FFE14D; --ft-fg:#C9BFEA;
+  --badge-bg:transparent; --badge-fg:#3DF2FF; --badge-border:#3DF2FF;
+}
+/* Press Start 2P is very wide: headings stay small, and only headings use it. */
+.proj h1{font-size:clamp(22px,3.6vw,40px);line-height:1.35;letter-spacing:0}
+.proj h2{font-size:clamp(17px,2.2vw,24px);line-height:1.4}
+.proj h3{font-family:var(--p-body);font-weight:600}
+.stat b{font-size:clamp(18px,2.4vw,26px);line-height:1.3}

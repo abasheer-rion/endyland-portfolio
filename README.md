@@ -2,13 +2,14 @@
 
 Personal site of Ayan Basheer, live at https://endyland.com.
 
-A home page and four tabs, each with its own 3D scene and its own look. No build step: the files
-here are the site. The plan, the content map and each tab's art direction are in `docs/DESIGN.md`.
+A home page, five tabs and a page for every project. Each tab has its own scene and look, and each
+branded project page takes on that brand's colors, fonts and logo. No build step: the files here are the site. The plan, the content map and each tab's art direction are in `docs/DESIGN.md`.
 
 - `/` the hub: a 6 by 6 antenna array whose beam is computed on the GPU and steers toward the
-  pointer. Scrolling flies the camera through four stops: the array, four rooms (one node per tab,
+  pointer. Scrolling flies the camera through four stops: the array, five rooms (one node per tab,
   hovering a room swings the beam to it), about (a tunnel of pipes) and contact (a beacon).
-- `/web-design/`, `/research/`, `/startup-work/`, `/projects/`: the four tabs.
+- `/web-design/`, `/research/`, `/startup-work/`, `/projects/`, `/experience/`: the five tabs.
+- `/<tab>/<slug>/`: one page per project, listed in `docs/projects.json`.
 
 All text is plain HTML. The canvases are decoration only.
 
@@ -20,11 +21,14 @@ All text is plain HTML. The canvases are decoration only.
 ## Files
 
 - `index.html` and `home/`: the home page, its styles, behaviour and beam scene.
-- `web-design/`, `research/`, `startup-work/`, `projects/`: one folder per tab with `index.html`,
-  `style.css`, `main.js`, `scene.js` and `img/` (placeholder images, replace each with a real one
-  of the same name and keep `width` and `height` on the `img`).
+- `web-design/`, `research/`, `startup-work/`, `projects/`, `experience/`: one folder per tab with
+  `index.html`, `style.css`, `main.js`, `scene.js` and `project-theme.css` (the look of its unbranded project pages).
+- `<tab>/<slug>/`: one folder per project with `index.html`, `style.css`, `main.js` and `img/` (WebP under 200 KB,
+  `thumb.webp` is the card on the tab page). Argus and RION pages share `startup-work/argus/brand.css` and
+  `startup-work/rion/brand.css`.
 - `shared/`: used by every page. `base.css` (tab bar, footer, badges, page transitions), `nav.js`
-  (transition direction), `motion.js` (reduced motion and other helpers), `scene-loader.js` (starts
+  (transition direction and the theme wipe into project pages), `project.css` and `project.js` (project page layout,
+  "What I did" reveal, count-up numbers, gallery lightbox, back links), `motion.js` (reduced motion and other helpers), `scene-loader.js` (starts
   3D after first paint, pauses it off screen), `legacy-hash.js` (old `/#argus` style links).
 - `shared/vendor/three-r186.module.min.js`: three.js 0.186.1. MIT license, text in
   `shared/vendor/three-LICENSE.txt` (also see `THIRD_PARTY.md`). Rebuild it with
@@ -40,7 +44,9 @@ All text is plain HTML. The canvases are decoration only.
 ## Checks
 
 `.github/scripts/check-site.sh` checks every page for broken local links and #anchors, broken
-script imports, inline scripts, the tab bar on all five pages with the right tab marked, sitemap
+script imports, inline scripts, the tab bar on all six main pages with the right tab marked, the tab bar
+and back link on every project page, `width` and `height` on every image, photos over 200 KB, the one
+project the owner keeps off the site, sitemap
 addresses, em dashes, bad redirect lines and redirect targets, a security.txt that expires within
 30 days, a missing or loosened Content-Security-Policy, and files over 25 MiB. It runs on every push and pull request. Run it locally before pushing:
 

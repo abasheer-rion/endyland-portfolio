@@ -1,0 +1,19 @@
+/* Experience tab look for its project pages. Matches experience/style.css.
+   Brief: docs/themes/tab-experience.md (not deployed). */
+:root{
+  --p-bg:#0B2545; --p-surface:#0F2E55; --p-ink:#EAF3FF; --p-mute:#A9C3E0;
+  --p-accent:#FFC857; --p-accent-bg:#FFC857; --p-on-accent:#0B2545; --p-link:#8FD8FF; --p-line:rgba(156,201,255,.28);
+  --p-display:"Barlow Condensed",ui-sans-serif,system-ui,sans-serif; --p-display-weight:600;
+  --p-body:"Barlow",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,"SF Mono",Menlo,monospace; --p-radius:2px;
+  --tb-bg:rgba(11,37,69,.96); --tb-fg:#EAF3FF; --tb-mute:#A9C3E0; --tb-accent:#FFC857; --tb-border:rgba(156,201,255,.28);
+  --tb-font:"Barlow",ui-sans-serif,system-ui,sans-serif; --tb-radius:2px; --focus:#FFC857; --ft-fg:#A9C3E0;
+  --badge-bg:transparent; --badge-fg:#8FD8FF; --badge-border:rgba(143,216,255,.6);
+}
+/* Blueprint paper and uppercase condensed headings, like the tab. */
+.proj h1,.proj h2{text-transform:uppercase;letter-spacing:.01em}
+body.proj-page{background:
+    linear-gradient(rgba(156,201,255,.12) 1px,transparent 1px) 0 0/100px 100px,
+    linear-gradient(90deg,rgba(156,201,255,.12) 1px,transparent 1px) 0 0/100px 100px,
+    linear-gradient(rgba(156,201,255,.05) 1px,transparent 1px) 0 0/20px 20px,
+    linear-gradient(90deg,rgba(156,201,255,.05) 1px,transparent 1px) 0 0/20px 20px,
+    var(--p-bg);background-attachment:fixed}

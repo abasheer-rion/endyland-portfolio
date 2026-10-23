@@ -22,6 +22,7 @@ html[data-pal="2"]{--tint:#FFF3CF}
 html[data-pal="3"]{--tint:#E9EFFF}
 html[data-pal="4"]{--tint:#E2F6F1}
 html[data-pal="5"]{--tint:#FFE9F3}
+html[data-pal="6"]{--tint:#E9F4FF}
 
 html{background:var(--bg);color:var(--ink)}
 html.wd-motion{scroll-behavior:smooth}
@@ -92,18 +93,20 @@ main{position:relative;z-index:1}
 .items{display:grid;gap:56px 34px;grid-template-columns:minmax(0,1fr);padding-bottom:12vh;counter-reset:item}
 .item{--c1:var(--coral);--c2:var(--sun);--c3:var(--blue);--on1:var(--ink);--tilt:-1deg;
   position:relative;counter-increment:item;perspective:1300px}
-#endyland{--c1:#FF5A4E;--c2:#FFC93C;--c3:#2D5BFF;--tilt:-1.6deg}
 #yotummy{--c1:#FFC93C;--c2:#FF5A4E;--c3:#2EC4B6;--tilt:1.8deg}
-#rion-website{--c1:#2D5BFF;--c2:#FFC93C;--c3:#2EC4B6;--on1:#fff;--tilt:-1.2deg}
-#rion-admin{--c1:#2EC4B6;--c2:#2D5BFF;--c3:#FF5A4E;--tilt:1.3deg}
-#park-with-love{--c1:#FF8FC7;--c2:#FFC93C;--c3:#FF5A4E;--tilt:-1.4deg}
+#new-door{--c1:#2D5BFF;--c2:#2EC4B6;--c3:#FFC93C;--on1:#fff;--tilt:-1.2deg}
+#detail-theory{--c1:#FFC93C;--c2:#FF5A4E;--c3:#2D5BFF;--tilt:1.3deg}
+#swadesi-mangoes{--c1:#2EC4B6;--c2:#FFC93C;--c3:#FF5A4E;--tilt:-1.4deg}
+#rion-website{--c1:#FF5A4E;--c2:#2D5BFF;--c3:#2EC4B6;--tilt:1.2deg}
+#endyland{--c1:#FF5A4E;--c2:#FFC93C;--c3:#2D5BFF;--tilt:-1.6deg}
 @media (min-width:900px){
   .items{grid-template-columns:repeat(12,minmax(0,1fr))}
-  #endyland{grid-column:1/8}
-  #yotummy{grid-column:8/13;margin-top:150px}
-  #rion-website{grid-column:2/7}
-  #rion-admin{grid-column:7/13;margin-top:90px}
-  #park-with-love{grid-column:3/10}
+  #yotummy{grid-column:1/8}
+  #new-door{grid-column:8/13;margin-top:150px}
+  #detail-theory{grid-column:2/7}
+  #swadesi-mangoes{grid-column:7/13;margin-top:90px}
+  #rion-website{grid-column:1/7}
+  #endyland{grid-column:7/13;margin-top:120px}
 }
 
 .card{position:relative;transform-style:preserve-3d;

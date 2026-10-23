@@ -1,0 +1,89 @@
+/* Experience tab: a blueprint of a network. Only this page loads this file. See docs/DESIGN.md.
+   Navy drafting paper with a fine grid, white and cyan linework, amber packets moving between nodes
+   (scene.js, a plain 2D canvas). Each job is a drawing sheet with a title block.
+   Motion only runs under html.ex-anim, which main.js sets when reduced motion is off.
+   With no JS, or reduced motion, every element shows in its final state. */
+:root{
+  --bg:#0B2545; --sheet:#0E2C52; --ink:#EAF3FF; --mute:#A9C3E0; --line:rgba(156,201,255,.32); --line-hi:#9CC9FF;
+  --cyan:#8FD8FF; --amber:#FFC857;
+  --display:"Barlow Condensed",ui-sans-serif,system-ui,sans-serif; --body:"Barlow",ui-sans-serif,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --tb-bg:rgba(11,37,69,.96); --tb-fg:#EAF3FF; --tb-mute:#A9C3E0; --tb-accent:#FFC857; --tb-border:rgba(156,201,255,.28);
+  --tb-font:"Barlow",ui-sans-serif,system-ui,sans-serif; --tb-radius:2px; --focus:#FFC857; --ft-fg:#A9C3E0;
+  --badge-bg:transparent; --badge-fg:#8FD8FF; --badge-border:rgba(143,216,255,.6);
+}
+html{background:var(--bg);color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;
+  /* Drafting paper: a fine grid, a heavier line every fifth square, and a soft vignette. */
+  background:
+    radial-gradient(ellipse at 50% 30%,transparent 50%,rgba(3,12,26,.55) 100%),
+    linear-gradient(rgba(156,201,255,.13) 1px,transparent 1px) 0 0/100px 100px,
+    linear-gradient(90deg,rgba(156,201,255,.13) 1px,transparent 1px) 0 0/100px 100px,
+    linear-gradient(rgba(156,201,255,.06) 1px,transparent 1px) 0 0/20px 20px,
+    linear-gradient(90deg,rgba(156,201,255,.06) 1px,transparent 1px) 0 0/20px 20px,
+    var(--bg);
+  background-attachment:fixed}
+::selection{background:var(--amber);color:#0B2545}
+.tabbar{font-weight:500}
+
+/* ---------- Network scene ---------- */
+.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+.scene.on{opacity:1}
+
+main{position:relative;z-index:1}
+main a{color:var(--cyan);text-underline-offset:3px}
+
+/* ---------- Intro ---------- */
+.intro{padding:clamp(56px,12vh,140px) var(--gut) 40px;max-width:1160px;margin:0 auto}
+.kicker{display:flex;gap:18px;margin:0 0 14px;font:500 13px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.intro h1{margin:0;font:600 clamp(64px,13vw,168px)/.86 var(--display);letter-spacing:.01em;text-transform:uppercase}
+.lede{max-width:34ch;margin:22px 0 0;font-size:clamp(19px,2.2vw,24px);line-height:1.45;color:var(--ink)}
+
+/* ---------- Sheets ---------- */
+.items{display:grid;gap:34px;max-width:1160px;margin:0 auto;padding:20px var(--gut) 60px}
+.sheet{position:relative;background:rgba(14,44,82,.94);border:1px solid var(--line);padding:26px clamp(18px,3vw,34px) 30px}
+/* Corner ticks, like a drawing frame. */
+.sheet::before,.sheet::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--line-hi)}
+.sheet::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
+.sheet::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
+.sheet-head{display:grid;grid-template-columns:1fr auto;gap:4px 20px;align-items:end;padding-bottom:16px;margin-bottom:22px;border-bottom:1px dashed var(--line)}
+.sheet-tag{grid-column:1/-1;margin:0;font:500 12px/1.4 var(--mono);letter-spacing:.16em;color:var(--amber)}
+.sheet h2{margin:0;font:600 clamp(36px,5vw,58px)/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.item-role{grid-column:1;margin:0;color:var(--mute)}
+.item-dates{grid-column:2;grid-row:2/4;margin:0;font:500 14px/1.4 var(--mono);color:var(--mute);text-align:right}
+.sheet-body{display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.sheet-body{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}}
+.sheet-body p{margin:0 0 14px}
+.item-img{width:100%;border:1px solid var(--line)}
+.facts{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:8px}
+.facts li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid rgba(156,201,255,.14)}
+.facts b{flex:none;min-width:4.6ch;font:600 28px/1 var(--display);color:var(--amber)}
+.sub-links{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:6px}
+.sub-links a{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.sub-links a::before{content:"";width:10px;height:10px;border:2px solid var(--cyan);border-radius:50%;flex:none}
+.link-more{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border:1px solid var(--amber);color:var(--amber);
+  font:600 15px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+main .link-more{color:var(--amber)}
+.link-more:hover{background:var(--amber);color:#0B2545}
+.item-more{margin:6px 0 0}
+.sheet-small .sheet-body-text{display:block;max-width:60ch}
+.sheet-small h2{font-size:clamp(28px,3.4vw,38px)}
+
+/* ---------- Motion (html.ex-anim only) ---------- */
+html.ex-anim .sheet{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+html.ex-anim .sheet.in{opacity:1;transform:none}
+/* The frame lines draw on as a sheet comes in. */
+html.ex-anim .sheet::before,html.ex-anim .sheet::after{transform:scale(0);transition:transform .5s .25s cubic-bezier(.2,.7,.2,1)}
+html.ex-anim .sheet::before{transform-origin:0 0}
+html.ex-anim .sheet::after{transform-origin:100% 100%}
+html.ex-anim .sheet.in::before,html.ex-anim .sheet.in::after{transform:none}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .item-dates{grid-column:1;grid-row:auto;text-align:left}
+  .facts b{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  html.ex-anim .sheet,html.ex-anim .sheet::before,html.ex-anim .sheet::after{opacity:1;transform:none;transition:none}
+}

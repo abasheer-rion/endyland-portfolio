@@ -95,7 +95,7 @@ h3.sub{font-weight:700;font-variation-settings:"wdth" 75,"opsz" 72;
 
 .hint{margin:-18px 0 40px;color:var(--mute);max-width:48ch}
 
-/* The four rooms. Each card is one big link into a tab, with a hint of that tab's colors.
+/* The five rooms. Each card is one big link into a tab, with a hint of that tab's colors.
    Two columns on the left, so the beam and the room nodes stay in view on the right. */
 .stop-rooms{min-height:100vh}
 .portals{list-style:none;margin:0;padding:0;display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
@@ -113,6 +113,9 @@ h3.sub{font-weight:700;font-variation-settings:"wdth" 75,"opsz" 72;
 .portal-research{--p-hi:#39FF88;--p-art:repeating-radial-gradient(circle,rgba(57,255,136,.7) 0 2px,transparent 2px 14px)}
 .portal-startup-work{--p-hi:#A9C6FF;--p-art:radial-gradient(circle,rgba(169,198,255,.9),rgba(155,123,255,.4) 45%,transparent 70%)}
 .portal-projects{--p-hi:#FF7BE5;--p-art:repeating-linear-gradient(90deg,#FF4FD8 0 18px,#3DF2FF 18px 36px,#FFE14D 36px 54px)}
+/* The fifth room spans the row, so the grid stays two by two above it. */
+.portal-experience{grid-column:1/-1;--p-hi:#FFC857;--p-art:linear-gradient(rgba(156,201,255,.7) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,rgba(156,201,255,.7) 1px,transparent 1px) 0 0/16px 16px}
+.portal-experience .tilt{min-height:200px}
 
 /* Staggered reveal. Only cards below the fold at load get the hidden start state, so nothing flashes. */
 .reveal.pre{opacity:0;transform:translateY(48px) scale(.97)}

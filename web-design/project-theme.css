@@ -1,0 +1,15 @@
+/* Web design tab look for its unbranded project pages (endyland.com). Matches web-design/style.css.
+   Brief: docs/themes/tab-web-design.md (not deployed). */
+:root{
+  --p-bg:#FFF4E0; --p-surface:#FFFDF7; --p-ink:#1B1B1F; --p-mute:#45454F;
+  --p-accent:#FF5A4E; --p-accent-bg:#FF5A4E; --p-on-accent:#1B1B1F; --p-link:#1B1B1F; --p-line:#1B1B1F;
+  --p-display:"Archivo",ui-sans-serif,system-ui,sans-serif; --p-display-weight:900;
+  --p-body:"DM Sans",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace; --p-radius:0px;
+  --tb-bg:rgba(255,244,224,.97); --tb-fg:#1B1B1F; --tb-mute:#45454F; --tb-accent:#FF5A4E; --tb-border:#1B1B1F;
+  --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#1B1B1F; --ft-fg:#1B1B1F;
+  --badge-bg:#FFC93C; --badge-fg:#1B1B1F; --badge-border:#1B1B1F;
+}
+/* Chunky ink outlines and hard offset shadows, like the tab's cards. */
+.proj h1{font-variation-settings:"wdth" 112;letter-spacing:-.01em}
+.proj-hero-media img,.stat,.card-link,.gallery a,.products li{border:3px solid var(--p-ink);box-shadow:6px 6px 0 var(--p-ink)}
+.proj-links a{border:3px solid var(--p-ink);box-shadow:4px 4px 0 var(--p-ink)}

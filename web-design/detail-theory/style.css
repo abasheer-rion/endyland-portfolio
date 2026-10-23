@@ -1,0 +1,13 @@
+/* Detail Theory project page. Only this page loads this file.
+   Theme: Detail Theory. Brief: docs/themes/detail-theory.md (not deployed).
+   Shared layout: /shared/project.css. Theme tokens are set below.
+   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+:root{
+  --p-bg:#000000; --p-surface:#0A0A0A; --p-ink:#FFFFFF; --p-mute:#9E9E9E;
+  --p-accent:#FBCE2A; --p-accent-bg:#FBCE2A; --p-on-accent:#000000; --p-link:#FBCE2A; --p-line:rgba(255,255,255,.1);
+  --p-display:"Geist",ui-sans-serif,system-ui,sans-serif; --p-display-weight:800;
+  --p-body:"Geist",ui-sans-serif,system-ui,sans-serif; --p-mono:"Geist Mono",ui-monospace,Menlo,monospace; --p-radius:12px;
+  --tb-bg:rgba(0,0,0,.92); --tb-fg:#FFFFFF; --tb-mute:#9E9E9E; --tb-accent:#FBCE2A; --tb-border:rgba(255,255,255,.1);
+  --tb-font:"Geist",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#FBCE2A; --ft-fg:#9E9E9E;
+  --badge-bg:rgba(251,206,42,.08); --badge-fg:#FBCE2A; --badge-border:rgba(251,206,42,.45);
+}

@@ -115,6 +115,7 @@ main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--
   transform:translateY(var(--hop)) rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;
   transition:transform .2s steps(3)}
 .cab-cyan{--c:var(--cyan);--glow:rgba(61,242,255,.45)}
+.cab-yellow{--c:var(--yellow);--glow:rgba(255,225,77,.45)}
 .cab-top{position:relative;padding:14px 18px 12px;background:var(--plum);
   box-shadow:0 calc(var(--px)*-1) 0 0 var(--c),calc(var(--px)*-1) 0 0 0 var(--c),var(--px) 0 0 0 var(--c),0 var(--px) 0 0 #05020F}
 /* Marquee bulbs along the top edge. They chase while idle and race when the cabinet is lit. */

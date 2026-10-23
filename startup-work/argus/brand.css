@@ -1,0 +1,11 @@
+/* Argus brand tokens. Used by /startup-work/argus/ and every Argus sub-project page.
+   Brief: docs/themes/argus.md (not deployed). */
+:root{
+  --p-bg:#FFFFFF; --p-surface:#F7F6F2; --p-ink:#1A1A1A; --p-mute:#5A5A55;
+  --p-accent:#DC2626; --p-accent-bg:#DC2626; --p-on-accent:#FFFFFF; --p-link:#B91C1C; --p-line:rgba(26,26,26,.1);
+  --p-display:"Fraunces",ui-serif,Georgia,serif; --p-display-weight:400;
+  --p-body:"Inter",ui-sans-serif,system-ui,sans-serif; --p-mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-radius:14px;
+  --tb-bg:rgba(255,255,255,.94); --tb-fg:#1A1A1A; --tb-mute:#5A5A55; --tb-accent:#DC2626; --tb-border:rgba(26,26,26,.1);
+  --tb-font:"Inter",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#B91C1C; --ft-fg:#5A5A55;
+  --badge-bg:#FEF2F2; --badge-fg:#1A1A1A; --badge-border:#F5C2C2;
+}

@@ -1,0 +1,16 @@
+/* Argus Dashboard project page. Only this page loads this file.
+   Theme: Argus app (dark). Brief: docs/themes/argus.md (not deployed).
+   Shared layout: /shared/project.css. Theme tokens: /startup-work/argus/brand.css.
+   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+/* The dashboard page uses the app's dark mode, not the light website. */
+:root{
+  --p-bg:#171717; --p-surface:#262626; --p-ink:#F5F5F5; --p-mute:#A3A3A3;
+  --p-accent:#C0384F; --p-accent-bg:#C0384F; --p-on-accent:#FFFFFF; --p-link:#F28B9C; --p-line:rgba(255,255,255,.1);
+  --p-display:"Fraunces",ui-serif,Georgia,serif; --p-display-weight:400;
+  --p-body:"Inter",ui-sans-serif,system-ui,sans-serif; --p-mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-radius:14px;
+  --tb-bg:rgba(23,23,23,.94); --tb-fg:#F5F5F5; --tb-mute:#A3A3A3; --tb-accent:#C0384F; --tb-border:rgba(255,255,255,.1);
+  --tb-font:"Inter",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#F28B9C; --ft-fg:#A3A3A3;
+  --badge-bg:rgba(255,255,255,.06); --badge-fg:#F5F5F5; --badge-border:rgba(255,255,255,.22);
+}
+/* The Argus logo is dark ink. Flip it to light for the dark page; the red gear stays red. */
+.proj-logo{filter:invert(1) hue-rotate(180deg)}

@@ -1,0 +1,13 @@
+/* YoTummy project page. Only this page loads this file.
+   Theme: YoTummy. Brief: docs/themes/yotummy.md (not deployed).
+   Shared layout: /shared/project.css. Theme tokens are set below.
+   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+:root{
+  --p-bg:#FCFAF8; --p-surface:#FFFFFF; --p-ink:#2E241F; --p-mute:#6B5D55;
+  --p-accent:#FF7600; --p-accent-bg:#FF7600; --p-on-accent:#2E241F; --p-link:#A84300; --p-line:rgba(46,36,31,.12);
+  --p-display:"Fredoka",ui-rounded,system-ui,sans-serif; --p-display-weight:700;
+  --p-body:"DM Sans",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace; --p-radius:22px;
+  --tb-bg:rgba(252,250,248,.96); --tb-fg:#2E241F; --tb-mute:#6B5D55; --tb-accent:#FF7600; --tb-border:rgba(46,36,31,.12);
+  --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#A84300; --ft-fg:#6B5D55;
+  --badge-bg:#FFF1E5; --badge-fg:#2E241F; --badge-border:#F2C6A2;
+}
