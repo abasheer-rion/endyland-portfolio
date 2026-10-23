@@ -62,4 +62,4 @@ Each deploy adds `version.txt` with the commit, and the run checks endyland.com 
 
 Manual fallback: `~/endyland-infra/scripts/deploy-portfolio.sh`.
 
-Other addresses on the domain: `movie.` and `parking.` run separately.
+Other addresses on the domain run separately.

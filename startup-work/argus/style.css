@@ -83,3 +83,5 @@ html.pj-anim .proj-argus .proj-subs .cards>li.in:hover{transition-delay:0s}
 @media (prefers-reduced-motion:reduce){
   .proj-argus .cards>li,.proj-argus .card-link img{transition:none}
 }
+/* The last number spans its row, so it never sits alone in a narrow cell. */
+.proj-argus .stat:last-child:not(:first-child){grid-column:1/-1}

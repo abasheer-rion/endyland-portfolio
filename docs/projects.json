@@ -180,6 +180,7 @@
     "thumb": "/startup-work/argus/img/thumb.webp",
     "images": [
       "/startup-work/argus/img/hero.webp",
+      "/startup-work/argus/img/hero-720.webp",
       "/startup-work/argus/img/logo.webp",
       "/startup-work/argus/img/mark.webp",
       "/startup-work/argus/img/thumb.webp"
@@ -269,6 +270,7 @@
       "/startup-work/rion/img/hero.webp",
       "/startup-work/rion/img/logo.webp",
       "/startup-work/rion/img/products.webp",
+      "/startup-work/rion/img/phone.webp",
       "/startup-work/rion/img/thumb.webp"
     ]
   },

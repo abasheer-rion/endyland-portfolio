@@ -1,7 +1,7 @@
 /* endyland hosting and status page project page. Only this page loads this file.
    Theme: Projects tab, in a server room. Brief: docs/themes/tab-projects.md (not deployed).
    Shared layout: /shared/project.css. Arcade parts: /projects/project-theme.css.
-   The look: a voxel server rack that sends a health check out on a timer, 30 green days of uptime
+   The look: a voxel server rack that sends a health check out on a timer, a strip of green health checks
    like the status page, and "What I did" as a list of services that are all up. */
 :root{
   --p-bg:#100C03; --p-surface:#221A07; --panel:rgba(16,12,3,.93); --shade:#060401;
@@ -26,7 +26,7 @@ body.proj-page{background-image:
     repeating-linear-gradient(0deg,transparent 0 18px,#1A1408 18px 20px) bottom/100% 30% no-repeat,#0A0702}
 .stage-check{color:var(--pg2)}
 .numbers-side{display:flex;flex-direction:column;justify-content:center;gap:26px}
-.numbers-side .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}
+.numbers-side .stats{grid-template-columns:minmax(0,1fr);margin:0}
 @media (max-width:900px){
   .numbers-grid{grid-template-columns:minmax(0,1fr)}
   .numbers-grid .stage{min-height:0;height:clamp(240px,64vw,340px)}

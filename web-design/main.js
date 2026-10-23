@@ -137,9 +137,15 @@ for (const item of items) {
 
   toBack.addEventListener('click', (e) => { e.stopPropagation(); setFlip(item, true); toFront.focus({ preventScroll: true }); });
   toFront.addEventListener('click', (e) => { e.stopPropagation(); setFlip(item, false); toBack.focus({ preventScroll: true }); });
-  // Keyboard: tabbing into a face turns that face to the front.
-  front.addEventListener('focusin', () => setFlip(item, false));
-  back.addEventListener('focusin', () => setFlip(item, true));
+  // Keyboard: tabbing into a face turns that face to the front, at once, so focus is never on the hidden face.
+  const snapTo = (to) => {
+    if (item.classList.contains('flipped') === to) return;
+    item.classList.add('snap');
+    setFlip(item, to);
+    requestAnimationFrame(() => requestAnimationFrame(() => item.classList.remove('snap')));
+  };
+  front.addEventListener('focusin', (e) => { if (e.target.matches(':focus-visible')) snapTo(false); else setFlip(item, false); });
+  back.addEventListener('focusin', (e) => { if (e.target.matches(':focus-visible')) snapTo(true); else setFlip(item, true); });
   // Click or tap anywhere else on a card to turn it over. Not while selecting text.
   const tapFlip = (to) => (e) => {
     if (e.target.closest('a,button,.badge-private')) return;

@@ -84,11 +84,11 @@ html.rs-anim .cue::after{animation:drip 2.2s ease-in-out 2s infinite;transform-o
 .timebase{display:none}
 @media (min-width:1100px){
   .timebase{display:flex;gap:12px;position:fixed;right:18px;top:50%;z-index:40;transform:translateY(-50%);font-size:12px}
-  .tb-rail{position:relative;width:2px;height:150px;background:var(--line)}
+  .tb-rail{position:relative;width:2px;height:200px;background:var(--line)}
   /* The mark is as tall as the rail, so translateY(0..100%) walks its dot from top to bottom. */
-  .tb-mark{position:absolute;left:-4px;top:-5px;width:10px;height:150px;transition:transform .15s linear}
+  .tb-mark{position:absolute;left:-4px;top:-5px;width:10px;height:200px;transition:transform .15s linear}
   .tb-mark::before{content:"";position:absolute;left:0;top:0;width:10px;height:10px;background:var(--amber);box-shadow:0 0 10px var(--amber)}
-  .timebase ol{list-style:none;margin:-9px 0;padding:0;display:flex;flex-direction:column;justify-content:space-between;height:168px}
+  .timebase ol{list-style:none;margin:-9px 0;padding:0;display:flex;flex-direction:column;justify-content:space-between;height:218px}
   .timebase a{display:block;padding:2px 6px;color:var(--mute);text-decoration:none;background:rgba(5,7,5,.85)}
   .timebase a:hover,.timebase a.on{color:var(--ink)}
   .timebase a.on .tb-ch{color:var(--amber)}
@@ -236,3 +236,9 @@ html.rs-anim .plot.is-in .bar{transition:transform .5s cubic-bezier(.2,.9,.3,1.3
 @media (prefers-reduced-motion:reduce){
   .scene,.polar,.ch::before,.ch::after,.plot-svg .cur{transition:none}
 }
+/* Parity readout: the real results so far, as instrument numbers. */
+.readout .ro-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;background:var(--line);border:1px solid var(--line)}
+.readout .ro-list div{padding:14px 14px 12px;background:var(--bg)}
+.readout dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.readout dd{margin:6px 0 0;font-size:clamp(26px,3vw,36px);line-height:1.1;font-weight:700;color:var(--phosphor);font-variant-numeric:tabular-nums}
+.readout .ro-zero dd{color:var(--amber)}

@@ -87,7 +87,7 @@ function onScroll() {
   // the timebase dot walks the page; its link lights up for the part on screen
   const page = y / Math.max(1, document.documentElement.scrollHeight - innerHeight);
   if (tbMark) tbMark.style.transform = `translateY(${(page * 100).toFixed(1)}%)`;
-  const ids = ['main', 'rf-direction-finder', 'parity'];
+  const ids = ['main', 'rf-direction-finder', 'parity', 'dfw-rent-model', 'spending-explorer'];
   let on = 0;
   ids.forEach((id, i) => { const el = document.getElementById(id); if (i && el.getBoundingClientRect().top < innerHeight * 0.5) on = i; });
   tbLinks.forEach((a, i) => a.classList.toggle('on', i === on));

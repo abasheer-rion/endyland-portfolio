@@ -206,3 +206,12 @@ html.wd-motion .intro::after{animation:nudge 1.8s var(--spring) infinite}
 /* The hint under the title matches the device: grab and throw with a mouse, tap on a touch screen. */
 .hint-touch{display:none}
 @media (hover:none),(pointer:coarse){.hint-fine{display:none}.hint-touch{display:inline}}
+/* The picture and the title on the front open the project page. The Flip button turns the card. */
+a.frame{display:block;color:inherit}
+.front-title{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 3px no-repeat;transition:background-size .3s}
+.front-title:hover,.front-title:focus-visible{background-size:100% 3px}
+a.front-img:hover .item-img{filter:saturate(1.15) brightness(1.03)}
+/* Turned by the keyboard: no slow spin, so focus never sits on a face you cannot see. */
+html.wd-motion .item.snap .flip{transition:none}
+/* The shape hints only make sense when the shapes move. */
+html:not(.wd-motion) .live-only,html.no-webgl .live-only{display:none}
