@@ -1,4 +1,61 @@
 /* RION Solutions project page. Only this page loads this file.
    Theme: RION Solutions. Brief: docs/themes/rion.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /startup-work/rion/brand.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Brand tokens and shared RION look: /startup-work/rion/brand.css.
+   This page: the logo mark turning in 3D beside the headline (scene.js), the live site in a browser frame that
+   straightens as it scrolls in, a status panel that types itself, and product cards that glow red at the edge. */
+
+/* ---------- Hero ---------- */
+@media (min-width:960px){
+  .proj-rion .proj-hero{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 40px;padding-top:36px}
+}
+.proj-rion h1{font-size:clamp(46px,8.4vw,104px)}
+.rion-stage{position:relative;min-height:260px;pointer-events:none}
+@media (min-width:960px){.rion-stage{min-height:480px}}
+/* Without the canvas, the stage shows the flat logo mark in a still glow. */
+.rion-stage::before{content:"";position:absolute;inset:0;margin:auto;width:min(80%,320px);aspect-ratio:1;
+  background:radial-gradient(closest-side,rgba(255,49,49,.3),transparent)}
+.rion-stage::after{content:"";position:absolute;inset:0;margin:auto;width:150px;height:144px;
+  background:url(img/logo.webp) 0 0/auto 144px no-repeat;transition:opacity .8s ease}
+html.rion-live .rion-stage::before,html.rion-live .rion-stage::after{opacity:0}
+
+.proj-rion .proj-hero-media{grid-column:1/-1;max-width:1100px;width:100%;margin:12px auto 0}
+.proj-rion .proj-hero-media img{border:0;border-radius:0}
+
+/* ---------- Numbers and the status panel ---------- */
+.proj-numbers{display:grid;gap:22px}
+.proj-numbers h2{margin-bottom:2px}
+.proj-numbers .stats{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+@media (min-width:1000px){
+  .proj-numbers{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:start}
+  .proj-numbers h2{grid-column:1/-1}
+  .proj-numbers .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.proj-numbers .stat{position:relative;overflow:hidden}
+.proj-numbers .stat::before{content:"";position:absolute;left:18px;right:18px;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,49,49,.9),transparent)}
+.proj-numbers .stat b{font-size:clamp(34px,4vw,50px)}
+
+/* ---------- Products ---------- */
+.proj-rion .products{gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.proj-rion .products li{position:relative;min-height:240px;padding:96px 24px 24px;overflow:hidden;font-size:17px;color:var(--r-grey)}
+.proj-rion .products b{margin-bottom:8px;font-size:clamp(30px,3.4vw,40px);font-weight:300;letter-spacing:.06em;color:#fff}
+.prod-n{position:absolute;right:20px;top:14px;font:200 64px/1 var(--p-display);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18)}
+/* Each product's icon, drawn in CSS: a spark, a shield and a grid. */
+.products li::before{content:"";position:absolute;left:24px;top:26px;width:44px;height:44px;border-radius:12px;
+  background:rgba(255,49,49,.1);box-shadow:inset 0 0 0 1px rgba(255,49,49,.35),0 0 30px rgba(255,49,49,.25)}
+.products li>b::before{content:"";position:absolute;left:36px;top:38px;width:20px;height:20px;background:var(--r-red)}
+.prod-forge>b::before{clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.prod-argus>b::before{clip-path:polygon(50% 0,100% 18%,92% 62%,50% 100%,8% 62%,0 18%)}
+.prod-nexus>b::before{background:linear-gradient(var(--r-red) 0 0) 0 0/42% 42% no-repeat,linear-gradient(var(--r-red) 0 0) 100% 0/42% 42% no-repeat,
+  linear-gradient(var(--r-red) 0 0) 0 100%/42% 42% no-repeat,linear-gradient(rgba(255,49,49,.45) 0 0) 100% 100%/42% 42% no-repeat}
+.proj-rion .products a{color:var(--p-link)}
+@media (prefers-reduced-motion:no-preference){
+  .products li>b::before{transition:transform .6s var(--r-ease)}
+  .products li:hover>b::before{transform:rotate(90deg) scale(1.1)}
+  .prod-argus:hover>b::before{transform:scale(1.15)}
+}
+
+/* ---------- Clients and gallery ---------- */
+.proj-rion .gallery{grid-template-columns:minmax(0,460px)}
+.proj-rion .gallery .rion-frame a{border:0;border-radius:0}
+.proj-rion .gallery figcaption{padding:10px 16px 14px;margin:0}

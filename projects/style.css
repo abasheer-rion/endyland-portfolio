@@ -240,3 +240,6 @@ main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 var(--
   .cab:is(:hover,:focus-within,.lit){--hop:0px}
   .cart:is(:hover,:focus-within,.lit) .cart-shell{transform:none}
 }
+
+/* Stock photo credits for the card pictures. */
+.tab-credits{max-width:1160px;margin:0 auto;padding:0 0 40px;font-size:13px;line-height:1.5;color:var(--mute);position:relative;z-index:2}

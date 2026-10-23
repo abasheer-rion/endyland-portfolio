@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
 <link rel="stylesheet" href="/web-design/rion-website/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-rion-website">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,6 +40,7 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" aria-hidden="true"></canvas>
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>RION Solutions website</span></li></ol></nav>
 
@@ -51,16 +53,17 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. 14 of the 18 commits.</dd></div><div><dt>Dates</dt><dd>Apr 2026</dd></div><div><dt>Company</dt><dd>RION Solutions</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Tailwind</li><li>Framer Motion</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/site.webp" width="1440" height="900" alt="The RION Solutions home page: a dark starfield with a red glow behind the headline." fetchpriority="high" decoding="async"><figcaption>The live site, which still runs the Framer version.</figcaption></figure>
+    <figure class="proj-hero-media rion-frame rion-flatten"><div class="rf-bar" aria-hidden="true"><i></i><i></i><i></i><span>rionsolution.com</span></div><img class="rion-tilt" src="img/site.webp" width="1440" height="900" alt="The RION Solutions home page: a dark starfield with a red glow behind the headline." fetchpriority="high" decoding="async"><figcaption>The live site, which still runs the Framer version.</figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>14 of 18</b><span>commits are mine</span></li></ul>
+    <ul class="stats"><li class="stat rion-glow"><i class="commits" aria-hidden="true"><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i class="c-mine"></i><i></i><i></i><i></i><i></i></i><b>14 of 18</b><span>commits are mine</span></li></ul>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
+    <div class="swap" aria-hidden="true"><span class="sw-from">Framer</span><i></i><span class="sw-to">Next.js</span></div>
     <ul class="did-list">
       <li>Rebuilt the Framer site in Next.js with Tailwind and Framer Motion.</li>
       <li>The live site still runs the Framer version.</li>

@@ -41,7 +41,7 @@
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>New Door Investments</span></li></ol></nav>
 
-  <header class="proj-hero">
+  <header class="proj-hero nd-hero">
     <div class="proj-intro">
     <img class="proj-logo" src="img/logo.webp" width="154" height="168" alt="New Door logo">
     <p class="proj-kicker">Client site and tools</p>
@@ -50,7 +50,13 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. 68 of the 69 site commits.</dd></div><div><dt>Dates</dt><dd>Site Apr to Sep 2026. Email app Dec 2025 to Sep 2026.</dd></div><div><dt>Client</dt><dd>New Door Investments</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Vercel</li><li>Google Sheets</li><li>GoHighLevel</li><li>Amazon SES</li><li>Electron</li><li>Docker</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://newdoorinvestments.net" rel="noopener">newdoorinvestments.net</a></li><li><a href="https://inventory.newdoorinvestments.net" rel="noopener">Inventory site</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments." fetchpriority="high" decoding="async"></figure>
+    <figure class="proj-hero-media nd-media">
+      <div class="nd-frame">
+        <img src="img/hero.webp" width="1440" height="900" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments." fetchpriority="high" decoding="async">
+        <span class="nd-fog" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="nd-door" aria-hidden="true"><span class="nd-leaf nd-leaf-l"></span><span class="nd-leaf nd-leaf-r"></span></span>
+      </div>
+    </figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
@@ -60,6 +66,7 @@
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
+    <div class="nd-did">
     <ul class="did-list">
       <li>Moved the site off Framer to Next.js on Vercel, and added Google Analytics.</li>
       <li>Added land development pages, a booking page and case studies.</li>
@@ -67,6 +74,21 @@
       <li>Built a <a href="/projects/ses-mailer/">desktop bulk email app</a> for the team on Amazon SES. About $8 a month for 25,000 emails.</li>
       <li>Built a <a href="/projects/gohighlevel-mcp/">connector with 48 tools</a> that lets Claude work inside their CRM.</li>
     </ul>
+    <svg class="nd-plat" viewBox="0 0 400 320" aria-hidden="true" focusable="false">
+      <path class="nd-road" pathLength="1" d="M-10 268 C 90 250, 150 300, 250 276 S 380 230, 410 244"/>
+      <path class="nd-edge" pathLength="1" d="M34 40 L360 26 L376 226 C 300 214, 250 250, 180 246 L 40 236 Z"/>
+      <g class="nd-lots">
+        <path pathLength="1" d="M34 40 L118 36 L122 134 L37 138 Z"/>
+        <path pathLength="1" d="M118 36 L200 33 L204 130 L122 134 Z"/>
+        <path pathLength="1" d="M200 33 L282 29 L288 127 L204 130 Z"/>
+        <path pathLength="1" d="M282 29 L360 26 L368 124 L288 127 Z"/>
+        <path pathLength="1" d="M37 138 L122 134 L126 240 L40 236 Z"/>
+        <path pathLength="1" d="M122 134 L204 130 L180 246 L126 240 Z"/>
+        <path pathLength="1" d="M204 130 L288 127 L292 228 C 250 246, 210 248, 180 246 Z"/>
+        <path pathLength="1" d="M288 127 L368 124 L376 226 C 340 220, 310 222, 292 228 Z"/>
+      </g>
+    </svg>
+    </div>
   </section>
 
   <section class="proj-section proj-gallery" aria-labelledby="gallery-h">

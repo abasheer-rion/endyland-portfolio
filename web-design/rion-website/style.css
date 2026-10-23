@@ -1,4 +1,47 @@
 /* RION Solutions website project page. Only this page loads this file.
    Theme: RION Solutions. Brief: docs/themes/rion.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /startup-work/rion/brand.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Brand tokens and shared RION look: /startup-work/rion/brand.css.
+   This page copies the site's own hero: centered text over a starfield with a red glow that follows the cursor,
+   plus shooting stars (scene.js). The site sits in a browser frame that straightens as it scrolls in and tilts
+   toward the pointer. 14 of 18 commit squares light up one by one. */
+
+/* ---------- Hero, centered like the live site ---------- */
+.proj-rion-website .proj-hero{grid-template-columns:minmax(0,1fr);text-align:center;padding-top:44px;gap:40px}
+.proj-rion-website .proj-intro{display:flex;flex-direction:column;align-items:center;width:100%;max-width:860px;min-width:0;margin:0 auto}
+.proj-rion-website h1{font-size:clamp(40px,7.6vw,96px)}
+.proj-rion-website .proj-summary{margin-left:auto;margin-right:auto}
+.proj-rion-website .proj-meta{width:100%;max-width:760px;text-align:left;padding:18px 22px;border:1px solid var(--r-glass-line);
+  border-radius:var(--p-radius);background:rgba(255,255,255,.035)}
+.proj-rion-website .proj-links{justify-content:center}
+.proj-rion-website .proj-hero-media{width:100%;max-width:1120px;margin:0 auto}
+.proj-rion-website .proj-hero-media img{border:0;border-radius:0}
+.proj-rion-website .proj-hero-media figcaption{margin:0;padding:12px 18px 14px;text-align:left;border-top:1px solid var(--r-glass-line)}
+
+/* ---------- Commit squares ---------- */
+.proj-rion-website .stats{grid-template-columns:minmax(0,520px)}
+.proj-rion-website .stat{display:flex;flex-direction:column;padding:26px 26px 24px}
+.proj-rion-website .stat b{font-size:clamp(46px,6vw,76px)}
+.commits{order:3;display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:20px;max-width:360px}
+.commits i{aspect-ratio:1;border-radius:4px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03)}
+.commits .c-mine{background:var(--r-red);border-color:var(--r-red);box-shadow:0 0 12px rgba(255,49,49,.5)}
+html.pj-anim .commits .c-mine{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.14);box-shadow:none;
+  transition:background .3s ease,border-color .3s ease,box-shadow .3s ease}
+html.pj-anim .commits.in .c-mine{background:var(--r-red);border-color:var(--r-red);box-shadow:0 0 12px rgba(255,49,49,.5)}
+.commits.in .c-mine:nth-child(1){transition-delay:.05s}.commits.in .c-mine:nth-child(2){transition-delay:.1s}
+.commits.in .c-mine:nth-child(3){transition-delay:.15s}.commits.in .c-mine:nth-child(4){transition-delay:.2s}
+.commits.in .c-mine:nth-child(5){transition-delay:.25s}.commits.in .c-mine:nth-child(6){transition-delay:.3s}
+.commits.in .c-mine:nth-child(7){transition-delay:.35s}.commits.in .c-mine:nth-child(8){transition-delay:.4s}
+.commits.in .c-mine:nth-child(9){transition-delay:.45s}.commits.in .c-mine:nth-child(10){transition-delay:.5s}
+.commits.in .c-mine:nth-child(11){transition-delay:.55s}.commits.in .c-mine:nth-child(12){transition-delay:.6s}
+.commits.in .c-mine:nth-child(13){transition-delay:.65s}.commits.in .c-mine:nth-child(14){transition-delay:.7s}
+
+/* ---------- Framer to Next.js ---------- */
+.swap{display:flex;align-items:center;gap:14px;margin:-6px 0 26px;font:500 15px/1 var(--p-mono)}
+.swap span{padding:10px 16px;border-radius:999px;border:1px solid var(--r-glass-line);background:rgba(255,255,255,.04)}
+.swap .sw-from{color:var(--p-mute);text-decoration:line-through;text-decoration-color:rgba(255,49,49,.8)}
+.swap .sw-to{color:#fff;border-color:rgba(255,49,49,.5);box-shadow:0 0 24px -6px rgba(255,49,49,.6)}
+.swap i{position:relative;width:64px;height:2px;background:linear-gradient(90deg,rgba(255,49,49,.15),var(--r-red))}
+.swap i::after{content:"";position:absolute;right:0;top:-4px;width:8px;height:8px;border-top:2px solid var(--r-red);border-right:2px solid var(--r-red);transform:rotate(45deg)}
+.swap i::before{content:"";position:absolute;left:0;top:-2px;width:6px;height:6px;border-radius:50%;background:#fff;opacity:0}
+@media (prefers-reduced-motion:no-preference){.swap i::before{animation:sw-run 1.8s cubic-bezier(.5,0,.5,1) infinite}}
+@keyframes sw-run{0%{opacity:0;transform:translateX(0)}15%{opacity:1}80%{opacity:1;transform:translateX(52px)}100%{opacity:0;transform:translateX(52px)}}

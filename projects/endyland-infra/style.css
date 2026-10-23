@@ -1,4 +1,48 @@
 /* endyland hosting and status page project page. Only this page loads this file.
-   Theme: Projects tab. Brief: docs/themes/tab-projects.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /projects/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Theme: Projects tab, in a server room. Brief: docs/themes/tab-projects.md (not deployed).
+   Shared layout: /shared/project.css. Arcade parts: /projects/project-theme.css.
+   The look: a voxel server rack that sends a health check out on a timer, 30 green days of uptime
+   like the status page, and "What I did" as a list of services that are all up. */
+:root{
+  --p-bg:#100C03; --p-surface:#221A07; --panel:rgba(16,12,3,.93); --shade:#060401;
+  --pg:#FFE14D; --pg2:#3DFF8A; --p-line:rgba(255,225,77,.3);
+  --tb-bg:rgba(16,12,3,.97); --tb-accent:#FFE14D; --tb-border:rgba(255,225,77,.3); --badge-fg:#3DFF8A; --badge-border:#3DFF8A;
+}
+/* Rack rails in the sky. */
+body.proj-page{background-image:
+  repeating-linear-gradient(90deg,transparent 0 118px,rgba(255,225,77,.05) 118px 122px,transparent 122px 240px),
+  repeating-linear-gradient(0deg,transparent 0 22px,rgba(255,225,77,.035) 22px 24px),
+  radial-gradient(ellipse at 50% 115%,rgba(61,255,138,.14),transparent 60%);
+  background-attachment:fixed}
+.proj h1{text-shadow:3px 3px 0 #7A6A10,6px 6px 0 var(--shade)}
+/* A row of status lights along the top of the intro panel. */
+.proj-intro::before{content:"";position:absolute;left:24px;top:10px;width:64px;height:6px;
+  background:linear-gradient(90deg,#3DFF8A 0 12px,transparent 12px 20px,#3DFF8A 20px 32px,transparent 32px 40px,#FFE14D 40px 52px,transparent 52px)}
+
+/* ---------- Numbers: the rack, then the numbers with an uptime strip ---------- */
+.numbers-grid{display:grid;gap:30px;grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:stretch}
+.numbers-grid .stage{height:auto;min-height:340px;margin:0;
+  background:linear-gradient(#2A2A30 0 0) 50% 30%/24% 60% no-repeat,
+    repeating-linear-gradient(0deg,transparent 0 18px,#1A1408 18px 20px) bottom/100% 30% no-repeat,#0A0702}
+.stage-check{color:var(--pg2)}
+.numbers-side{display:flex;flex-direction:column;justify-content:center;gap:26px}
+.numbers-side .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}
+@media (max-width:900px){
+  .numbers-grid{grid-template-columns:minmax(0,1fr)}
+  .numbers-grid .stage{min-height:0;height:clamp(240px,64vw,340px)}
+}
+@media (max-width:420px){.numbers-side .stats{grid-template-columns:minmax(0,1fr)}}
+.uptime{padding:16px 16px 14px;background:var(--shade);box-shadow:inset 0 0 0 2px rgba(61,255,138,.3)}
+.uptime-k{display:flex;justify-content:space-between;margin:0 0 10px;font:600 13px/1.4 var(--p-mono);color:var(--p-mute)}
+.uptime-bar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(30,minmax(0,1fr));gap:3px}
+.uptime-bar li{height:30px;background:var(--pg2)}
+.uptime-bar li:hover{background:#B8FFD4}
+/* The days fill in one by one when the numbers scroll in. */
+html.pj-anim .proj-numbers:not(.lit) .uptime-bar li{background:#1A2A1C}
+html.pj-anim .uptime-bar li{transition:background 0s calc(var(--d,0) * 40ms)}
+
+/* ---------- What I did: every line is a service that is up ---------- */
+.did-list li{padding-left:74px}
+.did-list li::before{content:"UP" / "";top:.1em;width:auto;height:auto;border:0;padding:2px 8px;
+  font:10px/1.6 var(--p-display);color:#06200F;background:var(--pg2)}
+.did-list li:hover::before{background:var(--pg)}

@@ -1,7 +1,10 @@
 /* Detail Theory project page. Only this page loads this file.
    Theme: Detail Theory. Brief: docs/themes/detail-theory.md (not deployed).
    Shared layout: /shared/project.css. Theme tokens are set below.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Look: black, gold and gloss. A WebGL panel of chameleon paint with a clear-coat highlight sits behind the
+   site screenshot (scene.js). A shine sweeps across the title, gold edges draw around the number cards,
+   steps are numbered like the client's site, and a slider compares a foam wash with the finish.
+   No text sits on the paint: the canvas is only behind the screenshot. */
 :root{
   --p-bg:#000000; --p-surface:#0A0A0A; --p-ink:#FFFFFF; --p-mute:#9E9E9E;
   --p-accent:#FBCE2A; --p-accent-bg:#FBCE2A; --p-on-accent:#000000; --p-link:#FBCE2A; --p-line:rgba(255,255,255,.1);
@@ -10,4 +13,128 @@
   --tb-bg:rgba(0,0,0,.92); --tb-fg:#FFFFFF; --tb-mute:#9E9E9E; --tb-accent:#FBCE2A; --tb-border:rgba(255,255,255,.1);
   --tb-font:"Geist",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#FBCE2A; --ft-fg:#9E9E9E;
   --badge-bg:rgba(251,206,42,.08); --badge-fg:#FBCE2A; --badge-border:rgba(251,206,42,.45);
+  --dt-gold:#FBCE2A; --dt-ease:cubic-bezier(.2,.8,.2,1);
+}
+body.proj-page{color:rgba(255,255,255,.86)}
+.proj h1,.proj h2{letter-spacing:-.035em}
+.proj-crumbs a{color:#fff}
+
+/* ---------- Hero ---------- */
+.dt-hero{padding-top:28px}
+.dt-hero .proj-logo{width:104px;height:104px;max-height:none;border-radius:14px;box-shadow:0 0 0 1px rgba(251,206,42,.3),0 18px 40px -18px rgba(251,206,42,.35)}
+.proj-kicker{display:flex;align-items:center;gap:14px;color:var(--dt-gold);letter-spacing:.32em;font-size:12px}
+.proj-kicker::before,.proj-kicker::after{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.dt-hero h1{font-size:clamp(46px,7.6vw,96px);font-weight:900;line-height:.95;letter-spacing:-.045em}
+/* The gloss: white text with a pale gold band that sweeps across. Every color in the band stays near white. */
+.dt-gloss{background:linear-gradient(105deg,transparent 0 42%,#FFF4CC 47%,#fff 50%,#FFE89A 53%,transparent 58% 100%) 120% 0/250% 100% no-repeat,linear-gradient(#fff,#fff);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.dt-gloss{color:#fff;-webkit-text-fill-color:#fff}}
+.proj-summary{color:#fff}
+.proj-meta dt{color:var(--dt-gold);letter-spacing:.2em}
+.proj-stack li{background:transparent;border-color:rgba(255,255,255,.16);font-family:var(--p-mono);font-size:13px}
+.proj-links a{border-radius:2px;padding:0 26px;letter-spacing:.02em}
+
+.dt-media{position:relative;isolation:isolate;padding:15% 6% 15% 9%}
+.dt-paint{position:absolute;z-index:-1;top:0;left:0;width:calc(100% + var(--gut) + 2vw);height:100%;
+  border-radius:28px 0 0 28px;opacity:0;transition:opacity 1.4s ease;
+  max-width:none;
+  -webkit-mask-image:radial-gradient(closest-side at 52% 50%,#000 68%,transparent);mask-image:radial-gradient(closest-side at 52% 50%,#000 68%,transparent)}
+.dt-paint.on{opacity:1}
+/* No WebGL: a still gradient in the same chameleon colors. */
+html.no-webgl .dt-media::before,html.dt-lite .dt-media::before{content:"";position:absolute;z-index:-1;inset:0 calc(var(--gut) * -1) 0 0;border-radius:28px 0 0 28px;
+  background:radial-gradient(60% 70% at 65% 40%,rgba(120,60,200,.55),transparent 70%),radial-gradient(50% 60% at 40% 70%,rgba(40,70,200,.45),transparent 70%),radial-gradient(40% 40% at 80% 75%,rgba(190,110,50,.4),transparent 70%)}
+html.no-webgl .dt-paint,html.dt-lite .dt-paint{display:none}
+@media (prefers-reduced-motion:no-preference){html.dt-lite .dt-media::before{animation:dt-flip 9s ease-in-out infinite alternate}}
+@keyframes dt-flip{from{transform:translate(-3%,2%) scale(1);filter:hue-rotate(0deg)}to{transform:translate(3%,-2%) scale(1.06);filter:hue-rotate(-35deg)}}
+.dt-shot{position:relative;overflow:hidden;border-radius:10px;box-shadow:0 0 0 1px rgba(251,206,42,.45),0 40px 80px -30px #000}
+.dt-media .dt-shot img{border:0;border-radius:0;width:100%}
+.dt-shot::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.16) 48%,rgba(255,255,255,.04) 52%,transparent 60%) -120% 0/60% 100% no-repeat}
+
+/* ---------- Numbers: gold-edged cards like the client's price tables ---------- */
+.stats{gap:16px}
+.stat{position:relative;background:linear-gradient(180deg,#141414,#0A0A0A);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:26px 24px 24px}
+.stat::before,.stat::after{content:"";position:absolute;pointer-events:none;border:1px solid var(--dt-gold);border-radius:4px}
+.stat::before{inset:-1px;border-width:1px 0}
+.stat::after{inset:-1px;border-width:0 1px}
+.stat b{font-weight:900;font-size:clamp(40px,4.6vw,60px);color:var(--dt-gold);letter-spacing:-.04em}
+.stat span:last-child{font-family:var(--p-mono);font-size:13px;letter-spacing:.04em;line-height:1.5}
+.dt-stars{display:block;height:16px;margin-top:10px;
+  background:var(--dt-gold);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 .8l2.2 4.6 5 .7-3.6 3.5.9 5L8 12.2l-4.5 2.4.9-5L.8 6.1l5-.7z'/%3E%3C/svg%3E") 0 0/16px 16px repeat-x;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 .8l2.2 4.6 5 .7-3.6 3.5.9 5L8 12.2l-4.5 2.4.9-5L.8 6.1l5-.7z'/%3E%3C/svg%3E") 0 0/16px 16px repeat-x;
+  width:80px}
+
+/* ---------- What I did: numbered steps on a gold rail ---------- */
+.did-list{counter-reset:dt;gap:0;max-width:760px}
+.did-list li{padding:0 0 30px 84px;min-height:64px}
+.did-list li::before{counter-increment:dt;content:counter(dt,decimal-leading-zero);left:0;top:-2px;width:52px;height:52px;border-radius:50%;
+  display:grid;place-items:center;background:#0A0A0A;border:1px solid rgba(251,206,42,.6);color:var(--dt-gold);font:500 15px/1 var(--p-mono)}
+.did-list li::after{content:"";position:absolute;left:26px;top:54px;bottom:2px;width:1px;background:linear-gradient(var(--dt-gold),rgba(251,206,42,0))}
+.did-list li:last-child::after{display:none}
+.did-list li{color:#fff;font-size:19px}
+
+/* ---------- Compare slider ---------- */
+.dt-compare{margin:0 0 36px;max-width:560px}
+@media (min-width:960px){
+  .proj-gallery{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:0 40px;align-items:start}
+  .proj-gallery h2{grid-column:1/-1}
+  .dt-compare{position:sticky;top:96px;margin:0}
+  .proj-gallery .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+}
+.dt-compare-box{position:relative;--pos:50%;aspect-ratio:4/5;overflow:hidden;border-radius:6px;box-shadow:0 0 0 1px rgba(251,206,42,.4);touch-action:pan-y;user-select:none}
+.dt-compare-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dt-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.dt-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:var(--dt-gold);pointer-events:none}
+.dt-handle::after{content:"";position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;
+  background:#000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FBCE2A' stroke-width='2'%3E%3Cpath d='M9 6l-6 6 6 6M15 6l6 6-6 6'/%3E%3C/svg%3E") center/22px no-repeat;
+  border:2px solid var(--dt-gold)}
+.dt-tag{position:absolute;bottom:14px;padding:4px 10px;border-radius:2px;background:rgba(0,0,0,.78);color:#fff;font:500 12px/1.4 var(--p-mono);letter-spacing:.2em;text-transform:uppercase;pointer-events:none}
+.dt-tag-a{left:14px}
+.dt-tag-b{right:14px;color:var(--dt-gold)}
+.dt-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.dt-compare-box:has(.dt-range:focus-visible){outline:3px solid var(--focus);outline-offset:4px}
+.dt-compare figcaption{font-family:var(--p-mono);font-size:13px}
+
+/* ---------- Gallery ---------- */
+.gallery a{border-radius:4px;border-color:rgba(255,255,255,.12);transition:border-color .3s}
+@media (hover:hover) and (pointer:fine){.gallery a:hover{border-color:var(--dt-gold)}}
+.proj figcaption{color:var(--p-mute)}
+.proj-section{border-top-color:rgba(251,206,42,.18)}
+
+/* ---------- Motion. Only when the visitor allows it. ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .dt-gloss{animation:dt-shine 2.4s .5s var(--dt-ease) both}
+  @media (hover:hover){.dt-hero h1:hover .dt-gloss{animation:dt-shine 1.4s var(--dt-ease)}}
+  .dt-shot::after{animation:dt-sweep 7s 1.6s ease-in-out infinite}
+  .dt-hero .proj-intro>*{animation:dt-in .9s var(--dt-ease) both}
+  .dt-hero .proj-intro>:nth-child(2){animation-delay:.08s}
+  .dt-hero .proj-intro>:nth-child(3){animation-delay:.14s}
+  .dt-hero .proj-intro>:nth-child(n+4){animation-delay:.22s}
+  .dt-shot{animation:dt-rise 1.1s .15s var(--dt-ease) both}
+  /* Gold edges draw on when the cards scroll in (main.js adds .in). Without JS they are already drawn. */
+  .dt-js .stat::before{transform:scaleX(0);transition:transform .9s var(--dt-ease)}
+  .dt-js .stat::after{transform:scaleY(0);transition:transform .9s .35s var(--dt-ease)}
+  .dt-js .stats.in .stat::before,.dt-js .stats.in .stat::after{transform:none}
+  .dt-js .stats.in .stat:nth-child(2)::before{transition-delay:.15s}
+  .dt-js .stats.in .stat:nth-child(2)::after{transition-delay:.5s}
+  .dt-js .stats.in .stat:nth-child(3)::before{transition-delay:.3s}
+  .dt-js .stats.in .stat:nth-child(3)::after{transition-delay:.65s}
+  .dt-js .did-list li::after{transform:scaleY(0);transform-origin:top;transition:transform .8s .4s var(--dt-ease)}
+  .dt-js .did-list li.in::after{transform:none}
+}
+@keyframes dt-shine{from{background-position:120% 0,0 0}to{background-position:-20% 0,0 0}}
+@keyframes dt-sweep{0%{background-position:-120% 0}35%,100%{background-position:260% 0}}
+@keyframes dt-in{from{opacity:.15;transform:translateY(16px)}}
+@keyframes dt-rise{from{transform:translateY(30px) scale(.97)}}
+
+@media (max-width:959px){
+  .dt-media{padding:6% 0 8% 0}
+  .dt-paint{left:calc(var(--gut) * -1);width:calc(100% + var(--gut) * 2);border-radius:0}
+}
+@media (max-width:640px){
+  .did-list li{padding-left:66px;font-size:17px}
+  .did-list li::before{width:44px;height:44px;font-size:13px}
+  .did-list li::after{left:22px;top:46px}
 }

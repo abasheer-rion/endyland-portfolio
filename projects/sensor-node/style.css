@@ -1,4 +1,55 @@
 /* Low-power wireless sensor node project page. Only this page loads this file.
-   Theme: Projects tab. Brief: docs/themes/tab-projects.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /projects/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Theme: Projects tab, at night in a field. Brief: docs/themes/tab-projects.md (not deployed).
+   Shared layout: /shared/project.css. Arcade parts: /projects/project-theme.css.
+   The look: the numbers are batteries, the stage shows the old always-on node next to the new one that sleeps,
+   and "What I did" is a log of wake-ups down a radio mast. */
+:root{
+  --p-bg:#051521; --p-surface:#0C2738; --panel:rgba(5,21,33,.93); --shade:#020A10;
+  --pg:#3DF2FF; --pg2:#FFE14D; --p-line:rgba(61,242,255,.3);
+  --tb-bg:rgba(5,21,33,.97); --tb-accent:#3DF2FF; --tb-border:rgba(61,242,255,.3);
+}
+body.proj-page{background-image:
+  radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.6) 99%,transparent),radial-gradient(1px 1px at 72% 12%,rgba(255,255,255,.7) 99%,transparent),
+  radial-gradient(2px 2px at 86% 34%,#FFE14D 99%,transparent),radial-gradient(1px 1px at 38% 8%,rgba(255,255,255,.6) 99%,transparent),
+  radial-gradient(1px 1px at 58% 28%,rgba(255,255,255,.5) 99%,transparent),radial-gradient(1px 1px at 24% 40%,rgba(255,255,255,.4) 99%,transparent),
+  linear-gradient(transparent 82%,rgba(61,242,255,.07));
+  background-attachment:fixed}
+
+/* A battery nub on the intro panel. */
+.proj-intro::after{content:"";position:absolute;top:calc(50% - 30px);right:-18px;width:14px;height:60px;background:var(--pg)}
+
+/* ---------- Numbers: stage on the left, batteries on the right ---------- */
+.numbers-grid{display:grid;gap:30px;grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:stretch}
+.numbers-grid .stage{height:auto;min-height:320px;margin:0;
+  background:linear-gradient(#0B3A2A 0 0) bottom/100% 18% no-repeat,radial-gradient(circle at 80% 22%,#FFE14D 0 10px,transparent 11px),#061B2A}
+.stage-state{color:var(--pg2)}
+.numbers-grid .stats{grid-template-columns:minmax(0,1fr);gap:26px;margin:0;align-content:center}
+@media (max-width:900px){
+  .numbers-grid{grid-template-columns:minmax(0,1fr)}
+  .numbers-grid .stage{min-height:0;height:clamp(220px,60vw,320px)}
+}
+/* Each number is a battery: a nub on the right and a charge bar along the bottom. */
+.stat{position:relative;margin-right:16px;padding-bottom:34px}
+.stat::after{content:"";position:absolute;right:-20px;top:calc(50% - 14px);width:12px;height:28px;background:color-mix(in srgb,var(--pg) 70%,transparent)}
+.stat::before{content:"";position:absolute;left:20px;right:20px;bottom:14px;height:10px;transform-origin:left;
+  background:repeating-linear-gradient(90deg,var(--c2,var(--pg2)) 0 14px,transparent 14px 18px)}
+.stat:nth-child(2){--c2:var(--pg)}
+.stat:nth-child(3){--c2:#3DFF8A}
+/* The first battery compares the two: a short pink bar (3 days) over a full yellow one (6 weeks). */
+.stat:first-child{padding-bottom:48px}
+.stat:first-child::before{bottom:14px;height:24px;
+  background:linear-gradient(90deg,#FF4FD8 0 7%,transparent 7%) top/100% 9px no-repeat,
+    repeating-linear-gradient(90deg,#FFE14D 0 14px,transparent 14px 18px) bottom/100% 9px no-repeat}
+html.pj-anim .stat::before{transition:transform 1.4s steps(10)}
+html.pj-anim .proj-numbers:not(.charged) .stat::before{transform:scaleX(0)}
+
+/* ---------- What I did: wake-ups down a radio mast ---------- */
+.did-list{position:relative;padding-left:8px}
+.did-list::before{content:"";position:absolute;left:14px;top:6px;bottom:6px;width:4px;
+  background:repeating-linear-gradient(to bottom,var(--pg) 0 8px,transparent 8px 14px)}
+.did-list li{padding-left:44px}
+.did-list li::before{left:0;top:.25em;width:16px;height:16px;border:0;background:var(--shade);
+  box-shadow:0 0 0 4px var(--pg2)}
+.did-list li:hover::before{background:var(--pg2)}
+html.pj-anim .did-list li.in::before{animation:wake 3.2s steps(1) infinite;animation-delay:calc(var(--i,0) * .8s)}
+@keyframes wake{0%,8%{background:var(--pg2)}9%,100%{background:var(--shade)}}

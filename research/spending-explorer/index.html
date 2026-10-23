@@ -39,6 +39,8 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" id="se-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Public spending data explorer</span></li></ol></nav>
 
@@ -56,6 +58,41 @@
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
     <ul class="stats"><li class="stat"><b><span class="visually-hidden">250K+</span><span aria-hidden="true" data-count="250" data-post="K+">250K+</span></b><span>rows cleaned</span></li><li class="stat"><b><span class="visually-hidden">40+</span><span aria-hidden="true" data-count="40" data-post="+">40+</span></b><span>duplicate vendors merged</span></li><li class="stat"><b><span class="visually-hidden">20 min</span><span aria-hidden="true" data-count="20" data-post=" min">20 min</span></b><span>per search before</span></li><li class="stat"><b>Under 5 s</b><span>per search now</span></li></ul>
+  </section>
+
+  <section class="proj-section se-merge" aria-labelledby="merge-h">
+    <h2 id="merge-h">One vendor, many spellings</h2>
+    <div class="rs-screen se-screen">
+      <table class="se-table">
+        <caption class="visually-hidden">Sample spending rows, before or after merging duplicate vendors</caption>
+        <thead><tr><th scope="col">Vendor</th><th scope="col">Amount</th></tr></thead>
+        <tbody>
+          <tr class="se-row se-first" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">CEDAR HOLLOW PAVING</span></td><td class="se-amt">$18,240.00</td></tr>
+          <tr class="se-row se-dup" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">Cedar Hollow Paving LLC</span></td><td class="se-amt">$6,115.50</td></tr>
+          <tr class="se-row se-dup" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">Cedar Hollow Paving, L.L.C.</span></td><td class="se-amt">$2,980.00</td></tr>
+          <tr class="se-row se-dup" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">CEDARHOLLOW PAVING</span></td><td class="se-amt">$940.25</td></tr>
+          <tr class="se-row se-first" data-group="1" data-canon="Redbud Office Supply" data-total="5,267.95" data-n="3"><td class="se-v"><span class="se-name">REDBUD OFFICE SUPPLY</span></td><td class="se-amt">$3,410.80</td></tr>
+          <tr class="se-row se-dup" data-group="1" data-canon="Redbud Office Supply" data-total="5,267.95" data-n="3"><td class="se-v"><span class="se-name">Redbud Office Sup.</span></td><td class="se-amt">$1,202.15</td></tr>
+          <tr class="se-row se-dup" data-group="1" data-canon="Redbud Office Supply" data-total="5,267.95" data-n="3"><td class="se-v"><span class="se-name">Red Bud Office Supply Inc</span></td><td class="se-amt">$655.00</td></tr>
+          <tr class="se-row se-first" data-group="2" data-canon="Mesquite Ridge Fleet Services" data-total="14,200.40" data-n="2"><td class="se-v"><span class="se-name">MESQUITE RIDGE FLEET</span></td><td class="se-amt">$9,870.00</td></tr>
+          <tr class="se-row se-dup" data-group="2" data-canon="Mesquite Ridge Fleet Services" data-total="14,200.40" data-n="2"><td class="se-v"><span class="se-name">Mesquite Ridge Fleet Svc</span></td><td class="se-amt">$4,330.40</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="se-controls">
+      <button type="button" class="rs-btn se-btn" aria-pressed="false" aria-controls="se-status">Merge duplicates</button>
+      <p class="se-status" id="se-status" aria-live="polite">9 rows, 3 vendors spelled 9 ways.</p>
+    </div>
+    <p class="rs-note">Sample rows made up for this page. The real records had 40+ vendors like these.</p>
+  </section>
+
+  <section class="proj-section se-time" aria-labelledby="time-h">
+    <h2 id="time-h">Time to answer one search</h2>
+    <div class="se-race" role="img" aria-label="By hand: 20 minutes. Now: under 5 seconds.">
+      <div class="se-lane se-slow"><span class="se-label">By hand</span><span class="se-track"><i></i></span><span class="se-time-v">20 min</span></div>
+      <div class="se-lane se-fast"><span class="se-label">Now</span><span class="se-track"><i></i></span><span class="se-time-v">Under 5 s</span></div>
+    </div>
+    <p class="rs-note">Bars to scale. The second bar is less than half a percent of the first.</p>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">

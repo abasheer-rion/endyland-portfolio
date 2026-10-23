@@ -87,3 +87,6 @@ html.ex-anim .sheet.in::before,html.ex-anim .sheet.in::after{transform:none}
 @media (prefers-reduced-motion:reduce){
   html.ex-anim .sheet,html.ex-anim .sheet::before,html.ex-anim .sheet::after{opacity:1;transform:none;transition:none}
 }
+
+/* Stock photo credits for the card pictures. */
+.tab-credits{max-width:1160px;margin:0 auto;padding:0 var(--gut) 40px;font-size:14px;line-height:1.5;color:var(--mute);position:relative;z-index:2}

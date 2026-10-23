@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/startup-work/argus/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
-<body class="proj-page proj-argus">
+<body class="proj-page proj-argus a-dots">
 <a class="skip" href="#main">Skip to content</a>
 <header class="tabbar">
   <a class="tabbar-home" href="/">endyland</a>
@@ -39,6 +39,8 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" id="argus-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><span>Argus</span></li></ol></nav>
 
@@ -47,11 +49,11 @@
     <img class="proj-logo" src="img/logo.webp" width="404" height="112" alt="Argus logo">
     <p class="proj-kicker">Cofounder and lead engineer</p>
     <h1>Argus</h1>
-    <p class="proj-summary">One app that runs a convenience store or gas station, starting with AI cameras that spot theft.</p>
+    <p class="proj-summary">One app that runs a convenience store or gas station, starting with <span class="a-key">AI cameras that spot theft</span>.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Cofounder and lead engineer. Product strategy, pricing and delivery.</dd></div><div><dt>Dates</dt><dd>2025 to now</dd></div><div><dt>Company</dt><dd>Argus AI (Argus Vision, Inc.), Plano, TX</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>EVA-CLIP</li><li>OpenCV</li><li>TensorFlow</li><li>FastAPI</li><li>AWS Lambda</li><li>Node and Express</li><li>Postgres</li><li>Clerk</li><li>Stripe</li><li>Next.js</li><li>Cloudflare Pages</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://useargus.co" rel="noopener">useargus.co</a></li><li><a href="https://docs.useargus.co" rel="noopener">Docs</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The Argus home page: Run your whole store from one place, with a tilted dashboard." fetchpriority="high" decoding="async"></figure>
+    <figure class="proj-hero-media a-tilt"><div class="a-tilt-in"><img src="img/hero.webp" width="1440" height="796" alt="The Argus home page: Run your whole store from one place, with a tilted dashboard." fetchpriority="high" decoding="async"><span class="a-glare" aria-hidden="true"></span></div></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
@@ -84,6 +86,8 @@
     <h2 id="smaller-h">Smaller pieces</h2>
     <ul class="plain-list"><li>Docs site at docs.useargus.co, built from a template (Jun 2026).</li><li>Status page, ops console and security audit logging (May 2026).</li></ul>
   </section>
+
+  <p class="credit tab-credits">In-store AI board card photo: Umberto on Unsplash (Unsplash License). A stock photo.</p>
 
   <p class="proj-back"><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
 </main>

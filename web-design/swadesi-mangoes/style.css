@@ -1,7 +1,10 @@
 /* Swadesi Mangoes project page. Only this page loads this file.
    Theme: Swadesi Mangoes. Brief: docs/themes/swadesi.md (not deployed).
    Shared layout: /shared/project.css. Theme tokens are set below.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Look: farm-fresh and family-run. Cream page, leaf green panels, mango orange shapes, a handwritten display face.
+   Motion: the logo sways like a leaf, the green caption panel slides up over the store photo, and a crate of
+   mangoes tumbles in and settles (scene.js, a 2D canvas). Touch or point at the mangoes to nudge them.
+   Mango orange #E8892B fails AA as small text, so it is only used for shapes. */
 :root{
   --p-bg:#FFFCF3; --p-surface:#FFFFFF; --p-ink:#1E2A16; --p-mute:#55604C;
   --p-accent:#E8892B; --p-accent-bg:#12850A; --p-on-accent:#FFFFFF; --p-link:#0E6C08; --p-line:rgba(30,42,22,.14);
@@ -10,4 +13,76 @@
   --tb-bg:rgba(255,252,243,.96); --tb-fg:#1E2A16; --tb-mute:#55604C; --tb-accent:#E8892B; --tb-border:rgba(30,42,22,.14);
   --tb-font:"Cabin",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#0E6C08; --ft-fg:#55604C;
   --badge-bg:#EAF5E6; --badge-fg:#1E2A16; --badge-border:#A9D29F;
+  --sw-green:#12850A; --sw-mango:#E8892B; --sw-yellow:#F6C935;
+}
+body.proj-page{background:
+  radial-gradient(60vw 40vw at 100% 0,rgba(246,201,53,.18),transparent 70%),
+  radial-gradient(50vw 40vw at 0 30%,rgba(18,133,10,.06),transparent 70%),var(--p-bg)}
+.proj h1{font-size:clamp(46px,7.4vw,92px);line-height:1;letter-spacing:0;transform:rotate(-2deg);transform-origin:left bottom}
+.proj h2{letter-spacing:0}
+
+/* ---------- Hero ---------- */
+.sw-hero .proj-logo{height:96px;width:auto;max-height:none;padding:4px 8px;border-radius:16px;background:#fff;box-shadow:0 10px 24px -14px rgba(60,80,20,.45);transform-origin:30% 90%}
+.proj-kicker{display:inline-block;padding:6px 16px;border-radius:999px;background:var(--sw-green);color:#fff;
+  font:italic 700 15px/1.4 var(--p-body);letter-spacing:.04em;text-transform:none}
+.proj-links a{border-radius:999px;box-shadow:0 6px 0 #0B5A06}
+.proj-stack li{background:#FFF6DA;border-color:rgba(232,137,43,.45)}
+
+.sw-media{position:relative;padding-bottom:48px}
+.sw-shot{border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(60,80,20,.55);border:6px solid #fff}
+.sw-media .sw-shot img{border:0;border-radius:0;width:100%}
+/* The green story panel from the store, carrying the caption. White on #12850A is 4.8:1. */
+.sw-media figcaption{position:absolute;right:-8px;bottom:0;width:min(78%,380px);margin:0;padding:18px 22px;border-radius:18px;
+  background:var(--sw-green);color:#fff;font:italic 600 16px/1.45 var(--p-body);box-shadow:0 18px 36px -18px rgba(10,60,5,.7)}
+.sw-media figcaption::before{content:"";position:absolute;left:-14px;top:-14px;width:34px;height:34px;border-radius:50% 0 50% 50%;
+  background:linear-gradient(135deg,#5DBB3A,#12850A);transform:rotate(-20deg)}
+
+/* ---------- Mango crate ---------- */
+.sw-crate{position:relative;height:210px;margin:8px calc(var(--gut) * -1) 0;
+  background:linear-gradient(transparent calc(100% - 22px),#C98B4B calc(100% - 22px),#B07438)}
+.sw-crate::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;
+  background:repeating-linear-gradient(90deg,transparent 0 118px,rgba(60,30,10,.35) 118px 120px)}
+.sw-mangoes{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease;touch-action:pan-y}
+.sw-mangoes.on{opacity:1}
+
+/* ---------- Numbers and what I did, side by side ---------- */
+.sw-pair{display:grid;gap:0 56px}
+@media (min-width:860px){.sw-pair{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.stats{grid-template-columns:minmax(0,1fr)}
+.stat{position:relative;max-width:340px;aspect-ratio:1.25/1;display:flex;flex-direction:column;justify-content:center;padding:28px 40px;
+  border:0;border-radius:58% 48% 52% 46%/52% 58% 44% 50%;background:radial-gradient(circle at 35% 30%,#FFE07A,var(--sw-yellow) 40%,var(--sw-mango) 100%);
+  box-shadow:inset -14px -18px 30px rgba(170,80,0,.25),0 22px 40px -22px rgba(170,90,0,.6);transform:rotate(-6deg)}
+.stat::before{content:"";position:absolute;top:-14px;left:46%;width:44px;height:26px;border-radius:0 100% 0 100%;background:linear-gradient(135deg,#5DBB3A,#12850A);transform:rotate(-12deg)}
+.stat b{font-size:clamp(40px,5vw,58px);color:var(--p-ink)}
+.stat span:last-child{color:var(--p-ink);font-weight:600}
+.did-list li{font-size:20px}
+.did-list li::before{width:18px;height:13px;top:.45em;border-radius:50% 60% 50% 60%;background:var(--sw-mango);transform:rotate(-18deg)}
+
+/* ---------- Footer: green band ---------- */
+.proj-swadesi-mangoes .site-footer{background:var(--sw-green);--ft-fg:#FFFFFF;--focus:#FFFFFF;margin-top:40px}
+
+/* ---------- Motion. Only when the visitor allows it. ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .sw-hero .proj-logo{animation:sw-sway 5s ease-in-out infinite alternate}
+  .sw-hero .proj-intro>:not(.proj-logo){animation:sw-in .8s cubic-bezier(.2,.8,.2,1) both}
+  .sw-hero .proj-intro>:nth-child(3){animation-delay:.08s}
+  .sw-hero .proj-intro>:nth-child(n+4){animation-delay:.16s}
+  .sw-media figcaption{animation:sw-panel 1s .5s cubic-bezier(.2,.9,.25,1.1) both}
+  .sw-shot{animation:sw-photo 1s .1s cubic-bezier(.2,.8,.2,1) both}
+  @media (hover:hover) and (pointer:fine){
+    .stat{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+    .stat:hover{transform:rotate(3deg) scale(1.04)}
+    .proj-links a{transition:transform .2s,box-shadow .2s}
+    .proj-links a:hover{transform:translateY(2px);box-shadow:0 4px 0 #0B5A06;filter:none}
+  }
+}
+@keyframes sw-sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+@keyframes sw-in{from{opacity:.15;transform:translateY(16px)}}
+@keyframes sw-panel{from{opacity:0;transform:translateY(70px)}}
+@keyframes sw-photo{from{transform:translateY(24px) rotate(1.5deg)}}
+
+@media (max-width:640px){
+  .sw-crate{height:150px}
+  .sw-media figcaption{right:0;width:88%;font-size:15px}
+  .stat{max-width:280px}
 }

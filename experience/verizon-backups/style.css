@@ -1,4 +1,41 @@
-/* Voice network device backups project page. Only this page loads this file.
+/* Voice network device backups page. Only this page loads this file.
    Theme: Experience tab. Brief: docs/themes/tab-experience.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /experience/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and blueprint parts: /experience/project-theme.css.
+   This page: the backup run scene, the numbers as a rack panel with status lights, and the work as a
+   checklist whose boxes tick as it scrolls in. */
+
+/* Numbers: rack units screwed into two rails, each with a status light. */
+.proj-verizon-backups .stats{gap:0;padding:0 18px;border-left:6px double rgba(156,201,255,.5);border-right:6px double rgba(156,201,255,.5);
+  grid-template-columns:1fr}
+.proj-verizon-backups .stat{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 22px;padding:16px 18px;
+  border:1px solid var(--p-line);border-radius:0}
+.proj-verizon-backups .stat+.stat{border-top:0}
+.proj-verizon-backups .stat b{min-width:4.2ch}
+.proj-verizon-backups .stat > span:last-child{margin:0;font-size:16px}
+.proj-verizon-backups .stat::after{content:"";width:10px;height:10px;border-radius:50%;background:#FFC857;
+  box-shadow:0 0 0 3px rgba(255,200,87,.18),0 0 12px rgba(255,200,87,.6)}
+.proj-verizon-backups .stat::before{content:"";position:absolute;left:-14px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;
+  border:1.5px solid rgba(156,201,255,.6)}
+html.pj-anim .proj-verizon-backups .stat::after{animation:bk-led 2.4s steps(1) infinite}
+html.pj-anim .proj-verizon-backups .stat:nth-child(2)::after{animation-delay:.8s}
+html.pj-anim .proj-verizon-backups .stat:nth-child(3)::after{animation-delay:1.6s}
+@keyframes bk-led{0%{opacity:1}6%{opacity:.25}12%{opacity:1}}
+@media (max-width:640px){
+  .proj-verizon-backups .stats{padding:0 10px}
+  .proj-verizon-backups .stat{grid-template-columns:1fr auto;padding:14px}
+  .proj-verizon-backups .stat > span:last-child{grid-column:1/-1;grid-row:2}
+}
+
+/* What I did: a checklist. Each box ticks when its line rises in. */
+.proj-verizon-backups .did-list li{padding-left:44px}
+.proj-verizon-backups .did-list li::before{left:0;top:.2em;width:24px;height:24px;border-radius:2px;background:transparent;
+  border:1.5px solid #9CC9FF}
+.proj-verizon-backups .did-list li::after{content:"";position:absolute;left:6px;top:calc(.2em + 5px);width:12px;height:7px;
+  border-left:2.5px solid #FFC857;border-bottom:2.5px solid #FFC857;transform:rotate(-45deg);transform-origin:50% 50%}
+html.pj-anim .proj-verizon-backups .did-list li::after{clip-path:inset(0 100% 0 0);transition:clip-path .35s ease;
+  transition-delay:calc(var(--i,0) * 80ms + .35s)}
+html.pj-anim .proj-verizon-backups .did-list li.in::after{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){
+  html.pj-anim .proj-verizon-backups .stat::after{animation:none}
+  html.pj-anim .proj-verizon-backups .did-list li::after{clip-path:none;transition:none}
+}

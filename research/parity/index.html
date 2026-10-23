@@ -39,6 +39,8 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" id="pa-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Parity</span></li></ol></nav>
 
@@ -53,9 +55,20 @@
     <figure class="proj-hero-media"><img src="img/home.webp" width="1440" height="900" alt="The Parity dashboard: a chart of the US stock market since 2001 and a list of strategies." fetchpriority="high" decoding="async"><figcaption>The Parity dashboard. Each strategy is scored against simply holding the market.<span class="credit">Screenshot of my own app.</span></figcaption></figure>
   </header>
 
+  <div class="pa-ticker" aria-hidden="true"><div class="pa-tape"><span class="pa-t pa-up">72 ALGORITHMS</span><span class="pa-t pa-up">36 DATA SOURCES</span><span class="pa-t pa-flat">3 STRATEGIES TESTED</span><span class="pa-t pa-down">0 BEAT THE S&amp;P 500 SO FAR</span><span class="pa-t pa-up">88 OF 97 COMMITS</span><span class="pa-t pa-up">72 ALGORITHMS</span><span class="pa-t pa-up">36 DATA SOURCES</span><span class="pa-t pa-flat">3 STRATEGIES TESTED</span><span class="pa-t pa-down">0 BEAT THE S&amp;P 500 SO FAR</span><span class="pa-t pa-up">88 OF 97 COMMITS</span></div></div>
+
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>88 of 97</b><span>commits are mine</span></li><li class="stat"><b>3</b><span>strategies tested so far</span></li><li class="stat"><b><span class="visually-hidden">72</span><span aria-hidden="true" data-count="72">72</span></b><span>algorithms in the catalog</span></li><li class="stat"><b><span class="visually-hidden">36</span><span aria-hidden="true" data-count="36">36</span></b><span>data sources</span></li></ul>
+    <ul class="stats"><li class="stat"><b>88 of 97</b><span class="pa-meter" aria-hidden="true"><i></i></span><span>commits are mine</span></li><li class="stat"><b>3</b><span>strategies tested so far</span></li><li class="stat"><b><span class="visually-hidden">72</span><span aria-hidden="true" data-count="72">72</span></b><span>algorithms in the catalog</span></li><li class="stat"><b><span class="visually-hidden">36</span><span aria-hidden="true" data-count="36">36</span></b><span>data sources</span></li></ul>
+  </section>
+
+  <section class="proj-section pa-results" aria-labelledby="results-h">
+    <h2 id="results-h">Results so far</h2>
+    <ol class="pa-board">
+      <li><span class="pa-name">Strategy 1</span><span class="pa-vs">vs holding the S&amp;P 500</span><span class="pa-res">Did not beat it</span></li>
+      <li><span class="pa-name">Strategy 2</span><span class="pa-vs">vs holding the S&amp;P 500</span><span class="pa-res">Did not beat it</span></li>
+      <li><span class="pa-name">Strategy 3</span><span class="pa-vs">vs holding the S&amp;P 500</span><span class="pa-res">Did not beat it</span></li>
+    </ol>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">

@@ -2,3 +2,43 @@
    Theme: Argus. Brief: docs/themes/argus.md (not deployed).
    Shared layout: /shared/project.css. Theme tokens: /startup-work/argus/brand.css.
    Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+
+/* ---------- Art: a circuit board ----------
+   A magnifier on the photo, a dark stage with a 3D drawing of the board where red signals run along the
+   traces (scene.js), and a flat drawing of the same board when WebGL is off. */
+.proj-eb .proj h1{font-size:clamp(46px,7.4vw,96px);letter-spacing:-.03em}
+@media (min-width:960px){.proj-eb .proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.eb-photo{position:relative}
+.eb-photo img{box-shadow:0 30px 60px -30px rgba(26,26,26,.5)}
+.eb-photo.lens-on{cursor:none}
+.eb-lens{position:absolute;left:0;top:0;width:160px;height:160px;border-radius:50%;pointer-events:none;opacity:0;
+  background-repeat:no-repeat;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--a-red),0 20px 40px -10px rgba(0,0,0,.5);transition:opacity .2s}
+.eb-photo.lens-on .eb-lens{opacity:1}
+
+.eb-stage{position:relative;height:clamp(300px,42vw,520px);margin:8px 0 12px;border-radius:22px;overflow:hidden;
+  background:radial-gradient(70% 90% at 50% 100%,rgba(220,38,38,.28),rgba(220,38,38,0) 70%),#1D1D1D;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.eb-stage::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 1.4px);background-size:22px 22px}
+.eb-fallback{position:absolute;inset:8% 6%;width:88%;height:84%;opacity:.9}
+.eb-scene{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease}
+.eb-scene.on{opacity:1}
+.eb-scene.on~.eb-tag{opacity:1}
+.eb-stage:has(.eb-scene.on) .eb-fallback{opacity:0;transition:opacity .6s}
+html.no-webgl .eb-scene{display:none}
+.eb-tag{position:absolute;left:22px;bottom:18px;margin:0;display:flex;gap:10px;font:500 12px/1 var(--p-mono);letter-spacing:.14em;text-transform:uppercase;color:#E5E5E5}
+.eb-tag span{padding:7px 10px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.eb-tag span:first-child{color:#fff;background:var(--a-red);border-color:var(--a-red)}
+html.pj-anim .eb-stage{clip-path:inset(0 0 0 0 round 22px)}
+html.pj-anim .eb-stage:not(.in){clip-path:inset(6% 4% 6% 4% round 22px)}
+html.pj-anim .eb-stage{transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+/* The flat drawing: traces draw on when it shows. */
+html.pj-anim .eb-fallback path{stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 2.2s cubic-bezier(.3,.6,.2,1)}
+html.pj-anim .eb-stage.in .eb-fallback path{stroke-dashoffset:0}
+
+/* What I did: one line, set large like a silkscreen note. */
+.proj-eb .did-list{max-width:none}
+.proj-eb .did-list li{font-family:var(--p-display);font-size:clamp(24px,3vw,38px);line-height:1.3;padding-left:52px}
+.proj-eb .did-list li::before{top:.55em;width:30px;height:30px;border-radius:50%;background:none;border:3px solid var(--a-red);transform:translateY(-50%)}
+.proj-eb .proj-hero-media figcaption .credit{font-size:13px}
+@media (max-width:640px){.eb-stage{border-radius:16px}.eb-tag{left:14px;bottom:12px}}

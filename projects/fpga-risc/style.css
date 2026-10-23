@@ -1,4 +1,62 @@
 /* 8-bit RISC processor on FPGA project page. Only this page loads this file.
-   Theme: Projects tab. Brief: docs/themes/tab-projects.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /projects/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Theme: Projects tab, in circuit-board green. Brief: docs/themes/tab-projects.md (not deployed).
+   Shared layout: /shared/project.css. Arcade parts: /projects/project-theme.css.
+   The look: a chip on a board. The intro panel has IC pins down both sides, the numbers are the five
+   pipeline stages in a row (IF ID EX MEM WB), and "What I did" reads like a program listing. */
+:root{
+  --p-bg:#04130D; --p-surface:#0B2A1C; --panel:rgba(4,19,13,.93); --shade:#010A06;
+  --pg:#FF4FD8; --pg2:#3DFF8A; --p-line:rgba(61,255,138,.3);
+  --tb-bg:rgba(4,19,13,.97); --tb-border:rgba(61,255,138,.3); --tb-accent:#3DFF8A; --badge-fg:#3DFF8A; --badge-border:#3DFF8A;
+}
+/* Board traces in the sky, drawn in CSS so they show before anything loads. */
+body.proj-page{background-image:
+  linear-gradient(90deg,transparent 0 calc(50% - 1px),rgba(61,255,138,.06) calc(50% - 1px) calc(50% + 1px),transparent 0),
+  repeating-linear-gradient(0deg,transparent 0 47px,rgba(61,255,138,.05) 47px 49px),
+  repeating-linear-gradient(90deg,transparent 0 95px,rgba(61,255,138,.04) 95px 97px),
+  radial-gradient(ellipse at 50% 115%,rgba(255,79,216,.18),transparent 60%);
+  background-attachment:fixed}
+
+/* IC pins down both sides of the intro panel. */
+.proj-intro::before,.proj-intro::after{content:"";position:absolute;top:24px;bottom:24px;width:10px;
+  background:repeating-linear-gradient(to bottom,#C9C2A8 0 10px,transparent 10px 26px)}
+.proj-intro::before{left:-18px}
+.proj-intro::after{right:-18px}
+.proj-intro .proj-kicker::before{content:"U1 ";color:var(--pg)}
+
+/* Stage: the 3D chip. Fallback (no JS, no WebGL): a flat board with the chip drawn in CSS. */
+.stage{height:clamp(240px,34vw,400px);
+  background:
+    linear-gradient(#111 0 0) 50% 54%/150px 150px no-repeat,
+    repeating-linear-gradient(90deg,#C9C2A8 0 8px,transparent 8px 20px) 50% calc(54% - 84px)/130px 12px no-repeat,
+    repeating-linear-gradient(90deg,#C9C2A8 0 8px,transparent 8px 20px) 50% calc(54% + 84px)/130px 12px no-repeat,
+    repeating-linear-gradient(0deg,transparent 0 30px,rgba(214,178,74,.35) 30px 33px),
+    #0D5A33}
+.stage-hud{color:var(--pg2)}
+
+/* Numbers as a pipeline: five stages in a row with arrows between them. */
+.stats{grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.stat{position:relative;padding-top:38px}
+.stat::before{position:absolute;top:10px;left:16px;font:10px/1 var(--p-display);color:var(--pg)}
+.stat:nth-child(1)::before{content:"IF" / ""}
+.stat:nth-child(2)::before{content:"ID" / ""}
+.stat:nth-child(3)::before{content:"EX" / ""}
+.stat:nth-child(4)::before{content:"MEM" / ""}
+.stat:nth-child(5)::before{content:"WB" / ""}
+.stat+.stat::after{content:"";position:absolute;left:-19px;top:50%;border:7px solid transparent;border-left:9px solid var(--pg2);border-right:0}
+/* While the scene runs, the stage that holds the moving instruction lights up (main.js sets data-stage). */
+.proj-numbers[data-stage="0"] .stat:nth-child(1),.proj-numbers[data-stage="1"] .stat:nth-child(2),
+.proj-numbers[data-stage="2"] .stat:nth-child(3),.proj-numbers[data-stage="3"] .stat:nth-child(4),
+.proj-numbers[data-stage="4"] .stat:nth-child(5){--c:var(--pg);background:#12301F}
+@media (max-width:900px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat+.stat::after{display:none}
+}
+@media (max-width:340px){.stats{grid-template-columns:minmax(0,1fr)}}
+
+/* What I did, as a program listing with addresses. */
+.did-list{counter-reset:addr;font-size:17px}
+.did-list li{counter-increment:addr;padding-left:84px}
+.did-list li::before{content:"0x0" counter(addr) / "";top:.05em;width:auto;height:auto;border:0;
+  font:600 15px/1.6 var(--p-mono);color:var(--pg2)}
+.did-list li:hover{background:rgba(61,255,138,.08)}
+@media (max-width:640px){.did-list li{padding-left:58px}.did-list li::before{font-size:13px}}

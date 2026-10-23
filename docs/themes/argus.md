@@ -19,7 +19,9 @@ Tokens: `/startup-work/argus/brand.css` (light website). `argus-dashboard/style.
   - Stat numbers count up when they scroll into view (project.js already does this for `.stats`).
   - Dashboard mockup tilts toward the cursor.
   - Sub-project cards expand in place on the Argus page.
-- Images: `argus/img/` hero, logo, mark, thumb. `argus-dashboard/img/dashboard.webp`, `argus-one/img/camera.webp` (example view
-  recreated for the Argus site), `argus-site/img/site.webp` and `phone.webp`, `argus-edge-board/img/board.webp` (stock, credited).
+- Images: `argus/img/` hero (1440x796, cookie banner cropped out), logo, mark, thumb. `argus-dashboard/img/dashboard.webp`,
+  `threat.webp` and `analytics.webp` (from the app's demo account), `argus-one/img/camera.webp` (632x350, example view
+  recreated for the Argus site), `argus-site/img/site.webp` (1440x712), `phone.webp`, `numbers.webp` and `app.webp`,
+  `argus-edge-board/img/board.webp` (stock, credited).
 - In the Argus repos, not copied: store camera stills, dashboard renders, cam-aisle.mp4, model training charts.
 - Do not name cofounders or teammates.

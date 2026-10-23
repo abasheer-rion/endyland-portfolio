@@ -83,7 +83,7 @@ html.pj-anim .did-list li.in{opacity:1;transform:none}
 .stat{padding:20px 20px 18px;border:1px solid var(--p-line);border-radius:var(--p-radius);background:var(--p-surface)}
 .stat b{display:block;font-family:var(--p-display);font-weight:var(--p-display-weight);font-size:clamp(28px,3.6vw,42px);line-height:1.05;
   font-variant-numeric:tabular-nums;color:var(--p-ink)}
-.stat span:last-child{display:block;margin-top:8px;color:var(--p-mute);font-size:15px;line-height:1.4}
+.stat>span:last-child{display:block;margin-top:8px;color:var(--p-mute);font-size:15px;line-height:1.4}
 
 /* Sub-projects and related cards. */
 .cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}

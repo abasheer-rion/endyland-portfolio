@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/startup-work/argus-dashboard/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
-<body class="proj-page proj-argus-dashboard">
+<body class="proj-page proj-dash proj-argus-dashboard">
 <a class="skip" href="#main">Skip to content</a>
 <header class="tabbar">
   <a class="tabbar-home" href="/">endyland</a>
@@ -39,10 +39,23 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" id="dash-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
+  <nav class="dash-rail" aria-label="On this page">
+    <img class="dash-mark" src="/startup-work/argus/img/mark.webp" width="128" height="128" alt="" decoding="async">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#numbers-h">By the numbers</a></li>
+      <li><a href="#did-h">What I did</a></li>
+      <li><a href="#app-h">In the app</a></li>
+      <li><a href="#related-h">Related</a></li>
+    </ul>
+    <p class="dash-live" aria-hidden="true"><span></span>Live</p>
+  </nav>
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>Argus Dashboard</span></li></ol></nav>
 
-  <header class="proj-hero">
+  <header class="proj-hero" id="overview">
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo">
     <p class="proj-kicker">Argus sub-project</p>
@@ -51,12 +64,12 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Lead developer. About 70% of the code.</dd></div><div><dt>Dates</dt><dd>Jan 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>JavaScript</li><li>Node and Express</li><li>Postgres on Hetzner</li><li>Clerk</li><li>Stripe</li><li>Cloudflare Pages</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://portal.rionsolution.com" rel="noopener">Store portal</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/dashboard.webp" width="1215" height="830" alt="The Argus dashboard: Good morning, Maria, with 96.4% paid for, alerts, invoices and sales by hour." fetchpriority="high" decoding="async"><figcaption>The dashboard as shown on useargus.co, with sample data.</figcaption></figure>
+    <figure class="proj-hero-media a-tilt"><div class="a-tilt-in"><img src="img/dashboard.webp" width="1215" height="830" alt="The Argus dashboard: Good morning, Maria, with 96.4% paid for, alerts, invoices and sales by hour." fetchpriority="high" decoding="async"><span class="a-glare" aria-hidden="true"></span></div><figcaption>The dashboard as shown on useargus.co, with sample data.</figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">About 70%</span><span aria-hidden="true" data-count="70" data-pre="About " data-post="%">About 70%</span></b><span>of the code is mine</span></li><li class="stat"><b>6</b><span>apps in one: store portal, admin, phone, ops, status, email</span></li></ul>
+    <ul class="stats"><li class="stat"><b><span class="visually-hidden">About 70%</span><span aria-hidden="true" data-count="70" data-pre="About " data-post="%">About 70%</span></b><span>of the code is mine</span><svg class="spark" viewBox="0 0 200 40" aria-hidden="true" focusable="false"><path d="M0 30 C20 28 30 12 50 16 S80 34 100 22 S140 6 160 12 S190 20 200 8"/></svg></li><li class="stat"><b>6</b><span>apps in one: store portal, admin, phone, ops, status, email</span><svg class="spark" viewBox="0 0 200 40" aria-hidden="true" focusable="false"><path d="M0 34 L33 34 L33 26 L66 26 L66 20 L100 20 L100 15 L133 15 L133 10 L166 10 L166 5 L200 5"/></svg></li></ul>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
@@ -66,6 +79,14 @@
       <li>Turned a multi-app client portal, RION NEXUS, into one store screen and renamed it Argus.</li>
       <li>It includes a store portal, admin, phone app, ops app, status page and bulk email.</li>
       <li>Recent work: camera monitoring, register (POS) and QuickBooks links, invoice emails, faster pages and alerts.</li>
+    </ul>
+  </section>
+
+  <section class="proj-section proj-gallery" aria-labelledby="app-h">
+    <h2 id="app-h">In the app</h2>
+    <ul class="gallery">
+      <li><figure class="on-dark"><a class="lb" href="img/threat.webp" data-w="1600" data-h="900"><img src="img/threat.webp" width="1600" height="900" alt="The loss prevention screen: cameras grouped by store zone, each with a risk score, plus alert totals." loading="lazy" decoding="async"></a><figcaption>Loss prevention: every camera by store zone, with a risk score. Demo account, sample data.</figcaption></figure></li>
+      <li><figure class="on-dark"><a class="lb" href="img/analytics.webp" data-w="1600" data-h="900"><img src="img/analytics.webp" width="1600" height="900" alt="The analytics screen: loss prevented, detection accuracy, response time and an activity trend." loading="lazy" decoding="async"></a><figcaption>Analytics for loss prevention. Demo account, sample data.</figcaption></figure></li>
     </ul>
   </section>
 

@@ -1,5 +1,7 @@
 /* Argus brand tokens. Used by /startup-work/argus/ and every Argus sub-project page.
-   Brief: docs/themes/argus.md (not deployed). */
+   Brief: docs/themes/argus.md (not deployed).
+   Also here, so every Argus page shares them: the aperture page transition, the red key phrase,
+   the spaced mono kicker and the faint dot grid. Each page adds its own art in its own style.css. */
 :root{
   --p-bg:#FFFFFF; --p-surface:#F7F6F2; --p-ink:#1A1A1A; --p-mute:#5A5A55;
   --p-accent:#DC2626; --p-accent-bg:#DC2626; --p-on-accent:#FFFFFF; --p-link:#B91C1C; --p-line:rgba(26,26,26,.1);
@@ -8,4 +10,53 @@
   --tb-bg:rgba(255,255,255,.94); --tb-fg:#1A1A1A; --tb-mute:#5A5A55; --tb-accent:#DC2626; --tb-border:rgba(26,26,26,.1);
   --tb-font:"Inter",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#B91C1C; --ft-fg:#5A5A55;
   --badge-bg:#FEF2F2; --badge-fg:#1A1A1A; --badge-border:#F5C2C2;
+  /* Brand extras */
+  --a-red:#DC2626; --a-deep:#B91C1C; --a-wash:#FEF2F2; --a-panel:#1D1D1D; --a-dot:rgba(26,26,26,.09);
+  --a-ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* The key phrase, red and underlined, as on useargus.co. */
+.a-key{color:var(--a-deep);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.14em;text-decoration-color:currentColor}
+/* Uppercase spaced mono label with a red dot. */
+.proj-kicker{color:var(--a-deep);letter-spacing:.16em;display:flex;align-items:center;gap:10px}
+.proj-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--a-red);flex:none}
+/* Mono labels everywhere, as on the site. */
+.proj-meta dt,.proj-crumbs ol{letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.proj h2{letter-spacing:-.015em}
+.proj-stack li{font:500 13px/1.7 var(--p-mono);letter-spacing:.02em}
+/* Counted numbers: the shared ".stat span:last-child" label rule also matches the number span inside <b>.
+   Keep the number at the size of its <b>. */
+.stat b>span{display:inline;margin:0;font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
+/* Faint dot grid. A page opts in with class a-dots on <body>. */
+body.a-dots{background-image:radial-gradient(circle at 1px 1px,var(--a-dot) 1px,transparent 1.4px);background-size:24px 24px;background-attachment:fixed}
+
+/* A picture that leans toward the pointer (fx.js tilt() sets --rx, --ry and the glare spot --gx, --gy).
+   Markup: <figure class="a-tilt"><div class="a-tilt-in"><img ...><span class="a-glare" aria-hidden="true"></span></div></figure>.
+   A page sets the resting pose with --rx0, --ry0, --rz0. */
+.a-tilt{perspective:1600px}
+.a-tilt-in{position:relative;transform:rotateX(var(--rx,var(--rx0,5deg))) rotateY(var(--ry,var(--ry0,-11deg))) rotateZ(var(--rz0,-.6deg));transform-style:preserve-3d;
+  transition:transform .9s var(--a-ease);border-radius:16px;box-shadow:0 40px 80px -30px rgba(26,26,26,.35),0 12px 30px -12px rgba(220,38,38,.18)}
+.a-tilt.is-tilting .a-tilt-in{transition:transform .15s linear}
+.a-tilt img{display:block;border-radius:16px;border:1px solid var(--p-line);background:#fff}
+.a-glare{position:absolute;inset:0;border-radius:16px;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.55),rgba(255,255,255,0) 45%)}
+.a-tilt.is-tilting .a-glare{opacity:1}
+@media (max-width:959px){.a-tilt{--rx0:4deg;--ry0:-6deg}}
+@media (prefers-reduced-motion:reduce){.a-tilt-in{transition:none}}
+
+/* ---------- Arriving from the Startup work tab, or between Argus pages ----------
+   The shared page-theme wipe is a circle. Argus pages open as a camera aperture instead:
+   an eight-blade iris that turns as it opens from where you clicked (--vt-x, --vt-y from nav.js). */
+html:active-view-transition-type(deeper)::view-transition-new(root),
+html:active-view-transition-type(up)::view-transition-new(root){animation:argus-iris .72s cubic-bezier(.45,.05,.2,1) both}
+@keyframes argus-iris{
+  0%{clip-path:polygon(calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax),calc(var(--vt-x,50%) + 0.00vmax) calc(var(--vt-y,50%) + 0.00vmax))}
+  25%{clip-path:polygon(calc(var(--vt-x,50%) + 10.72vmax) calc(var(--vt-y,50%) + 9.00vmax),calc(var(--vt-x,50%) + 1.22vmax) calc(var(--vt-y,50%) + 13.95vmax),calc(var(--vt-x,50%) + -9.00vmax) calc(var(--vt-y,50%) + 10.72vmax),calc(var(--vt-x,50%) + -13.95vmax) calc(var(--vt-y,50%) + 1.22vmax),calc(var(--vt-x,50%) + -10.72vmax) calc(var(--vt-y,50%) + -9.00vmax),calc(var(--vt-x,50%) + -1.22vmax) calc(var(--vt-y,50%) + -13.95vmax),calc(var(--vt-x,50%) + 9.00vmax) calc(var(--vt-y,50%) + -10.72vmax),calc(var(--vt-x,50%) + 13.95vmax) calc(var(--vt-y,50%) + -1.22vmax))}
+  50%{clip-path:polygon(calc(var(--vt-x,50%) + 10.35vmax) calc(var(--vt-y,50%) + 38.64vmax),calc(var(--vt-x,50%) + -20.00vmax) calc(var(--vt-y,50%) + 34.64vmax),calc(var(--vt-x,50%) + -38.64vmax) calc(var(--vt-y,50%) + 10.35vmax),calc(var(--vt-x,50%) + -34.64vmax) calc(var(--vt-y,50%) + -20.00vmax),calc(var(--vt-x,50%) + -10.35vmax) calc(var(--vt-y,50%) + -38.64vmax),calc(var(--vt-x,50%) + 20.00vmax) calc(var(--vt-y,50%) + -34.64vmax),calc(var(--vt-x,50%) + 38.64vmax) calc(var(--vt-y,50%) + -10.35vmax),calc(var(--vt-x,50%) + 34.64vmax) calc(var(--vt-y,50%) + 20.00vmax))}
+  75%{clip-path:polygon(calc(var(--vt-x,50%) + -15.63vmax) calc(var(--vt-y,50%) + 88.63vmax),calc(var(--vt-x,50%) + -73.72vmax) calc(var(--vt-y,50%) + 51.62vmax),calc(var(--vt-x,50%) + -88.63vmax) calc(var(--vt-y,50%) + -15.63vmax),calc(var(--vt-x,50%) + -51.62vmax) calc(var(--vt-y,50%) + -73.72vmax),calc(var(--vt-x,50%) + 15.63vmax) calc(var(--vt-y,50%) + -88.63vmax),calc(var(--vt-x,50%) + 73.72vmax) calc(var(--vt-y,50%) + -51.62vmax),calc(var(--vt-x,50%) + 88.63vmax) calc(var(--vt-y,50%) + 15.63vmax),calc(var(--vt-x,50%) + 51.62vmax) calc(var(--vt-y,50%) + 73.72vmax))}
+  100%{clip-path:polygon(calc(var(--vt-x,50%) + -65.06vmax) calc(var(--vt-y,50%) + 157.06vmax),calc(var(--vt-x,50%) + -157.06vmax) calc(var(--vt-y,50%) + 65.06vmax),calc(var(--vt-x,50%) + -157.06vmax) calc(var(--vt-y,50%) + -65.06vmax),calc(var(--vt-x,50%) + -65.06vmax) calc(var(--vt-y,50%) + -157.06vmax),calc(var(--vt-x,50%) + 65.06vmax) calc(var(--vt-y,50%) + -157.06vmax),calc(var(--vt-x,50%) + 157.06vmax) calc(var(--vt-y,50%) + -65.06vmax),calc(var(--vt-x,50%) + 157.06vmax) calc(var(--vt-y,50%) + 65.06vmax),calc(var(--vt-x,50%) + 65.06vmax) calc(var(--vt-y,50%) + 157.06vmax))}
+}
+@media (prefers-reduced-motion:reduce){
+  html:active-view-transition-type(deeper)::view-transition-new(root),
+  html:active-view-transition-type(up)::view-transition-new(root){animation:none}
 }

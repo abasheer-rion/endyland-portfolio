@@ -1,4 +1,67 @@
 /* Parity project page. Only this page loads this file.
    Theme: Research tab. Brief: docs/themes/tab-research.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /research/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and screens: /research/project-theme.css.
+   This page is the amber channel: a trading terminal. A backtest tape scrolls behind the page,
+   a ticker runs under the hero, and a results board says how the strategies did.
+   Colors checked for AA on #050705: ink #FFEBC7 (17:1), mute #CDAE7E (9.6:1), amber #FFB000 (10.6:1). */
+:root{
+  --p-ink:#FFEBC7; --p-mute:#CDAE7E; --p-accent:#FFB000; --p-accent-bg:#FFB000; --p-on-accent:#1A1000; --p-link:#FFB000;
+  --p-line:rgba(255,176,0,.3); --p-surface:#110C04;
+  --rs-glow:rgba(255,176,0,.42); --rs-core:rgba(255,176,0,.85); --rs-num:#39FF88; --rs-grid:rgba(255,176,0,.04);
+  --rs-bezel:#120D05; --rs-halo:rgba(255,176,0,.07); --rs-scr-label:"PARITY  BACKTEST TERMINAL";
+}
+.proj-parity .proj-scene.on{opacity:.5}
+@media (max-width:760px){.proj-parity .proj-scene.on{opacity:.3}}
+.proj-parity .proj-intro{position:relative}
+.proj-parity .proj-intro::before{content:"";position:absolute;inset:-24px -28px;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(5,7,5,.9),rgba(5,7,5,.6) 70%,transparent)}
+.proj-parity .proj-section{background:linear-gradient(rgba(5,7,5,.6),rgba(5,7,5,.6))}
+.proj-parity .stat{background:rgba(17,12,4,.9);border-color:rgba(255,176,0,.25)}
+.proj-parity .proj-stack li{background:rgba(17,12,4,.9)}
+.proj-parity .proj-hero-media::after{background:#FF4D4D;box-shadow:0 0 8px #FF4D4D}
+html.pj-anim .proj-parity .proj-hero-media::after{animation:pa-rec 1.6s steps(2,jump-none) infinite}
+@keyframes pa-rec{50%{opacity:.25}}
+
+/* Ticker: a strip of facts that runs left. It repeats the numbers below, so screen readers skip it. */
+.pa-ticker{position:relative;overflow:hidden;margin:0 calc(var(--gut) * -1);border-block:1px solid var(--p-line);
+  background:rgba(17,12,4,.92);font:600 14px/44px var(--p-mono);letter-spacing:.06em;white-space:nowrap;
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.pa-tape{display:inline-flex;gap:0}
+.pa-t{display:inline-flex;align-items:center;gap:10px;padding:0 28px;color:var(--p-ink)}
+.pa-t::before{content:"";width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent}
+.pa-up::before{border-bottom:9px solid #39FF88}
+.pa-down::before{border-top:9px solid #FF6B5E}
+.pa-flat::before{width:10px;height:3px;border:0;background:var(--p-mute)}
+html.pj-anim .pa-tape{animation:pa-run 38s linear infinite}
+.pa-ticker:hover .pa-tape{animation-play-state:paused}
+@keyframes pa-run{to{transform:translateX(-50%)}}
+
+/* Commit share meter under 88 of 97. Fills when the numbers scroll in. */
+.pa-meter{display:block;height:6px;margin-top:12px;background:rgba(255,176,0,.15);overflow:hidden}
+.pa-meter i{display:block;height:100%;width:90.7%;background:var(--p-accent);box-shadow:0 0 10px var(--p-accent);transform-origin:left}
+html.pj-anim .proj-numbers:not(.is-in) .pa-meter i{transform:scaleX(0)}
+html.pj-anim .proj-numbers.is-in .pa-meter i{transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .2s}
+
+/* Results board. */
+.pa-board{list-style:none;margin:0;padding:0;border:1px solid var(--p-line);background:rgba(17,12,4,.9);max-width:880px}
+.pa-board li{display:grid;grid-template-columns:auto 1fr auto;gap:8px 24px;align-items:center;padding:16px 20px;
+  border-top:1px solid rgba(255,176,0,.18);transition:background .2s}
+.pa-board li:first-child{border-top:0}
+.pa-board li:hover{background:rgba(255,176,0,.08)}
+.pa-name{font-weight:700;color:var(--p-ink)}
+.pa-vs{color:var(--p-mute)}
+.pa-res{display:inline-flex;align-items:center;gap:8px;color:#FF8A7F;font-weight:700}
+.pa-res::before{content:"";width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid #FF6B5E}
+html.pj-anim .pa-results:not(.is-in) .pa-board li{opacity:0;transform:translateX(-14px)}
+html.pj-anim .pa-results.is-in .pa-board li{transition:opacity .4s steps(4,end),transform .4s steps(4,end),background .2s;
+  transition-delay:calc(var(--i,0) * 160ms)}
+@media (max-width:640px){
+  .pa-board li{grid-template-columns:1fr auto;padding:14px}
+  .pa-vs{grid-column:1/-1;grid-row:2;font-size:14px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.pj-anim .pa-tape,html.pj-anim .proj-parity .proj-hero-media::after{animation:none}
+  html.pj-anim .proj-numbers .pa-meter i{transform:none;transition:none}
+  html.pj-anim .pa-results .pa-board li{opacity:1;transform:none;transition:none}
+}

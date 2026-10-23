@@ -50,7 +50,7 @@
     <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>SCPI</li><li>Oscilloscope</li><li>Function generator</li></ul></dd></div></dl>
     <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/photo.webp" width="1400" height="1050" alt="Electronic lab equipment on a bench." fetchpriority="high" decoding="async"><figcaption><span class="credit">Photo: Ludovic Delot on <a href="https://www.pexels.com/photo/18471414/" rel="noopener">Pexels</a> (Pexels License). A stock photo, not the real thing.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="screen"><img src="img/photo.webp" width="1400" height="1050" alt="Electronic lab equipment on a bench." fetchpriority="high" decoding="async"></div><figcaption><span class="credit">Photo: Ludovic Delot on <a href="https://www.pexels.com/photo/18471414/" rel="noopener">Pexels</a> (Pexels License). A stock photo, not the real thing.</span></figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
@@ -60,12 +60,22 @@
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
+    <div class="did-grid">
+    <div class="scope" aria-hidden="true">
+      <div class="stage">
+        <canvas class="proj-scene"></canvas>
+        <p class="stage-hud"><span>CH1 Sweep</span><span class="stage-pt">12 pt</span></p>
+        <p class="stage-hud stage-foot"><span>Gain</span><span class="stage-res">Ready</span></p>
+      </div>
+      <div class="scope-knobs"><i></i><i></i><i></i><b></b><b></b></div>
+    </div>
     <ul class="did-list">
       <li>Scripted the lab instruments in Python over SCPI.</li>
       <li>A 12-point amplifier test went from 45 minutes to 90 seconds.</li>
       <li>Charts draw themselves at the end of each run.</li>
       <li>It caught a 3 dB error that manual checks missed.</li>
     </ul>
+    </div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>

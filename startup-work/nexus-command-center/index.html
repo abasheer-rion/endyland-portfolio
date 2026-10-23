@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
 <link rel="stylesheet" href="/startup-work/nexus-command-center/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-nexus-command-center">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,10 +40,12 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" aria-hidden="true"></canvas>
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>NEXUS Command Center</span></li></ol></nav>
 
-  <header class="proj-hero">
+  <header class="proj-hero nx-window">
+    <div class="nx-bar" aria-hidden="true"><i></i><i></i><i></i><span>nexus / command center</span><em>admin</em></div>
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo">
     <p class="proj-kicker">RION sub-project</p>
@@ -51,12 +54,13 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Wrote the server and the dashboard.</dd></div><div><dt>Dates</dt><dd>Dec 2025 to Feb 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Node</li><li>Express</li><li>Postgres</li><li>Stripe</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/figure.svg" width="800" height="450" alt="Diagram: Stripe payments flow into a Node and Postgres server, which feeds the admin dashboard." fetchpriority="high" decoding="async"><figcaption>How the pieces fit. Both live links are offline now.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="flow"><img src="img/figure.svg" width="800" height="450" alt="Diagram: Stripe payments flow into a Node and Postgres server, which feeds the admin dashboard." fetchpriority="high" decoding="async"><svg class="packets" viewBox="0 0 800 450" aria-hidden="true" focusable="false"><rect class="hb hb1" x="40" y="170" width="190" height="110" rx="6"/><rect class="hb hb2" x="300" y="170" width="200" height="110" rx="6"/><rect class="hb hb3" x="570" y="170" width="190" height="110" rx="6"/><circle class="pk pk1" cx="234" cy="225" r="5"/><circle class="pk pk2" cx="504" cy="225" r="5"/><circle class="pk pk1 late" cx="234" cy="225" r="4"/><circle class="pk pk2 late" cx="504" cy="225" r="4"/></svg></div><figcaption>How the pieces fit. Both live links are offline now.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">147</span><span aria-hidden="true" data-count="147">147</span></b><span>server commits, all mine</span></li><li class="stat"><b><span class="visually-hidden">94</span><span aria-hidden="true" data-count="94">94</span></b><span>dashboard commits</span></li></ul>
+    <ul class="stats"><li class="stat rion-glow"><i class="meter" aria-hidden="true"><i class="m-147"></i></i><b><span class="visually-hidden">147</span><span aria-hidden="true" data-count="147">147</span></b><span>server commits, all mine</span></li><li class="stat rion-glow"><i class="meter" aria-hidden="true"><i class="m-94"></i></i><b><span class="visually-hidden">94</span><span aria-hidden="true" data-count="94">94</span></b><span>dashboard commits</span></li></ul>
+    <div class="rion-code rion-glow" aria-hidden="true"><div class="rc-bar"><i></i><i></i><i></i><span>git</span></div><div class="rc-body"><p class="ln cmd">git rev-list --count HEAD   # server</p><p class="ln"><b>147</b></p><p class="ln cmd">git rev-list --count HEAD   # dashboard</p><p class="ln"><b>94</b></p></div></div>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">

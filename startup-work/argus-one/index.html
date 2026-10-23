@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/startup-work/argus-one/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
-<body class="proj-page proj-argus-one">
+<body class="proj-page proj-one a-dots proj-argus-one">
 <a class="skip" href="#main">Skip to content</a>
 <header class="tabbar">
   <a class="tabbar-home" href="/">endyland</a>
@@ -39,6 +39,8 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" id="one-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>Argus One</span></li></ol></nav>
 
@@ -47,11 +49,11 @@
     <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo">
     <p class="proj-kicker">Argus sub-project</p>
     <h1>Argus One</h1>
-    <p class="proj-summary">The theft-detection AI. It watches live store cameras, tracks body pose and gives each person one risk score.</p>
+    <p class="proj-summary">The theft-detection AI. It watches live store cameras, tracks body pose and gives each person <span class="a-key">one risk score</span>.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>About half the commits, plus tests, docs, streaming and deployment.</dd></div><div><dt>Dates</dt><dd>Apr 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>EVA-CLIP</li><li>FastAPI</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/camera.webp" width="514" height="289" alt="A store camera view with labeled boxes around customers, staff and deliveries." fetchpriority="high" decoding="async"><figcaption>An example camera view, recreated for the Argus site.</figcaption></figure>
+    <figure class="proj-hero-media one-cam"><div class="one-feed"><img src="img/camera.webp" width="632" height="350" alt="A store camera view with labeled boxes around customers, staff and deliveries." fetchpriority="high" decoding="async"><span class="one-hud" aria-hidden="true"><span class="one-rec">Live</span><span class="one-time">00:00:00</span><span class="one-scan"></span><span class="one-c one-c1"></span><span class="one-c one-c2"></span><span class="one-c one-c3"></span><span class="one-c one-c4"></span><span class="one-lock one-lock1"></span><span class="one-lock one-lock2"></span><span class="one-risk"><span class="one-risk-l">Risk</span><span class="one-risk-bar"><span></span></span></span></span></div><figcaption>An example camera view, recreated for the Argus site.</figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">

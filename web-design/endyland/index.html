@@ -42,15 +42,16 @@
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>endyland.com</span></li></ol></nav>
 
-  <header class="proj-hero">
+  <header class="proj-hero ed-hero">
+    <span class="ed-shapes" aria-hidden="true"><i class="ed-sun"></i><i class="ed-half"></i><i class="ed-zig"></i><i class="ed-pill"></i><i class="ed-ring"></i></span>
     <div class="proj-intro">
     <p class="proj-kicker">This site</p>
-    <h1>endyland.com</h1>
+    <h1>endyland<span class="ed-dot">.com</span></h1>
     <p class="proj-summary">This portfolio. A home page and five tabs, each with its own look, and a live 3D antenna beam.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Design and code</dd></div><div><dt>Dates</dt><dd>Oct 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>three.js</li><li>Cloudflare Pages</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://endyland.com" rel="noopener">endyland.com</a></li><li><a href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/site.webp" width="1440" height="900" alt="The endyland.com home page with the antenna beam drawn in 3D." fetchpriority="high" decoding="async"></figure>
+    <figure class="proj-hero-media ed-media"><img src="img/site.webp" width="1440" height="900" alt="The endyland.com home page with the antenna beam drawn in 3D." fetchpriority="high" decoding="async"></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
@@ -60,6 +61,7 @@
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
+    <div class="ed-did">
     <ul class="did-list">
       <li>Designed and built the site in plain HTML, CSS and JavaScript, with no build step.</li>
       <li>Wrote the home page beam in three.js. It is a 6 by 6 antenna array, and it steers toward your pointer.</li>
@@ -67,6 +69,8 @@
       <li>Kept a strict security policy: no inline scripts and no outside script hosts.</li>
       <li>Set up checks and automatic deploys to Cloudflare Pages.</li>
     </ul>
+    <figure class="ed-beam"><canvas class="ed-beam-canvas" aria-hidden="true"></canvas><figcaption>A flat sketch of the home page beam: one row of the array, steered by your pointer or finger.</figcaption></figure>
+    </div>
   </section>
 
   <section class="proj-section proj-related" aria-labelledby="related-h">

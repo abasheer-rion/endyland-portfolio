@@ -1,4 +1,45 @@
 /* Claude for GoHighLevel project page. Only this page loads this file.
-   Theme: Projects tab. Brief: docs/themes/tab-projects.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /projects/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Theme: Projects tab, as a role-playing game menu. Brief: docs/themes/tab-projects.md (not deployed).
+   Shared layout: /shared/project.css. Arcade parts: /projects/project-theme.css.
+   The look: the 48 tools are an item inventory (8 by 6 slots) with a cursor that hops between them,
+   and "What I did" is a game dialog box with a blinking "more" arrow. */
+:root{
+  --p-bg:#14051E; --p-surface:#260C36; --panel:rgba(20,5,30,.93); --shade:#07010B;
+  --pg:#FF4FD8; --pg2:#FF9A4D; --p-line:rgba(255,79,216,.3);
+  --tb-bg:rgba(20,5,30,.97); --tb-accent:#FF4FD8; --tb-border:rgba(255,79,216,.3); --badge-fg:#FF9A4D; --badge-border:#FF9A4D;
+}
+/* Floating pixel sparkles in the sky. */
+body.proj-page{background-image:
+  radial-gradient(2px 2px at 14% 30%,#FF9A4D 99%,transparent),radial-gradient(2px 2px at 82% 18%,#FF4FD8 99%,transparent),
+  radial-gradient(1px 1px at 64% 44%,rgba(255,255,255,.6) 99%,transparent),radial-gradient(1px 1px at 30% 12%,rgba(255,255,255,.6) 99%,transparent),
+  radial-gradient(2px 2px at 92% 62%,#3DF2FF 99%,transparent),
+  radial-gradient(ellipse at 50% 115%,rgba(255,79,216,.2),transparent 60%);
+  background-attachment:fixed}
+
+/* ---------- Numbers: one huge number beside the inventory ---------- */
+.numbers-grid{display:grid;gap:30px;grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:stretch}
+.numbers-grid .stats{order:-1;grid-template-columns:minmax(0,1fr);margin:0}
+.numbers-grid .stat{display:flex;flex-direction:column;justify-content:center;height:100%;padding:28px 24px}
+.numbers-grid .stat b{font-size:clamp(56px,9vw,112px);line-height:1.1;color:var(--pg2);
+  text-shadow:4px 4px 0 #8A1F70,8px 8px 0 var(--shade)}
+.numbers-grid .stat>span:last-child{font-size:17px;margin-top:16px}
+.numbers-grid .stage{height:auto;min-height:300px;margin:0;cursor:crosshair;
+  background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(255,79,216,.18) 46px 50px),
+    repeating-linear-gradient(0deg,transparent 0 40px,rgba(255,79,216,.18) 40px 44px),#0C0314}
+.stage-slot{color:var(--pg2)}
+@media (max-width:900px){
+  .numbers-grid{grid-template-columns:minmax(0,1fr)}
+  .numbers-grid .stage{min-height:0;height:clamp(220px,62vw,320px)}
+}
+
+/* ---------- What I did: a dialog box ---------- */
+.dialog{position:relative;max-width:820px;padding:24px 26px 40px;background:#0C0314;
+  box-shadow:0 -4px 0 0 #F5F1FF,0 4px 0 0 #F5F1FF,-4px 0 0 0 #F5F1FF,4px 0 0 0 #F5F1FF,
+    0 -8px 0 0 var(--pg),0 8px 0 0 var(--pg),-8px 0 0 0 var(--pg),8px 0 0 0 var(--pg),14px 14px 0 4px var(--shade)}
+.dialog .did-list{gap:18px}
+.dialog .did-list li::before{border-left-color:var(--pg2)}
+.dialog-more{position:absolute;right:22px;bottom:14px;width:0;height:0;border:8px solid transparent;border-top:10px solid var(--pg2);border-bottom:0}
+html.pj-anim .dialog-more{animation:nudge .8s steps(2) infinite}
+@keyframes nudge{50%{transform:translateY(4px)}}
+.dialog .did-list li:hover{background:rgba(255,154,77,.1)}
+.proj-related .plain-list a{font-weight:600}

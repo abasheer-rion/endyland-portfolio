@@ -1,4 +1,85 @@
 /* Argus project page. Only this page loads this file.
    Theme: Argus. Brief: docs/themes/argus.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /startup-work/argus/brand.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and the aperture transition: /startup-work/argus/brand.css.
+   Art: an aperture that opens behind the hero (scene.js), the useargus.co hero tilted in 3D and leaning
+   toward the pointer, big stat blocks with one dark panel, numbered "What I did", and sub-project cards
+   that widen in place when you point at them. Motion only runs under html.pj-anim (reduced motion off). */
+
+/* Soft red glow behind the hero, like the live site. */
+.proj-argus .proj::before{content:"";position:absolute;z-index:-1;left:-10%;top:40px;width:70%;height:620px;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(220,38,38,.09),rgba(220,38,38,0))}
+.proj-argus .proj-hero{padding-top:28px;padding-bottom:64px}
+.proj-argus .proj-logo{max-height:48px}
+.proj-argus .proj h1{font-size:clamp(56px,10vw,128px);font-weight:400;letter-spacing:-.035em;margin-bottom:12px}
+.proj-argus .proj-summary{font-family:var(--p-display);font-size:clamp(21px,2.4vw,27px);line-height:1.35;max-width:24ch}
+html.pj-anim .proj-argus .proj-intro>*{animation:a-rise .8s var(--a-ease) backwards}
+html.pj-anim .proj-argus .proj-intro>:nth-child(2){animation-delay:.06s}
+html.pj-anim .proj-argus .proj-intro>:nth-child(3){animation-delay:.12s}
+html.pj-anim .proj-argus .proj-intro>:nth-child(4){animation-delay:.18s}
+html.pj-anim .proj-argus .proj-intro>:nth-child(n+5){animation-delay:.24s}
+@keyframes a-rise{from{opacity:0;transform:translateY(22px)}}
+/* The aperture logo opens on load: a circle wipe on the logo. */
+html.pj-anim .proj-argus .proj-logo{animation:a-open 1s .1s cubic-bezier(.5,0,.2,1) both}
+@keyframes a-open{from{clip-path:circle(0 at 14% 50%)}to{clip-path:circle(120% at 14% 50%)}}
+
+/* Hero dashboard in 3D, as on useargus.co (the tilt itself is in brand.css). */
+html.pj-anim .proj-argus .a-tilt-in{animation:a-swing 1.2s .15s var(--a-ease) backwards}
+@keyframes a-swing{from{opacity:0;transform:rotateX(18deg) rotateY(-32deg) translateX(60px) translateZ(-120px)}}
+
+/* Big numbers: one dark panel, the rest white cards with a red rule. */
+.proj-argus .stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.proj-argus .stat{position:relative;background:rgba(255,255,255,.86);border-color:rgba(26,26,26,.1);padding:22px 22px 20px;overflow:hidden;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.proj-argus .stat::before{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;background:var(--a-red);transform-origin:left;transform:scaleX(.18)}
+.proj-argus .stat b{font-size:clamp(34px,4.2vw,56px);letter-spacing:-.02em}
+.proj-argus .stat>span:last-child{font:500 12px/1.5 var(--p-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--p-mute)}
+.proj-argus .stat:first-child{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end;min-height:260px;
+  background:var(--a-panel);border-color:var(--a-panel);color:#F5F5F5}
+.proj-argus .stat:first-child b{color:#fff;font-size:clamp(72px,10vw,148px);line-height:.9}
+.proj-argus .stat:first-child>span:last-child{color:#C9C9C4}
+.proj-argus .stat:first-child::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(220,38,38,.45),rgba(220,38,38,0))}
+html.pj-anim .proj-argus .proj-numbers .stat{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .7s var(--a-ease)}
+html.pj-anim .proj-argus .proj-numbers .stat.in{opacity:1;transform:none}
+html.pj-anim .proj-argus .proj-numbers .stat::before{transition:transform 1.1s .25s var(--a-ease)}
+html.pj-anim .proj-argus .proj-numbers .stat.in::before{transform:scaleX(1)}
+.proj-argus .proj-numbers .stat:not(:first-child):hover::before{transform:scaleX(1)}
+@media (max-width:900px){.proj-argus .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.proj-argus .stat:first-child{grid-row:auto;min-height:200px}}
+
+/* What I did: numbered, big serif lines. */
+.proj-argus .did-list{counter-reset:did;gap:0;max-width:none}
+.proj-argus .did-list li{counter-increment:did;padding:20px 0 20px 76px;border-top:1px solid var(--p-line);
+  font-family:var(--p-display);font-size:clamp(20px,2.2vw,27px);line-height:1.35}
+.proj-argus .did-list li:last-child{border-bottom:1px solid var(--p-line)}
+.proj-argus .did-list li::before{content:counter(did,decimal-leading-zero);width:auto;height:auto;background:none;top:26px;
+  font:500 13px/1 var(--p-mono);letter-spacing:.14em;color:var(--a-deep)}
+
+/* Notable projects: a row of cards that widen in place when you point at one. */
+.proj-argus .cards{display:flex;gap:14px;align-items:stretch}
+.proj-argus .cards>li{flex:1 1 0;min-width:0;transition:flex-grow .6s var(--a-ease)}
+.proj-argus .card-link{position:relative;background:#fff;box-shadow:0 1px 0 rgba(26,26,26,.04);transition:box-shadow .4s,border-color .4s}
+.proj-argus .card-link img{transition:transform .8s var(--a-ease)}
+.proj-argus .card-link .card-body{padding:18px 20px 22px}
+.proj-argus .card-link h3{font-size:24px}
+.proj-argus .card-link .card-go{font:500 12px/1.4 var(--p-mono);letter-spacing:.12em;text-transform:uppercase}
+.proj-argus .card-link:hover,.proj-argus .card-link:focus-visible{border-color:rgba(220,38,38,.45);box-shadow:0 24px 50px -24px rgba(220,38,38,.35)}
+.proj-argus .card-link:hover img,.proj-argus .card-link:focus-visible img{transform:scale(1.06)}
+@media (hover:hover) and (pointer:fine) and (min-width:960px){
+  .proj-argus .cards>li:hover,.proj-argus .cards>li:focus-within{flex-grow:1.9}
+}
+@media (max-width:959px){.proj-argus .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}}
+html.pj-anim .proj-argus .proj-subs .cards>li{opacity:0;transform:translateY(26px)}
+html.pj-anim .proj-argus .proj-subs .cards>li.in{opacity:1;transform:none;transition:opacity .6s,transform .7s var(--a-ease),flex-grow .6s var(--a-ease)}
+html.pj-anim .proj-argus .proj-subs .cards>li:nth-child(2){transition-delay:.08s}
+html.pj-anim .proj-argus .proj-subs .cards>li:nth-child(3){transition-delay:.16s}
+html.pj-anim .proj-argus .proj-subs .cards>li:nth-child(4){transition-delay:.24s}
+html.pj-anim .proj-argus .proj-subs .cards>li.in:hover{transition-delay:0s}
+
+/* Smaller pieces: a mono log. */
+.proj-argus .plain-list{list-style:none;padding:0;gap:0}
+.proj-argus .plain-list li{padding:14px 0 14px 28px;border-top:1px dashed rgba(26,26,26,.18);position:relative}
+.proj-argus .plain-list li::before{content:"";position:absolute;left:4px;top:23px;width:8px;height:8px;border-radius:50%;border:2px solid var(--a-red)}
+
+@media (prefers-reduced-motion:reduce){
+  .proj-argus .cards>li,.proj-argus .card-link img{transition:none}
+}

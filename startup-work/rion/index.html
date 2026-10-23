@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
 <link rel="stylesheet" href="/startup-work/rion/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-rion">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,6 +40,7 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" aria-hidden="true"></canvas>
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><span>RION Solutions</span></li></ol></nav>
 
@@ -51,12 +53,14 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Automation engineer, Plano, TX</dd></div><div><dt>Dates</dt><dd>Sep 2025 to Jun 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Flask</li><li>AWS Lambda</li><li>Docker</li><li>GitHub Actions</li><li>REST</li><li>Next.js</li><li>Node</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The RION home page: Intelligent Scalable Automation for Modern Businesses, over a starfield." fetchpriority="high" decoding="async"></figure>
+    <div class="rion-stage" aria-hidden="true"></div>
+    <figure class="proj-hero-media rion-frame rion-flatten"><div class="rf-bar" aria-hidden="true"><i></i><i></i><i></i><span>rionsolution.com</span></div><img class="rion-tilt" src="img/hero.webp" width="1440" height="900" alt="The RION home page: Intelligent Scalable Automation for Modern Businesses, over a starfield." fetchpriority="high" decoding="async"></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster client onboarding</span></li><li class="stat"><b><span class="visually-hidden">10K+</span><span aria-hidden="true" data-count="10" data-post="K+">10K+</span></b><span>AWS transactions a day</span></li><li class="stat"><b><span class="visually-hidden">40%</span><span aria-hidden="true" data-count="40" data-post="%">40%</span></b><span>faster deploys</span></li><li class="stat"><b>1K+</b><span>county lookups a day</span></li><li class="stat"><b><span class="visually-hidden">95%</span><span aria-hidden="true" data-count="95" data-post="%">95%</span></b><span>on-time delivery</span></li><li class="stat"><b>8+</b><span>client deployments</span></li></ul>
+    <ul class="stats"><li class="stat rion-glow"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster client onboarding</span></li><li class="stat rion-glow"><b><span class="visually-hidden">10K+</span><span aria-hidden="true" data-count="10" data-post="K+">10K+</span></b><span>AWS transactions a day</span></li><li class="stat rion-glow"><b><span class="visually-hidden">40%</span><span aria-hidden="true" data-count="40" data-post="%">40%</span></b><span>faster deploys</span></li><li class="stat rion-glow"><b>1K+</b><span>county lookups a day</span></li><li class="stat rion-glow"><b><span class="visually-hidden">95%</span><span aria-hidden="true" data-count="95" data-post="%">95%</span></b><span>on-time delivery</span></li><li class="stat rion-glow"><b>8+</b><span>client deployments</span></li></ul>
+    <div class="rion-code rion-glow" aria-hidden="true"><div class="rc-bar"><i></i><i></i><i></i><span>rion status</span></div><div class="rc-body"><p class="ln cmd">rion status</p><p class="ln"><b>onboarding </b> 70% faster</p><p class="ln"><b>aws        </b> 10K+ transactions a day</p><p class="ln"><b>deploys    </b> 40% faster</p><p class="ln"><b>county api </b> 1K+ lookups a day</p><p class="ln"><b>clients    </b> 8+ deployments, 95% on time</p></div></div>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
@@ -72,27 +76,27 @@
 
   <section class="proj-section proj-products" aria-labelledby="products-h">
     <h2 id="products-h">The three products</h2>
-    <ul class="products"><li><b>FORGE</b>Custom AI builds.</li><li><b>ARGUS</b>Security and monitoring. It became <a href="/startup-work/argus/">Argus</a>.</li><li><b>NEXUS</b>The client portal. It became the <a href="/startup-work/argus-dashboard/">Argus Dashboard</a>.</li></ul>
+    <ul class="products"><li class="rion-glow prod-forge"><span class="prod-n" aria-hidden="true">01</span><b>FORGE</b>Custom AI builds.</li><li class="rion-glow prod-argus"><span class="prod-n" aria-hidden="true">02</span><b>ARGUS</b>Security and monitoring. It became <a href="/startup-work/argus/">Argus</a>.</li><li class="rion-glow prod-nexus"><span class="prod-n" aria-hidden="true">03</span><b>NEXUS</b>The client portal. It became the <a href="/startup-work/argus-dashboard/">Argus Dashboard</a>.</li></ul>
   </section>
 
   <section class="proj-section proj-subs" aria-labelledby="subs-h">
     <h2 id="subs-h">Notable projects</h2>
     <ul class="cards">
-      <li><a class="card-link" href="/startup-work/nexus-command-center/"><img src="/startup-work/nexus-command-center/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>NEXUS Command Center</h3><p>An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</p><span class="card-go">See the project</span></div></a></li>
-      <li><a class="card-link" href="/startup-work/rion-county-api/"><img src="/startup-work/rion-county-api/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>County records API and client intake</h3><p>One API in front of 3 county record systems, and client intake that runs on its own.</p><span class="card-go">See the project</span></div></a></li>
-      <li><a class="card-link" href="/web-design/rion-website/"><img src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>RION Solutions website</h3><p>A rebuild of the RION Solutions website in Next.js.</p><span class="card-go">See the project</span></div></a></li>
+      <li><a class="card-link rion-glow" href="/startup-work/nexus-command-center/"><img src="/startup-work/nexus-command-center/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>NEXUS Command Center</h3><p>An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</p><span class="card-go">See the project</span></div></a></li>
+      <li><a class="card-link rion-glow" href="/startup-work/rion-county-api/"><img src="/startup-work/rion-county-api/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>County records API and client intake</h3><p>One API in front of 3 county record systems, and client intake that runs on its own.</p><span class="card-go">See the project</span></div></a></li>
+      <li><a class="card-link rion-glow" href="/web-design/rion-website/"><img src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>RION Solutions website</h3><p>A rebuild of the RION Solutions website in Next.js.</p><span class="card-go">See the project</span></div></a></li>
     </ul>
   </section>
 
   <section class="proj-section proj-clients" aria-labelledby="clients-h">
     <h2 id="clients-h">Client work delivered through RION</h2>
-    <ul class="plain-list"><li><a href="/web-design/new-door/">New Door Investments</a></li><li><a href="/web-design/detail-theory/">Detail Theory</a></li><li><a href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></li><li><a href="/web-design/yotummy/">YoTummy prototype</a></li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li></ul>
+    <ul class="plain-list clients"><li><a href="/web-design/new-door/">New Door Investments</a></li><li><a href="/web-design/detail-theory/">Detail Theory</a></li><li><a href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></li><li><a href="/web-design/yotummy/">YoTummy prototype</a></li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li></ul>
   </section>
 
   <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
     <h2 id="gallery-h">Gallery</h2>
     <ul class="gallery">
-      <li><figure><a class="lb" href="img/products.webp" data-w="1000" data-h="1304"><img src="img/products.webp" width="1000" height="1304" alt="Three product cards: FORGE, ARGUS and NEXUS." loading="lazy" decoding="async"></a><figcaption>The three products on rionsolution.com.</figcaption></figure></li>
+      <li><figure class="rion-frame"><a class="lb" href="img/products.webp" data-w="1000" data-h="1304"><img src="img/products.webp" width="1000" height="1304" alt="Three product cards: FORGE, ARGUS and NEXUS." loading="lazy" decoding="async"></a><figcaption>The three products on rionsolution.com.</figcaption></figure></li>
     </ul>
   </section>
 

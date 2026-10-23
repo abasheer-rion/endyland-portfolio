@@ -1,4 +1,88 @@
 /* endyland.com project page. Only this page loads this file.
    Theme: Web design tab. Brief: docs/themes/tab-web-design.md (not deployed).
    Shared layout: /shared/project.css. Theme tokens: /web-design/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Look: the tab's Memphis and Bauhaus style. Chunky ink outlines, hard shadows, primary shapes.
+   Motion: shapes bob around the hero and can be grabbed and flung (they spring home), cards spring on hover,
+   and a flat beam plot steers toward the pointer (scene.js, a 2D canvas). Ink text sits on solid colors only. */
+:root{--ed-sun:#FFC93C;--ed-blue:#2D5BFF;--ed-mint:#2EC4B6;--ed-coral:#FF5A4E;--ed-ink:#1B1B1F;--ed-spring:cubic-bezier(.3,1.6,.45,1)}
+body.proj-page{background:
+  radial-gradient(circle at 1px 1px,rgba(27,27,31,.16) 1.2px,transparent 1.6px) 0 0/22px 22px,var(--p-bg)}
+
+/* ---------- Hero ---------- */
+.ed-hero{position:relative}
+@media (min-width:960px){.ed-hero{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}}
+.ed-hero .proj-intro{position:relative;z-index:1}
+.proj-kicker{display:inline-block;padding:4px 12px;background:var(--ed-sun);border:3px solid var(--ed-ink);color:var(--ed-ink);box-shadow:3px 3px 0 var(--ed-ink)}
+.ed-hero h1{font-size:clamp(44px,6.2vw,92px);font-variation-settings:"wdth" 112;letter-spacing:-.02em}
+.ed-dot{display:block;color:var(--ed-blue)}
+.proj-stack li{background:#fff;border:2px solid var(--ed-ink);border-radius:0;font-weight:600}
+.proj-links a{border-radius:0;font-weight:800;transition:transform .35s var(--ed-spring),box-shadow .35s var(--ed-spring)}
+.proj-links li:nth-child(2) a{background:var(--ed-mint)}
+.ed-media{position:relative;z-index:1}
+.ed-media img{transform:rotate(1.5deg)}
+
+/* Shapes: decoration around the hero. main.js lets you grab and fling them. */
+.ed-shapes{position:absolute;inset:0;z-index:0;pointer-events:none}
+.ed-shapes i{position:absolute;display:block;border:3px solid var(--ed-ink);pointer-events:auto;cursor:grab;touch-action:none;
+  translate:var(--dx,0px) var(--dy,0px);rotate:var(--rot,0deg)}
+.ed-shapes i.grab{cursor:grabbing}
+.ed-sun{right:2%;top:-8px;width:74px;height:74px;border-radius:50%;background:var(--ed-sun);box-shadow:5px 5px 0 var(--ed-ink)}
+.ed-half{left:50%;bottom:2%;width:84px;height:42px;border-radius:84px 84px 0 0;border-bottom:0;background:var(--ed-blue)}
+.ed-zig{left:42%;top:4%;width:96px;height:28px;border:0!important;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 28'%3E%3Cpath d='M3 22 L15 6 L27 22 L39 6 L51 22 L63 6 L75 22 L87 6 L93 14' fill='none' stroke='%23FF5A4E' stroke-width='7' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M3 22 L15 6 L27 22 L39 6 L51 22 L63 6 L75 22 L87 6 L93 14' fill='none' stroke='%231B1B1F' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.ed-pill{right:-18px;top:44%;width:46px;height:110px;border-radius:30px;background:var(--ed-mint);box-shadow:4px 4px 0 var(--ed-ink)}
+.ed-ring{right:-10px;bottom:-14px;width:58px;height:58px;border-radius:50%;border-width:12px!important;border-color:var(--ed-coral)!important;
+  outline:3px solid var(--ed-ink);outline-offset:-3px;background:transparent}
+@media (max-width:959px){
+  .ed-sun{top:96px;right:-6px;width:50px;height:50px}
+  .ed-zig{left:auto;right:4%;top:-6px;width:72px}
+  .ed-half{left:auto;right:30%;bottom:-6px}
+  .ed-shapes .ed-pill{display:none}
+}
+
+/* ---------- Numbers: solid blocks of color ---------- */
+.stats{gap:22px}
+.stat{border-radius:0;transition:transform .45s var(--ed-spring),box-shadow .45s var(--ed-spring)}
+.stat:nth-child(1){background:var(--ed-sun)}
+.stat:nth-child(2){background:var(--ed-mint)}
+.stat:nth-child(3){background:var(--ed-coral)}
+.stat b{font-size:clamp(46px,6vw,76px);font-variation-settings:"wdth" 125}
+.stat span:last-child{color:var(--ed-ink);font-weight:600}
+/* project.css styles the label with .stat span:last-child, which also hits the count-up number inside <b>. */
+.stat b>span:last-child{display:inline;margin:0;font-size:inherit;line-height:inherit;font-weight:inherit}
+
+/* ---------- What I did, with the beam ---------- */
+.ed-did{display:grid;gap:36px;align-items:start}
+@media (min-width:960px){.ed-did{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px}}
+.did-list li::before{width:14px;height:14px;top:.45em;border:2.5px solid var(--ed-ink);border-radius:0;background:var(--ed-coral)}
+.did-list li:nth-child(3n+2)::before{border-radius:50%;background:var(--ed-blue)}
+.did-list li:nth-child(3n)::before{background:var(--ed-sun);transform:rotate(45deg)}
+.ed-beam{margin:0}
+.ed-beam-canvas{width:100%;aspect-ratio:4/3;background:#FFFDF7;border:3px solid var(--ed-ink);box-shadow:6px 6px 0 var(--ed-ink);touch-action:pan-y}
+
+/* ---------- Hover and press (springy) ---------- */
+@media (hover:hover) and (pointer:fine){
+  .stat:hover{transform:translate(-4px,-4px) rotate(-1deg);box-shadow:10px 10px 0 var(--ed-ink)}
+  .proj-links a:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ed-ink);filter:none}
+  .ed-shapes i:hover{scale:1.08}
+  .ed-shapes i{transition:scale .35s var(--ed-spring)}
+}
+.proj-links a:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ed-ink)}
+
+/* ---------- Motion. Only when the visitor allows it. ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .ed-shapes i{animation:ed-bob 3.6s ease-in-out infinite alternate,ed-pop .7s var(--ed-spring) both}
+  .ed-half{animation-delay:-1.2s,.15s!important}
+  .ed-zig{animation-delay:-2s,.25s!important}
+  .ed-pill{animation-delay:-.6s,.35s!important}
+  .ed-ring{animation-delay:-2.6s,.45s!important}
+  .ed-shapes i.grab,.ed-shapes i.flung{animation-play-state:paused}
+  .ed-hero .proj-intro>*{animation:ed-in .6s var(--ed-spring) both}
+  .ed-hero .proj-intro>:nth-child(2){animation-delay:.06s}
+  .ed-hero .proj-intro>:nth-child(n+3){animation-delay:.12s}
+  .ed-media img{animation:ed-tilt .9s .1s var(--ed-spring) both}
+}
+@keyframes ed-bob{from{transform:translateY(-6px)}to{transform:translateY(8px)}}
+@keyframes ed-pop{from{scale:0}}
+@keyframes ed-in{from{opacity:.15;transform:translateY(20px)}}
+@keyframes ed-tilt{from{transform:rotate(-4deg) translateY(30px)}}

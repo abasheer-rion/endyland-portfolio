@@ -39,6 +39,8 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" id="rf-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>RF direction finder and Butler matrix</span></li></ol></nav>
 
@@ -58,6 +60,24 @@
     <ul class="stats"><li class="stat"><b>5.8 GHz</b><span>operating frequency</span></li><li class="stat"><b>2x2 and 4x4</b><span>arrays compared</span></li><li class="stat"><b>4</b><span>phase shift values: 22.5, 45, 90, 180 degrees</span></li><li class="stat"><b>About half</b><span>of the team&#8217;s commits</span></li></ul>
   </section>
 
+  <section class="proj-section rf-inst" aria-labelledby="inst-h">
+    <h2 id="inst-h">Find, then steer</h2>
+    <div class="rs-screen rf-screen">
+      <canvas id="rf-inst" class="rf-canvas" aria-hidden="true"></canvas>
+    </div>
+    <div class="rf-controls">
+      <div class="rf-modes" role="group" aria-label="What the plot shows">
+        <button type="button" class="rs-btn" data-mode="auto" aria-pressed="true">Auto loop</button>
+        <button type="button" class="rs-btn" data-mode="port" data-port="0" aria-pressed="false">Port 1</button>
+        <button type="button" class="rs-btn" data-mode="port" data-port="1" aria-pressed="false">Port 2</button>
+        <button type="button" class="rs-btn" data-mode="port" data-port="2" aria-pressed="false">Port 3</button>
+        <button type="button" class="rs-btn" data-mode="port" data-port="3" aria-pressed="false">Port 4</button>
+      </div>
+      <p class="rf-readout" id="rf-readout">Auto: beam locked on the beacon at +25.0 degrees.</p>
+    </div>
+    <p class="rs-note">A live sketch of the loop: listen, find the beacon, then turn the beam to it. Tap the plot to move the beacon. The port buttons show the four fixed beams of a textbook 4-port Butler matrix. Drawn for this site from the standard formulas, not measured data.</p>
+  </section>
+
   <section class="proj-section proj-did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
     <ul class="did-list">
@@ -72,9 +92,9 @@
   <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
     <h2 id="gallery-h">Gallery</h2>
     <ul class="gallery">
-      <li><figure><a class="lb" href="img/music-maps.webp" data-w="1600" data-h="538"><img src="img/music-maps.webp" width="1600" height="538" alt="Three 4x4 direction maps, each with the true signal sources circled." loading="lazy" decoding="async"></a><figcaption>4x4 direction maps. The circles mark the true sources.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
-      <li><figure><a class="lb" href="img/gain-coverage.webp" data-w="1600" data-h="681"><img src="img/gain-coverage.webp" width="1600" height="681" alt="Two charts: signal drop between beam steps, and estimated gain, for 2 to 4 phase-shifter bits." loading="lazy" decoding="async"></a><figcaption>Signal drop and gain against phase-shifter bits.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
-      <li class="on-dark"><figure><a class="lb" href="img/butler-beams.webp" data-w="1227" data-h="787"><img src="img/butler-beams.webp" width="1227" height="787" alt="Four heat maps, one receiving beam per Butler matrix port." loading="lazy" decoding="async"></a><figcaption>The four receiving beams of an ideal 2x2 Butler matrix.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+      <li><figure><a class="lb rs-reveal" href="img/music-maps.webp" data-w="1600" data-h="538"><img src="img/music-maps.webp" width="1600" height="538" alt="Three 4x4 direction maps, each with the true signal sources circled." loading="lazy" decoding="async"></a><figcaption>4x4 direction maps. The circles mark the true sources.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+      <li><figure><a class="lb rs-reveal" href="img/gain-coverage.webp" data-w="1600" data-h="681"><img src="img/gain-coverage.webp" width="1600" height="681" alt="Two charts: signal drop between beam steps, and estimated gain, for 2 to 4 phase-shifter bits." loading="lazy" decoding="async"></a><figcaption>Signal drop and gain against phase-shifter bits.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+      <li class="on-dark"><figure><a class="lb rs-reveal" href="img/butler-beams.webp" data-w="1227" data-h="787"><img src="img/butler-beams.webp" width="1227" height="787" alt="Four heat maps, one receiving beam per Butler matrix port." loading="lazy" decoding="async"></a><figcaption>The four receiving beams of an ideal 2x2 Butler matrix.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
     </ul>
   </section>
 

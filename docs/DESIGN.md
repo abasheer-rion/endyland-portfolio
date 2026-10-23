@@ -23,7 +23,8 @@ This file is not deployed (the deploy skips `docs/`).
 
 Each tab folder holds `index.html`, `style.css`, `main.js`, `scene.js`, and `project-theme.css` for its unbranded
 project pages. Each project folder holds `index.html`, `style.css`, `main.js`, `img/`, and an optional `scene.js`.
-A page loads only `/shared/*`, its tab's or brand's theme file, and its own folder.
+A page loads only `/shared/*`, its tab's or brand's theme file, and its own folder. One exception: RION pages also load
+`/startup-work/rion/brand.js` (shared RION behavior) and `/startup-work/rion/sky.js` (the starfield), the JS side of `brand.css`.
 
 ## Content map
 
@@ -225,7 +226,7 @@ If you need a shared change, ask the controller.
 
 CSS only (`@view-transition { navigation: auto; }` in `base.css`), so they work without JS.
 Between a tab and its project pages (and between sibling project pages) the transition is the page-theme wipe:
-`nav.js` saves where you clicked and adds type `deeper` or `up`, and the new page with its own theme grows in as a
+`nav.js` saves where you clicked (sessionStorage key `endyland-vt-point`, read by the RION pages too, so keep the name) and adds type `deeper` or `up`, and the new page with its own theme grows in as a
 circle from that point (`--vt-x`, `--vt-y`). The tab bar marker stays on the parent tab.
 The tab bar stays still, the marker under the current tab slides to the new tab, and the page content
 slides left or right by tab order. Browsers without view transitions get a short fade in on load.

@@ -1,4 +1,40 @@
 /* RF direction finder and Butler matrix project page. Only this page loads this file.
    Theme: Research tab. Brief: docs/themes/tab-research.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /research/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and screens: /research/project-theme.css.
+   This page: a wireframe beam behind everything, and a live "find, then steer" instrument. */
+.proj-rf-direction-finder{--rs-scr-label:"CH1 FIND / CH2 STEER"}
+
+/* The background beam stays faint so text keeps its contrast. Phones get it fainter still. */
+.proj-rf-direction-finder .proj-scene.on{opacity:.55}
+@media (max-width:760px){.proj-rf-direction-finder .proj-scene.on{opacity:.32}}
+
+/* Text sits on a soft dark plate over the beam. */
+.proj-rf-direction-finder .proj-intro{position:relative}
+.proj-rf-direction-finder .proj-intro::before{content:"";position:absolute;inset:-24px -28px;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(5,7,5,.88),rgba(5,7,5,.6) 70%,transparent)}
+.proj-rf-direction-finder .proj-section{background:linear-gradient(rgba(5,7,5,.55),rgba(5,7,5,.55))}
+
+/* Hero screen: the plot has a white background, so give it a thin phosphor edge and a tilt on wide screens. */
+@media (min-width:960px) and (hover:hover){
+  .proj-rf-direction-finder .proj-hero-media{transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .proj-rf-direction-finder .proj-hero-media:hover{transform:none}
+}
+
+/* The instrument. */
+.rf-screen{--rs-scr-label:"LIVE  4 ELEMENTS  HALF-WAVE SPACING"}
+.rf-canvas{width:100%;aspect-ratio:16/7;background:#050705;cursor:crosshair;touch-action:manipulation}
+@media (max-width:640px){.rf-canvas{aspect-ratio:4/5}}
+.rf-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:14px}
+.rf-modes{display:flex;flex-wrap:wrap;gap:8px}
+.rf-modes .rs-btn[data-mode="port"][aria-pressed="true"]{background:var(--rs-amber);border-color:var(--rs-amber);color:#1A1000}
+.rf-readout{margin:0;font-size:15px;color:var(--rs-amber);font-variant-numeric:tabular-nums;min-height:1.6em}
+
+/* Numbers: the frequency reads like a counter display. */
+.proj-rf-direction-finder .stat:first-child b{color:var(--rs-amber);text-shadow:0 0 14px rgba(255,176,0,.4)}
+
+/* Butler matrix plot: transparent with light grey text, so keep it on a dark plate. */
+.proj-rf-direction-finder .gallery .on-dark a{background:#101511}
+
+@media (prefers-reduced-motion:reduce){
+  .proj-rf-direction-finder .proj-hero-media{transform:none!important;transition:none}
+}

@@ -1,4 +1,31 @@
 /* DFW rental pricing model project page. Only this page loads this file.
    Theme: Research tab. Brief: docs/themes/tab-research.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /research/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and screens: /research/project-theme.css.
+   This page is a survey instrument: contour lines like a map behind the page, and a scatter plot
+   that assembles itself from 1,200 listings as you scroll. */
+.proj-dfw-rent-model{--rs-scr-label:"DFW  RENT MODEL  SCHEMATIC"}
+
+/* Contour lines, like a topographic map of the metro. CSS only. */
+.proj-dfw-rent-model .proj{isolation:isolate}
+.proj-dfw-rent-model .proj::before{content:"";position:absolute;z-index:-1;pointer-events:none;top:0;right:-10%;width:min(900px,90vw);aspect-ratio:1;
+  background:
+    repeating-radial-gradient(circle at 62% 38%,transparent 0 22px,rgba(57,255,136,.09) 22px 23px),
+    repeating-radial-gradient(circle at 30% 70%,transparent 0 30px,rgba(255,176,0,.06) 30px 31px);
+  mask-image:radial-gradient(closest-side,#000 40%,transparent);opacity:.9}
+html.pj-anim .proj-dfw-rent-model .proj::before{animation:dfw-drift 30s ease-in-out infinite alternate}
+@keyframes dfw-drift{to{transform:translate(-4%,3%) rotate(6deg)}}
+
+.dfw-screen{margin:0;--rs-scr-label:"SCATTER  1,200 LISTINGS"}
+.dfw-canvas{width:100%;aspect-ratio:16/8;background:#050705;cursor:crosshair}
+@media (max-width:640px){.dfw-canvas{aspect-ratio:1/1}}
+.dfw-screen figcaption{max-width:80ch}
+
+/* The amber numbers are the ones the model found. */
+.proj-dfw-rent-model .stat:nth-child(n+3) b{color:var(--rs-amber);text-shadow:0 0 14px rgba(255,176,0,.4)}
+.proj-dfw-rent-model .stat{transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s}
+@media (hover:hover){.proj-dfw-rent-model .stat:hover{transform:translateY(-4px);border-color:var(--p-accent)}}
+
+@media (prefers-reduced-motion:reduce){
+  html.pj-anim .proj-dfw-rent-model .proj::before{animation:none}
+  .proj-dfw-rent-model .stat{transition:none}
+}

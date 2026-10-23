@@ -1,7 +1,9 @@
 /* YoTummy project page. Only this page loads this file.
    Theme: YoTummy. Brief: docs/themes/yotummy.md (not deployed).
    Shared layout: /shared/project.css. Theme tokens are set below.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Look: warm, rounded, neighborly. Orange shapes, brown text, a yellow glow behind the hero,
+   a phone that scrolls a feed, chips that roll by, and a seller map (scene.js) where pins group into bubbles.
+   Orange #FF7600 fails AA as text, so it is only used for shapes. Display words use #F5581B (3.2:1, large text only). */
 :root{
   --p-bg:#FCFAF8; --p-surface:#FFFFFF; --p-ink:#2E241F; --p-mute:#6B5D55;
   --p-accent:#FF7600; --p-accent-bg:#FF7600; --p-on-accent:#2E241F; --p-link:#A84300; --p-line:rgba(46,36,31,.12);
@@ -10,4 +12,113 @@
   --tb-bg:rgba(252,250,248,.96); --tb-fg:#2E241F; --tb-mute:#6B5D55; --tb-accent:#FF7600; --tb-border:rgba(46,36,31,.12);
   --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#A84300; --ft-fg:#6B5D55;
   --badge-bg:#FFF1E5; --badge-fg:#2E241F; --badge-border:#F2C6A2;
+  --yt-orange:#FF7600; --yt-orange2:#F5581B; --yt-sun:#FFC93C; --yt-cream:#FFEEBA; --yt-shadow:0 18px 40px -18px rgba(120,60,10,.35);
+}
+
+/* ---------- Hero ---------- */
+/* Fixed logo size, so nothing moves while it loads. */
+.yt-hero .proj-logo{width:min(220px,100%);height:auto;max-height:none}
+.yt-key{color:var(--yt-orange2)}
+.proj h1{letter-spacing:-.01em}
+.proj-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#FFF1E5;color:var(--p-ink);letter-spacing:.06em}
+.proj-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yt-orange)}
+.proj-links a{box-shadow:0 8px 18px -8px rgba(255,118,0,.7);transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+.proj-stack li{background:#fff;border-color:#F2D6BF}
+
+.yt-media{position:relative;padding:4% 9% 10% 0}
+.yt-glow{position:absolute;inset:-6% -4% 0 6%;z-index:0;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,201,60,.75),rgba(255,238,186,.55) 55%,rgba(255,238,186,0) 100%);filter:blur(6px)}
+.yt-browser{position:relative;z-index:1;border-radius:var(--p-radius);overflow:hidden;background:#fff;
+  box-shadow:0 30px 60px -28px rgba(80,40,10,.45),0 0 0 1px var(--p-line)}
+.yt-bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 14px;background:#F6EFE9;border-bottom:1px solid var(--p-line)}
+.yt-bar i{width:10px;height:10px;border-radius:50%;background:#E8D9CC}
+.yt-bar i:first-child{background:var(--yt-orange)}
+.yt-bar b{margin-left:12px;padding:1px 12px;border-radius:999px;background:#fff;font:500 12px/1.6 var(--p-body);color:var(--p-mute)}
+.yt-media .yt-browser img{width:100%;border:0;border-radius:0}
+.yt-phone{position:absolute;right:0;bottom:0;z-index:2;width:27%;aspect-ratio:9/18.5;padding:6px;border-radius:28px;
+  background:linear-gradient(160deg,#FF8A1F,var(--yt-orange) 40%,var(--yt-orange2));box-shadow:0 26px 50px -18px rgba(150,60,0,.6);
+  transform:perspective(900px) rotateY(calc(-12deg + var(--ry,0deg))) rotateX(calc(6deg + var(--rx,0deg))) rotate(4deg);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.yt-screen{position:relative;height:100%;border-radius:22px;overflow:hidden;background:#fff}
+.yt-screen img{width:100%;border:0;border-radius:0}
+
+/* ---------- Category chips ---------- */
+.yt-chips{margin:0 calc(var(--gut) * -1);padding:4px 0 34px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.yt-track{list-style:none;margin:0;padding:0;display:flex;gap:10px;width:max-content}
+.yt-track li{padding:8px 18px;border-radius:999px;border:1.5px solid #F2C6A2;background:#fff;color:var(--p-ink);font:500 15px/1.4 var(--p-body);white-space:nowrap}
+.yt-track li:nth-child(3n+1){background:#FFF1E5}
+.yt-track li:nth-child(5n+2){background:var(--yt-orange);border-color:var(--yt-orange)}
+
+/* ---------- Numbers ---------- */
+.stats{gap:18px}
+.stat{position:relative;overflow:hidden;border:0;background:#fff;box-shadow:var(--yt-shadow),0 0 0 1px var(--p-line);
+  transition:transform .3s cubic-bezier(.3,1.5,.5,1),box-shadow .3s}
+.stat::before{content:"";position:absolute;right:-26px;top:-26px;width:84px;height:84px;border-radius:50%;background:var(--yt-cream)}
+.stat:nth-child(2)::before{background:#FFD9B8}
+.stat:nth-child(4)::before{background:var(--yt-sun)}
+.stat b{position:relative;font-size:clamp(34px,4.2vw,50px)}
+/* project.css styles the label with .stat span:last-child, which also hits the count-up number inside <b>. */
+.stat b>span:last-child{display:inline;margin:0;font-size:inherit;line-height:inherit;color:inherit}
+
+/* ---------- What I did, with the map ---------- */
+.yt-did{display:grid;gap:32px;align-items:start}
+@media (min-width:960px){.yt-did{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}.yt-map{position:sticky;top:96px}}
+.did-list li::before{width:12px;height:12px;top:.5em;border-radius:50%;background:var(--yt-orange);box-shadow:0 0 0 4px #FFE3C7}
+.yt-map{margin:0}
+.yt-map-canvas{width:100%;aspect-ratio:5/4;border-radius:var(--p-radius);touch-action:pan-y;cursor:pointer;
+  background:
+    linear-gradient(90deg,transparent 47%,#fff 47%,#fff 53%,transparent 53%) 0 0/120px 120px,
+    linear-gradient(0deg,transparent 47%,#fff 47%,#fff 53%,transparent 53%) 0 0/120px 120px,
+    radial-gradient(circle at 72% 30%,#DCEBC9 0 14%,transparent 15%),
+    #F7EDE2;
+  box-shadow:var(--yt-shadow),0 0 0 1px var(--p-line)}
+
+/* ---------- Gallery ---------- */
+.gallery a{border:0;box-shadow:0 0 0 1px var(--p-line);transition:transform .3s cubic-bezier(.3,1.5,.5,1),box-shadow .3s}
+.gallery li:nth-child(3) a{max-width:300px;margin:0 auto;border-radius:30px}
+
+/* ---------- Footer: dark, like the client site ---------- */
+.proj-yotummy .site-footer{--ft-fg:#F3E6DC;background:#2E241F;margin-top:40px;border-radius:32px 32px 0 0}
+.proj-yotummy .site-footer a{color:#FFD9B8}
+.proj-yotummy .site-footer{--focus:#FFC93C}
+
+/* ---------- Hover (mouse and trackpad only) ---------- */
+@media (hover:hover) and (pointer:fine){
+  .proj-links a:hover{transform:translateY(-2px) scale(1.03);filter:none}
+  .stat:hover{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(120,60,10,.45),0 0 0 1px var(--p-line)}
+  .gallery a:hover{transform:translateY(-6px);box-shadow:0 26px 50px -22px rgba(120,60,10,.5),0 0 0 1px var(--p-line)}
+}
+
+/* ---------- Motion. Only when the visitor allows it. ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .yt-hero .proj-intro>*{animation:yt-up .7s cubic-bezier(.2,.8,.2,1) both}
+  .yt-hero .proj-intro>:nth-child(2){animation-delay:.06s}
+  .yt-hero .proj-intro>:nth-child(3){animation-delay:.12s}
+  .yt-hero .proj-intro>:nth-child(4){animation-delay:.18s}
+  .yt-hero .proj-intro>:nth-child(5){animation-delay:.24s}
+  .yt-hero .proj-intro>:nth-child(6){animation-delay:.3s}
+  .yt-browser{animation:yt-pop .8s .1s cubic-bezier(.3,1.4,.5,1) both}
+  .yt-phone{animation:yt-phone-in .9s .35s cubic-bezier(.3,1.4,.5,1) both}
+  .yt-glow{animation:yt-glow 4.5s ease-in-out infinite alternate}
+  .yt-screen img{animation:yt-feed 16s 1.2s ease-in-out infinite alternate}
+  .yt-track{animation:yt-roll 46s linear infinite}
+  .yt-chips:hover .yt-track{animation-play-state:paused}
+}
+@keyframes yt-up{from{opacity:.15;transform:translateY(18px)}}
+@keyframes yt-pop{from{transform:translateY(24px) scale(.96)}}
+@keyframes yt-phone-in{from{opacity:0;transform:perspective(900px) translateY(60px) rotateY(-30deg) rotate(12deg)}}
+@keyframes yt-glow{from{opacity:.65;transform:scale(.94)}to{opacity:1;transform:scale(1.05)}}
+/* The phone screen is about twice as tall as it is wide. The feed image is 3.6 times, so it scrolls about 42 percent. */
+@keyframes yt-feed{0%,12%{transform:translateY(0)}88%,100%{transform:translateY(-42%)}}
+@keyframes yt-roll{to{transform:translateX(-50%)}}
+
+@media (max-width:640px){
+  .yt-media{padding:2% 12% 12% 0}
+  .yt-phone{width:32%;border-radius:20px;padding:4px}
+  .yt-screen{border-radius:16px}
+  .yt-bar{height:24px}
+  .yt-bar b{display:none}
+  .yt-chips{padding-bottom:20px}
+  .yt-track li{font-size:14px;padding:6px 14px}
 }

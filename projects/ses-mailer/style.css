@@ -1,4 +1,54 @@
 /* Bulk email app on Amazon SES project page. Only this page loads this file.
-   Theme: Projects tab. Brief: docs/themes/tab-projects.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /projects/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Theme: Projects tab, as a mail-room game. Brief: docs/themes/tab-projects.md (not deployed).
+   Shared layout: /shared/project.css. Arcade parts: /projects/project-theme.css.
+   The look: the numbers are a printed receipt with dotted leaders, the stage is an outbox firing pixel
+   envelopes at a wall of inboxes (with a real pause button, like the app's), and "What I did" is an inbox. */
+:root{
+  --p-bg:#040E28; --p-surface:#0B1D46; --panel:rgba(4,14,40,.93); --shade:#010516;
+  --pg:#3DF2FF; --pg2:#FF4FD8; --p-line:rgba(61,242,255,.3);
+  --tb-bg:rgba(4,14,40,.97); --tb-accent:#3DF2FF; --tb-border:rgba(61,242,255,.3);
+}
+/* Envelope outlines drift across the sky (CSS only). */
+body.proj-page{background-image:
+  linear-gradient(135deg,transparent 46%,rgba(61,242,255,.07) 47% 53%,transparent 54%),
+  linear-gradient(45deg,transparent 46%,rgba(61,242,255,.07) 47% 53%,transparent 54%),
+  radial-gradient(ellipse at 50% 115%,rgba(255,79,216,.18),transparent 60%);
+  background-size:120px 80px,120px 80px,auto;background-attachment:fixed}
+
+/* ---------- Numbers: a receipt ---------- */
+.stats{display:block;max-width:640px;padding:22px 24px 26px;background:#F5F1FF;color:#14102A;
+  box-shadow:10px 10px 0 0 var(--shade);
+  /* torn edge at the bottom */
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 8px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 8px repeat-x;
+  mask:linear-gradient(#000 0 0) top/100% calc(100% - 8px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 8px repeat-x}
+.stats::before{content:"SES SEND REPORT" / "";display:block;margin:0 0 14px;padding-bottom:10px;border-bottom:2px dashed #14102A;
+  font:12px/1.4 var(--p-display);letter-spacing:.04em}
+.stat{display:flex;align-items:baseline;gap:10px;padding:8px 0;background:none;box-shadow:none;transition:none}
+.stat:hover{transform:none;background:rgba(20,16,42,.06)}
+.stat b{order:2;min-width:6em;text-align:right;color:#14102A;font-size:clamp(16px,2vw,22px);white-space:nowrap}
+.stat>span:last-child{order:0;margin:0;color:#3A3456;font-size:16px}
+.stat::after{content:"";order:1;flex:1;min-width:20px;border-bottom:3px dotted #8A84A6;transform:translateY(-4px)}
+
+/* ---------- What I did: outbox beside an inbox ---------- */
+.did-grid{display:grid;gap:34px;grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:start}
+@media (max-width:900px){.did-grid{grid-template-columns:minmax(0,1fr)}}
+.outbox .stage{margin:0;height:clamp(230px,26vw,320px);
+  background:linear-gradient(90deg,#1B2E66 0 18%,transparent 18%),repeating-linear-gradient(0deg,#0B1D46 0 26px,#132A60 26px 30px) right/30% 100% no-repeat,#020A22}
+.stage-sent{color:var(--pg2)}
+.send-ctl{margin:16px 0 0}
+.send-btn{min-height:44px;padding:0 18px;border:0;border-radius:0;cursor:pointer;
+  font:11px/1 var(--p-display);text-transform:uppercase;color:#0B0420;background:var(--pg);box-shadow:5px 6px 0 0 var(--pg2);
+  transition:transform .12s steps(2),box-shadow .12s steps(2)}
+.send-btn:hover{transform:translate(3px,3px);box-shadow:2px 3px 0 0 var(--pg2)}
+.send-btn:active{transform:translate(5px,6px);box-shadow:0 0 0 0 var(--pg2)}
+
+/* The inbox: each line is a mail row with an envelope icon. */
+.did-list{gap:0;background:var(--shade);box-shadow:inset 0 0 0 2px rgba(61,242,255,.3)}
+.did-list li{padding:14px 16px 14px 56px;border-bottom:2px solid rgba(61,242,255,.15)}
+.did-list li:last-child{border-bottom:0}
+.did-list li::before{left:16px;top:20px;width:24px;height:16px;border:0;border-radius:0;
+  background:linear-gradient(28deg,transparent 46%,var(--pg) 47% 55%,transparent 56%) top/50% 60% no-repeat,
+    linear-gradient(-28deg,transparent 46%,var(--pg) 47% 55%,transparent 56%) top right/50% 60% no-repeat,#13306A;
+  box-shadow:0 0 0 2px var(--pg)}
+.did-list li:hover{background:rgba(61,242,255,.08)}
+.did-list li:hover::before{background-color:var(--pg2)}

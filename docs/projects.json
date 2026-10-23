@@ -11,6 +11,7 @@
     "thumb": "/web-design/yotummy/img/thumb.webp",
     "images": [
       "/web-design/yotummy/img/app.webp",
+      "/web-design/yotummy/img/feed.webp",
       "/web-design/yotummy/img/hero.webp",
       "/web-design/yotummy/img/logo.webp",
       "/web-design/yotummy/img/phone.webp",
@@ -48,13 +49,15 @@
     "theme_brief_path": "docs/themes/detail-theory.md",
     "thumb": "/web-design/detail-theory/img/thumb.webp",
     "images": [
+      "/web-design/detail-theory/img/finish.webp",
       "/web-design/detail-theory/img/gallery.webp",
       "/web-design/detail-theory/img/hero.webp",
       "/web-design/detail-theory/img/jobs.webp",
       "/web-design/detail-theory/img/logo.webp",
       "/web-design/detail-theory/img/phone.webp",
       "/web-design/detail-theory/img/pricing.webp",
-      "/web-design/detail-theory/img/thumb.webp"
+      "/web-design/detail-theory/img/thumb.webp",
+      "/web-design/detail-theory/img/wash.webp"
     ]
   },
   {
@@ -178,6 +181,7 @@
     "images": [
       "/startup-work/argus/img/hero.webp",
       "/startup-work/argus/img/logo.webp",
+      "/startup-work/argus/img/mark.webp",
       "/startup-work/argus/img/thumb.webp"
     ]
   },
@@ -192,9 +196,12 @@
     "theme_brief_path": "docs/themes/argus.md",
     "thumb": "/startup-work/argus-dashboard/img/thumb.webp",
     "images": [
+      "/startup-work/argus-dashboard/img/analytics.webp",
       "/startup-work/argus-dashboard/img/dashboard.webp",
+      "/startup-work/argus-dashboard/img/threat.webp",
       "/startup-work/argus-dashboard/img/thumb.webp",
-      "/startup-work/argus/img/logo.webp"
+      "/startup-work/argus/img/logo.webp",
+      "/startup-work/argus/img/mark.webp"
     ]
   },
   {
@@ -240,6 +247,8 @@
     "theme_brief_path": "docs/themes/argus.md",
     "thumb": "/startup-work/argus-site/img/thumb.webp",
     "images": [
+      "/startup-work/argus-site/img/app.webp",
+      "/startup-work/argus-site/img/numbers.webp",
       "/startup-work/argus-site/img/phone.webp",
       "/startup-work/argus-site/img/site.webp",
       "/startup-work/argus-site/img/thumb.webp",

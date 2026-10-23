@@ -1,4 +1,45 @@
 /* County records API and client intake project page. Only this page loads this file.
    Theme: RION Solutions. Brief: docs/themes/rion.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /startup-work/rion/brand.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Brand tokens and shared RION look: /startup-work/rion/brand.css.
+   This page: three streams of records merge into one API behind the page (scene.js), lookups travel through the
+   diagram, the cache ring turns, and the numbers read as a pipeline. */
+
+.proj-rion-county-api h1{font-size:clamp(38px,5.6vw,70px)}
+@media (min-width:960px){.proj-rion-county-api .proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+.proj-rion-county-api .proj-hero-media{padding:12px 12px 4px}
+.proj-rion-county-api .proj-hero-media figcaption{padding:0 6px 8px}
+
+/* ---------- Lookups moving through the diagram ---------- */
+.flow{position:relative}
+.flow img{width:100%;border-radius:10px}
+.packets{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.packets .pk{fill:#FF3131;opacity:0;filter:drop-shadow(0 0 6px rgba(255,49,49,.9))}
+.packets .cache{fill:none;stroke:#FF3131;stroke-width:1.5;stroke-dasharray:6 10;opacity:.75}
+@media (prefers-reduced-motion:no-preference){
+  .packets .pk-a{animation:ca-a 3s cubic-bezier(.5,0,.5,1) infinite}
+  .packets .pk-b{animation:ca-b 3s cubic-bezier(.5,0,.5,1) infinite .5s}
+  .packets .pk-c{animation:ca-c 3s cubic-bezier(.5,0,.5,1) infinite 1s}
+  .packets .pk-o{animation:ca-o 1.5s cubic-bezier(.5,0,.5,1) infinite 1.1s}
+  .packets .pk-o.late{animation-delay:1.85s}
+  .packets .cache{animation:ca-ring 4s linear infinite}
+}
+@keyframes ca-a{0%{opacity:0;transform:none}8%{opacity:1}36%{opacity:1;transform:translate(92px,100px)}40%,100%{opacity:0;transform:translate(92px,100px)}}
+@keyframes ca-b{0%{opacity:0;transform:none}8%{opacity:1}36%{opacity:1;transform:translate(92px,0)}40%,100%{opacity:0;transform:translate(92px,0)}}
+@keyframes ca-c{0%{opacity:0;transform:none}8%{opacity:1}36%{opacity:1;transform:translate(92px,-100px)}40%,100%{opacity:0;transform:translate(92px,-100px)}}
+@keyframes ca-o{0%{opacity:0;transform:none}10%{opacity:1}60%{opacity:1;transform:translate(52px,0)}70%,100%{opacity:0;transform:translate(52px,0)}}
+@keyframes ca-ring{to{stroke-dashoffset:-160}}
+
+/* ---------- Numbers as a pipeline ---------- */
+.proj-numbers .pipe{gap:34px;margin-bottom:26px}
+@media (min-width:761px){.proj-numbers .pipe{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pipe .stat{position:relative;padding:26px 24px 22px}
+.pipe .stat b{font-size:clamp(46px,5.4vw,68px)}
+.pipe .stat+.stat::before{content:"";position:absolute;left:-30px;top:50%;width:26px;height:2px;
+  background:linear-gradient(90deg,rgba(255,49,49,.2),var(--r-red))}
+.pipe .stat+.stat>b::before{content:"";position:absolute;left:-10px;top:calc(50% - 4px);width:8px;height:8px;
+  border-top:2px solid var(--r-red);border-right:2px solid var(--r-red);transform:rotate(45deg)}
+@media (max-width:760px){
+  .pipe .stat+.stat::before{left:50%;top:-30px;width:2px;height:26px;background:linear-gradient(rgba(255,49,49,.2),var(--r-red))}
+  .pipe .stat+.stat>b::before{left:calc(50% - 4px);top:-12px;transform:rotate(135deg)}
+}
+.proj-numbers .rion-code{max-width:640px}

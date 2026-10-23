@@ -1,5 +1,9 @@
 /* Research tab look for its project pages. Matches research/style.css.
-   Brief: docs/themes/tab-research.md (not deployed). */
+   Brief: docs/themes/tab-research.md (not deployed).
+   Each page adds its own instrument in its own style.css. This file holds what all four share:
+   the tokens, a graticule and scanlines on the glass, screens framed like scope displays,
+   readouts for the numbers, and a short warm-up when the page arrives.
+   Motion only runs under html.pj-anim (added by /shared/project.js when reduced motion is off). */
 :root{
   --p-bg:#050705; --p-surface:#07100A; --p-ink:#CFFFE0; --p-mute:#8FBF9F;
   --p-accent:#39FF88; --p-accent-bg:#39FF88; --p-on-accent:#021A0C; --p-link:#39FF88; --p-line:rgba(57,255,136,.32);
@@ -8,9 +12,83 @@
   --tb-bg:rgba(5,7,5,.97); --tb-fg:#CFFFE0; --tb-mute:#8FBF9F; --tb-accent:#39FF88; --tb-border:rgba(57,255,136,.25);
   --tb-font:"JetBrains Mono",ui-monospace,Menlo,monospace; --tb-radius:2px; --focus:#FFB000; --ft-fg:#8FBF9F;
   --badge-bg:transparent; --badge-fg:#FFB000; --badge-border:rgba(255,176,0,.6);
+  /* Research only */
+  --rs-amber:#FFB000; --rs-num:#FFB000; --rs-glow:rgba(57,255,136,.45); --rs-core:rgba(57,255,136,.8); --rs-bezel:#0A140D; --rs-scr-label:"SCREEN 1";
+  --rs-grid:rgba(57,255,136,.05);
 }
-/* Long monospace titles: keep headings a size that wraps well. A faint graticule behind the page. */
-.proj h1{font-size:clamp(32px,5vw,58px);line-height:1.08;letter-spacing:-.01em}
+/* Long monospace titles: keep headings a size that wraps well. */
+.proj h1{font-size:clamp(32px,5vw,58px);line-height:1.08;letter-spacing:-.01em;
+  text-shadow:0 0 18px var(--rs-glow),0 0 2px var(--rs-core)}
 .proj h2{font-size:clamp(24px,3vw,34px)}
-body.proj-page{background-image:linear-gradient(rgba(57,255,136,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,136,.05) 1px,transparent 1px);
-  background-size:24px 24px;background-attachment:fixed}
+.proj h2::before{content:"> ";color:var(--p-accent)}
+
+/* Graticule behind the page and scanlines on the glass. Fixed layers, never in the way of clicks. */
+body.proj-page::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--rs-grid) 1px,transparent 1px),linear-gradient(90deg,var(--rs-grid) 1px,transparent 1px);
+  background-size:24px 24px}
+body.proj-page::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px)}
+
+/* Screens: images framed like an instrument display, with a label strip on top. */
+.proj-hero-media,.rs-screen{position:relative;padding:30px 12px 12px;background:var(--rs-bezel);border:1px solid var(--p-line);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6),0 0 40px var(--rs-halo,rgba(57,255,136,.06))}
+.proj-hero-media::before,.rs-screen::before{content:var(--rs-scr-label);position:absolute;left:12px;top:8px;
+  font:600 11px/14px var(--p-mono);letter-spacing:.12em;color:var(--p-mute)}
+.proj-hero-media::after,.rs-screen::after{content:"";position:absolute;right:12px;top:11px;width:8px;height:8px;border-radius:50%;
+  background:var(--p-accent);box-shadow:0 0 8px var(--p-accent)}
+.proj-hero-media img{border-radius:0;border-color:rgba(57,255,136,.18)}
+.proj-hero-media figcaption{margin-top:10px}
+
+/* Numbers as instrument readouts: corner ticks, glowing digits. */
+.stat{position:relative;background:rgba(7,16,10,.88);border-color:rgba(57,255,136,.22)}
+.stat::before,.stat::after{content:"";position:absolute;width:10px;height:10px;border:solid var(--p-accent)}
+.stat::before{left:-1px;top:-1px;border-width:2px 0 0 2px}
+.stat::after{right:-1px;bottom:-1px;border-width:0 2px 2px 0}
+.stat b{text-shadow:0 0 14px var(--rs-glow)}
+/* Count-up numbers: the digits are the last span inside <b>, so undo the label style project.css gives a stat's last span. */
+.stat b span:last-child{display:inline;margin:0;font-size:inherit;line-height:inherit;color:inherit}
+
+/* What I did reads like a log. */
+.did-list{counter-reset:log}
+.did-list li{counter-increment:log;padding-left:48px}
+.did-list li::before{content:counter(log,decimal-leading-zero);width:auto;height:auto;top:.1em;background:none;border-radius:0;
+  font:600 14px/1.6 var(--p-mono);color:var(--rs-num)}
+
+.proj-stack li{background:rgba(7,16,10,.9)}
+
+/* Arrival: the screen warms up. Nothing is hidden, so text paints at once. */
+html.pj-anim .proj h1{animation:rs-warm 1.1s ease-out both}
+@keyframes rs-warm{0%{text-shadow:0 0 40px rgba(57,255,136,.95),0 0 4px #fff;filter:brightness(1.6)}100%{filter:none}}
+html.pj-anim .proj-hero{position:relative}
+html.pj-anim .proj-hero::after{content:"";position:absolute;left:-2vw;right:-2vw;top:0;height:2px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--p-accent),transparent);box-shadow:0 0 16px var(--p-accent);opacity:0;
+  animation:rs-sweep 1.2s cubic-bezier(.4,.1,.3,1) .15s both}
+@keyframes rs-sweep{0%{opacity:.9;transform:translateY(0)}90%{opacity:.6}100%{opacity:0;transform:translateY(min(80vh,640px))}}
+
+/* Screens a page marks .rs-reveal power on when they scroll in (the page's main.js adds .is-in). */
+html.pj-anim .rs-reveal{clip-path:inset(49.5% 0 49.5% 0)}
+html.pj-anim .rs-reveal.is-in{animation:rs-on .7s cubic-bezier(.3,.7,.2,1) both}
+@keyframes rs-on{0%{clip-path:inset(49.5% 0 49.5% 0);filter:brightness(2.2)}45%{clip-path:inset(49.5% 0 49.5% 0)}100%{clip-path:inset(-12px);filter:none}}
+
+/* Gallery screens glow on hover or focus. */
+.gallery a{transition:box-shadow .25s,border-color .25s}
+.gallery a:hover,.gallery a:focus-visible{border-color:var(--p-accent);box-shadow:0 0 0 1px var(--p-accent),0 0 28px rgba(57,255,136,.25)}
+
+/* Buttons on the instruments. */
+.rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border:1px solid var(--p-line);
+  border-radius:var(--p-radius);background:rgba(7,16,10,.9);color:var(--p-ink);font:600 14px/1 var(--p-mono);letter-spacing:.04em;cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s}
+.rs-btn:hover{border-color:var(--p-accent)}
+.rs-btn[aria-pressed="true"]{background:var(--p-accent);color:var(--p-on-accent);border-color:var(--p-accent)}
+.rs-note{margin:10px 0 0;font-size:13px;color:var(--p-mute)}
+
+@media (prefers-reduced-motion:reduce){
+  html.pj-anim .proj h1,html.pj-anim .proj-hero::after{animation:none}
+  html.pj-anim .proj-hero::after{display:none}
+  html.pj-anim .rs-reveal,html.pj-anim .rs-reveal.is-in{clip-path:none;animation:none}
+  .gallery a,.rs-btn{transition:none}
+}
+@media (max-width:640px){
+  .did-list li{padding-left:40px}
+  .proj-hero-media,.rs-screen{padding:28px 8px 8px}
+}

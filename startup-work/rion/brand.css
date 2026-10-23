@@ -1,5 +1,8 @@
-/* RION Solutions brand tokens. Used by /startup-work/rion/, its sub-project pages and /web-design/rion-website/.
-   Brief: docs/themes/rion.md (not deployed). */
+/* RION Solutions brand tokens and shared look. Used by /startup-work/rion/, its sub-project pages and
+   /web-design/rion-website/. Brief: docs/themes/rion.md (not deployed).
+   Behaviour lives in /startup-work/rion/brand.js (pointer glow, typed code, tilt, arrival glow, scene mount)
+   and the starfield in /startup-work/rion/sky.js. Each page adds its own layout in its style.css.
+   Contrast: the red glow drawn behind text is capped at 28% alpha, so muted text and links stay AA. */
 :root{
   --p-bg:#04070D; --p-surface:#10131C; --p-ink:#FFFFFF; --p-mute:#B4BCCB;
   --p-accent:#FF3131; --p-accent-bg:#C9182A; --p-on-accent:#FFFFFF; --p-link:#FF6B6B; --p-line:rgba(255,255,255,.12);
@@ -8,4 +11,163 @@
   --tb-bg:rgba(4,7,13,.92); --tb-fg:#FFFFFF; --tb-mute:#B4BCCB; --tb-accent:#FF3131; --tb-border:rgba(255,255,255,.1);
   --tb-font:"Figtree",ui-sans-serif,system-ui,sans-serif; --tb-radius:999px; --focus:#FF6B6B; --ft-fg:#B4BCCB;
   --badge-bg:rgba(255,255,255,.05); --badge-fg:#FFFFFF; --badge-border:rgba(255,255,255,.22);
+  --r-glass:rgba(255,255,255,.05); --r-glass-line:rgba(255,255,255,.11); --r-red:#FF3131; --r-grey:#D5DBE6;
+  --r-ease:cubic-bezier(.2,.7,.2,1);
+}
+html{background:#000}
+body.proj-page{background:radial-gradient(70vmax 46vmax at 50% -12%,rgba(255,49,49,.09),transparent 62%),#000}
+
+/* ---------- Sky fallback (no canvas): CSS stars and a still red glow ---------- */
+body.proj-page::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;transition:opacity 1s ease;
+  background-image:
+    radial-gradient(1.3px 1.3px at 13px 27px,#fff 50%,transparent 55%),
+    radial-gradient(1px 1px at 97px 141px,#fff 50%,transparent 55%),
+    radial-gradient(1px 1px at 173px 63px,#D5DBE6 50%,transparent 55%),
+    radial-gradient(1.5px 1.5px at 61px 191px,#fff 50%,transparent 55%),
+    radial-gradient(1.2px 1.2px at 211px 213px,#FF6B6B 50%,transparent 55%);
+  background-size:241px 229px,263px 241px,199px 283px,311px 257px,337px 293px}
+html.rion-live body.proj-page::before{opacity:0}
+.proj-hero{position:relative}
+.proj-hero::before{content:"";position:absolute;z-index:-1;left:-10%;top:-6%;width:70%;height:90%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,49,49,.26),rgba(255,49,49,.08) 55%,transparent);transition:opacity 1s ease}
+html.rion-live .proj-hero::before{opacity:0}
+.proj{isolation:isolate}
+
+/* Arriving from another page: a red bloom grows out of the click point and fades (brand.js). */
+html.rion-arrive body.proj-page::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at var(--arrive-x,50%) var(--arrive-y,30%),rgba(255,49,49,.42),rgba(255,49,49,.1) 22%,transparent 46%);
+  transform-origin:var(--arrive-x,50%) var(--arrive-y,30%);animation:rion-bloom 1.5s cubic-bezier(.2,.6,.2,1) both}
+@keyframes rion-bloom{from{opacity:1;transform:scale(.4)}to{opacity:0;transform:scale(1.6)}}
+
+/* ---------- Type ---------- */
+.proj h1{font-weight:300;letter-spacing:-.035em;line-height:.98;text-shadow:0 0 42px rgba(255,49,49,.28)}
+.proj h2{font-weight:300;letter-spacing:-.025em}
+.proj h3{font-weight:500;letter-spacing:-.01em}
+.proj-summary{color:var(--r-grey)}
+.proj-crumbs ol{font-family:var(--p-body);letter-spacing:.01em}
+
+/* The kicker as the site's red "New" pill, without the word. */
+.proj-kicker{display:inline-flex;align-items:center;gap:10px;padding:4px 14px 4px 5px;border:1px solid var(--r-glass-line);
+  border-radius:999px;background:rgba(255,255,255,.04);color:#E6E9F0;font:500 13px/1.4 var(--p-body);letter-spacing:.06em}
+.proj-kicker::before{content:"";width:30px;height:20px;border-radius:999px;flex:none;
+  background:radial-gradient(circle at 50% 50%,#fff 0 3px,transparent 3.5px),var(--r-red);box-shadow:0 0 0 0 rgba(255,49,49,.5)}
+.proj-logo{max-height:44px}
+
+/* ---------- Glass ---------- */
+/* Phones and touch screens get no blur, so the glass is nearly solid there and text never sits on the scene. */
+.proj .stat,.proj .products li,.proj .card-link,.rion-code,.rion-glass{background:linear-gradient(180deg,rgba(22,25,34,.92),rgba(12,14,20,.9));
+  border:1px solid var(--r-glass-line);border-radius:var(--p-radius)}
+.proj .proj-stack li{background:rgba(255,255,255,.04);border-color:var(--r-glass-line);color:#E6E9F0}
+@media (hover:hover) and (min-width:761px){
+  .proj .stat,.proj .products li,.proj .card-link,.rion-code,.rion-glass{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+}
+.stat b{font-weight:300;letter-spacing:-.02em}
+/* project.css styles .stat span:last-child as the label, which also catches the count inside <b>. Undo that here. */
+.proj .stat b span:last-child{display:inline;margin:0;font-size:inherit;line-height:inherit;color:inherit}
+
+/* Red edge glow that follows the pointer (brand.js sets --mx and --my). */
+.rion-glow{position:relative;transition:transform .35s var(--r-ease),box-shadow .35s ease,border-color .35s ease}
+.rion-glow::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(255,49,49,1),rgba(255,49,49,.3) 45%,transparent 72%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .3s ease}
+.rion-glow:hover,.rion-glow:focus-visible,.rion-glow:focus-within{border-color:rgba(255,49,49,.35);
+  box-shadow:0 22px 60px -28px rgba(255,49,49,.55),inset 0 1px 0 rgba(255,255,255,.06)}
+.rion-glow:hover::after,.rion-glow:focus-visible::after,.rion-glow:focus-within::after{opacity:1}
+a.rion-glow:hover,a.rion-glow:focus-visible{transform:translateY(-4px)}
+
+/* ---------- Cards ---------- */
+.card-link{overflow:hidden}
+.card-link img{transition:transform .6s var(--r-ease),filter .6s ease;filter:saturate(.9)}
+.card-link:hover img,.card-link:focus-visible img{transform:scale(1.04);filter:saturate(1.1)}
+.card-link .card-go{color:var(--p-link)}
+.card-link .card-go::after{content:"";display:inline-block;width:7px;height:7px;margin-left:8px;border-top:2px solid currentColor;
+  border-right:2px solid currentColor;transform:translateY(-1px) rotate(45deg);transition:transform .3s var(--r-ease)}
+.card-link:hover .card-go::after{transform:translate(4px,-1px) rotate(45deg)}
+
+/* Plain lists as glass chips. */
+.proj .plain-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.proj .plain-list a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;border:1px solid var(--r-glass-line);
+  border-radius:999px;background:rgba(255,255,255,.04);color:#fff;text-decoration:none;transition:border-color .25s,background .25s}
+.proj .plain-list a::after{content:"";width:7px;height:7px;border-top:2px solid var(--r-red);border-right:2px solid var(--r-red);transform:rotate(45deg)}
+.proj .plain-list a:hover{border-color:rgba(255,49,49,.55);background:rgba(255,49,49,.08)}
+
+/* ---------- What I did: a red pipeline ---------- */
+.proj .did-list{gap:0;counter-reset:did}
+.proj .did-list li{padding:0 0 22px 44px;counter-increment:did}
+.proj .did-list li::before{left:6px;top:.45em;width:12px;height:12px;border-radius:50%;background:#000;border:2px solid var(--r-red);
+  box-shadow:0 0 0 4px rgba(255,49,49,.12),0 0 16px rgba(255,49,49,.6)}
+.proj .did-list li::after{content:"";position:absolute;left:11px;top:calc(.45em + 16px);bottom:2px;width:2px;
+  background:linear-gradient(var(--r-red),rgba(255,49,49,.08));transform-origin:top}
+.proj .did-list li:last-child::after{display:none}
+html.pj-anim .did-list li::after{transform:scaleY(0);transition:transform .7s var(--r-ease);transition-delay:calc(var(--i,0) * 80ms + .25s)}
+html.pj-anim .did-list li.in::after{transform:none}
+
+/* ---------- Typed code panel (decorative, aria-hidden; the facts are in the page text) ---------- */
+.rion-code{margin:0;overflow:hidden;font:14px/1.7 var(--p-mono);color:var(--r-grey)}
+.rc-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--r-glass-line);
+  font:12px/1 var(--p-mono);color:var(--p-mute);letter-spacing:.04em}
+.rc-bar i{width:10px;height:10px;border-radius:50%;background:#3A3F4B}
+.rc-bar i:first-child{background:var(--r-red)}
+.rc-bar span{margin-left:auto}
+.rc-body{padding:14px 18px 18px}
+.rc-body .ln{display:block;margin:0;min-height:1.7em;white-space:pre-wrap;overflow-wrap:anywhere}
+.rc-body .cmd{color:#fff}
+.rc-body .cmd::before{content:"$ ";color:var(--r-red)}
+.rc-body b{font-weight:400;color:#FF8A8A}
+.rc-body .ln.cur::after{content:"";display:inline-block;width:8px;height:1.1em;margin-left:2px;vertical-align:-.2em;background:var(--r-red);
+  animation:rion-caret 1s steps(1) infinite}
+@keyframes rion-caret{50%{opacity:0}}
+
+/* ---------- Pointer tilt on a framed screenshot (brand.js sets --rx and --ry) ---------- */
+.rion-tilt{transform:perspective(1300px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--r-ease);
+  transform-style:preserve-3d;will-change:transform}
+.rion-tilt.live{transition:transform .12s linear}
+
+/* A browser-style frame around a screenshot. */
+.rion-frame{position:relative;margin:0;border:1px solid var(--r-glass-line);border-radius:18px;overflow:hidden;background:#07090F;
+  box-shadow:0 50px 120px -50px rgba(255,49,49,.45),0 30px 60px -30px rgba(0,0,0,.9)}
+.rion-frame .rf-bar{display:flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-bottom:1px solid var(--r-glass-line);
+  background:rgba(255,255,255,.03);font:12px/1 var(--p-mono);color:var(--p-mute)}
+.rion-frame .rf-bar i{width:10px;height:10px;border-radius:50%;background:#3A3F4B}
+.rion-frame .rf-bar i:first-child{background:var(--r-red)}
+.rion-frame .rf-bar span{margin:0 auto;padding:4px 16px;border-radius:999px;background:rgba(255,255,255,.05)}
+.rion-frame img{border:0;border-radius:0;width:100%}
+.rion-frame::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.07) 45%,transparent 60%);
+  background-size:250% 100%;background-position:var(--sheen,100%) 0;transition:background-position .6s ease}
+
+/* ---------- Motion that only runs when allowed ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .proj-hero .proj-intro>*{animation:rion-rise .8s var(--r-ease) both}
+  .proj-hero .proj-intro>:nth-child(2){animation-delay:.06s}
+  .proj-hero .proj-intro>:nth-child(3){animation-delay:.12s}
+  .proj-hero .proj-intro>:nth-child(4){animation-delay:.18s}
+  .proj-hero .proj-intro>:nth-child(5){animation-delay:.24s}
+  .proj-hero .proj-intro>:nth-child(6){animation-delay:.3s}
+  .proj-hero .proj-intro>h1{animation-name:rion-rise-solid}
+  .proj-kicker::before{animation:rion-pulse 2.6s ease-out infinite}
+  @supports (animation-timeline:view()){
+    .rion-flatten{animation:rion-flatten linear both;animation-timeline:view();animation-range:entry 0% cover 38%}
+    .proj-section>h2{animation:rion-h2 linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+  }
+}
+@keyframes rion-rise{from{opacity:0;transform:translateY(16px)}}
+@keyframes rion-rise-solid{from{transform:translateY(16px)}}
+@keyframes rion-pulse{0%{box-shadow:0 0 0 0 rgba(255,49,49,.55)}70%,100%{box-shadow:0 0 0 10px rgba(255,49,49,0)}}
+@keyframes rion-flatten{from{transform:perspective(1400px) rotateX(20deg) translateY(36px) scale(.95)}}
+@keyframes rion-h2{from{transform:translateX(-12px)}}
+
+@media (prefers-reduced-motion:reduce){
+  .rion-tilt,.rion-tilt.live{transform:none;transition:none}
+  .rion-glow,.card-link img,.rion-frame::after{transition:none}
+  a.rion-glow:hover,a.rion-glow:focus-visible,.card-link:hover img{transform:none}
+  html.pj-anim .did-list li::after{transform:none;transition:none}
+  .rc-body .ln.cur::after{animation:none}
+  html.rion-arrive body.proj-page::after{display:none}
+}
+@media (max-width:760px){
+  .rion-code{font-size:13px}
+  .rion-frame .rf-bar span{display:none}
 }

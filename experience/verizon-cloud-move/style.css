@@ -1,4 +1,32 @@
-/* Moving apps off VMware project page. Only this page loads this file.
+/* Moving apps off VMware page. Only this page loads this file.
    Theme: Experience tab. Brief: docs/themes/tab-experience.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /experience/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and blueprint parts: /experience/project-theme.css.
+   This page: the migration scene, the savings as a ledger joined by a flow arrow, and the work as a
+   route of numbered steps. */
+
+/* Numbers: two ledger cells joined by an arrow, read left to right. */
+.proj-verizon-cloud-move .stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;position:relative}
+.proj-verizon-cloud-move .stat{padding:28px 26px 24px}
+.proj-verizon-cloud-move .stat b{font-size:clamp(52px,7vw,88px);line-height:.95}
+.proj-verizon-cloud-move .stat:first-child::after{content:"";position:absolute;right:-50px;top:50%;width:38px;height:12px;margin-top:-6px;
+  background:
+    linear-gradient(#FFC857,#FFC857) left/calc(100% - 10px) 2px no-repeat,
+    conic-gradient(from 240deg at 100% 50%,#FFC857 0 60deg,transparent 0) right/12px 12px no-repeat}
+.proj-verizon-cloud-move .stat:last-child{border-style:dashed}
+@media (max-width:640px){
+  .proj-verizon-cloud-move .stats{grid-template-columns:1fr;gap:40px}
+  .proj-verizon-cloud-move .stat:first-child::after{right:auto;left:50%;top:auto;bottom:-34px;transform:rotate(90deg);margin:0 0 0 -19px}
+}
+
+/* What I did: a route. Numbered stops joined by a dashed line, across on wide screens. */
+.proj-verizon-cloud-move .did-list{counter-reset:stop;max-width:none;gap:0;grid-template-columns:repeat(3,minmax(0,1fr))}
+.proj-verizon-cloud-move .did-list li{counter-increment:stop;padding:58px 22px 0 0}
+.proj-verizon-cloud-move .did-list li::before{content:counter(stop,decimal-leading-zero) / "";top:0;left:0;width:40px;height:40px;border-radius:0;
+  background:#0B2545;border:1.5px solid #FFC857;color:#FFC857;display:grid;place-items:center;font:600 14px/1 var(--p-mono);z-index:1}
+.proj-verizon-cloud-move .did-list li::after{content:"";position:absolute;left:40px;right:0;top:20px;border-top:1.5px dashed rgba(156,201,255,.6)}
+.proj-verizon-cloud-move .did-list li:last-child::after{display:none}
+@media (max-width:760px){
+  .proj-verizon-cloud-move .did-list{grid-template-columns:1fr}
+  .proj-verizon-cloud-move .did-list li{padding:8px 0 26px 60px;min-height:40px}
+  .proj-verizon-cloud-move .did-list li::after{left:20px;right:auto;top:40px;bottom:0;border-top:0;border-left:1.5px dashed rgba(156,201,255,.6)}
+}

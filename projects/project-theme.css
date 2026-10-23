@@ -1,16 +1,131 @@
 /* Projects tab look for its project pages. Matches projects/style.css.
-   Brief: docs/themes/tab-projects.md (not deployed). */
+   Brief: docs/themes/tab-projects.md (not deployed).
+   Retro arcade: each page is one game. Content sits on pixel-framed panels, a pixel scene plays behind them,
+   the photo shows on a CRT screen, and motion is stepped so it feels 8-bit.
+   Each page sets its own colors in its style.css: --pg (its cabinet color on the tab page), --pg2 (a second
+   accent), and its own --p-bg / --p-surface / --panel so the theme visibly changes when you arrive.
+   All motion is off with reduced motion. With no JS everything shows in its end state. */
+/* Until the pixel font loads, a system monospace stretched to the same width holds its place,
+   so headings keep their size and the page does not jump. */
+@font-face{font-family:"Press Start Fallback";src:local("Menlo"),local("Courier New"),local("DejaVu Sans Mono"),local("Liberation Mono");
+  size-adjust:166%;ascent-override:60%;descent-override:0%;line-gap-override:0%}
 :root{
   --p-bg:#0B0420; --p-surface:#160A3A; --p-ink:#F5F1FF; --p-mute:#C9BFEA;
   --p-accent:#FF4FD8; --p-accent-bg:#FF4FD8; --p-on-accent:#0B0420; --p-link:#FFE14D; --p-line:rgba(61,242,255,.35);
-  --p-display:"Press Start 2P",ui-monospace,monospace; --p-display-weight:400;
+  --p-display:"Press Start 2P","Press Start Fallback",ui-monospace,monospace; --p-display-weight:400;
   --p-body:"IBM Plex Mono",ui-monospace,Menlo,monospace; --p-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --p-radius:0px;
   --tb-bg:rgba(11,4,32,.97); --tb-fg:#F5F1FF; --tb-mute:#C9BFEA; --tb-accent:#FF4FD8; --tb-border:rgba(61,242,255,.3);
   --tb-font:"IBM Plex Mono",ui-monospace,Menlo,monospace; --tb-radius:0; --focus:#FFE14D; --ft-fg:#C9BFEA;
   --badge-bg:transparent; --badge-fg:#3DF2FF; --badge-border:#3DF2FF;
+  /* Arcade parts. Pages override --pg, --pg2, --panel and --shade. */
+  --pg:#FF4FD8; --pg2:#3DF2FF; --panel:rgba(11,4,32,.92); --shade:#05020F; --px:4px;
 }
 /* Press Start 2P is very wide: headings stay small, and only headings use it. */
 .proj h1{font-size:clamp(22px,3.6vw,40px);line-height:1.35;letter-spacing:0}
 .proj h2{font-size:clamp(17px,2.2vw,24px);line-height:1.4}
 .proj h3{font-family:var(--p-body);font-weight:600}
 .stat b{font-size:clamp(18px,2.4vw,26px);line-height:1.3}
+
+/* ---------- Screen, sky and CRT glass ---------- */
+body.proj-page{background-color:var(--p-bg);
+  background-image:radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.55) 99%,transparent),radial-gradient(1px 1px at 72% 12%,rgba(255,255,255,.7) 99%,transparent),
+    radial-gradient(2px 2px at 86% 34%,var(--pg2) 99%,transparent),radial-gradient(1px 1px at 38% 8%,rgba(255,255,255,.6) 99%,transparent),
+    radial-gradient(ellipse at 50% 115%,color-mix(in srgb,var(--pg) 22%,transparent),transparent 60%);
+  background-attachment:fixed}
+/* Scanlines and a soft vignette over the whole page, like an old TV. Decoration only. */
+body.proj-page::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.14) 0 1px,transparent 1px 3px);box-shadow:inset 0 0 140px rgba(0,0,0,.5)}
+.proj-scene{image-rendering:pixelated;image-rendering:crisp-edges;transition:opacity .9s steps(6)}
+.tabbar{font-weight:600}
+:focus-visible{border-radius:0}
+
+/* A pixel frame: four hard box-shadows instead of a border, so corners stay notched like 8-bit art. */
+.px-frame,.proj-intro,.proj-section,.proj-hero-media .screen,.stat,.proj-stack li{
+  box-shadow:0 calc(var(--px)*-1) 0 0 var(--c,var(--pg)),0 var(--px) 0 0 var(--c,var(--pg)),
+    calc(var(--px)*-1) 0 0 0 var(--c,var(--pg)),var(--px) 0 0 0 var(--c,var(--pg)),var(--drop,10px 10px 0 0 var(--shade))}
+
+/* ---------- Panels: content sits on them, the scene plays around them ---------- */
+.proj-crumbs{width:fit-content;max-width:100%;margin:8px 0 6px;padding:0 14px;background:var(--panel)}
+/* One line only: the current page name is cut with an ellipsis on narrow screens (the title says it in full).
+   Otherwise the line can wrap differently before and after the web font loads, and the page jumps. */
+.proj-crumbs ol{flex-wrap:nowrap}
+.proj-crumbs li{flex:none}
+.proj-crumbs li:last-child{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.proj-hero{padding:24px 0 52px}
+.proj-intro{position:relative;padding:28px 26px 30px;background:var(--panel);--c:var(--pg)}
+.proj-kicker{color:var(--pg2);font-family:var(--p-display);font-size:11px;letter-spacing:.06em;font-weight:400}
+.proj h1{color:var(--p-ink);text-shadow:3px 3px 0 color-mix(in srgb,var(--pg) 70%,#000),6px 6px 0 var(--shade)}
+.proj-meta dt{color:var(--pg2)}
+.proj-stack li{border:0;border-radius:0;margin:4px;padding:1px 10px;background:var(--p-surface);--c:color-mix(in srgb,var(--pg2) 55%,transparent);--drop:0 0 0 0 transparent}
+.badge-private{border-radius:0;font-weight:600}
+.proj-links a{border-radius:0;font-family:var(--p-display);font-size:11px;text-transform:uppercase;box-shadow:5px 6px 0 0 var(--shade)}
+
+.proj-section{position:relative;margin:30px 0 26px;padding:34px 26px 36px;border-top:0;background:var(--panel);--c:color-mix(in srgb,var(--pg) 60%,#000)}
+.proj h2{color:var(--p-ink)}
+.proj h2::before{content:"";display:inline-block;width:.62em;height:.62em;margin-right:.6em;vertical-align:.04em;background:var(--pg);
+  box-shadow:.2em .2em 0 var(--pg2)}
+.proj-back{border-top:0;padding:18px 18px 10px;margin-top:20px;background:var(--panel)}
+.site-footer{background:var(--p-bg)}
+
+/* ---------- The photo on a CRT screen ---------- */
+.proj-hero-media .screen{position:relative;padding:14px;background:var(--shade);--c:var(--pg);--drop:12px 12px 0 0 color-mix(in srgb,var(--pg) 35%,transparent)}
+.proj-hero-media .screen img{display:block;width:100%;border:0;border-radius:22px/30px;background:#000}
+.proj-hero-media .screen::after{content:"";position:absolute;inset:14px;border-radius:22px/30px;pointer-events:none;
+  background:linear-gradient(160deg,rgba(255,255,255,.12),transparent 32%),repeating-linear-gradient(to bottom,rgba(0,0,0,.13) 0 1px,transparent 1px 3px);
+  box-shadow:inset 0 0 36px 6px rgba(0,0,0,.55)}
+.proj-hero-media figcaption{padding:10px 12px;background:var(--panel)}
+
+/* ---------- Stage: a framed screen inside a section where the page's scene plays ----------
+   Markup: <div class="stage" aria-hidden="true"><canvas class="proj-scene"></canvas> ...</div>. Decoration only:
+   everything it shows is also in the text. Pages give .stage a CSS background, which is what shows with no JS
+   or no WebGL (the canvas covers it once it draws). */
+.stage{position:relative;height:clamp(220px,32vw,380px);margin:0 0 30px;background-color:var(--shade);overflow:hidden;
+  --c:color-mix(in srgb,var(--pg2) 60%,transparent);
+  box-shadow:0 calc(var(--px)*-1) 0 0 var(--c),0 var(--px) 0 0 var(--c),calc(var(--px)*-1) 0 0 0 var(--c),var(--px) 0 0 0 var(--c),inset 0 0 60px rgba(0,0,0,.6)}
+.stage .proj-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.stage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.2) 0 2px,transparent 2px 4px);box-shadow:inset 0 0 50px rgba(0,0,0,.65)}
+.stage-hud{position:absolute;z-index:2;left:14px;right:14px;top:12px;margin:0;display:flex;justify-content:space-between;gap:12px;
+  font:10px/1.4 var(--p-display);text-transform:uppercase;color:var(--pg2);text-shadow:2px 2px 0 var(--shade);pointer-events:none}
+/* A second HUD line along the bottom of the stage. */
+.stage-foot{top:auto;bottom:12px}
+html.pj-anim .stage-hud .blink{animation:px-blink 1s steps(1) infinite}
+@keyframes px-blink{50%{opacity:0}}
+
+/* ---------- Big numbers ---------- */
+.stat{border:0;background:var(--p-surface);--c:color-mix(in srgb,var(--pg2) 70%,transparent);--drop:6px 6px 0 0 var(--shade);
+  transition:transform .16s steps(2)}
+.stat b{color:var(--pg2)}
+/* The count-up number is a span inside <b>. The shared ".stat span:last-child" rule (meant for the label)
+   also hits it and shrinks it, so give it the number's look back. */
+.stat b span,.stat b span:last-child{display:inline;margin:0;font-size:inherit;line-height:inherit;color:inherit}
+.stat:hover,.stat:active{transform:translate(-3px,-5px)}
+
+/* ---------- What I did: a stepped list with pixel arrows ---------- */
+.did-list li{padding-left:34px}
+.did-list li::before{top:.45em;width:0;height:0;border-radius:0;background:none;border:7px solid transparent;border-left:10px solid var(--pg);border-right:0}
+html.pj-anim .did-list li{transition:opacity .4s steps(4),transform .4s steps(4);transition-delay:calc(var(--i,0) * 110ms)}
+
+.plain-list{list-style:square}
+.plain-list li::marker{color:var(--pg)}
+
+/* ---------- Arrival: the screen powers on ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .proj-intro{animation:px-boot .5s steps(5) both .12s}
+  .proj-hero-media{animation:px-boot .55s steps(5) both .3s}
+  .proj-hero-media .screen img{animation:px-power .9s steps(6) both .45s}
+}
+@keyframes px-boot{0%{opacity:0;transform:scaleY(.04) scaleX(.6)}40%{opacity:1;transform:scaleY(.04) scaleX(1)}100%{transform:none}}
+@keyframes px-power{0%{filter:brightness(4) contrast(.2)}50%{filter:brightness(1.6) saturate(0)}100%{filter:none}}
+
+@media (max-width:640px){
+  .proj-intro{padding:22px 16px 24px}
+  .proj-section{padding:26px 16px 28px;margin:22px 0 20px}
+  .proj-hero-media .screen{padding:8px}
+  .proj-hero-media .screen::after{inset:8px}
+  .proj-hero-media .screen img,.proj-hero-media .screen::after{border-radius:14px/20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .stat,.proj-scene{transition:none}
+  .stat:hover,.stat:active{transform:none}
+}

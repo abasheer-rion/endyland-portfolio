@@ -26,6 +26,9 @@ Logos, screenshots and photos of YoTummy, New Door Investments, Detail Theory, S
 Solutions belong to those businesses. They are shown as portfolio work with the owner's OK (2026-10-22). Files live in
 each project's `img/` folder. No Verizon logo is used.
 
+Client photos (not stock): `web-design/detail-theory/img/wash.webp` and `finish.webp` come from Detail Theory's own site
+repo. The Argus dashboard screens (`threat.webp`, `analytics.webp`) come from the app's demo account.
+
 ## Fonts
 
 Every font loads from Google Fonts under the SIL Open Font License: Archivo, DM Sans, JetBrains Mono, Instrument Serif,

@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
 <link rel="stylesheet" href="/startup-work/rion-county-api/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-rion-county-api">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,6 +40,7 @@
   </nav>
 </header>
 
+<canvas class="proj-scene" aria-hidden="true"></canvas>
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>County records API and client intake</span></li></ol></nav>
 
@@ -51,12 +53,13 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Automation engineer</dd></div><div><dt>Dates</dt><dd>Sep 2025 to Jun 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Flask</li><li>AWS Lambda</li><li>REST</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/figure.svg" width="800" height="450" alt="Diagram: property, owner and records systems sit behind one API with a cache, serving 1K+ lookups a day." fetchpriority="high" decoding="async"><figcaption>How the pieces fit.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
+    <figure class="proj-hero-media rion-glass"><div class="flow"><img src="img/figure.svg" width="800" height="450" alt="Diagram: property, owner and records systems sit behind one API with a cache, serving 1K+ lookups a day." fetchpriority="high" decoding="async"><svg class="packets" viewBox="0 0 800 450" aria-hidden="true" focusable="false"><rect class="cache" x="312" y="157" width="216" height="136" rx="12"/><circle class="pk pk-a" cx="224" cy="125" r="5"/><circle class="pk pk-b" cx="224" cy="225" r="5"/><circle class="pk pk-c" cx="224" cy="325" r="5"/><circle class="pk pk-o" cx="524" cy="225" r="5"/><circle class="pk pk-o late" cx="524" cy="225" r="4"/></svg></div><figcaption>How the pieces fit.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>3</b><span>county systems behind one API</span></li><li class="stat"><b>1K+</b><span>lookups a day, cached</span></li><li class="stat"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster onboarding</span></li></ul>
+    <ul class="stats pipe"><li class="stat rion-glow"><b>3</b><span>county systems behind one API</span></li><li class="stat rion-glow"><b>1K+</b><span>lookups a day, cached</span></li><li class="stat rion-glow"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster onboarding</span></li></ul>
+    <div class="rion-code rion-glow" aria-hidden="true"><div class="rc-bar"><i></i><i></i><i></i><span>lookup</span></div><div class="rc-body"><p class="ln cmd">lookup --from property,owner,records</p><p class="ln"><b>sources </b> 3 county systems</p><p class="ln"><b>api     </b> 1, with a cache</p><p class="ln"><b>volume  </b> 1K+ lookups a day</p><p class="ln cmd">intake --auto</p><p class="ln"><b>onboard </b> 70% faster, no duplicates</p></div></div>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">

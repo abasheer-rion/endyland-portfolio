@@ -1,4 +1,25 @@
-/* Carrier Trunk Provisioning Tool project page. Only this page loads this file.
+/* Carrier Trunk Provisioning Tool page. Only this page loads this file.
    Theme: Experience tab. Brief: docs/themes/tab-experience.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /experience/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and blueprint parts: /experience/project-theme.css.
+   This page: the trunk bundle scene, the revenue figure as a wide dimension callout, and the work as a
+   wiring list where each line plugs into one rail. */
+
+/* Numbers: the $70M line runs wide between two arrowheads, like a dimension on a drawing. */
+.proj-verizon-trunk-tool .stats{grid-template-columns:minmax(0,3fr) minmax(0,1fr)}
+.proj-verizon-trunk-tool .stat:first-child{padding:30px 28px 26px}
+.proj-verizon-trunk-tool .stat:first-child b{font-size:clamp(64px,10vw,132px);line-height:.9;letter-spacing:-.01em}
+.proj-verizon-trunk-tool .stat:first-child::before{content:"";display:block;height:12px;margin-bottom:18px;
+  background:
+    linear-gradient(#FFC857,#FFC857) center/calc(100% - 20px) 1.5px no-repeat,
+    conic-gradient(from 60deg at 0 50%,#FFC857 0 60deg,transparent 0) left/12px 12px no-repeat,
+    conic-gradient(from 240deg at 100% 50%,#FFC857 0 60deg,transparent 0) right/12px 12px no-repeat}
+.proj-verizon-trunk-tool .stat:last-child{display:flex;flex-direction:column;justify-content:flex-end}
+.proj-verizon-trunk-tool .stat:last-child b{font-size:clamp(56px,7vw,96px);line-height:.9}
+@media (max-width:640px){.proj-verizon-trunk-tool .stats{grid-template-columns:1fr}}
+
+/* What I did: a wiring list. Each item is a lead plugged into one rail on the left. */
+.proj-verizon-trunk-tool .did-list{gap:0;border-left:2px solid rgba(156,201,255,.55);margin-left:6px}
+.proj-verizon-trunk-tool .did-list li{padding:14px 0 14px 46px}
+.proj-verizon-trunk-tool .did-list li::before{left:0;top:50%;width:30px;height:0;border-radius:0;background:none;border-top:1.5px dashed #9CC9FF}
+.proj-verizon-trunk-tool .did-list li::after{content:"";position:absolute;left:28px;top:50%;width:9px;height:9px;margin-top:-4px;background:#FFC857}
+.proj-verizon-trunk-tool .did-list li+li{border-top:1px dashed rgba(156,201,255,.16)}

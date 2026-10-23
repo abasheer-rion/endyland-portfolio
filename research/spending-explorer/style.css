@@ -1,4 +1,63 @@
 /* Public spending data explorer project page. Only this page loads this file.
    Theme: Research tab. Brief: docs/themes/tab-research.md (not deployed).
-   Shared layout: /shared/project.css. Theme tokens: /research/project-theme.css.
-   Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+   Shared layout: /shared/project.css. Theme tokens and screens: /research/project-theme.css.
+   This page is a records terminal: a ledger scan streams behind the page, a table folds duplicate
+   vendors into one row, and two bars race to show the search time. */
+.proj-spending-explorer{--rs-scr-label:"COUNTY SPENDING  QUERY"}
+.proj-spending-explorer .proj-scene.on{opacity:.5}
+@media (max-width:760px){.proj-spending-explorer .proj-scene.on{opacity:.28}}
+.proj-spending-explorer .proj-intro{position:relative}
+.proj-spending-explorer .proj-intro::before{content:"";position:absolute;inset:-24px -28px;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(5,7,5,.92),rgba(5,7,5,.7) 70%,transparent)}
+.proj-spending-explorer .proj-section{background:linear-gradient(rgba(5,7,5,.7),rgba(5,7,5,.7))}
+.proj-spending-explorer .proj-hero-media{background:rgba(10,20,13,.96)}
+.proj-spending-explorer .stat{background:rgba(7,16,10,.95)}
+
+/* Merge table. */
+.se-screen{--rs-scr-label:"VENDORS  SAMPLE ROWS";max-width:880px;background:rgba(10,20,13,.96)}
+.se-table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.se-table th{padding:8px 14px;text-align:left;font:600 12px/1.4 var(--p-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--p-mute);
+  border-bottom:1px solid var(--p-line)}
+.se-table th:last-child,.se-amt{text-align:right}
+.se-table td{padding:10px 14px;border-bottom:1px solid rgba(57,255,136,.1)}
+.se-row{transition:background .2s}
+.se-row:hover{background:rgba(57,255,136,.06)}
+.se-row.se-first td{border-top:1px solid rgba(57,255,136,.22)}
+.se-dup .se-name{color:var(--p-mute)}
+.se-v{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.se-merged .se-name{color:var(--p-ink);font-weight:700}
+.se-merged .se-amt{color:var(--rs-amber);font-weight:700}
+.se-badge{padding:1px 8px;border:1px solid rgba(255,176,0,.6);color:var(--rs-amber);font-size:12px;letter-spacing:.04em}
+html.pj-anim .se-row.se-fold td{animation:se-fold .4s cubic-bezier(.5,0,.7,.4) both}
+@keyframes se-fold{to{opacity:0;transform:translateY(-14px);filter:blur(2px)}}
+html.pj-anim .se-merged td{animation:se-flash .9s ease-out .3s both}
+@keyframes se-flash{0%{background:rgba(255,176,0,.25)}100%{background:transparent}}
+.se-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:14px}
+.se-status{margin:0;color:var(--rs-amber);font-size:15px}
+
+/* Search-time race, both bars to scale (5 s is 0.42% of 20 min). */
+.se-race{display:grid;gap:14px;max-width:880px}
+.se-lane{display:grid;grid-template-columns:90px 1fr 110px;align-items:center;gap:14px}
+.se-label{color:var(--p-mute);font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+.se-track{position:relative;height:22px;background:rgba(57,255,136,.06);border:1px solid rgba(57,255,136,.2)}
+.se-track i{position:absolute;inset:0 auto 0 0;width:100%;background:repeating-linear-gradient(90deg,var(--rs-amber) 0 6px,rgba(255,176,0,.6) 6px 8px);transform-origin:left}
+.se-fast .se-track i{width:max(0.42%,3px);background:var(--p-accent);box-shadow:0 0 10px var(--p-accent)}
+.se-time-v{font-weight:700;color:var(--p-ink);text-align:right}
+html.pj-anim .se-race:not(.is-in) .se-track i{transform:scaleX(0)}
+html.pj-anim .se-race.is-in .se-slow .se-track i{transition:transform 6s linear .3s}
+html.pj-anim .se-race.is-in .se-fast .se-track i{transition:transform .05s linear .3s}
+@media (max-width:640px){
+  .se-lane{grid-template-columns:1fr auto;gap:6px 12px}
+  .se-track{grid-column:1/-1;grid-row:2}
+  .se-table{font-size:14px}
+  .se-table td,.se-table th{padding:9px 8px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.pj-anim .se-row.se-fold td,html.pj-anim .se-merged td{animation:none}
+  html.pj-anim .se-race .se-track i{transform:none;transition:none}
+  .se-row{transition:none}
+}
+
+/* "Under 5 s" must stay on one line in a quarter-width card. */
+.proj-spending-explorer .stat b{font-size:clamp(26px,2.4vw,32px);white-space:nowrap}

@@ -41,25 +41,34 @@
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>YoTummy</span></li></ol></nav>
 
-  <header class="proj-hero">
+  <header class="proj-hero yt-hero">
     <div class="proj-intro">
     <img class="proj-logo" src="img/logo.webp" width="420" height="70" alt="YoTummy logo">
     <p class="proj-kicker">Client site and app</p>
-    <h1>YoTummy</h1>
+    <h1>Yo<span class="yt-key">Tummy</span></h1>
     <p class="proj-summary">A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Only developer</dd></div><div><dt>Dates</dt><dd>Prototype Apr to Jun 2026. Main app Jun 2026 to now.</dd></div><div><dt>Client</dt><dd>YoTummy</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Angular 12 and 18</li><li>Ionic and Capacitor</li><li>PHP 7.4</li><li>MySQL</li><li>Stripe</li><li>Vercel</li><li>Hostinger</li><li>Next.js 16</li><li>Mapbox</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://yotummy.com" rel="noopener">yotummy.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The YoTummy home page: a food photo hero with a search box and category chips." fetchpriority="high" decoding="async"></figure>
+    <figure class="proj-hero-media yt-media">
+      <span class="yt-glow" aria-hidden="true"></span>
+      <div class="yt-browser"><span class="yt-bar" aria-hidden="true"><i></i><i></i><i></i><b>yotummy.com</b></span><img src="img/hero.webp" width="1440" height="900" alt="The YoTummy home page: a food photo hero with a search box and category chips." fetchpriority="high" decoding="async"></div>
+      <div class="yt-phone" aria-hidden="true"><div class="yt-screen"><img src="img/feed.webp" width="480" height="1717" alt="" decoding="async" fetchpriority="low"></div></div>
+    </figure>
   </header>
 
+  <div class="yt-chips" aria-hidden="true">
+    <ul class="yt-track"><li>Baked Goods</li><li>Condiments &amp; Spices</li><li>Dairy</li><li>Fresh Eggs</li><li>Fresh Fruits &amp; Vegetables</li><li>Jams, Jellies, Honey</li><li>Pickled Products</li><li>Prepared Meals</li><li>Sauces &amp; Oils</li><li>Food Trucks</li><li>Baked Goods</li><li>Condiments &amp; Spices</li><li>Dairy</li><li>Fresh Eggs</li><li>Fresh Fruits &amp; Vegetables</li><li>Jams, Jellies, Honey</li><li>Pickled Products</li><li>Prepared Meals</li><li>Sauces &amp; Oils</li><li>Food Trucks</li></ul>
+  </div>
+
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
+    <h2 id="numbers-h">By the <span class="yt-key">numbers</span></h2>
     <ul class="stats"><li class="stat"><b><span class="visually-hidden">206</span><span aria-hidden="true" data-count="206">206</span></b><span>commits in the main app, all mine</span></li><li class="stat"><b>3.1.1</b><span>app version shipped to both stores</span></li><li class="stat"><b><span class="visually-hidden">164</span><span aria-hidden="true" data-count="164">164</span></b><span>commits on the redesign prototype</span></li><li class="stat"><b>4</b><span>apps: site, seller portal, admin, phone</span></li></ul>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
+    <h2 id="did-h">What I <span class="yt-key">did</span></h2>
+    <div class="yt-did">
     <ul class="did-list">
       <li>Took over an inherited codebase and became its only developer.</li>
       <li>Added a map of nearby sellers that groups pins into bubbles, and made it work on phones.</li>
@@ -70,6 +79,8 @@
       <li>Set up automatic deploys.</li>
       <li>Built a separate Next.js prototype with a Mapbox photo-pin map and a category showcase, to pitch a redesign to the founder.</li>
     </ul>
+    <figure class="yt-map"><canvas class="yt-map-canvas" aria-hidden="true"></canvas><figcaption>A sketch of the seller map. Pins group into bubbles and split apart when you point at them or tap.</figcaption></figure>
+    </div>
   </section>
 
   <section class="proj-section proj-gallery" aria-labelledby="gallery-h">

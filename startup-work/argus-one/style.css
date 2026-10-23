@@ -2,3 +2,78 @@
    Theme: Argus. Brief: docs/themes/argus.md (not deployed).
    Shared layout: /shared/project.css. Theme tokens: /startup-work/argus/brand.css.
    Page builders: add this page's art and motion here. Keep text AA over anything you draw. */
+
+/* ---------- Art: a live camera wall ----------
+   The hero picture is a live feed: a LIVE tag and clock, a scan line, corner brackets, tracking boxes
+   that lock on, and a risk meter that fills. Behind the hero, pose skeletons walk past with tracking
+   boxes and a risk bar each (scene.js, a 2D canvas). Stats read like a camera's on-screen display. */
+.proj-one .proj-hero{padding-top:28px;padding-bottom:64px}
+@media (min-width:960px){.proj-one .proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.proj-one .proj h1{font-size:clamp(52px,8vw,108px);letter-spacing:-.035em}
+
+.one-cam{position:relative}
+.one-feed{position:relative;border-radius:14px;overflow:hidden;background:#0D0E0C;
+  box-shadow:0 0 0 1px rgba(26,26,26,.12),0 40px 80px -36px rgba(26,26,26,.55),0 0 0 10px #1D1D1D,0 0 0 11px rgba(26,26,26,.25)}
+.one-feed img{width:100%;border:0;border-radius:0;filter:saturate(.9) contrast(1.04)}
+.one-hud{position:absolute;inset:0;pointer-events:none;font:500 11px/1 var(--p-mono);letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.one-rec,.one-time,.one-risk{position:absolute;top:12px;display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:6px;background:rgba(13,14,12,.72)}
+.one-rec{left:12px}
+.one-rec::before{content:"";width:7px;height:7px;border-radius:50%;background:#EF4444}
+.one-time{left:84px;color:#E5E5E5}
+.one-risk{right:12px}
+.one-risk-bar{position:relative;width:74px;height:6px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
+.one-risk-bar span{position:absolute;inset:0;transform-origin:left;transform:scaleX(.72);border-radius:3px;
+  background:linear-gradient(90deg,#34D399,#FBBF24 55%,#EF4444)}
+/* Scan line */
+.one-scan{position:absolute;left:0;right:0;top:0;height:28%;opacity:0;
+  background:linear-gradient(180deg,rgba(220,38,38,0),rgba(220,38,38,.16) 85%,rgba(255,120,120,.6) 100%)}
+/* Corner brackets */
+.one-c{position:absolute;width:22px;height:22px;border:2px solid rgba(255,255,255,.85)}
+.one-c1{left:14px;top:46px;border-right:0;border-bottom:0}
+.one-c2{right:14px;top:46px;border-left:0;border-bottom:0}
+.one-c3{left:14px;bottom:14px;border-right:0;border-top:0}
+.one-c4{right:14px;bottom:14px;border-left:0;border-top:0}
+/* Tracking boxes that lock onto two people in the picture */
+.one-lock{position:absolute;border:2px solid #EF4444;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.35),0 0 18px rgba(239,68,68,.45)}
+.one-lock1{left:77.6%;top:53.6%;width:7.4%;height:25.6%}
+.one-lock2{left:51.3%;top:42%;width:6.4%;height:22.6%;border-color:#FBBF24;box-shadow:0 0 0 1px rgba(0,0,0,.35),0 0 18px rgba(251,191,36,.4)}
+.one-lock::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:currentColor;color:#EF4444}
+.one-lock2::after{color:#FBBF24}
+
+html.pj-anim .one-scan{animation:one-scan 3.6s linear infinite}
+@keyframes one-scan{0%{transform:translateY(-100%);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateY(360%);opacity:0}}
+html.pj-anim .one-rec::before{animation:one-blink 1.2s steps(2,start) infinite}
+@keyframes one-blink{to{visibility:hidden}}
+html.pj-anim .one-c{animation:one-c .9s .2s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes one-c{from{opacity:0;transform:scale(2.2)}}
+html.pj-anim .one-lock{animation:one-lock 1s cubic-bezier(.2,.7,.2,1) backwards,one-hold 2.4s 1.6s ease-in-out infinite}
+html.pj-anim .one-lock1{animation-delay:.9s,1.9s}
+html.pj-anim .one-lock2{animation-delay:1.4s,2.4s}
+@keyframes one-lock{0%{opacity:0;transform:scale(3.2)}60%{opacity:1;transform:scale(.92)}100%{transform:none}}
+@keyframes one-hold{50%{transform:scale(1.06)}}
+html.pj-anim .one-risk-bar span{animation:one-risk 2.4s 1.2s cubic-bezier(.3,.6,.2,1) backwards,one-wob 4s 3.6s ease-in-out infinite}
+@keyframes one-risk{from{transform:scaleX(0)}}
+@keyframes one-wob{50%{transform:scaleX(.8)}}
+.proj-one .proj-hero-media figcaption{margin-top:20px}
+
+/* Stats as on-screen readouts */
+.proj-one .stats{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.proj-one .stat{position:relative;padding:26px 26px 22px;background:#1D1D1D;border-color:#1D1D1D;color:#F5F5F5;overflow:hidden}
+.proj-one .stat::before{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.12);border-radius:8px;pointer-events:none}
+.proj-one .stat::after{content:"";position:absolute;right:18px;top:18px;width:8px;height:8px;border-radius:50%;background:#EF4444;box-shadow:0 0 12px #EF4444}
+.proj-one .stat b{color:#fff;font-size:clamp(48px,6vw,80px);letter-spacing:-.02em}
+.proj-one .stat>span:last-child{color:#C9C9C4;font:500 12px/1.5 var(--p-mono);letter-spacing:.12em;text-transform:uppercase}
+
+/* What I did: a pipeline, one stage per line, joined by a red signal line. */
+.proj-one .did-list{gap:0;max-width:820px;position:relative}
+.proj-one .did-list::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;background:linear-gradient(var(--a-red),rgba(220,38,38,.15))}
+.proj-one .did-list li{padding:14px 0 14px 46px;font-size:19px}
+.proj-one .did-list li::before{left:4px;top:23px;width:16px;height:16px;border-radius:4px;background:#fff;border:2px solid var(--a-red)}
+.proj-one .did-list li:hover::before{background:var(--a-red)}
+html.pj-anim .proj-one .did-list::before{transform-origin:top;transform:scaleY(0);transition:transform 1.4s cubic-bezier(.3,.6,.2,1)}
+html.pj-anim .proj-one .did-list:has(li.in)::before{transform:none}
+
+@media (max-width:640px){
+  .one-time{display:none}
+  .one-feed{box-shadow:0 0 0 1px rgba(26,26,26,.12),0 24px 50px -30px rgba(26,26,26,.55),0 0 0 6px #1D1D1D}
+}
