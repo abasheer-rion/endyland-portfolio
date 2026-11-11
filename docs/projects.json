@@ -10,13 +10,11 @@
     "theme_brief_path": "docs/themes/yotummy.md",
     "thumb": "/web-design/yotummy/img/thumb.webp",
     "images": [
-      "/web-design/yotummy/img/app.webp",
-      "/web-design/yotummy/img/feed.webp",
       "/web-design/yotummy/img/hero.webp",
       "/web-design/yotummy/img/logo.webp",
       "/web-design/yotummy/img/phone.webp",
-      "/web-design/yotummy/img/thumb.webp",
-      "/web-design/yotummy/img/trending.webp"
+      "/web-design/yotummy/img/section.webp",
+      "/web-design/yotummy/img/thumb.webp"
     ]
   },
   {
@@ -30,11 +28,11 @@
     "theme_brief_path": "docs/themes/new-door.md",
     "thumb": "/web-design/new-door/img/thumb.webp",
     "images": [
-      "/web-design/new-door/img/expertise.webp",
       "/web-design/new-door/img/hero.webp",
       "/web-design/new-door/img/inventory.webp",
       "/web-design/new-door/img/logo.webp",
-      "/web-design/new-door/img/services.webp",
+      "/web-design/new-door/img/phone.webp",
+      "/web-design/new-door/img/section.webp",
       "/web-design/new-door/img/thumb.webp"
     ]
   },
@@ -49,15 +47,12 @@
     "theme_brief_path": "docs/themes/detail-theory.md",
     "thumb": "/web-design/detail-theory/img/thumb.webp",
     "images": [
-      "/web-design/detail-theory/img/finish.webp",
-      "/web-design/detail-theory/img/gallery.webp",
       "/web-design/detail-theory/img/hero.webp",
       "/web-design/detail-theory/img/jobs.webp",
       "/web-design/detail-theory/img/logo.webp",
       "/web-design/detail-theory/img/phone.webp",
-      "/web-design/detail-theory/img/pricing.webp",
-      "/web-design/detail-theory/img/thumb.webp",
-      "/web-design/detail-theory/img/wash.webp"
+      "/web-design/detail-theory/img/section.webp",
+      "/web-design/detail-theory/img/thumb.webp"
     ]
   },
   {
@@ -71,8 +66,10 @@
     "theme_brief_path": "docs/themes/swadesi.md",
     "thumb": "/web-design/swadesi-mangoes/img/thumb.webp",
     "images": [
+      "/web-design/swadesi-mangoes/img/hero.webp",
       "/web-design/swadesi-mangoes/img/logo.webp",
-      "/web-design/swadesi-mangoes/img/site.webp",
+      "/web-design/swadesi-mangoes/img/phone.webp",
+      "/web-design/swadesi-mangoes/img/section.webp",
       "/web-design/swadesi-mangoes/img/thumb.webp"
     ]
   },
@@ -87,8 +84,9 @@
     "theme_brief_path": "docs/themes/rion.md",
     "thumb": "/web-design/rion-website/img/thumb.webp",
     "images": [
-      "/startup-work/rion/img/logo.webp",
-      "/web-design/rion-website/img/site.webp",
+      "/web-design/rion-website/img/hero.webp",
+      "/web-design/rion-website/img/phone.webp",
+      "/web-design/rion-website/img/section.webp",
       "/web-design/rion-website/img/thumb.webp"
     ]
   },
@@ -103,7 +101,9 @@
     "theme_brief_path": "docs/themes/tab-web-design.md",
     "thumb": "/web-design/endyland/img/thumb.webp",
     "images": [
-      "/web-design/endyland/img/site.webp",
+      "/web-design/endyland/img/figure.svg",
+      "/web-design/endyland/img/hero.webp",
+      "/web-design/endyland/img/phone.webp",
       "/web-design/endyland/img/thumb.webp"
     ]
   },
@@ -118,10 +118,14 @@
     "theme_brief_path": "docs/themes/tab-research.md",
     "thumb": "/research/rf-direction-finder/img/thumb.webp",
     "images": [
+      "/research/rf-direction-finder/img/angle.svg",
       "/research/rf-direction-finder/img/butler-beams.webp",
-      "/research/rf-direction-finder/img/find-then-steer.webp",
+      "/research/rf-direction-finder/img/find-steer.svg",
       "/research/rf-direction-finder/img/gain-coverage.webp",
+      "/research/rf-direction-finder/img/loop.svg",
       "/research/rf-direction-finder/img/music-maps.webp",
+      "/research/rf-direction-finder/img/polar.svg",
+      "/research/rf-direction-finder/img/snr.svg",
       "/research/rf-direction-finder/img/thumb.webp"
     ]
   },
@@ -136,7 +140,14 @@
     "theme_brief_path": "docs/themes/tab-research.md",
     "thumb": "/research/parity/img/thumb.webp",
     "images": [
-      "/research/parity/img/home.webp",
+      "/research/parity/img/dashboard-720.webp",
+      "/research/parity/img/dashboard-home-720.webp",
+      "/research/parity/img/dashboard-home.webp",
+      "/research/parity/img/dashboard-phone.webp",
+      "/research/parity/img/dashboard.webp",
+      "/research/parity/img/growth.svg",
+      "/research/parity/img/pipeline.svg",
+      "/research/parity/img/sharpe.svg",
       "/research/parity/img/thumb.webp"
     ]
   },
@@ -151,7 +162,8 @@
     "theme_brief_path": "docs/themes/tab-research.md",
     "thumb": "/research/dfw-rent-model/img/figure.svg",
     "images": [
-      "/research/dfw-rent-model/img/figure.svg"
+      "/research/dfw-rent-model/img/figure.svg",
+      "/research/dfw-rent-model/img/flagged.svg"
     ]
   },
   {
@@ -197,9 +209,8 @@
     "theme_brief_path": "docs/themes/argus.md",
     "thumb": "/startup-work/argus-dashboard/img/thumb.webp",
     "images": [
-      "/startup-work/argus-dashboard/img/analytics.webp",
       "/startup-work/argus-dashboard/img/dashboard.webp",
-      "/startup-work/argus-dashboard/img/threat.webp",
+      "/startup-work/argus-dashboard/img/setup.webp",
       "/startup-work/argus-dashboard/img/thumb.webp",
       "/startup-work/argus/img/logo.webp",
       "/startup-work/argus/img/mark.webp"
@@ -216,7 +227,7 @@
     "theme_brief_path": "docs/themes/argus.md",
     "thumb": "/startup-work/argus-one/img/thumb.webp",
     "images": [
-      "/startup-work/argus-one/img/camera.webp",
+      "/startup-work/argus-one/img/figure.svg",
       "/startup-work/argus-one/img/thumb.webp",
       "/startup-work/argus/img/logo.webp"
     ]
@@ -232,7 +243,7 @@
     "theme_brief_path": "docs/themes/argus.md",
     "thumb": "/startup-work/argus-edge-board/img/thumb.webp",
     "images": [
-      "/startup-work/argus-edge-board/img/board.webp",
+      "/startup-work/argus-edge-board/img/figure.svg",
       "/startup-work/argus-edge-board/img/thumb.webp",
       "/startup-work/argus/img/logo.webp"
     ]
@@ -249,9 +260,11 @@
     "thumb": "/startup-work/argus-site/img/thumb.webp",
     "images": [
       "/startup-work/argus-site/img/app.webp",
+      "/startup-work/argus-site/img/docs.webp",
       "/startup-work/argus-site/img/numbers.webp",
       "/startup-work/argus-site/img/phone.webp",
       "/startup-work/argus-site/img/site.webp",
+      "/startup-work/argus-site/img/status.webp",
       "/startup-work/argus-site/img/thumb.webp",
       "/startup-work/argus/img/logo.webp"
     ]
@@ -313,10 +326,12 @@
     "branded": false,
     "theme": "tab-projects",
     "theme_brief_path": "docs/themes/tab-projects.md",
-    "thumb": "/projects/fpga-risc/img/thumb.webp",
+    "thumb": "/projects/fpga-risc/img/thumb.svg",
     "images": [
-      "/projects/fpga-risc/img/photo.webp",
-      "/projects/fpga-risc/img/thumb.webp"
+      "/projects/fpga-risc/img/datapath.svg",
+      "/projects/fpga-risc/img/path.svg",
+      "/projects/fpga-risc/img/pipeline.svg",
+      "/projects/fpga-risc/img/thumb.svg"
     ]
   },
   {
@@ -328,10 +343,12 @@
     "branded": false,
     "theme": "tab-projects",
     "theme_brief_path": "docs/themes/tab-projects.md",
-    "thumb": "/projects/sensor-node/img/thumb.webp",
+    "thumb": "/projects/sensor-node/img/thumb.svg",
     "images": [
-      "/projects/sensor-node/img/photo.webp",
-      "/projects/sensor-node/img/thumb.webp"
+      "/projects/sensor-node/img/blocks.svg",
+      "/projects/sensor-node/img/cycle.svg",
+      "/projects/sensor-node/img/life.svg",
+      "/projects/sensor-node/img/thumb.svg"
     ]
   },
   {
@@ -343,10 +360,12 @@
     "branded": false,
     "theme": "tab-projects",
     "theme_brief_path": "docs/themes/tab-projects.md",
-    "thumb": "/projects/bench-rig/img/thumb.webp",
+    "thumb": "/projects/bench-rig/img/thumb.svg",
     "images": [
-      "/projects/bench-rig/img/photo.webp",
-      "/projects/bench-rig/img/thumb.webp"
+      "/projects/bench-rig/img/rack.svg",
+      "/projects/bench-rig/img/steps.svg",
+      "/projects/bench-rig/img/timeline.svg",
+      "/projects/bench-rig/img/thumb.svg"
     ]
   },
   {
@@ -358,10 +377,12 @@
     "branded": false,
     "theme": "tab-projects",
     "theme_brief_path": "docs/themes/tab-projects.md",
-    "thumb": "/projects/gohighlevel-mcp/img/thumb.webp",
+    "thumb": "/projects/gohighlevel-mcp/img/thumb.svg",
     "images": [
-      "/projects/gohighlevel-mcp/img/photo.webp",
-      "/projects/gohighlevel-mcp/img/thumb.webp"
+      "/projects/gohighlevel-mcp/img/care.svg",
+      "/projects/gohighlevel-mcp/img/flow.svg",
+      "/projects/gohighlevel-mcp/img/tools.svg",
+      "/projects/gohighlevel-mcp/img/thumb.svg"
     ]
   },
   {
@@ -375,7 +396,10 @@
     "theme_brief_path": "docs/themes/tab-projects.md",
     "thumb": "/projects/ses-mailer/img/thumb.webp",
     "images": [
-      "/projects/ses-mailer/img/photo.webp",
+      "/projects/ses-mailer/img/app-m.webp",
+      "/projects/ses-mailer/img/app.webp",
+      "/projects/ses-mailer/img/csv.webp",
+      "/projects/ses-mailer/img/send.webp",
       "/projects/ses-mailer/img/thumb.webp"
     ]
   },
@@ -390,8 +414,29 @@
     "theme_brief_path": "docs/themes/tab-projects.md",
     "thumb": "/projects/endyland-infra/img/thumb.webp",
     "images": [
+      "/projects/endyland-infra/img/arch.svg",
+      "/projects/endyland-infra/img/status-m.webp",
       "/projects/endyland-infra/img/status.webp",
       "/projects/endyland-infra/img/thumb.webp"
+    ]
+  },
+  {
+    "slug": "safe-home",
+    "tab": "projects",
+    "url": "/projects/safe-home/",
+    "title": "Safe Home",
+    "parent": null,
+    "branded": false,
+    "theme": "tab-projects",
+    "theme_brief_path": "docs/themes/tab-projects.md",
+    "thumb": "/projects/safe-home/img/thumb.webp",
+    "images": [
+      "/projects/safe-home/img/box.webp",
+      "/projects/safe-home/img/demo.webp",
+      "/projects/safe-home/img/figure.svg",
+      "/projects/safe-home/img/hero-m.webp",
+      "/projects/safe-home/img/hero.webp",
+      "/projects/safe-home/img/thumb.webp"
     ]
   },
   {
@@ -403,10 +448,9 @@
     "branded": false,
     "theme": "tab-experience",
     "theme_brief_path": "docs/themes/tab-experience.md",
-    "thumb": "/experience/verizon/img/thumb.webp",
+    "thumb": "/experience/verizon/img/figure.svg",
     "images": [
-      "/experience/verizon/img/photo.webp",
-      "/experience/verizon/img/thumb.webp"
+      "/experience/verizon/img/figure.svg"
     ]
   },
   {

@@ -113,14 +113,6 @@ export function start(ctx) {
     g.globalAlpha = 1;
   }
 
-  // With reduced motion the loader draws one still frame. Redraw it when the page scrolls so the mark stays put.
-  let queued = false;
-  addEventListener('scroll', () => {
-    if (!ctx.reduced || queued) return;
-    queued = true;
-    requestAnimationFrame(() => { queued = false; draw(0, true); });
-  }, { passive: true });
-
   return {
     resize(w, h, d) { W = w; H = h; dpr = d; fit(canvas, g, w, h, dpr); sky.resize(w, h); },
     frame(_t, dt) { draw(dt, false); },

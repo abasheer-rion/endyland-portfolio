@@ -1,9 +1,10 @@
 // Research tab: the live polar beam plot. A plain 2D canvas, run by shared/scene-loader.js (webgl: false).
-// It draws the 4-element array's gain across the front half, with phosphor trails like a real scope.
+// It draws the 4-element array's gain across the front half as an engraved figure: ink line, hatched lobe, faint ghosts of where it was.
 // Drag or tap the plot to steer. The range slider under it does the same from the keyboard.
-import { state, tick, subscribe, setSteer, gainDb, MAX } from './state.js';
+import { state, tick, setSteer, gainDb, MAX } from './state.js';
 
-const C = { bg: '#050705', grid: 'rgba(57,255,136,.22)', gridHi: 'rgba(57,255,136,.42)', text: '#8FBF9F', ph: '#39FF88', amber: '#FFB000' };
+const C = { bg: '#F6EEDB', ghost: 'rgba(246,238,219,.2)', grid: 'rgba(90,58,34,.3)', gridHi: 'rgba(23,16,10,.6)', text: '#5A3A22', ink: '#17100A', rust: '#9C4A22' };
+const MONO = 'ui-monospace, Menlo, monospace';
 const FLOOR = -30;
 const RAD = Math.PI / 180;
 
@@ -12,6 +13,17 @@ export function start(ctx) {
   const g = canvas.getContext('2d');
   let W = 1, H = 1, dpr = 1, cx = 0, cy = 0, R = 1;
   let blip = 0;
+
+  // Engraver's hatching for the lobe: fine diagonal lines on a small tile.
+  let hatch = null;
+  function makeHatch() {
+    const t = document.createElement('canvas'), n = Math.max(4, Math.round(5 * dpr));
+    t.width = t.height = n;
+    const c = t.getContext('2d');
+    c.strokeStyle = 'rgba(23,16,10,.55)'; c.lineWidth = Math.max(1, dpr * 0.8);
+    c.beginPath(); c.moveTo(-1, n + 1); c.lineTo(n + 1, -1); c.moveTo(-1, 1); c.lineTo(1, -1); c.moveTo(n - 1, n + 1); c.lineTo(n + 1, n - 1); c.stroke();
+    hatch = g.createPattern(t, 'repeat');
+  }
 
   const toXY = (deg, r) => [cx + Math.sin(deg * RAD) * r, cy - Math.cos(deg * RAD) * r];
   const rOf = (db) => ((db - FLOOR) / -FLOOR) * R;
@@ -28,7 +40,7 @@ export function start(ctx) {
       g.beginPath(); g.moveTo(cx, cy); g.lineTo(x, y); g.stroke();
     }
     g.fillStyle = C.text;
-    g.font = `${Math.round(11 * dpr)}px "JetBrains Mono", ui-monospace, monospace`;
+    g.font = `${Math.round(14 * dpr)}px ui-monospace, Menlo, monospace`;
     g.textAlign = 'center'; g.textBaseline = 'middle';
     for (let a = -90; a <= 90; a += 30) {
       const [x, y] = toXY(a, R + 14 * dpr);
@@ -45,43 +57,42 @@ export function start(ctx) {
       if (a === -90) g.moveTo(x, y); else g.lineTo(x, y);
     }
     g.globalAlpha = alpha;
-    g.fillStyle = 'rgba(57,255,136,.10)';
+    g.fillStyle = hatch || 'rgba(23,16,10,.12)';
     g.fill();
-    g.strokeStyle = C.ph; g.lineWidth = 2 * dpr;
-    if (!low) { g.shadowColor = C.ph; g.shadowBlur = 10 * dpr; }
+    g.strokeStyle = C.ink; g.lineWidth = 1.8 * dpr; g.lineJoin = 'round';
     g.stroke();
-    g.shadowBlur = 0; g.globalAlpha = 1;
+    g.globalAlpha = 1;
   }
 
   function markers(t) {
     // steer line
     const [sx, sy] = toXY(state.steer, R);
-    g.setLineDash([6 * dpr, 5 * dpr]); g.strokeStyle = C.amber; g.lineWidth = 1.5 * dpr;
+    g.setLineDash([6 * dpr, 5 * dpr]); g.strokeStyle = C.rust; g.lineWidth = 1.4 * dpr;
     g.beginPath(); g.moveTo(cx, cy); g.lineTo(sx, sy); g.stroke(); g.setLineDash([]);
     // test signal blip on the rim, with a ring that pings
     const [bx, by] = toXY(state.source, R);
-    g.fillStyle = C.amber;
+    g.fillStyle = C.rust;
     g.beginPath(); g.arc(bx, by, 4 * dpr, 0, Math.PI * 2); g.fill();
     const k = (t * 0.9) % 1;
-    g.strokeStyle = `rgba(255,176,0,${(1 - k) * 0.8})`; g.lineWidth = 1.2 * dpr;
+    g.strokeStyle = `rgba(156,74,34,${(1 - k) * 0.8})`; g.lineWidth = 1.2 * dpr;
     g.beginPath(); g.arc(bx, by, (4 + k * 18) * dpr, 0, Math.PI * 2); g.stroke();
   }
 
   function readout() {
     const f = (v) => `${v >= 0 ? '+' : '-'}${Math.abs(v).toFixed(1).padStart(4, '0')}`;
-    g.font = `${Math.round(12 * dpr)}px "JetBrains Mono", ui-monospace, monospace`;
+    g.font = `${Math.round(14 * dpr)}px ui-monospace, Menlo, monospace`;
     g.textAlign = 'left'; g.textBaseline = 'top';
     const x = 10 * dpr, y = 8 * dpr, lh = 16 * dpr;
-    g.fillStyle = C.amber; g.fillText(`STEER ${f(state.steer)}`, x, y);
+    g.fillStyle = C.rust; g.fillText(`STEER ${f(state.steer)}`, x, y);
     g.fillStyle = C.text; g.fillText(`SIG   ${f(state.source)}`, x, y + lh);
     g.textAlign = 'right';
-    g.fillStyle = state.manual ? C.amber : C.ph;
-    g.fillText(state.reduced ? 'HOLD' : state.manual ? 'MANUAL' : 'LOCK', W * dpr - x, y);
+    g.fillStyle = state.manual ? C.rust : C.ink;
+    g.fillText(state.manual ? 'MANUAL' : 'LOCK', W * dpr - x, y);
     g.fillStyle = C.text; g.fillText('dB', W * dpr - x, y + lh);
   }
 
   function draw(t, trails) {
-    if (trails) { g.fillStyle = 'rgba(5,7,5,.28)'; g.fillRect(0, 0, canvas.width, canvas.height); }
+    if (trails) { g.fillStyle = C.ghost; g.fillRect(0, 0, canvas.width, canvas.height); }
     else { g.fillStyle = C.bg; g.fillRect(0, 0, canvas.width, canvas.height); }
     grid();
     trace(state.steer, 1);
@@ -109,12 +120,10 @@ export function start(ctx) {
   addEventListener('pointerup', up);
   canvas.addEventListener('pointercancel', up);
 
-  // With reduced motion the loop is off. Redraw on demand when the angle changes.
-  const unsub = subscribe(() => { if (ctx.reduced) draw(0, false); });
 
   return {
     resize(w, h, d) {
-      W = w; H = h; dpr = d;
+      W = w; H = h; dpr = d; makeHatch();
       canvas.width = Math.max(1, Math.round(w * d));
       canvas.height = Math.max(1, Math.round(h * d));
       cx = canvas.width / 2;
@@ -124,7 +133,6 @@ export function start(ctx) {
     frame(t) { tick(); blip = t; draw(t, true); },
     still() { draw(blip, false); },
     dispose() {
-      unsub();
       canvas.removeEventListener('pointerdown', down);
       canvas.removeEventListener('pointermove', move);
       removeEventListener('pointerup', up);

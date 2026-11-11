@@ -4,116 +4,121 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Startup work | Ayan Basheer</title>
-<meta name="description" content="Companies Ayan Basheer helped start and run: Argus, RION Solutions and a team email tool for New Door.">
+<meta name="description" content="Companies Ayan Basheer helped start and run: Argus (ended 2026), an AI camera app for stores, RION Solutions and a team email tool for New Door.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/startup-work/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/startup-work/">
 <meta property="og:title" content="Startup work | Ayan Basheer">
-<meta property="og:description" content="Companies Ayan Basheer helped start and run: Argus, RION Solutions and a team email tool for New Door.">
+<meta property="og:description" content="Companies Ayan Basheer helped start and run: Argus (ended 2026), an AI camera app for stores, RION Solutions and a team email tool for New Door.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#070818">
+<meta name="theme-color" content="#26180F">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/startup-work/style.css">
 <link rel="modulepreload" href="/startup-work/main.js">
 </head>
 <body class="tab tab-startup-work">
 <a class="skip" href="#main">Skip to content</a>
-<!-- The 3D scene for this tab. Decoration only: everything it shows is also in the HTML below. -->
-<canvas id="scene" class="scene" aria-hidden="true"></canvas>
-<div class="scene-fallback" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
-<div class="letterbox" aria-hidden="true"></div>
-
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="page">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="page">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main">
-<section class="intro" aria-labelledby="page-h">
-  <p class="kicker">Tab 03</p>
-  <h1 id="page-h">Startup work</h1>
-  <p class="lede">Companies I helped start and run, and the tools I built for their teams.</p>
-  <span class="cue" aria-hidden="true"></span>
-</section>
+<header class="hero" aria-labelledby="page-h">
+  <div class="hero-text">
+    <h1 id="page-h">Startup <em>work</em></h1>
+    <p class="lede">Companies I helped start and run, including Argus, which ended in 2026, and the tools I built for their teams.</p>
+    <ul class="hero-jump"><li><a href="#argus">Argus</a></li><li><a href="#rion">RION Solutions</a></li></ul>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <canvas id="scene" class="scene"></canvas>
+    <div class="scene-fallback"></div>
+  </div>
+</header>
 
-<div class="items">
-  <article class="item" id="argus" aria-labelledby="argus-h">
-    <div class="item-media">
-      <img class="item-img" src="/startup-work/argus/img/thumb.webp" width="800" height="450" alt="The Argus home page: Run your whole store from one place, with a tilted dashboard." loading="lazy" decoding="async">
-    </div>
-    <div class="item-body">
-      <h2 id="argus-h">Argus</h2>
-      <p>One app that runs a convenience store or gas station, starting with AI cameras that spot theft.</p>
-      <p class="item-role">Cofounder and lead engineer.</p>
-      <h3 class="item-subs-h">Notable projects</h3>
-      <ul class="item-subs">
-          <li><a href="/startup-work/argus-dashboard/">Argus Dashboard</a><span>One screen for running a store: loss prevention, stock, money and staff.</span></li>
-          <li><a href="/startup-work/argus-one/">Argus One</a><span>The theft-detection AI. It watches live store cameras, tracks body pose and gives each person one risk score.</span></li>
-          <li><a href="/startup-work/argus-edge-board/">In-store AI board</a><span>A custom circuit board for the in-store AI devices, built around the NanoPi R76S.</span></li>
-          <li><a href="/startup-work/argus-site/">useargus.co</a><span>The Argus marketing site.</span></li>
+<article class="co co-a" id="argus" aria-labelledby="argus-h">
+  <div class="co-in">
+    <div class="co-text">
+      <h2 id="argus-h" class="rv">Argus <span class="co-end">Ended 2026</span></h2>
+      <p class="intro rv">An app for convenience stores and gas stations, starting with AI cameras that spot theft.</p>
+      <p class="role rv">Cofounder and lead engineer. Ran from 2025 to 2026, with a first round at a $1M valuation and 10+ stores.</p>
+      <h3 class="rv">Notable projects</h3>
+      <ul class="ledger">
+        <li><a href="/startup-work/argus-dashboard/"><span class="lg-t">Argus Dashboard</span><span class="lg-d">One screen for running a store: loss prevention, stock, money and staff.</span></a></li>
+        <li><a href="/startup-work/argus-one/"><span class="lg-t">Argus One</span><span class="lg-d">The theft-detection AI. It watched live store cameras, tracked body pose and gave each person one risk score.</span></a></li>
+        <li><a href="/startup-work/argus-edge-board/"><span class="lg-t">In-store AI board</span><span class="lg-d">A small box for stores with no back-office computer, built around the NanoPi R76S.</span></a></li>
+        <li><a href="/startup-work/argus-site/"><span class="lg-t">useargus.co</span><span class="lg-d">The Argus marketing site, its docs and its status page.</span></a></li>
       </ul>
-      <ul class="item-links">
+      <ul class="item-links rv">
         <li><a class="link-more" href="/startup-work/argus/">See Argus</a></li>
         <li><a class="link-site" href="https://useargus.co" rel="noopener">useargus.co</a></li>
         <li><a class="link-site" href="https://docs.useargus.co" rel="noopener">Docs</a></li>
         <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
       </ul>
     </div>
-  </article>
-  <article class="item" id="rion" aria-labelledby="rion-h">
-    <div class="item-media">
-      <img class="item-img" src="/startup-work/rion/img/thumb.webp" width="800" height="450" alt="The RION home page: Intelligent Scalable Automation for Modern Businesses, over a starfield." loading="lazy" decoding="async">
-    </div>
-    <div class="item-body">
-      <h2 id="rion-h">RION Solutions</h2>
-      <p>An AI automation agency, and the parent company of Argus.</p>
-      <p class="item-role">Automation engineer.</p>
-      <h3 class="item-subs-h">Notable projects</h3>
-      <ul class="item-subs">
-          <li><a href="/startup-work/nexus-command-center/">NEXUS Command Center</a><span>An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</span></li>
-          <li><a href="/startup-work/rion-county-api/">County records API and client intake</a><span>One API in front of 3 county record systems, and client intake that runs on its own.</span></li>
-          <li><a href="/web-design/rion-website/">RION Solutions website</a><span>A rebuild of the RION Solutions website in Next.js.</span></li>
+    <figure class="co-fig rv">
+      <img class="item-img" src="/startup-work/argus/img/thumb.webp" width="800" height="450" sizes="(min-width:960px) 44vw, 100vw" alt="The useargus.co home page in November 2026: Run your whole store from one place, with a dashboard demo." loading="lazy" decoding="async">
+      <figcaption>useargus.co, captured in November 2026.</figcaption>
+    </figure>
+  </div>
+</article>
+
+<article class="co co-b" id="rion" aria-labelledby="rion-h">
+  <div class="co-in">
+    <div class="co-text">
+      <h2 id="rion-h" class="rv">RION Solutions</h2>
+      <p class="intro rv">An AI automation agency, and the parent company of Argus.</p>
+      <p class="role rv">Automation engineer, Sep 2025 to Jun 2026. Onboarding 70% faster, deploys 40% faster, 95% on time across 8+ client deployments.</p>
+      <h3 class="rv">Notable projects</h3>
+      <ul class="ledger">
+        <li><a href="/startup-work/nexus-command-center/"><span class="lg-t">NEXUS Command Center</span><span class="lg-d">An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</span></a></li>
+        <li><a href="/startup-work/rion-county-api/"><span class="lg-t">County records API and client intake</span><span class="lg-d">One API in front of 3 county record systems, and client intake that runs on its own.</span></a></li>
+        <li><a href="/web-design/rion-website/"><span class="lg-t">RION Solutions website</span><span class="lg-d">A rebuild of the RION Solutions website in Next.js.</span></a></li>
       </ul>
-      <ul class="item-links">
+      <ul class="item-links rv">
         <li><a class="link-more" href="/startup-work/rion/">See RION Solutions</a></li>
         <li><a class="link-site" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li>
         <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
       </ul>
     </div>
-  </article>
-</div>
-
-<nav class="rail" aria-label="Companies on this page">
-  <ol>
-    <li><a href="#argus"><span class="rail-n" aria-hidden="true">01</span><span class="rail-t">Argus</span></a></li>
-    <li><a href="#rion"><span class="rail-n" aria-hidden="true">02</span><span class="rail-t">RION</span></a></li>
-  </ol>
-  <span class="rail-bar" aria-hidden="true"></span>
-</nav>
+    <figure class="co-fig rv">
+      <img class="item-img" src="/startup-work/rion/img/thumb.webp" width="800" height="450" sizes="(min-width:960px) 44vw, 100vw" alt="The RION home page in November 2026: Intelligent Scalable Automation for Modern Businesses." loading="lazy" decoding="async">
+      <figcaption>rionsolution.com, captured in November 2026.</figcaption>
+    </figure>
+  </div>
+</article>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/startup-work/main.js"></script>

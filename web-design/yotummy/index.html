@@ -20,93 +20,134 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
+<link rel="stylesheet" href="/web-design/case.css">
 <link rel="stylesheet" href="/web-design/yotummy/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="modulepreload" href="/web-design/yotummy/main.js">
 </head>
 <body class="proj-page proj-yotummy">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/web-design/" aria-current="true">Web design<span class="tab-ind" aria-hidden="true"></span></a></li>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/" aria-current="true">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>YoTummy</span></li></ol></nav>
 
-  <header class="proj-hero yt-hero">
+  <header class="cs-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="img/logo.webp" width="420" height="70" alt="YoTummy logo">
+    <img class="proj-logo" src="img/logo.webp" width="420" height="70" alt="YoTummy logo" decoding="async">
     <p class="proj-kicker">Client site and app</p>
-    <h1>Yo<span class="yt-key">Tummy</span></h1>
+    <h1>YoTummy</h1>
     <p class="proj-summary">A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Only developer</dd></div><div><dt>Dates</dt><dd>Prototype Apr to Jun 2026. Main app Jun 2026 to now.</dd></div><div><dt>Client</dt><dd>YoTummy</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Angular 12 and 18</li><li>Ionic and Capacitor</li><li>PHP 7.4</li><li>MySQL</li><li>Stripe</li><li>Vercel</li><li>Hostinger</li><li>Next.js 16</li><li>Mapbox</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://yotummy.com" rel="noopener">yotummy.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media yt-media">
-      <span class="yt-glow" aria-hidden="true"></span>
-      <div class="yt-browser"><span class="yt-bar" aria-hidden="true"><i></i><i></i><i></i><b>yotummy.com</b></span><img src="img/hero.webp" width="1440" height="900" alt="The YoTummy home page: a food photo hero with a search box and category chips." fetchpriority="high" decoding="async"></div>
-      <div class="yt-phone" aria-hidden="true"><div class="yt-screen"><img src="img/feed.webp" width="480" height="1717" alt="" decoding="async" fetchpriority="low"></div></div>
-    </figure>
+    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The YoTummy home page today: a food photo hero with the headline Homemade, Delicious, a search box, a map button and 17 category chips." fetchpriority="high" decoding="async"><figcaption>The live site, captured 11 November 2026.</figcaption></figure>
   </header>
 
-  <div class="yt-chips" aria-hidden="true">
-    <ul class="yt-track"><li>Baked Goods</li><li>Condiments &amp; Spices</li><li>Dairy</li><li>Fresh Eggs</li><li>Fresh Fruits &amp; Vegetables</li><li>Jams, Jellies, Honey</li><li>Pickled Products</li><li>Prepared Meals</li><li>Sauces &amp; Oils</li><li>Food Trucks</li><li>Baked Goods</li><li>Condiments &amp; Spices</li><li>Dairy</li><li>Fresh Eggs</li><li>Fresh Fruits &amp; Vegetables</li><li>Jams, Jellies, Honey</li><li>Pickled Products</li><li>Prepared Meals</li><li>Sauces &amp; Oils</li><li>Food Trucks</li></ul>
-  </div>
-
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the <span class="yt-key">numbers</span></h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">206</span><span aria-hidden="true" data-count="206">206</span></b><span>commits in the main app, all mine</span></li><li class="stat"><b>3.1.1</b><span>app version shipped to both stores</span></li><li class="stat"><b><span class="visually-hidden">164</span><span aria-hidden="true" data-count="164">164</span></b><span>commits on the redesign prototype</span></li><li class="stat"><b>4</b><span>apps: site, seller portal, admin, phone</span></li></ul>
+    <h2 id="numbers-h" class="visually-hidden">The numbers</h2>
+    <ul class="stats"><li class="stat"><b><span class="visually-hidden">206</span><span aria-hidden="true" data-count="206">206</span></b><span>commits in the main app, all mine</span></li><li class="stat"><b>3.1.1</b><span>app version shipped to both stores</span></li><li class="stat"><b><span class="visually-hidden">164</span><span aria-hidden="true" data-count="164">164</span></b><span>commits on the redesign prototype</span></li><li class="stat"><b><span class="visually-hidden">4</span><span aria-hidden="true" data-count="4">4</span></b><span>apps: site, seller portal, admin, phone</span></li><li class="stat"><b><span class="visually-hidden">17</span><span aria-hidden="true" data-count="17">17</span></b><span>food categories on the home page today</span></li></ul>
   </section>
 
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I <span class="yt-key">did</span></h2>
-    <div class="yt-did">
-    <ul class="did-list">
-      <li>Took over an inherited codebase and became its only developer.</li>
-      <li>Added a map of nearby sellers that groups pins into bubbles, and made it work on phones.</li>
-      <li>Rebuilt home page sections and polished in-app messaging.</li>
-      <li>Shipped App Store and Google Play releases, up to version 3.1.1.</li>
-      <li>Fixed Stripe and App Store payments, so a payment still records when a setup key is missing.</li>
-      <li>Closed security holes around who can change what.</li>
-      <li>Set up automatic deploys.</li>
-      <li>Built a separate Next.js prototype with a Mapbox photo-pin map and a category showcase, to pitch a redesign to the founder.</li>
-    </ul>
-    <figure class="yt-map"><canvas class="yt-map-canvas" aria-hidden="true"></canvas><figcaption>A sketch of the seller map. Pins group into bubbles and split apart when you point at them or tap.</figcaption></figure>
+  <section class="proj-section case-sec " id="problem" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <div class="case-body">
+<p class="lead">A marketplace that already had sellers and shoppers, running on code nobody on the team had written.</p>
+<p>YoTummy lets people buy homemade food from cooks and farmstands near them. When I joined I inherited the whole thing: a website, a seller portal, an admin panel and a phone app, all with real users. Payments sometimes failed to record, who could change what was not locked down, and there was no automatic deploy.</p>
+<p>The founder also wanted the site to feel less like a directory and more like a place to browse. Both jobs landed on one developer, so the order of work mattered.</p>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="approach" aria-labelledby="approach-h">
+    <h2 id="approach-h">Approach</h2>
+    <div class="case-body">
+<p>I fixed what could lose money or data first, then built what shoppers see, then pitched the bigger redesign with something they could click.</p>
+<ol>
+<li><b>Make it safe.</b> Fix Stripe and App Store payments so a payment still records when a setup key is missing. Close the holes around who can change what.</li>
+<li><b>Make it ship.</b> Set up automatic deploys, so a fix reaches users without a manual upload.</li>
+<li><b>Make it easier to find food.</b> A map of nearby sellers that groups pins into bubbles and works on phones. New home page sections and polished in-app messaging.</li>
+<li><b>Show the next step.</b> A separate Next.js prototype with a Mapbox photo-pin map and a category showcase, built to pitch a redesign to the founder.</li>
+</ol>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="how" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="case-body">
+<figure><div class="fan" role="group" aria-label="Four apps sit on one marketplace"><ul><li><b>Website</b><span>Browse homemade food near you</span></li><li><b>Seller portal</b><span>For the cooks who sell</span></li><li><b>Admin panel</b><span>For running the marketplace</span></li><li><b>Phone app</b><span>Shipped to both app stores</span></li></ul><div class="fan-core"><b>The marketplace behind them</b><span>PHP 7.4 and MySQL, with Stripe for payments. Hosted on Hostinger and Vercel.</span></div></div></figure><p>Shoppers use the website or the phone app. Cooks use the seller portal to list food. The admin panel is how the owners run the marketplace. The older apps are Angular 12 and 18, and the phone app is Ionic and Capacitor, which is how one codebase reaches both stores.</p>
+<p>The home page sorts food into 17 categories, from Baked Goods to Food Trucks, and the search box takes a ZIP code so results are local.</p>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="results" aria-labelledby="results-h">
+    <h2 id="results-h">Results</h2>
+    <div class="case-body">
+<p>The numbers below come from the repositories and the store listings.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col">What</th><th scope="col">Number</th><th scope="col">Where it comes from</th></tr></thead><tbody><tr><td>Main app commits</td><td>206, all mine</td><td>The app repository</td></tr><tr><td>Latest store release</td><td>3.1.1</td><td>App Store and Google Play</td></tr><tr><td>Prototype commits</td><td>164</td><td>The Next.js prototype repository</td></tr><tr><td>Apps maintained</td><td>4</td><td>Site, seller portal, admin panel, phone app</td></tr></tbody></table></div><p>What shoppers see today is in the screens below: a search box, 17 category chips, a trending grid of dishes with price and seller, and a section pointing to the phone app.</p>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="owned" aria-labelledby="owned-h">
+    <h2 id="owned-h">What I owned</h2>
+    <div class="case-body">
+<ul class="did-list">
+<li>Took over an inherited codebase and became its only developer.</li>
+<li>Added a map of nearby sellers that groups pins into bubbles, and made it work on phones.</li>
+<li>Rebuilt home page sections and polished in-app messaging.</li>
+<li>Shipped App Store and Google Play releases, up to version 3.1.1.</li>
+<li>Fixed Stripe and App Store payments, so a payment still records when a setup key is missing.</li>
+<li>Closed security holes around who can change what.</li>
+<li>Set up automatic deploys.</li>
+<li>Built a separate Next.js prototype to pitch a redesign to the founder.</li>
+</ul>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="learned" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="case-body">
+<ul>
+<li>With inherited code, fix payments and permissions before anything shoppers can see. Those are the failures people notice last and pay for most.</li>
+<li>A map is mostly a performance problem. Grouping pins into bubbles is what keeps it usable on a phone.</li>
+<li>A working prototype in the framework you would really use is a stronger pitch than a mock-up.</li>
+</ul>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="screens" aria-labelledby="screens-h">
+    <h2 id="screens-h">Screens</h2>
+    <div class="case-body">
+<div class="shots"><figure class="wide"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The YoTummy Trending Near You grid today: dishes with a price, a seller name and an order button." loading="lazy" decoding="async"></a><figcaption>Trending dishes near you, on yotummy.com today.</figcaption></figure><figure class="phone"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The YoTummy site on a phone today: header, headline and search box." loading="lazy" decoding="async"></a><figcaption>The same site on a 390 pixel wide phone.</figcaption></figure></div>
     </div>
   </section>
 
-  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
-    <h2 id="gallery-h">Gallery</h2>
-    <ul class="gallery">
-      <li><figure><a class="lb" href="img/trending.webp" data-w="1200" data-h="917"><img src="img/trending.webp" width="1200" height="917" alt="The Trending Near You grid of dishes from local sellers." loading="lazy" decoding="async"></a><figcaption>Trending dishes near you, on yotummy.com.</figcaption></figure></li>
-      <li><figure><a class="lb" href="img/app.webp" data-w="960" data-h="760"><img src="img/app.webp" width="960" height="760" alt="The Download the App section with an orange phone mockup and store badges." loading="lazy" decoding="async"></a><figcaption>The phone app, shipped to both app stores.</figcaption></figure></li>
-      <li><figure><a class="lb" href="img/phone.webp" data-w="480" data-h="985"><img src="img/phone.webp" width="480" height="985" alt="The YoTummy site on a phone screen." loading="lazy" decoding="async"></a><figcaption>The site on a phone.</figcaption></figure></li>
-    </ul>
-  </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
+  <section class="proj-section case-sec proj-related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/rion/">The prototype was built through RION Solutions</a></li></ul>
+    <div class="case-body"><ul class="plain-list"><li><a href="/startup-work/rion/">The prototype was built through RION Solutions</a></li></ul></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/web-design/">Back to Web design</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/web-design/yotummy/main.js"></script>

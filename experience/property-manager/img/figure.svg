@@ -1,10 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<title>Diagram: 23 unit squares, rental income up 60% in 4 months, and nine of ten tenants kept.</title>
 <defs>
-<pattern id="g1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(156,201,255,.08)" stroke-width="1"/></pattern>
-<pattern id="g5" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="rgba(156,201,255,.17)" stroke-width="1"/></pattern>
-<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FFC857"/></marker>
+<pattern id="st" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r=".9" fill="#D9AE4A"/></pattern>
+<pattern id="st2" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="translate(3 4)"><circle cx="3" cy="3" r="1.1" fill="#D9AE4A"/></pattern>
+<linearGradient id="fd" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="mk"><rect width="800" height="450" fill="url(#fd)"/></mask>
+<style>
+text{font-family:-apple-system,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif;fill:#EFE3C8}
+.n{font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;font-weight:700;fill:#D9AE4A;font-variant-numeric:lining-nums}
+.l{font-size:32px}
+.sq{fill:#D9AE4A;opacity:.16;animation:fl 6s ease-out infinite}
+@keyframes fl{0%,6%{opacity:.16}22%,80%{opacity:1}100%{opacity:.16}}
+.dot{animation:dr 4.8s ease-in-out infinite alternate}
+@keyframes dr{from{transform:translateY(0)}to{transform:translateY(var(--dy,300px))}}
+</style>
 </defs>
-<rect width="800" height="450" fill="#0B2545"/><rect width="800" height="450" fill="url(#g1)"/><rect width="800" height="450" fill="url(#g5)"/>
-<text x="32" y="44" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" letter-spacing="2" fill="#A9C3E0">PROPERTY MANAGER</text>
-<path d="M50 110L215 70L380 110V400H50Z" fill="#0F2E55" stroke="#9CC9FF" stroke-width="1.5"/><rect x="72" y="130" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="132" y="130" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="192" y="130" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="252" y="130" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="312" y="130" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="72" y="182" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="132" y="182" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="192" y="182" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="252" y="182" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="312" y="182" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="72" y="234" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="132" y="234" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="192" y="234" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="252" y="234" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="312" y="234" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="72" y="286" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="132" y="286" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="192" y="286" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="252" y="286" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="312" y="286" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="72" y="338" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="132" y="338" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><rect x="192" y="338" width="40" height="32" rx="2" fill="#FFC857" fill-opacity=".85"/><text x="215" y="428" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" fill="#A9C3E0">23 units</text><text x="440" y="150" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-weight="800" font-size="40" fill="#FFC857">+60%</text><text x="440" y="176" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" fill="#EAF3FF">rental income in 4 months</text><text x="440" y="250" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-weight="800" font-size="40" fill="#FFC857">90%</text><text x="440" y="276" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" fill="#EAF3FF">of tenants kept</text><text x="440" y="350" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-weight="800" font-size="40" fill="#FFC857">$200K+</text><text x="440" y="376" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" fill="#EAF3FF">rent collected</text>
+<rect width="800" height="450" fill="#26180F"/>
+<rect y="428" width="800" height="22" fill="url(#st)" mask="url(#mk)" opacity=".7"/>
+<rect class="sq" x="40" y="44" width="42" height="42" style="animation-delay:0.00s"/>
+<rect class="sq" x="92" y="44" width="42" height="42" style="animation-delay:0.12s"/>
+<rect class="sq" x="144" y="44" width="42" height="42" style="animation-delay:0.24s"/>
+<rect class="sq" x="196" y="44" width="42" height="42" style="animation-delay:0.36s"/>
+<rect class="sq" x="248" y="44" width="42" height="42" style="animation-delay:0.48s"/>
+<rect class="sq" x="300" y="44" width="42" height="42" style="animation-delay:0.60s"/>
+<rect class="sq" x="40" y="96" width="42" height="42" style="animation-delay:0.72s"/>
+<rect class="sq" x="92" y="96" width="42" height="42" style="animation-delay:0.84s"/>
+<rect class="sq" x="144" y="96" width="42" height="42" style="animation-delay:0.96s"/>
+<rect class="sq" x="196" y="96" width="42" height="42" style="animation-delay:1.08s"/>
+<rect class="sq" x="248" y="96" width="42" height="42" style="animation-delay:1.20s"/>
+<rect class="sq" x="300" y="96" width="42" height="42" style="animation-delay:1.32s"/>
+<rect class="sq" x="40" y="148" width="42" height="42" style="animation-delay:1.44s"/>
+<rect class="sq" x="92" y="148" width="42" height="42" style="animation-delay:1.56s"/>
+<rect class="sq" x="144" y="148" width="42" height="42" style="animation-delay:1.68s"/>
+<rect class="sq" x="196" y="148" width="42" height="42" style="animation-delay:1.80s"/>
+<rect class="sq" x="248" y="148" width="42" height="42" style="animation-delay:1.92s"/>
+<rect class="sq" x="300" y="148" width="42" height="42" style="animation-delay:2.04s"/>
+<rect class="sq" x="40" y="200" width="42" height="42" style="animation-delay:2.16s"/>
+<rect class="sq" x="92" y="200" width="42" height="42" style="animation-delay:2.28s"/>
+<rect class="sq" x="144" y="200" width="42" height="42" style="animation-delay:2.40s"/>
+<rect class="sq" x="196" y="200" width="42" height="42" style="animation-delay:2.52s"/>
+<rect class="sq" x="248" y="200" width="42" height="42" style="animation-delay:2.64s"/>
+<text x="40" y="300" class="l" text-anchor="start" >23 units</text>
+<text x="400" y="140" class="n" text-anchor="start" font-size="112">+60%</text>
+<text x="400" y="190" class="l" text-anchor="start" >rental income</text>
+<text x="400" y="232" class="l" text-anchor="start" >in 4 months</text>
+<circle cx="58" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="98" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="138" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="178" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="218" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="258" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="298" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="338" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="378" cy="350" r="14" fill="#D9AE4A" stroke="#D9AE4A" stroke-width="3"/>
+<circle cx="418" cy="350" r="14" fill="none" stroke="#D9AE4A" stroke-width="3"/>
+<text x="40" y="416" class="l" text-anchor="start" >9 in 10 tenants kept</text>
 </svg>

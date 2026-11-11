@@ -4,39 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Automated bench test rig | Ayan Basheer</title>
-<meta name="description" content="Lab instruments driven by Python, so an amplifier test runs in 90 seconds.">
+<meta name="description" content="Lab instruments driven by Python over SCPI: a 12-point amplifier test went from 45 minutes to 90 seconds.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/projects/bench-rig/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/projects/bench-rig/">
 <meta property="og:title" content="Automated bench test rig | Ayan Basheer">
-<meta property="og:description" content="Lab instruments driven by Python, so an amplifier test runs in 90 seconds.">
+<meta property="og:description" content="Lab instruments driven by Python over SCPI: a 12-point amplifier test went from 45 minutes to 90 seconds.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B0420">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#EFE3C8">
+<meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
-<link rel="stylesheet" href="/projects/bench-rig/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
 <body class="proj-page proj-bench-rig">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/" aria-current="true">Projects<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/projects/" aria-current="true">Projects</a></li>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
@@ -50,44 +54,100 @@
     <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>SCPI</li><li>Oscilloscope</li><li>Function generator</li></ul></dd></div></dl>
     <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="screen"><img src="img/photo.webp" width="1400" height="1050" alt="Electronic lab equipment on a bench." fetchpriority="high" decoding="async"></div><figcaption><span class="credit">Photo: Ludovic Delot on <a href="https://www.pexels.com/photo/18471414/" rel="noopener">Pexels</a> (Pexels License). A stock photo, not the real thing.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/rack.svg" width="1000" height="510" alt="Block diagram. A computer running Python sends SCPI commands to a function generator and an oscilloscope. The function generator drives the amplifier under test and the oscilloscope measures its output. Readings return to the computer." fetchpriority="high" decoding="async"></div></div><figcaption>How the pieces fit, as a diagram drawn for this site. It is a typical amplifier test setup, not a photo of the bench.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>45 min to 90 s</b><span>for a 12-point amplifier test</span></li><li class="stat"><b>3 dB</b><span>error caught that manual checks missed</span></li></ul>
+  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">In numbers</h2>
+    <div class="sec-body">
+      <ul class="stats"><li class="stat wide"><b>45 min to 90 s</b><span>for a 12-point amplifier test</span></li><li class="stat"><b>30x</b><span>faster than by hand</span></li><li class="stat"><b><span class="visually-hidden">3 dB</span><span aria-hidden="true" data-count="3" data-post=" dB">3 dB</span></b><span>error caught that manual checks missed</span></li><li class="stat"><b><span class="visually-hidden">12</span><span aria-hidden="true" data-count="12">12</span></b><span>test points per run</span></li></ul>
+    </div>
   </section>
+  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <div class="sec-body">
+      <p>Testing an amplifier by hand means setting a signal on the function generator, reading the result on the oscilloscope, writing it down, and repeating for every test point. A 12-point test took 45 minutes. It is slow, and it is easy to misread a number or skip a step.</p>
+      <p>Slow tests get run less often, and tired eyes miss things.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="approach" aria-labelledby="approach-h">
+    <h2 id="approach-h">The approach</h2>
+    <div class="sec-body">
+      <p>Most bench instruments accept text commands over a standard called SCPI. I wrote Python that sends those commands, so the computer sets up the function generator, steps through the 12 points, reads the oscilloscope each time, and draws charts when the run ends.</p>
+      <p>The result is one command instead of 45 minutes of knob turning, and every run is done the same way.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="sec-body">
+      <p>SCPI commands are short lines of text. A few well-known ones are shown below, as an illustration of the style. Each instrument adds its own commands for its own settings.</p>
+      <pre class="code" tabindex="0"><span class="m"># Standard SCPI, the same on most instruments</span>
+<span class="k">*IDN?</span>     <span class="m">ask the instrument who it is</span>
+<span class="k">*RST</span>      <span class="m">put it back to a known state</span>
+<span class="k">*OPC?</span>     <span class="m">answer when the last command is done</span></pre>
+      <p>The setup is the diagram at the top of the page. Python sits at the left and talks to both instruments.</p>
+      <p>A run has four steps. The script sets up the instruments, sweeps the 12 test points, draws the charts, and flags anything that looks wrong.</p>
+      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/steps.svg" width="1000" height="300" alt="Four steps in order: set up, sweep, chart, flag. Twelve ticks under the sweep step mark the 12 test points." loading="lazy" decoding="async"></div></div><figcaption>One 90 second run.</figcaption></figure>
+      <p>The charts are drawn at the end of each run, so the whole result is visible at once instead of as a column of numbers.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="results" aria-labelledby="results-h">
+    <h2 id="results-h">Results</h2>
+    <div class="sec-body">
 
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <div class="did-grid">
-    <div class="scope" aria-hidden="true">
-      <div class="stage">
-        <canvas class="proj-scene"></canvas>
-        <p class="stage-hud"><span>CH1 Sweep</span><span class="stage-pt">12 pt</span></p>
-        <p class="stage-hud stage-foot"><span>Gain</span><span class="stage-res">Ready</span></p>
+      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/timeline.svg" width="1000" height="400" alt="Two bars on the same scale. By hand, 45 minutes. Scripted, 90 seconds." loading="lazy" decoding="async"></div></div><figcaption>The same 12-point amplifier test, by hand and scripted. 45 minutes is 2,700 seconds, so the script is 30 times faster.</figcaption></figure>
+      <div class="table-wrap" tabindex="0" role="group" aria-label="Results table">
+      <table class="facts">
+        <caption>What the script changed</caption>
+        <thead><tr><th scope="col">Measure</th><th scope="col">By hand</th><th scope="col">Scripted</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">12-point amplifier test</th><td>45 minutes</td><td>90 seconds</td></tr>
+          <tr><th scope="row">Time per point</th><td>about 3.75 minutes</td><td>about 7.5 seconds</td></tr>
+          <tr><th scope="row">Charts</th><td>by hand</td><td>drawn at the end of each run</td></tr>
+        </tbody>
+      </table>
       </div>
-      <div class="scope-knobs"><i></i><i></i><i></i><b></b><b></b></div>
+      <p>The script also caught a 3 dB error that manual checks missed. Per-point times are the totals divided by 12, so they include setup and charts.</p>
     </div>
-    <ul class="did-list">
-      <li>Scripted the lab instruments in Python over SCPI.</li>
-      <li>A 12-point amplifier test went from 45 minutes to 90 seconds.</li>
-      <li>Charts draw themselves at the end of each run.</li>
-      <li>It caught a 3 dB error that manual checks missed.</li>
-    </ul>
+  </section>
+  <section class="proj-section story" id="did" aria-labelledby="did-h">
+    <h2 id="did-h">What I did</h2>
+    <div class="sec-body">
+      <ul class="did-list">
+        <li>Scripted the lab instruments in Python over SCPI.</li>
+        <li>A 12-point amplifier test went from 45 minutes to 90 seconds.</li>
+        <li>Charts draw themselves at the end of each run.</li>
+        <li>It caught a 3 dB error that manual checks missed.</li>
+      </ul>
     </div>
+  </section>
+  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="sec-body">
+      <p>Automation is also a quality tool. The test was faster, and every run was also the same, which is how a 3 dB error showed up that people checking by hand had missed.</p>
+      <p>Standards pay off. Because SCPI is common, the same approach works across instruments from different makers, with only the instrument-specific commands changing.</p>
+      <p>Show the result as a picture. A chart at the end of a run is easier to trust than twelve numbers on a screen.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="related" aria-labelledby="related-h">
+    <h2 id="related-h">Related</h2>
+    <div class="sec-body"><ul class="plain-list"><li><a href="/projects/sensor-node/">Low-power wireless sensor node</a>.</li><li><a href="/projects/fpga-risc/">8-bit RISC processor on FPGA</a>.</li></ul></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/projects/bench-rig/main.js"></script>

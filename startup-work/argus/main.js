@@ -1,13 +1,11 @@
-// Argus project page. Only this page loads this file.
+// Every Argus page loads this file (/startup-work/argus/, argus-dashboard, argus-one, argus-edge-board, argus-site).
 // Shared parts (what I did reveal, count-up, gallery lightbox, back links) come from /shared/project.js.
-// This page adds: the aperture and red dot grid scene (scene.js, a 2D canvas), the hero dashboard that
-// tilts toward the pointer, and stat blocks and sub-project cards that rise in as they scroll into view.
+// This adds one thing: rows marked .a-rv rise in as they scroll into view, 30ms apart inside one list.
 import { initProject } from '../../shared/project.js';
 import { onVisible } from '../../shared/motion.js';
-import { mountScene } from '../../shared/scene-loader.js';
-import { tilt } from './fx.js';
 
 initProject();
-tilt(document.querySelector('.a-tilt'), { max: 6 });
-onVisible('.proj-numbers .stat, .proj-subs .cards > li', (el) => el.classList.add('in'), { threshold: 0.15 });
-mountScene({ canvas: document.getElementById('argus-scene'), load: () => import('./scene.js'), webgl: false, dprCap: 2 });
+document.querySelectorAll('.a-steps, .a-parts, .a-time, .sub-list').forEach((list) => {
+  [...list.children].forEach((li, i) => { li.classList.add('a-rv'); li.style.setProperty('--i', String(i)); });
+});
+onVisible('.a-rv', (el) => el.classList.add('in'), { threshold: 0.12 });

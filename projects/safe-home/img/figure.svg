@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="t d" font-family="Geist, 'Spline Sans Mono', system-ui, sans-serif">
+<title id="t">How Safe Home fits together</title>
+<desc id="d">Sensor boxes in homes pass encrypted messages box to box until one with Internet uploads them to an API on Cloudflare and MongoDB Atlas. A street map for first responders shows the home reports and nearby weather service alerts. An AI assistant helps investigate.</desc>
+<rect width="1200" height="560" fill="#f6f7f7"/>
+<g stroke="#d9dcdc" stroke-width="1"><path d="M0 70H1200M0 490H1200"/></g>
+<g font-size="13" fill="#5b6262" letter-spacing="1.6" font-weight="600">
+<text x="48" y="48">01  HOMES</text><text x="440" y="48">02  MESH</text><text x="720" y="48">03  API</text><text x="960" y="48">04  COMMAND MAP</text></g>
+<!-- homes -->
+<g>
+<g transform="translate(48 110)"><path d="M0 52L56 6l56 46v62H0z" fill="#fff" stroke="#1d2020" stroke-width="2.5" stroke-linejoin="round"/><rect x="38" y="70" width="36" height="26" rx="4" fill="#D92B12"/><text x="0" y="146" font-size="14" font-weight="600" fill="#1d2020">Home box</text></g>
+<g transform="translate(48 270)"><path d="M0 52L56 6l56 46v62H0z" fill="#fff" stroke="#1d2020" stroke-width="2.5" stroke-linejoin="round"/><rect x="38" y="70" width="36" height="26" rx="4" fill="#D92B12"/><text x="0" y="146" font-size="14" font-weight="600" fill="#1d2020">Home box</text></g>
+<g transform="translate(232 190)"><path d="M0 52L56 6l56 46v62H0z" fill="#fff" stroke="#1d2020" stroke-width="2.5" stroke-linejoin="round"/><rect x="38" y="70" width="36" height="26" rx="4" fill="#D92B12"/><text x="0" y="146" font-size="14" font-weight="600" fill="#1d2020">Home box</text></g>
+</g>
+<text x="48" y="448" font-size="14" fill="#3b4141">Each ESP32 box senses power,</text>
+<text x="48" y="468" font-size="14" fill="#3b4141">connection and water.</text>
+<!-- mesh hops -->
+<g stroke="#D92B12" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round" fill="none">
+<path d="M165 200C200 215 215 240 232 258"/><path d="M165 360C200 340 215 320 232 300"/>
+<path d="M356 262H470"/></g>
+<g transform="translate(470 190)"><path d="M0 52L56 6l56 46v62H0z" fill="#fff" stroke="#1d2020" stroke-width="2.5" stroke-linejoin="round"/><rect x="38" y="70" width="36" height="26" rx="4" fill="#D92B12"/><text x="0" y="146" font-size="14" font-weight="600" fill="#1d2020">Box with Internet</text></g>
+<g stroke="#1d2020" stroke-width="2" fill="none" stroke-linecap="round"><path d="M526 190v-26"/><path d="M505 172a30 30 0 0 1 42 0"/><path d="M493 160a46 46 0 0 1 66 0"/></g>
+<rect x="332" y="110" width="210" height="26" rx="13" fill="#fff" stroke="#D92B12" stroke-width="1.5"/>
+<text x="437" y="128" font-size="12.5" font-weight="600" fill="#a81e0b" text-anchor="middle">AES-128 encrypted ESP-NOW</text>
+<text x="236" y="410" font-size="14" fill="#3b4141">Boxes hop messages to each other,</text>
+<text x="236" y="430" font-size="14" fill="#3b4141">so data survives a Wi-Fi or cell outage.</text>
+<!-- to API -->
+<path d="M590 262H700" stroke="#1d2020" stroke-width="2.5" fill="none"/><path d="M692 254l10 8-10 8" stroke="#1d2020" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="714" y="150" width="210" height="226" rx="18" fill="#fff" stroke="#1d2020" stroke-width="2.5"/>
+<text x="738" y="196" font-size="19" font-weight="700" fill="#1d2020">Cloudflare</text><text x="738" y="220" font-size="19" font-weight="700" fill="#1d2020">Pages Functions</text>
+<path d="M738 240h162" stroke="#d9dcdc"/>
+<text x="738" y="274" font-size="19" font-weight="700" fill="#1d2020">MongoDB Atlas</text>
+<text x="738" y="322" font-size="14" fill="#3b4141">Operator sign in,</text><text x="738" y="342" font-size="14" fill="#3b4141">simulations, /demo</text>
+<!-- to map -->
+<path d="M930 262H982" stroke="#1d2020" stroke-width="2.5" fill="none"/><path d="M974 254l10 8-10 8" stroke="#1d2020" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="994" y="110" width="160" height="300" rx="18" fill="#fff" stroke="#1d2020" stroke-width="2.5"/>
+<g stroke="#e3e6e6" stroke-width="1.5"><path d="M994 170H1154M994 230H1154M994 290H1154M994 350H1154M1050 110V410M1106 110V410"/></g>
+<g stroke="#b8bebe" stroke-width="5" stroke-linecap="round" fill="none"><path d="M1004 330C1040 300 1060 250 1090 230S1130 150 1144 140"/></g>
+<circle cx="1068" cy="266" r="26" fill="#D92B12" fill-opacity=".14" stroke="#D92B12" stroke-width="1.5"/><circle cx="1068" cy="266" r="8" fill="#D92B12"/>
+<circle cx="1112" cy="180" r="6" fill="#1d2020"/><circle cx="1030" cy="190" r="6" fill="#1d2020"/>
+<path d="M1010 372h126" stroke="#D92B12" stroke-width="3" stroke-dasharray="6 5"/>
+<text x="1074" y="440" font-size="14" font-weight="600" fill="#1d2020" text-anchor="middle">MapLibre street map</text>
+<text x="1074" y="460" font-size="14" fill="#3b4141" text-anchor="middle">Home reports and nearby</text>
+<text x="1074" y="480" font-size="14" fill="#3b4141" text-anchor="middle">NWS disaster alerts, one map</text>
+<!-- assistant -->
+<rect x="694" y="410" width="250" height="62" rx="14" fill="#fff" stroke="#D92B12" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="712" y="436" font-size="14" font-weight="700" fill="#1d2020">NVIDIA Nemotron Nano 9B v2</text>
+<text x="712" y="456" font-size="13" fill="#3b4141">on Brev, investigation assistant</text>
+<path d="M819 410V376" stroke="#D92B12" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="1152" y="530" font-size="12" fill="#5b6262" text-anchor="end">A prototype. Not a certified alarm or dispatch service.</text>
+</svg>

@@ -6,7 +6,7 @@
 
 const RAD = Math.PI / 180;
 const N = 4, D = 0.5, FLOOR = -40;
-const C = { bg: '#050705', grid: 'rgba(57,255,136,.18)', gridHi: 'rgba(57,255,136,.4)', text: '#8FBF9F', ph: '#39FF88', amber: '#FFB000', dim: 'rgba(207,255,224,.28)' };
+const C = { bg: '#26180F', grid: 'rgba(217,203,170,.16)', gridHi: 'rgba(217,203,170,.4)', text: '#D9CBAA', ph: '#D9AE4A', amber: '#EFE3C8', dim: 'rgba(217,203,170,.3)' };
 // Butler beams: progressive phase of -135, -45, +45, +135 degrees gives sin(angle) = -phase / 180.
 export const PORTS = [-135, -45, 45, 135].map((p) => ({ phase: p, angle: Math.asin(-p / 180) / RAD })).sort((a, b) => a.angle - b.angle);
 const BEACONS = [25, -38, 12, 47, -20, 36, -6];
@@ -55,7 +55,7 @@ export function start(ctx) {
   const ay = (db) => A.y + (db / FLOOR) * A.h;
   const pxy = (deg, r) => [P.cx + Math.sin(deg * RAD) * r, P.cy - Math.cos(deg * RAD) * r];
   const pr = (db) => ((db - FLOOR) / -FLOOR) * P.r;
-  const font = (px, w = 400) => `${w} ${Math.round(px * dpr)}px "JetBrains Mono", ui-monospace, monospace`;
+  const font = (px, w = 400) => `${w} ${Math.round(px * dpr)}px "Instrument Sans", system-ui, sans-serif`;
 
   function frameA(title) {
     g.lineWidth = 1;
@@ -67,11 +67,11 @@ export function start(ctx) {
       g.strokeStyle = a === 0 ? C.gridHi : C.grid;
       g.beginPath(); g.moveTo(ax(a), A.y); g.lineTo(ax(a), A.y + A.h); g.stroke();
     }
-    g.fillStyle = C.text; g.font = font(11); g.textBaseline = 'top'; g.textAlign = 'center';
+    g.fillStyle = C.text; g.font = font(14); g.textBaseline = 'top'; g.textAlign = 'center';
     for (let a = -90; a <= 90; a += 30) g.fillText(`${a}`, ax(a), A.y + A.h + 6 * dpr);
     g.textAlign = 'right'; g.textBaseline = 'middle';
     for (let db = 0; db >= FLOOR; db -= 20) g.fillText(`${db}`, A.x - 6 * dpr, ay(db));
-    g.textAlign = 'left'; g.textBaseline = 'bottom'; g.font = font(12, 600);
+    g.textAlign = 'left'; g.textBaseline = 'bottom'; g.font = font(15, 600);
     g.fillText(title, A.x, A.y - 8 * dpr);
   }
 
@@ -89,8 +89,7 @@ export function start(ctx) {
       for (let a = -90; a <= upto; a += low ? 1 : 0.5) { const x = ax(a), y = ay(fn(a)); if (first) { g.moveTo(x, y); first = false; } else g.lineTo(x, y); }
     }
     g.strokeStyle = color; g.lineWidth = width * dpr;
-    if (glow && !low) { g.shadowColor = color; g.shadowBlur = 8 * dpr; }
-    g.stroke(); g.shadowBlur = 0;
+    g.stroke();
   }
 
   function polar(steerDeg, others) {
@@ -103,7 +102,7 @@ export function start(ctx) {
       g.strokeStyle = C.grid; const [x, y] = pxy(a, P.r);
       g.beginPath(); g.moveTo(P.cx, P.cy); g.lineTo(x, y); g.stroke();
     }
-    g.fillStyle = C.text; g.font = font(11); g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = C.text; g.font = font(14); g.textAlign = 'center'; g.textBaseline = 'middle';
     for (let a = -60; a <= 60; a += 60) { const [x, y] = pxy(a, P.r + 14 * dpr); g.fillText(`${a}`, x, y); }
     const lobe = (s, color, w, fill) => {
       g.beginPath();
@@ -112,9 +111,7 @@ export function start(ctx) {
       g.strokeStyle = color; g.lineWidth = w * dpr; g.stroke();
     };
     (others || []).forEach((s) => lobe(s, C.dim, 1));
-    if (!low) { g.shadowColor = C.ph; g.shadowBlur = 10 * dpr; }
-    lobe(steerDeg, C.ph, 2, 'rgba(57,255,136,.10)');
-    g.shadowBlur = 0;
+    lobe(steerDeg, C.ph, 2.4, 'rgba(217,174,74,.16)');
     const [sx, sy] = pxy(steerDeg, P.r);
     g.setLineDash([5 * dpr, 5 * dpr]); g.strokeStyle = C.amber; g.lineWidth = 1.5 * dpr;
     g.beginPath(); g.moveTo(P.cx, P.cy); g.lineTo(sx, sy); g.stroke(); g.setLineDash([]);
@@ -127,7 +124,7 @@ export function start(ctx) {
     const [bx, by] = pxy(deg, P.r + 2 * dpr);
     g.fillStyle = C.amber; g.beginPath(); g.arc(bx, by, 4.5 * dpr, 0, Math.PI * 2); g.fill();
     const k = (t * 0.9) % 1;
-    g.strokeStyle = `rgba(255,176,0,${(1 - k) * 0.8})`; g.lineWidth = 1.2 * dpr;
+    g.strokeStyle = `rgba(239,227,200,${(1 - k) * 0.8})`; g.lineWidth = 1.2 * dpr;
     g.beginPath(); g.arc(bx, by, (5 + k * 18) * dpr, 0, Math.PI * 2); g.stroke();
   }
 
@@ -139,7 +136,7 @@ export function start(ctx) {
     g.fillStyle = C.bg; g.fillRect(0, 0, canvas.width, canvas.height);
     if (mode === 'port') {
       const p = PORTS[port];
-      frameA('BUTLER BEAMS  dB vs angle');
+      frameA('Butler beams, dB against angle');
       PORTS.forEach((q, i) => { if (i !== port) line((a) => afDb(a, q.angle), 90, C.dim, 1); });
       line((a) => afDb(a, p.angle), 90, C.amber, 2, true);
       polar(p.angle, PORTS.filter((_, i) => i !== port).map((q) => q.angle));
@@ -149,8 +146,8 @@ export function start(ctx) {
     // Auto: listen, find, steer, hold.
     const c = still ? T.end : clock;
     const upto = c < T.listen ? -90 + (c / T.listen) * 180 : 90;
-    frameA('LISTEN  spectrum vs angle');
-    line((a) => specDb(a, src), upto, C.ph, 1.8, true, 'rgba(57,255,136,.08)');
+    frameA('Listening: strength against angle');
+    line((a) => specDb(a, src), upto, C.ph, 1.8, true, 'rgba(217,174,74,.14)');
     if (c < T.listen) {
       g.strokeStyle = C.amber; g.lineWidth = 1.5 * dpr;
       g.beginPath(); g.moveTo(ax(upto), A.y); g.lineTo(ax(upto), A.y + A.h); g.stroke();
@@ -158,9 +155,9 @@ export function start(ctx) {
       const x = ax(src);
       g.setLineDash([4 * dpr, 4 * dpr]); g.strokeStyle = C.amber; g.lineWidth = 1.5 * dpr;
       g.beginPath(); g.moveTo(x, A.y); g.lineTo(x, A.y + A.h); g.stroke(); g.setLineDash([]);
-      g.fillStyle = C.amber; g.font = font(12, 600); g.textBaseline = 'top';
+      g.fillStyle = C.amber; g.font = font(15, 600); g.textBaseline = 'top';
       g.textAlign = src > 45 ? 'right' : 'left';
-      g.fillText(`FOUND ${fmt(src)}`, x + (src > 45 ? -8 : 8) * dpr, A.y + 6 * dpr);
+      g.fillText(`Found ${fmt(src)}\u00b0`, x + (src > 45 ? -8 : 8) * dpr, A.y + 6 * dpr);
     }
     const k = c < T.found ? 0 : Math.min(1, (c - T.found) / (T.steer - T.found));
     steer = prevSteer + (src - prevSteer) * ease(k);
@@ -188,8 +185,7 @@ export function start(ctx) {
     if (deg === undefined) return;
     api.setMode('auto');
     next(Math.max(-70, Math.min(70, deg)));
-    if (ctx.reduced) { clock = T.end; steer = src; prevSteer = src; draw(0, true); }
-    document.dispatchEvent(new CustomEvent('rf-mode', { detail: { mode: 'auto' } }));
+        document.dispatchEvent(new CustomEvent('rf-mode', { detail: { mode: 'auto' } }));
   };
   canvas.addEventListener('pointerdown', onDown);
 
@@ -198,7 +194,7 @@ export function start(ctx) {
       if (m === 'port') { if (mode === 'auto') prevSteer = steer; mode = 'port'; port = i; }
       else if (mode !== 'auto') { mode = 'auto'; prevSteer = PORTS[port].angle; clock = T.found; }
     },
-    redraw() { draw(0, ctx.reduced); },
+    redraw() { draw(0, false); },
     resize(w, h, d) {
       W = w; H = h; dpr = d;
       canvas.width = Math.max(1, Math.round(w * d));

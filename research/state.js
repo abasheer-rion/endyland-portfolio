@@ -1,5 +1,5 @@
 // Research tab: shared state. main.js, scene.js and polar.js all import this one module,
-// so the 3D beam, the polar plot, the gain plot and the readouts agree on one steer angle.
+// so the hero beam, the polar plot and the slider agree on one steer angle.
 //
 // The story: a test signal moves around in front of a 4-element array at 5.8 GHz.
 // In LOCK mode the beam follows it. Dragging the plot, the slider or (on desktop) the pointer
@@ -33,10 +33,7 @@ export const state = {
   target: 20,    // where it is heading
   source: 20,    // where the test signal is
   manualUntil: 0,
-  reduced: false,
-  scroll: 0,     // camera stop: 0 intro, 1 the gap after RF, 2 the gap after Parity
-  px: 0, py: 0,  // pointer, -1..1
-  get manual() { return this.reduced || performance.now() < this.manualUntil; },
+  get manual() { return performance.now() < this.manualUntil; },
 };
 
 const subs = new Set();
@@ -53,13 +50,6 @@ function emit(force) {
 export function setSteer(deg, hold = 6000) {
   state.target = clamp(Math.round(deg * 10) / 10, -MAX, MAX);
   state.manualUntil = performance.now() + hold;
-  if (state.reduced) state.steer = state.target;
-  emit(true);
-}
-
-export function setReduced(r) {
-  state.reduced = r;
-  if (r) state.steer = state.target;
   emit(true);
 }
 
@@ -69,7 +59,6 @@ export function tick(now = performance.now()) {
   const dt = Math.min(0.1, (now - (last || now)) / 1000);
   if (last && now - last < 4) return state;
   last = now;
-  if (state.reduced) return state;
   clock += dt;
   state.source = 44 * Math.sin(clock * 0.31) + 9 * Math.sin(clock * 1.07 + 1.3);
   if (!state.manual) state.target = state.source;
@@ -78,14 +67,3 @@ export function tick(now = performance.now()) {
   return state;
 }
 
-// The gain plot (an SVG, viewBox 0 0 400 210): angle -90..90 across, 0..-30 dB down.
-export const PLOT = { x0: 44, x1: 388, y0: 16, y1: 180, floor: -30 };
-export const plotX = (deg) => PLOT.x0 + ((deg + 90) / 180) * (PLOT.x1 - PLOT.x0);
-export const plotY = (db) => PLOT.y0 + (-db / -PLOT.floor) * (PLOT.y1 - PLOT.y0);
-export function gainPath(steerDeg) {
-  let d = '';
-  for (let a = -90; a <= 90; a += 1.5) {
-    d += `${a === -90 ? 'M' : 'L'}${plotX(a).toFixed(1)} ${plotY(gainDb(a, steerDeg, PLOT.floor)).toFixed(1)}`;
-  }
-  return d;
-}

@@ -1,94 +1,142 @@
-/* Experience tab look for its project pages. Matches experience/style.css.
-   Brief: docs/themes/tab-experience.md (not deployed). */
+/* Experience tab, project pages. Printed paper, ink brown, brass rules. Shared layout is /shared/project.css.
+   This file sets the page tokens and the parts every Experience page uses: the figure plate, the write-up
+   sections, step diagrams (.pipe), bar charts (.bars), timing lanes (.lanes) and the work list.
+   Text always sits on solid paper or vellum. Stipple is decoration, kept clear of text.
+   Colour pairs (WCAG AA): ink #17100A on paper #EFE3C8 about 14:1, saddle #5A3A22 on paper about 7:1,
+   rust #9C4A22 on paper about 5:1, paper on leather about 12:1, foil #D9AE4A on leather about 8:1.
+   Motion uses transform, opacity and clip-path only. */
 :root{
-  --p-bg:#0B2545; --p-surface:#0F2E55; --p-ink:#EAF3FF; --p-mute:#A9C3E0;
-  --p-accent:#FFC857; --p-accent-bg:#FFC857; --p-on-accent:#0B2545; --p-link:#8FD8FF; --p-line:rgba(156,201,255,.28);
-  --p-display:"Barlow Condensed",ui-sans-serif,system-ui,sans-serif; --p-display-weight:600;
-  --p-body:"Barlow",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,"SF Mono",Menlo,monospace; --p-radius:2px;
-  --tb-bg:rgba(11,37,69,.96); --tb-fg:#EAF3FF; --tb-mute:#A9C3E0; --tb-accent:#FFC857; --tb-border:rgba(156,201,255,.28);
-  --tb-font:"Barlow",ui-sans-serif,system-ui,sans-serif; --tb-radius:2px; --focus:#FFC857; --ft-fg:#A9C3E0;
-  --badge-bg:transparent; --badge-fg:#8FD8FF; --badge-border:rgba(143,216,255,.6);
+  --p-bg:#EFE3C8; --p-surface:#F6EEDB; --p-ink:#17100A; --p-mute:#4A2E1A;
+  --p-accent:#9C4A22; --p-accent-bg:#26180F; --p-on-accent:#EFE3C8; --p-link:#7E3A18; --p-line:rgba(23,16,10,.34);
+  --p-display:"Newsreader","Iowan Old Style",Georgia,serif; --p-display-weight:400;
+  --p-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace; --p-radius:2px;
+  --focus:#9C4A22; --badge-fg:#5A3A22; --badge-border:rgba(90,58,34,.7);
 }
-/* Blueprint paper and uppercase condensed headings, like the tab. */
-.proj h1,.proj h2{text-transform:uppercase;letter-spacing:.01em}
-body.proj-page{background:
-    linear-gradient(rgba(156,201,255,.12) 1px,transparent 1px) 0 0/100px 100px,
-    linear-gradient(90deg,rgba(156,201,255,.12) 1px,transparent 1px) 0 0/100px 100px,
-    linear-gradient(rgba(156,201,255,.05) 1px,transparent 1px) 0 0/20px 20px,
-    linear-gradient(90deg,rgba(156,201,255,.05) 1px,transparent 1px) 0 0/20px 20px,
-    var(--p-bg);background-attachment:fixed}
+body.proj-page{background:var(--p-bg)}
+::selection{background:#B8872E;color:#17100A}
 
-/* ---------- Blueprint parts shared by the Experience project pages ----------
-   Each page adds its own scene (scene.js, a plain 2D canvas) and its own layout in style.css.
-   Motion here is CSS only and turns off with reduced motion. */
-.proj-scene{transition:opacity 1.4s ease}
-/* Text sits on a soft navy wash so it stays readable over the moving linework. */
-.proj-intro{position:relative}
-.proj-intro::before{content:"";position:absolute;inset:-24px -32px;z-index:-1;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(11,37,69,.92),rgba(11,37,69,.7) 60%,rgba(11,37,69,0))}
-.proj-section,.proj-back{position:relative}
-.proj-section::before{content:"";position:absolute;inset:0 -24px;z-index:-1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(11,37,69,.88),rgba(11,37,69,.72) 60%,rgba(11,37,69,.35))}
+/* Headings are headings: large serif, tight, no ornament. */
+.proj h1{font-size:clamp(2.5rem,1.2rem + 4.2vw,5rem);font-weight:400;letter-spacing:-.03em;font-variation-settings:"opsz" 72}
+.proj-summary{font-family:var(--p-display);font-style:italic;font-weight:400;font-size:clamp(21px,2.3vw,28px);line-height:1.4;color:var(--p-ink);max-width:40ch}
+.proj h2{max-width:22ch;margin-bottom:clamp(20px,2.4vw,32px)}
+.proj h3{font-weight:500}
+.proj-meta dd{font-size:var(--fs-body)}
 
-/* A dimension line under each page title, with end ticks. It draws on when the page arrives. */
-.proj-hero h1::after{content:"";display:block;width:min(100%,440px);height:11px;margin-top:16px;
-  border-left:1px solid #9CC9FF;border-right:1px solid #9CC9FF;opacity:.8;
-  background:linear-gradient(#9CC9FF,#9CC9FF) center/100% 1px no-repeat;transform-origin:0 50%}
+/* Arrival: the text rises in, 30ms apart. Ease-out. */
+.proj-intro>*{animation:ex-rise .4s var(--bk-out) both}
+.proj-intro>*:nth-child(2){animation-delay:30ms}
+.proj-intro>*:nth-child(3){animation-delay:60ms}
+.proj-intro>*:nth-child(4){animation-delay:90ms}
+.proj-intro>*:nth-child(5){animation-delay:120ms}
+.proj-hero-media{animation:ex-rise .5s 90ms var(--bk-out) both}
+@keyframes ex-rise{from{opacity:0;transform:translateY(12px)}}
 
-/* The hero picture is a drawing sheet: a frame with corner ticks and a title block. */
-.proj-hero-media{position:relative;padding:12px;border:1px solid var(--p-line);background:rgba(11,37,69,.78)}
-.proj-hero-media::before,.proj-hero-media::after{content:"";position:absolute;width:24px;height:24px;border:2px solid #9CC9FF;pointer-events:none}
-.proj-hero-media::before{left:-2px;top:-2px;border-right:0;border-bottom:0;transform-origin:0 0}
-.proj-hero-media::after{right:-2px;bottom:-2px;border-left:0;border-top:0;transform-origin:100% 100%}
-.fig-stage{position:relative;border:1px solid var(--p-line)}
-.fig-stage img,.proj-hero-media .fig-stage img{display:block;width:100%;height:auto;border:0;border-radius:0}
-.fig-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.tblock{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;margin-top:12px;border:1px dashed var(--p-line);
-  font:500 11px/1.3 var(--p-mono);letter-spacing:.12em;color:var(--p-mute)}
-.tblock span{padding:6px 12px}
-.tblock span+span{border-left:1px dashed var(--p-line)}
+/* The hero figure is a leather plate with a stipple shadow behind it. The dots never touch text. */
+.proj-hero-media{position:relative;padding:0}
+.proj-hero-media::before{content:"";position:absolute;inset:18px -18px 0 18px;z-index:0;color:var(--bk-saddle);pointer-events:none;
+  background:var(--bk-stipple) 0 0/6px 6px;
+  -webkit-mask-image:linear-gradient(135deg,transparent 35%,#000);mask-image:linear-gradient(135deg,transparent 35%,#000)}
+.fig-stage{position:relative;z-index:1;border:1px solid var(--bk-ink);background:var(--bk-leather);box-shadow:0 1px 0 rgba(255,255,255,.15) inset}
+.fig-stage img,.proj-hero-media .fig-stage img{display:block;width:100%;height:auto;border:0;border-radius:0;padding:0;box-shadow:none;background:var(--bk-leather)}
+.proj-hero-media figcaption{position:relative;z-index:1;margin-top:36px;max-width:60ch;font-size:var(--fs-small);color:var(--p-mute)}
 
-/* Numbers and cards stay on solid sheets, so the scene never sits right behind small text. */
-.stat{position:relative;background:rgba(15,46,85,.96);border-radius:2px}
-.stat b{color:#FFC857}
-.card-link{background:rgba(15,46,85,.96);transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease,border-color .25s ease}
-.card-link img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.card-link:hover,.card-link:focus-visible{border-color:#FFC857;transform:translate(-4px,-4px);box-shadow:8px 8px 0 rgba(156,201,255,.22)}
-.card-link:hover img,.card-link:focus-visible img{transform:scale(1.03)}
+/* Numbers and plates sit on solid vellum. */
+.stat{position:relative;background:var(--p-surface);border-radius:0}
+.stat b{color:var(--p-ink)}
+.proj-numbers .stats{margin-bottom:0}
+.plate{margin:0;padding:clamp(18px,3vw,36px);background:var(--p-surface);border:1px solid var(--p-line);box-shadow:3px 3px 0 -1px var(--p-surface),3px 3px 0 var(--p-line)}
+.plate>figcaption,.proj .plate>figcaption{margin:18px 0 0;padding-top:12px;border-top:1px solid var(--p-line);max-width:70ch;font-size:var(--fs-small);line-height:1.55;color:var(--p-mute)}
 .plain-list{list-style:none;padding:0}
 .plain-list a{display:inline-flex;align-items:center;gap:10px;min-height:44px}
-.plain-list a::before{content:"";width:10px;height:10px;border:2px solid currentColor;border-radius:50%;flex:none}
-.proj-stack li{background:rgba(15,46,85,.9);border-radius:2px;font-family:var(--p-mono);font-size:13px}
-.proj-crumbs ol{letter-spacing:.04em}
+.plain-list a::before{content:"";width:10px;height:10px;border:1.5px solid currentColor;border-radius:50%;flex:none}
+.proj-stack li{background:var(--p-surface);border-radius:0;font-family:var(--p-body);font-size:var(--fs-small)}
+.proj-crumbs ol{letter-spacing:0}
 
-@media (prefers-reduced-motion:no-preference){
-  .proj-hero h1::after{animation:ex-dim .9s .2s cubic-bezier(.2,.7,.2,1) both}
-  .proj-hero-media::before,.proj-hero-media::after{animation:ex-tick .6s .45s cubic-bezier(.2,.7,.2,1) both}
-  .tblock span{animation:ex-fade .5s both}
-  .tblock span:nth-child(1){animation-delay:.6s}.tblock span:nth-child(2){animation-delay:.72s}.tblock span:nth-child(3){animation-delay:.84s}
+/* ---------- Write-up sections ---------- */
+.proj-section{content-visibility:auto;contain-intrinsic-size:auto 700px}
+.proj-section h2+.lede{margin-top:0}
+.proj-section>p{font-size:var(--fs-body)}
+.split{display:grid;gap:clamp(24px,4vw,64px);grid-template-columns:minmax(0,1fr);align-items:start}
+@media (min-width:1000px){.split{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+.split>div>p{margin:0 0 1.1em;max-width:var(--measure)}
+.facts-list{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:var(--measure)}
+.facts-list li{display:grid;grid-template-columns:minmax(4.6ch,auto) 1fr;gap:4px 18px;align-items:baseline;padding:12px 0;border-top:1px solid var(--p-line)}
+.facts-list li:last-child{border-bottom:1px solid var(--p-line)}
+.facts-list b{font:500 clamp(26px,3vw,34px)/1 var(--p-display);font-variant-numeric:lining-nums tabular-nums;color:var(--bk-rust)}
+.learn-list{list-style:none;margin:0;padding:0;display:grid;gap:18px;max-width:var(--measure);font-size:var(--fs-body)}
+.learn-list li{padding-left:28px;position:relative}
+.learn-list li::before{content:"";position:absolute;left:0;top:.72em;width:14px;height:2px;background:var(--bk-brass)}
+
+/* ---------- Step diagram ----------
+   Boxes joined by a line, with a small gold packet travelling each line. Row on desktop, column on phones. */
+.pipe{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:36px}
+.pipe>li{position:relative;padding:20px 20px 22px;background:var(--p-surface);border:1px solid var(--p-ink);min-width:0}
+.pipe>li:last-child{background:var(--bk-leather);color:var(--bk-paper);border-color:var(--bk-leather)}
+.pipe>li:last-child h3{color:var(--bk-paper)}
+.pipe>li:last-child p{color:var(--bk-cream)}
+.pipe>li:last-child .pipe-fig{color:var(--bk-foil)}
+.pipe h3{margin:0 0 8px;font-size:clamp(20px,1.5vw,25px);line-height:1.2;color:var(--p-ink)}
+.pipe p{margin:0;font-size:var(--fs-small);line-height:1.5;color:var(--p-mute)}
+.pipe-fig{display:block;margin-bottom:6px;font:500 clamp(30px,3vw,44px)/1 var(--p-display);font-variant-numeric:lining-nums;color:var(--bk-rust)}
+.pipe>li+li::before{content:"";position:absolute;right:100%;top:50%;width:36px;height:2px;background:var(--bk-brass)}
+.pipe>li+li::after{content:"";position:absolute;right:100%;top:50%;width:6px;height:6px;margin:-2px 0 0 0;background:var(--bk-foil);border:1px solid var(--bk-brass);
+  animation:ex-flow 2.4s var(--bk-out) infinite}
+.pipe>li:nth-child(3)::after{animation-delay:.3s}.pipe>li:nth-child(4)::after{animation-delay:.6s}
+.pipe>li:nth-child(5)::after{animation-delay:.9s}.pipe>li:nth-child(6)::after{animation-delay:1.2s}
+@keyframes ex-flow{from{transform:translateX(0);opacity:0}15%{opacity:1}to{transform:translateX(36px);opacity:0}}
+@media (max-width:1000px){
+  .pipe{grid-auto-flow:row;gap:34px}
+  .pipe>li+li::before{right:auto;left:28px;top:-34px;width:2px;height:34px}
+  .pipe>li+li::after{right:auto;left:26px;top:-34px;margin:0;animation-name:ex-flow-v}
 }
-@keyframes ex-dim{from{transform:scaleX(0)}}
-@keyframes ex-tick{from{transform:scale(0)}}
-@keyframes ex-fade{from{opacity:0}}
-@media (prefers-reduced-motion:reduce){
-  .fig-fx{display:none}
-  .card-link,.card-link img{transition:none}
-  .card-link:hover,.card-link:focus-visible{transform:none}
-  .card-link:hover img,.card-link:focus-visible img{transform:none}
+@keyframes ex-flow-v{from{transform:translateY(0);opacity:0}15%{opacity:1}to{transform:translateY(34px);opacity:0}}
+
+/* ---------- Bar charts (real numbers, drawn to scale) ---------- */
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.bars li{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.bars .bar-label{font-size:var(--fs-body);line-height:1.35;color:var(--p-ink)}
+.bars .bar-track{position:relative;height:40px;background:rgba(23,16,10,.08);border:1px solid var(--p-line)}
+.bars .bar-fill{position:absolute;inset:0 auto 0 0;width:calc(var(--w,1) * 100%);background:var(--bk-saddle);transform-origin:0 50%}
+.bars li.hi .bar-fill{background:var(--bk-brass)}
+.bars .bar-val{font:500 clamp(24px,2.4vw,30px)/1 var(--p-display);font-variant-numeric:lining-nums;color:var(--p-ink)}
+.bars .bar-note{font-size:var(--fs-small);color:var(--p-mute)}
+html.pj-anim .bars .bar-fill{transform:scaleX(0);transition:transform .6s var(--bk-out)}
+html.pj-anim .bars.in .bar-fill{transform:scaleX(1)}
+
+/* ---------- Timing lanes ---------- */
+.lanes{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.lanes li{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:8px 16px;align-items:center}
+.lanes .lane-name{font-size:var(--fs-body);color:var(--p-ink)}
+.lanes .lane-bar{position:relative;height:34px;background:var(--bk-saddle);transform-origin:0 50%;
+  background-image:linear-gradient(90deg,transparent calc(100% - 12px),var(--bk-foil) calc(100% - 12px))}
+.lanes-axis{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:16px;margin-bottom:12px;font-size:var(--fs-small);color:var(--p-mute)}
+.lanes-axis span:last-child{display:flex;justify-content:space-between;border-bottom:1px solid var(--p-ink);padding-bottom:6px}
+@media (max-width:560px){
+  .lanes li,.lanes-axis{grid-template-columns:minmax(0,1fr)}
+  .lanes-axis span:first-child{display:none}
 }
+
+html.pj-anim .lanes .lane-bar{transform:scaleX(0);transition:transform .8s var(--bk-out);transition-delay:calc(var(--i,0) * 30ms)}
+html.pj-anim .lanes.in .lane-bar{transform:none}
+
+/* ---------- Work list (Verizon hub): rows, not cards ---------- */
+.work-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--p-ink)}
+.work-list>li{border-bottom:1px solid var(--p-line)}
+.work-row{display:grid;gap:clamp(18px,3vw,48px);grid-template-columns:minmax(0,1fr);align-items:center;padding:clamp(22px,3vw,40px) 0;color:var(--p-ink);text-decoration:none}
+@media (min-width:860px){.work-row{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.work-row img{width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--bk-ink);background:var(--bk-leather)}
+.proj .work-row{color:var(--p-ink);text-decoration:none}
+.work-row h3{margin:0 0 10px;font-size:var(--fs-h3);font-weight:500;line-height:1.15}
+.work-row p{margin:0 0 10px;max-width:56ch;font-size:var(--fs-body)}
+.work-row .row-num{display:block;margin-bottom:8px;font:500 clamp(30px,3vw,44px)/1 var(--p-display);font-variant-numeric:lining-nums;color:var(--bk-rust)}
+.work-row .row-go{display:inline-block;margin-top:4px;color:var(--p-link);font-weight:600;font-size:var(--fs-body);text-decoration:underline;text-underline-offset:4px}
+.work-row:hover .row-go{text-decoration-thickness:2px}
+.work-row img{transition:transform .2s var(--bk-out)}
+.work-row:hover img{transform:translateY(-2px)}
+
+body.proj-page .site-footer{border-top:0}
 @media (max-width:640px){
-  .proj-hero-media{padding:8px}
-  .tblock{grid-template-columns:1fr 1fr 1fr;font-size:10px;letter-spacing:.08em}
-  .tblock span{padding:5px 8px}
-  .proj-section::before{inset:0 calc(-1 * var(--gut))}
+  .proj-hero-media::before{inset:12px -10px 0 10px}
+  .plate{padding:16px}
+  .pipe>li{padding:18px 16px 20px}
 }
-/* project.css styles ".stat span:last-child" as the caption, which also hits the count-up number inside <b>.
-   Keep the number at full size here. */
-.stat b span:last-child{display:inline;margin:0;color:inherit;font-size:inherit;line-height:inherit}
-/* Phones: the scene sits behind the text column, so it stays faint. */
-@media (max-width:759px){.proj-scene.on{opacity:.6}}
-/* The footer sits on solid paper, so the scene never runs behind its links. */
-body.proj-page .site-footer{background:
-    linear-gradient(rgba(156,201,255,.07) 1px,transparent 1px) 0 0/20px 20px,
-    linear-gradient(90deg,rgba(156,201,255,.07) 1px,transparent 1px) 0 0/20px 20px,
-    #0B2545;border-top:1px dashed var(--p-line)}

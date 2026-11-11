@@ -1,94 +1,89 @@
-/* Research tab look for its project pages. Matches research/style.css.
-   Brief: docs/themes/tab-research.md (not deployed).
-   Each page adds its own instrument in its own style.css. This file holds what all four share:
-   the tokens, a graticule and scanlines on the glass, screens framed like scope displays,
-   readouts for the numbers, and a short warm-up when the page arrives.
-   Motion only runs under html.pj-anim (added by /shared/project.js when reduced motion is off). */
+/* Research project pages: the lab, on leather. Loaded after /shared/project.css by the four pages in /research/<slug>/.
+   Brown and brass, printed-book look. Every block of text sits on a solid colour, never on a canvas or dots.
+   Contrast: paper on ink about 15:1, cream on leather about 11:1, foil on ink about 9:1, ink on vellum about 15:1. */
 :root{
-  --p-bg:#050705; --p-surface:#07100A; --p-ink:#CFFFE0; --p-mute:#8FBF9F;
-  --p-accent:#39FF88; --p-accent-bg:#39FF88; --p-on-accent:#021A0C; --p-link:#39FF88; --p-line:rgba(57,255,136,.32);
-  --p-display:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-display-weight:700;
-  --p-body:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --p-radius:2px;
-  --tb-bg:rgba(5,7,5,.97); --tb-fg:#CFFFE0; --tb-mute:#8FBF9F; --tb-accent:#39FF88; --tb-border:rgba(57,255,136,.25);
-  --tb-font:"JetBrains Mono",ui-monospace,Menlo,monospace; --tb-radius:2px; --focus:#FFB000; --ft-fg:#8FBF9F;
-  --badge-bg:transparent; --badge-fg:#FFB000; --badge-border:rgba(255,176,0,.6);
-  /* Research only */
-  --rs-amber:#FFB000; --rs-num:#FFB000; --rs-glow:rgba(57,255,136,.45); --rs-core:rgba(57,255,136,.8); --rs-bezel:#0A140D; --rs-scr-label:"SCREEN 1";
-  --rs-grid:rgba(57,255,136,.05);
+  --p-bg:#17100A; --p-surface:#26180F; --p-ink:#EFE3C8; --p-mute:#D9CBAA;
+  --p-accent:#D9AE4A; --p-accent-bg:#D9AE4A; --p-on-accent:#17100A; --p-link:#D9AE4A; --p-line:rgba(184,135,46,.5);
+  --p-display:"Newsreader","Iowan Old Style",Georgia,serif; --p-display-weight:500;
+  --p-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  --focus:#D9AE4A; --badge-fg:#D9CBAA; --badge-border:#B8872E;
+  --wk:#35221A;
 }
-/* Long monospace titles: keep headings a size that wraps well. */
-.proj h1{font-size:clamp(32px,5vw,58px);line-height:1.08;letter-spacing:-.01em;
-  text-shadow:0 0 18px var(--rs-glow),0 0 2px var(--rs-core)}
-.proj h2{font-size:clamp(24px,3vw,34px)}
-.proj h2::before{content:"> ";color:var(--p-accent)}
+html{color-scheme:dark}
+::selection{background:#D9AE4A;color:#17100A}
+.proj h1{font-size:clamp(2.6rem,1.4rem + 4.6vw,5.4rem);line-height:1;letter-spacing:-.025em}
+.proj h2{max-width:28ch}
+.proj-kicker{font-size:1.0625rem;color:var(--p-mute)}
+.proj-section>p,.proj-section>ul:not([class]),.proj-section>ol:not([class]){font-size:var(--fs-body)}
+.proj-summary{max-width:52ch}
+.proj-hero-media img{background:#F6EEDB;border-color:#B8872E;padding:8px;box-shadow:none}
+.proj-stack li{background:var(--wk);color:var(--p-ink)}
+.proj-links a{color:#17100A}
 
-/* Graticule behind the page and scanlines on the glass. Fixed layers, never in the way of clicks. */
-body.proj-page::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(var(--rs-grid) 1px,transparent 1px),linear-gradient(90deg,var(--rs-grid) 1px,transparent 1px);
-  background-size:24px 24px}
-body.proj-page::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;
-  background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px)}
+/* Lead sentence under a heading. */
+.proj .lede,.proj-section>p.lede{max-width:var(--measure);font:400 var(--fs-lead)/1.4 var(--p-display);color:var(--p-ink);margin:0 0 1em}
 
-/* Screens: images framed like an instrument display, with a label strip on top. */
-.proj-hero-media,.rs-screen{position:relative;padding:30px 12px 12px;background:var(--rs-bezel);border:1px solid var(--p-line);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6),0 0 40px var(--rs-halo,rgba(57,255,136,.06))}
-.proj-hero-media::before,.rs-screen::before{content:var(--rs-scr-label);position:absolute;left:12px;top:8px;
-  font:600 11px/14px var(--p-mono);letter-spacing:.12em;color:var(--p-mute)}
-.proj-hero-media::after,.rs-screen::after{content:"";position:absolute;right:12px;top:11px;width:8px;height:8px;border-radius:50%;
-  background:var(--p-accent);box-shadow:0 0 8px var(--p-accent)}
-.proj-hero-media img{border-radius:0;border-color:rgba(57,255,136,.18)}
-.proj-hero-media figcaption{margin-top:10px}
+/* Two columns on wide screens: reading column left, figure right. */
+.split{display:grid;gap:clamp(24px,4vw,64px);grid-template-columns:minmax(0,1fr);align-items:start}
+@media (min-width:1100px){.split{grid-template-columns:minmax(0,var(--measure)) minmax(0,1fr)}.split.flip{grid-template-columns:minmax(0,1fr) minmax(0,var(--measure))}.split.flip>.fig{order:-1}}
+.split>div>p:first-child{margin-top:0}
+.split p,.split ul,.split ol{max-width:var(--measure)}
 
-/* Numbers as instrument readouts: corner ticks, glowing digits. */
-.stat{position:relative;background:rgba(7,16,10,.88);border-color:rgba(57,255,136,.22)}
-.stat::before,.stat::after{content:"";position:absolute;width:10px;height:10px;border:solid var(--p-accent)}
-.stat::before{left:-1px;top:-1px;border-width:2px 0 0 2px}
-.stat::after{right:-1px;bottom:-1px;border-width:0 2px 2px 0}
-.stat b{text-shadow:0 0 14px var(--rs-glow)}
-/* Count-up numbers: the digits are the last span inside <b>, so undo the label style project.css gives a stat's last span. */
-.stat b span:last-child{display:inline;margin:0;font-size:inherit;line-height:inherit;color:inherit}
+/* Figures sit on paper, like a printed plate. Caption in plain words under it. */
+.fig{margin:0 0 var(--space-3);min-width:0}
+.fig>img,.fig>svg,.fig>.fig-body{width:100%;height:auto;background:#F6EEDB;border:1px solid #B8872E;border-radius:2px;padding:clamp(6px,1vw,12px)}
+.fig>figcaption,.proj .fig>figcaption{margin-top:12px;max-width:var(--measure);font-size:var(--fs-small);line-height:1.55;color:var(--p-mute)}
+.fig-wide{max-width:1100px}
+.fig-pair{display:grid;gap:var(--space-3);grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));align-items:start}
 
-/* What I did reads like a log. */
-.did-list{counter-reset:log}
-.did-list li{counter-increment:log;padding-left:48px}
-.did-list li::before{content:counter(log,decimal-leading-zero);width:auto;height:auto;top:.1em;background:none;border-radius:0;
-  font:600 14px/1.6 var(--p-mono);color:var(--rs-num)}
+/* A numbered walk-through. Large serif numerals, one step per row. */
+.steps{list-style:none;margin:0 0 var(--space-3);padding:0;counter-reset:s;display:grid;gap:0;max-width:calc(var(--measure) + 120px)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:0 14px;padding:18px 0;border-top:1px solid var(--p-line)}
+.steps li:last-child{border-bottom:1px solid var(--p-line)}
+.steps li::before{content:counter(s);font:500 2.2rem/1 var(--p-display);color:var(--p-accent);font-variant-numeric:lining-nums}
+.steps li::before{grid-row:1 / span 2}
+.steps b,.steps span{grid-column:2}
+.steps b{display:block;font:500 var(--fs-h3)/1.25 var(--p-display);margin-bottom:4px}
+.steps span{display:block;color:var(--p-ink)}
+html.pj-anim .steps li{opacity:0;transform:translateY(8px);transition:opacity .25s ease-out,transform .25s var(--bk-out);transition-delay:calc(var(--i,0) * 30ms)}
+html.pj-anim .steps.in li{opacity:1;transform:none}
 
-.proj-stack li{background:rgba(7,16,10,.9)}
+/* Facts as a definition list: term on the left, value on the right. */
+.facts{margin:0 0 var(--space-3);max-width:calc(var(--measure) + 120px);border-top:2px solid var(--p-ink)}
+.facts div{display:grid;grid-template-columns:minmax(9rem,14rem) minmax(0,1fr);gap:4px 20px;padding:12px 0;border-bottom:1px solid var(--p-line)}
+.facts dt{color:var(--p-mute)}
+.facts dd{margin:0;font-variant-numeric:lining-nums tabular-nums}
+@media (max-width:560px){.facts div{grid-template-columns:1fr}}
 
-/* Arrival: the screen warms up. Nothing is hidden, so text paints at once. */
-html.pj-anim .proj h1{animation:rs-warm 1.1s ease-out both}
-@keyframes rs-warm{0%{text-shadow:0 0 40px rgba(57,255,136,.95),0 0 4px #fff;filter:brightness(1.6)}100%{filter:none}}
-html.pj-anim .proj-hero{position:relative}
-html.pj-anim .proj-hero::after{content:"";position:absolute;left:-2vw;right:-2vw;top:0;height:2px;pointer-events:none;
-  background:linear-gradient(90deg,transparent,var(--p-accent),transparent);box-shadow:0 0 16px var(--p-accent);opacity:0;
-  animation:rs-sweep 1.2s cubic-bezier(.4,.1,.3,1) .15s both}
-@keyframes rs-sweep{0%{opacity:.9;transform:translateY(0)}90%{opacity:.6}100%{opacity:0;transform:translateY(min(80vh,640px))}}
+/* A callout is a solid panel with a brass edge. */
+.note{margin:var(--space-3) 0;padding:clamp(16px,2.4vw,28px) clamp(18px,2.6vw,32px);max-width:calc(var(--measure) + 40px);background:var(--p-surface);border:1px solid var(--p-line);border-left:4px solid #B8872E}
+.note>:first-child{margin-top:0}.note>:last-child{margin-bottom:0}
+.note h3{font-size:var(--fs-h3);margin:0 0 .4em}
 
-/* Screens a page marks .rs-reveal power on when they scroll in (the page's main.js adds .is-in). */
-html.pj-anim .rs-reveal{clip-path:inset(49.5% 0 49.5% 0)}
-html.pj-anim .rs-reveal.is-in{animation:rs-on .7s cubic-bezier(.3,.7,.2,1) both}
-@keyframes rs-on{0%{clip-path:inset(49.5% 0 49.5% 0);filter:brightness(2.2)}45%{clip-path:inset(49.5% 0 49.5% 0)}100%{clip-path:inset(-12px);filter:none}}
+/* Plain ruled list for results: each line a finding. */
+.findings{list-style:none;margin:0 0 var(--space-3);padding:0;max-width:calc(var(--measure) + 120px)}
+.findings li{padding:16px 0;border-top:1px solid var(--p-line)}
+.findings li:last-child{border-bottom:1px solid var(--p-line)}
+.findings b{display:block;font:500 var(--fs-h3)/1.25 var(--p-display);margin-bottom:4px;color:var(--p-ink)}
 
-/* Gallery screens glow on hover or focus. */
-.gallery a{transition:box-shadow .25s,border-color .25s}
-.gallery a:hover,.gallery a:focus-visible{border-color:var(--p-accent);box-shadow:0 0 0 1px var(--p-accent),0 0 28px rgba(57,255,136,.25)}
+/* Tables. */
+.proj table{font-size:1rem}
+.proj th{color:var(--p-ink);background:var(--p-surface);position:sticky;top:0}
+.proj caption{caption-side:top;text-align:left;padding:0 0 10px;color:var(--p-mute);font-size:var(--fs-small)}
+.proj .table-wrap{border:1px solid var(--p-line);background:var(--p-bg)}
 
-/* Buttons on the instruments. */
-.rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border:1px solid var(--p-line);
-  border-radius:var(--p-radius);background:rgba(7,16,10,.9);color:var(--p-ink);font:600 14px/1 var(--p-mono);letter-spacing:.04em;cursor:pointer;
-  transition:background .15s,color .15s,border-color .15s}
-.rs-btn:hover{border-color:var(--p-accent)}
-.rs-btn[aria-pressed="true"]{background:var(--p-accent);color:var(--p-on-accent);border-color:var(--p-accent)}
-.rs-note{margin:10px 0 0;font-size:13px;color:var(--p-mute)}
+/* Buttons on instruments. Solid, flat, press .97. */
+.rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid #B8872E;border-radius:2px;background:var(--wk);color:var(--p-ink);font:500 1rem/1 var(--p-body);cursor:pointer;transition:background-color .15s ease-out,transform .15s ease-out}
+.rs-btn:hover{background:#5A3A22}
+.rs-btn:active{transform:scale(.97)}
+.rs-btn[aria-pressed="true"]{background:#D9AE4A;color:#17100A;border-color:#D9AE4A}
+.rs-note{margin:12px 0 0;max-width:var(--measure);font-size:var(--fs-small);color:var(--p-mute)}
 
-@media (prefers-reduced-motion:reduce){
-  html.pj-anim .proj h1,html.pj-anim .proj-hero::after{animation:none}
-  html.pj-anim .proj-hero::after{display:none}
-  html.pj-anim .rs-reveal,html.pj-anim .rs-reveal.is-in{clip-path:none;animation:none}
-  .gallery a,.rs-btn{transition:none}
-}
-@media (max-width:640px){
-  .did-list li{padding-left:40px}
-  .proj-hero-media,.rs-screen{padding:28px 8px 8px}
-}
+/* Gallery plates are on paper already. */
+.gallery a{background:#F6EEDB;border-color:#B8872E;box-shadow:none}
+.gallery .on-dark a{background:#17100A}
+
+/* What I did and the learned list read as plain rules. */
+.did-list li::before{background:var(--p-accent);box-shadow:0 3px 0 var(--p-accent)}
+
+@media (max-width:640px){.proj{padding-inline:18px}.steps li{grid-template-columns:2.4rem minmax(0,1fr)}}

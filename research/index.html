@@ -4,195 +4,135 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Research | Ayan Basheer</title>
-<meta name="description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, and a currency strategy test.">
+<meta name="description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a currency strategy test, a rent model and a spending data search.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/research/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/research/">
 <meta property="og:title" content="Research | Ayan Basheer">
-<meta property="og:description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, and a currency strategy test.">
+<meta property="og:description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a currency strategy test, a rent model and a spending data search.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#050705">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#26180F">
+<meta name="color-scheme" content="light dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/research/style.css">
 <link rel="modulepreload" href="/research/main.js">
-<link rel="modulepreload" href="/research/state.js">
 </head>
 <body class="tab tab-research">
 <a class="skip" href="#main">Skip to content</a>
-<!-- The 3D scene for this tab. Decoration only: everything it shows is also in the HTML below. -->
-<canvas id="scene" class="scene" aria-hidden="true"></canvas>
-<div class="scene-fallback" aria-hidden="true"></div>
-<div class="fx-grid" aria-hidden="true"></div>
-<div class="fx-scan" aria-hidden="true"></div>
-
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/web-design/">Web design</a></li>
-      <li><a href="/research/" aria-current="page">Research<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="page">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<nav class="timebase" aria-label="On this page">
-  <span class="tb-rail" aria-hidden="true"><span class="tb-mark"></span></span>
-  <ol>
-    <li><a href="#main"><span class="tb-ch" aria-hidden="true">T0</span> Top</a></li>
-    <li><a href="#rf-direction-finder"><span class="tb-ch" aria-hidden="true">CH1</span> RF</a></li>
-    <li><a href="#parity"><span class="tb-ch" aria-hidden="true">CH2</span> Parity</a></li>
-    <li><a href="#dfw-rent-model"><span class="tb-ch" aria-hidden="true">CH3</span> Rents</a></li>
-    <li><a href="#spending-explorer"><span class="tb-ch" aria-hidden="true">CH4</span> Spending</a></li>
-  </ol>
-</nav>
 
 <main id="main">
 <section class="intro" aria-labelledby="page-h">
-  <p class="kicker">Tab 02</p>
-  <h1 id="page-h">Research</h1>
-  <p class="lede">Questions I am working out, with the numbers drawn as they come in.</p>
-  <div class="hud" aria-hidden="true">
-    <span><b>CH1</b> 5.800 GHz</span>
-    <span><b>N</b> 4</span>
-    <span><b>d</b> &#955;/2</span>
-    <span class="hud-steer"><b>STEER</b> <i class="ro-steer">+20.0</i>&#176;</span>
-    <span class="hud-mode"><i class="led"></i><i class="ro-mode">LOCK</i></span>
+  <div class="scene-fallback" aria-hidden="true"></div>
+  <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+  <div class="intro-copy">
+    <h1 id="page-h">Research</h1>
+    <p class="lede">Questions I am working out, with the numbers shown as they came in. Two are on radio and two are on data, and one of them is an honest no.</p>
+    <p class="jump"><a href="#rf-direction-finder">RF direction finder</a><a href="#parity">Parity</a><a href="#dfw-rent-model">DFW rents</a><a href="#spending-explorer">Spending search</a></p>
   </div>
-  <p class="cue" aria-hidden="true">Scroll to sweep</p>
 </section>
 
-<div class="items">
-  <article class="item ch" id="rf-direction-finder" aria-labelledby="rf-direction-finder-h">
-    <div class="ch-head rv" aria-hidden="true"><span class="ch-tag">CH1</span><span>RF / 5.8 GHz / MATLAB</span><span class="ch-xy">x 000 y 000</span></div>
-    <div class="ch-grid">
-      <div class="ch-main">
-        <div class="img-frame rv">
-          <img class="item-img" src="/research/rf-direction-finder/img/thumb.webp" width="800" height="450" alt="Two plots. Left: the direction finder finds the beacon at 25 degrees. Right: the beam steered toward it." loading="lazy" decoding="async">
-        </div>
-        <div class="item-body">
-          <h2 id="rf-direction-finder-h" class="rv">RF direction finder and Butler matrix</h2>
-          <p class="rv">A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts.</p>
-          <p class="item-role rv">UT Dallas RIDE. Sep 2026 to now.</p>
-          <ul class="item-links rv">
-            <li><a class="link-more" href="/research/rf-direction-finder/">See the project</a></li>
-            <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-          </ul>
-        </div>
+<article class="work work--paper" id="rf-direction-finder" aria-labelledby="rf-direction-finder-h">
+  <div class="work-in">
+    <div class="work-text">
+      <h2 id="rf-direction-finder-h">RF direction finder and Butler matrix</h2>
+      <p class="work-role">UT Dallas RIDE. Sep 2026 to now. One of 3 on the team.</p>
+      <p>A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts, so no phase has to be measured.</p>
+      <dl class="work-facts">
+        <div><dt>4x4 array error</dt><dd>0.022 degrees at 20 dB</dd></div>
+        <div><dt>Versus the 2x2</dt><dd>4.5 times smaller</dd></div>
+        <div><dt>Steering loss</dt><dd>under 1.1 dB on average with 2-bit phase shifters</dd></div>
+      </dl>
+      <ul class="item-links">
+        <li><a class="link-more" href="/research/rf-direction-finder/">Read the write-up</a></li>
+        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
+      </ul>
+    </div>
+    <figure class="inst">
+      <div class="polar-wrap"><canvas id="polar" class="polar" aria-hidden="true"></canvas></div>
+      <div class="steer">
+        <label for="steer">Steer angle</label>
+        <input type="range" id="steer" min="-60" max="60" step="1" value="20" aria-describedby="steer-out">
+        <output id="steer-out" for="steer">+20&#176;</output>
       </div>
-      <div class="ch-inst">
-        <figure class="inst inst-polar rv">
-          <div class="polar-wrap"><canvas id="polar" class="polar" aria-hidden="true"></canvas></div>
-          <figcaption>Live beam plot. Four elements, half a wavelength apart. The beam follows a moving test signal. Drag the plot or use the slider to steer it yourself.</figcaption>
-          <div class="steer">
-            <label for="steer">Steer angle</label>
-            <input type="range" id="steer" min="-60" max="60" step="1" value="20" aria-describedby="steer-out">
-            <output id="steer-out" for="steer">+20&#176;</output>
-          </div>
-        </figure>
-        <figure class="inst inst-gain plot rv">
-          <svg class="plot-svg" viewBox="0 0 400 210" aria-hidden="true" focusable="false">
-            <line class="gr" x1="44" x2="388" y1="16.0" y2="16.0"/><text class="lbl" x="38" y="20.0" text-anchor="end">0</text><line class="gr" x1="44" x2="388" y1="70.7" y2="70.7"/><text class="lbl" x="38" y="74.7" text-anchor="end">-10</text><line class="gr" x1="44" x2="388" y1="125.3" y2="125.3"/><text class="lbl" x="38" y="129.3" text-anchor="end">-20</text><line class="gr" x1="44" x2="388" y1="180.0" y2="180.0"/><text class="lbl" x="38" y="184.0" text-anchor="end">-30</text><line class="gr" x1="44.0" x2="44.0" y1="16" y2="180"/><text class="lbl" x="44.0" y="196" text-anchor="middle">-90</text><line class="gr" x1="101.3" x2="101.3" y1="16" y2="180"/><text class="lbl" x="101.3" y="196" text-anchor="middle">-60</text><line class="gr" x1="158.7" x2="158.7" y1="16" y2="180"/><text class="lbl" x="158.7" y="196" text-anchor="middle">-30</text><line class="gr" x1="216.0" x2="216.0" y1="16" y2="180"/><text class="lbl" x="216.0" y="196" text-anchor="middle">0</text><line class="gr" x1="273.3" x2="273.3" y1="16" y2="180"/><text class="lbl" x="273.3" y="196" text-anchor="middle">+30</text><line class="gr" x1="330.7" x2="330.7" y1="16" y2="180"/><text class="lbl" x="330.7" y="196" text-anchor="middle">+60</text><line class="gr" x1="388.0" x2="388.0" y1="16" y2="180"/><text class="lbl" x="388.0" y="196" text-anchor="middle">+90</text>
-            <path class="tr" pathLength="1" d="M44.0 180.0L46.9 180.0L49.7 180.0L52.6 179.3L55.5 168.0L58.3 159.2L61.2 151.8L64.1 145.5L66.9 140.0L69.8 135.0L72.7 130.6L75.5 126.6L78.4 123.0L81.3 119.7L84.1 116.8L87.0 114.3L89.9 112.1L92.7 110.3L95.6 108.8L98.5 107.8L101.3 107.2L104.2 107.2L107.1 107.6L109.9 108.7L112.8 110.5L115.7 113.2L118.5 116.8L121.4 121.9L124.3 128.6L127.1 138.0L130.0 151.4L132.9 172.9L135.7 180.0L138.6 180.0L141.5 173.0L144.3 147.0L147.2 130.0L150.1 117.6L152.9 108.0L155.8 100.3L158.7 94.2L161.5 89.4L164.4 85.7L167.3 83.1L170.1 81.5L173.0 80.8L175.9 81.3L178.7 83.0L181.6 86.0L184.5 90.9L187.3 98.0L190.2 108.7L193.1 125.5L195.9 157.3L198.8 180.0L201.7 147.2L204.5 113.9L207.4 93.7L210.3 79.1L213.1 67.7L216.0 58.4L218.9 50.8L221.7 44.3L224.6 38.9L227.5 34.3L230.3 30.4L233.2 27.1L236.1 24.4L238.9 22.2L241.8 20.6L244.7 19.4L247.5 18.6L250.4 18.2L253.3 18.3L256.1 18.7L259.0 19.5L261.9 20.7L264.7 22.2L267.6 24.1L270.5 26.4L273.3 29.0L276.2 32.1L279.1 35.5L281.9 39.3L284.8 43.5L287.7 48.2L290.5 53.3L293.4 59.0L296.3 65.2L299.1 72.0L302.0 79.6L304.9 88.1L307.7 97.7L310.6 108.6L313.5 121.5L316.3 137.3L319.2 158.0L322.1 180.0L324.9 180.0L327.8 180.0L330.7 180.0L333.5 166.0L336.4 155.5L339.3 148.5L342.1 143.9L345.0 140.9L347.9 139.2L350.7 138.5L353.6 138.6L356.5 139.5L359.3 141.1L362.2 143.5L365.1 146.6L367.9 150.6L370.8 155.6L373.7 161.8L376.5 169.7L379.4 180.0L382.3 180.0L385.1 180.0L388.0 180.0"/>
-            <line class="mk" x1="254.2" x2="254.2" y1="16" y2="180"/>
-            <g class="cur"><line x1="0" x2="0" y1="16" y2="180"/><text class="cur-t" x="0" y="12">0</text></g>
-          </svg>
-          <figcaption>Gain across angle, in dB. It follows the beam above.</figcaption>
-        </figure>
-      </div>
+      <figcaption>Live beam plot. Four elements, half a wavelength apart. The beam follows a moving test signal. Drag the plot or use the slider to steer it yourself.</figcaption>
+    </figure>
+  </div>
+</article>
+
+<article class="work work--dark" id="parity" aria-labelledby="parity-h">
+  <div class="work-in work-in--flip">
+    <div class="work-text">
+      <h2 id="parity-h">Parity</h2>
+      <p class="work-role">Oct 2026 to now. Built the engine and the web app.</p>
+      <p>Can a trading program beat the S&amp;P 500? I built the lab to find out: 16 strategies, 11 tests each, results written down before the run. None has beaten it, and the page says so plainly.</p>
+      <dl class="work-facts">
+        <div><dt>Beat the S&amp;P 500</dt><dd>0 of 16</dd></div>
+        <div><dt>Best Sharpe ratio</dt><dd>0.75, against the market&#8217;s 0.54</dd></div>
+        <div><dt>Official runs</dt><dd>3, and all failed their plan</dd></div>
+      </dl>
+      <ul class="item-links">
+        <li><a class="link-more" href="/research/parity/">Read the write-up</a></li>
+        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
+      </ul>
+    </div>
+    <figure class="shot">
+      <img src="/research/parity/img/dashboard-home-720.webp" srcset="/research/parity/img/dashboard-home-720.webp 720w, /research/parity/img/dashboard-home.webp 1440w" sizes="(min-width:1000px) 52vw, 92vw" width="1440" height="900" alt="The Parity dashboard: a list of strategies with Sharpe ratios and a card reading 0 of 16 beat the S&amp;P 500." loading="lazy" decoding="async">
+      <figcaption>The dashboard, from my own copy of the app, Nov 11, 2026.</figcaption>
+    </figure>
+  </div>
+</article>
+
+<div class="work work--paper work--data">
+  <article class="work-in work-row" id="dfw-rent-model" aria-labelledby="dfw-rent-model-h">
+    <figure class="shot"><img src="/research/dfw-rent-model/img/figure.svg" width="800" height="450" alt="Diagram: 1,200+ listings go into the model, which predicts rent within 6% and finds 8 underpriced units worth $14K a year." loading="lazy" decoding="async"></figure>
+    <div class="work-text">
+      <h2 id="dfw-rent-model-h">DFW rental pricing model</h2>
+      <p class="work-role">2026</p>
+      <p>A model that predicts Dallas-Fort Worth rents from 1,200+ listings. The median error is 6%, and it flagged 8 units asking far less than expected, worth about $14K a year.</p>
+      <ul class="item-links"><li><a class="link-more" href="/research/dfw-rent-model/">Read the write-up</a></li></ul>
     </div>
   </article>
-
-  <div class="stage" aria-hidden="true"><p><b>SWEEP</b> Top view. The beam follows the signal.</p></div>
-
-  <article class="item ch ch2" id="parity" aria-labelledby="parity-h">
-    <div class="ch-head rv" aria-hidden="true"><span class="ch-tag">CH2</span><span>FX / S&amp;P 500 / BACKTEST</span><span class="ch-xy">x 000 y 000</span></div>
-    <div class="ch-grid">
-      <div class="ch-main">
-        <div class="img-frame rv">
-          <img class="item-img" src="/research/parity/img/thumb.webp" width="800" height="450" alt="The Parity dashboard: a chart of the US stock market since 2001 and a list of strategies." loading="lazy" decoding="async">
-        </div>
-        <div class="item-body">
-          <h2 id="parity-h" class="rv">Parity</h2>
-          <p class="rv">Can a currency trading strategy beat the S&amp;P 500? So far, it cannot.</p>
-          <p class="item-role rv">Oct 2026 to now</p>
-          <ul class="item-links rv">
-            <li><a class="link-more" href="/research/parity/">See the project</a></li>
-            <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="ch-inst">
-        <figure class="inst readout rv">
-          <dl class="ro-list">
-            <div><dt>Strategies tested</dt><dd>3</dd></div>
-            <div class="ro-zero"><dt>Beat the S&amp;P 500</dt><dd>0 so far</dd></div>
-            <div><dt>Algorithms in the catalog</dt><dd>72</dd></div>
-            <div><dt>Data sources</dt><dd>36</dd></div>
-          </dl>
-          <figcaption>Results so far. Each strategy is scored against simply holding the S&amp;P 500.</figcaption>
-        </figure>
-      </div>
+  <article class="work-in work-row work-row--flip" id="spending-explorer" aria-labelledby="spending-explorer-h">
+    <figure class="shot"><img src="/research/spending-explorer/img/figure.svg" width="800" height="450" alt="Diagram: 250K+ rows are cleaned and 40+ duplicate vendors merged, so a 20-minute search takes under 5 seconds." loading="lazy" decoding="async"></figure>
+    <div class="work-text">
+      <h2 id="spending-explorer-h">Public spending data explorer</h2>
+      <p class="work-role">2026</p>
+      <p>A search tool for county spending records. 250K+ rows cleaned and 40+ duplicate vendors merged, so a search that took 20 minutes by hand takes under 5 seconds.</p>
+      <ul class="item-links"><li><a class="link-more" href="/research/spending-explorer/">Read the write-up</a></li></ul>
     </div>
   </article>
-
-  <article class="item ch ch-short" id="dfw-rent-model" aria-labelledby="dfw-rent-model-h">
-    <div class="ch-head rv" aria-hidden="true"><span class="ch-tag">CH3</span><span>DATA / DFW RENTS / PYTHON</span><span class="ch-xy">x 000 y 000</span></div>
-    <div class="ch-grid">
-      <div class="ch-main">
-        <div class="img-frame rv">
-          <img class="item-img" src="/research/dfw-rent-model/img/figure.svg" width="800" height="450" alt="Diagram: 1,200+ listings go into the model, which predicts rent within 6% and finds 8 underpriced units worth $14K a year." loading="lazy" decoding="async">
-        </div>
-        <div class="item-body">
-          <h2 id="dfw-rent-model-h" class="rv">DFW rental pricing model</h2>
-          <p class="rv">A model that predicts Dallas-Fort Worth rents.</p>
-          <p class="item-role rv">2026</p>
-          <ul class="item-links rv">
-            <li><a class="link-more" href="/research/dfw-rent-model/">See the project</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <article class="item ch ch-short" id="spending-explorer" aria-labelledby="spending-explorer-h">
-    <div class="ch-head rv" aria-hidden="true"><span class="ch-tag">CH4</span><span>DATA / COUNTY SPENDING / PYTHON</span><span class="ch-xy">x 000 y 000</span></div>
-    <div class="ch-grid">
-      <div class="ch-main">
-        <div class="img-frame rv">
-          <img class="item-img" src="/research/spending-explorer/img/figure.svg" width="800" height="450" alt="Diagram: 250K+ rows are cleaned and 40+ duplicate vendors merged, so a 20-minute search takes under 5 seconds." loading="lazy" decoding="async">
-        </div>
-        <div class="item-body">
-          <h2 id="spending-explorer-h" class="rv">Public spending data explorer</h2>
-          <p class="rv">A search tool for county spending records.</p>
-          <p class="item-role rv">2026</p>
-          <ul class="item-links rv">
-            <li><a class="link-more" href="/research/spending-explorer/">See the project</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <div class="stage stage-end" aria-hidden="true"><p><b>WATERFALL</b> Spectrum over time. The curves draw as you scroll.</p></div>
 </div>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/research/main.js"></script>

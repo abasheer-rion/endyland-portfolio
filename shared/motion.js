@@ -1,16 +1,13 @@
 // Shared motion helpers. Every page uses these, so motion behaves the same everywhere.
-//   import { prefersReducedMotion, onReducedMotionChange, isLowPower, finePointer, onVisible } from '../shared/motion.js';
+//   import { prefersReducedMotion, isLowPower, finePointer, onVisible } from '../shared/motion.js';
 
-export const reducedQuery = matchMedia('(prefers-reduced-motion: reduce)');
+// Owner decision: animations always run for everyone, whatever the system motion setting says.
+// These two stay as exports so existing imports keep working. They never report reduced motion.
+export const prefersReducedMotion = () => false;
 
-// True when the visitor asked for less motion. Check it before starting any animation.
-export const prefersReducedMotion = () => reducedQuery.matches;
-
-// Calls cb(reduced) when the setting changes. Returns a function that stops listening.
-export function onReducedMotionChange(cb) {
-  const h = (e) => cb(e.matches);
-  reducedQuery.addEventListener('change', h);
-  return () => reducedQuery.removeEventListener('change', h);
+// Kept for old imports. The setting is ignored, so the callback never fires.
+export function onReducedMotionChange() {
+  return () => {};
 }
 
 // True for a mouse or trackpad that can hover. Use it to gate hover and tilt effects.
@@ -26,11 +23,11 @@ export function isLowPower() {
 }
 
 // Calls cb(el, entry) when each element scrolls into view. Once per element by default.
-// With reduced motion, or without IntersectionObserver, cb runs right away for every element.
+// Without IntersectionObserver, cb runs right away for every element.
 // Returns a function that stops watching.
 export function onVisible(els, cb, { once = true, rootMargin = '0px 0px -10% 0px', threshold = 0.1 } = {}) {
   const list = typeof els === 'string' ? [...document.querySelectorAll(els)] : [...els];
-  if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+  if (!('IntersectionObserver' in window)) {
     list.forEach((el) => cb(el, null));
     return () => {};
   }

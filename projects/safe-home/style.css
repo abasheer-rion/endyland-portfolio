@@ -1,0 +1,66 @@
+/* Safe Home project page. Only this page loads this file, after /projects/project-theme.css.
+   Brand: Safe Home's own look. Near-white surface, signal red, a Geist grotesque, thin rules.
+   Pairs: ink on bg 15:1, link #B21F0C on bg 6:1, white on red #D92B12 4.6:1 (bold buttons). */
+:root{
+  --p-bg:#F6F7F7; --p-surface:#FFFFFF; --p-ink:#1D2020; --p-mute:#4F5656; --p-accent:#D92B12; --p-accent-bg:#B8210C;
+  --p-on-accent:#FFFFFF; --p-link:#B21F0C; --p-line:#D3D7D7;
+  --p-display:"Geist",ui-sans-serif,system-ui,sans-serif; --p-display-weight:650;
+  --p-body:"Geist",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace;
+  --p-radius:12px; --p-max:1480px; --fig-bg:#FFFFFF;
+  --focus:#B21F0C; --badge-bg:#fff; --badge-fg:#1D2020; --badge-border:#BFC4C4;
+}
+body.proj-page{background:var(--p-bg);letter-spacing:-.003em}
+.proj-hero::before{display:none}
+.proj h1{font-weight:750;letter-spacing:-.045em;line-height:.95;font-size:clamp(3.5rem,1.5rem + 8vw,8rem)}
+.proj h2{font-weight:650;letter-spacing:-.025em}
+.proj-section{border-top:1px solid var(--p-line)}
+.winner{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;color:var(--p-link);font-weight:650;font-size:var(--fs-body)}
+.winner svg{width:20px;height:20px;flex:none;color:var(--p-accent)}
+.proj-kicker{font-weight:500}
+.proj-links a{background:var(--p-accent-bg);border-radius:8px}
+.proj-links a.alt-link{background:transparent}
+.badge-private{font-family:var(--p-mono);font-weight:500}
+.frame{border-radius:12px}
+
+/* Scroll reveals for steps, timeline and limits. */
+html.pj-anim .rv{opacity:0;transform:translateY(16px);transition:opacity .35s ease-out var(--d,0ms),transform .35s var(--bk-out) var(--d,0ms)}
+html.pj-anim .rv.in{opacity:1;transform:none}
+
+/* The mesh. A canvas on a solid grid surface; text sits beside it, not on it. */
+.mesh-grid{display:grid;gap:34px;grid-template-columns:minmax(0,1fr);margin-bottom:28px}
+@media (min-width:1000px){.mesh-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}}
+.mesh-steps{list-style:none;margin:0!important;padding:0!important;counter-reset:s;display:grid;gap:0;max-width:none!important}
+.mesh-steps li{counter-increment:s;position:relative;margin:0;padding:18px 0 18px 54px;border-top:1px solid var(--p-line)}
+.mesh-steps li:first-child{border-top:0;padding-top:0}
+.mesh-steps li::before{content:counter(s);position:absolute;left:0;top:18px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--p-ink);font:600 15px/1 var(--p-body);background:var(--p-bg)}
+.mesh-steps li:first-child::before{top:0}
+.mesh-steps b{display:block;font-weight:650}
+.mesh-box{position:relative;border:1px solid var(--p-line);border-radius:12px;background:#fff;overflow:hidden}
+.mesh-canvas{display:block;width:100%;height:clamp(330px,40vw,470px);touch-action:manipulation;opacity:0;transition:opacity .5s ease-out}
+.mesh-canvas.on{opacity:1}
+.mesh-hud{position:absolute;left:0;right:0;bottom:0;margin:0;display:flex;gap:22px;padding:10px 14px;background:rgba(255,255,255,.96);border-top:1px solid var(--p-line);font:500 15px/1.2 var(--p-body);color:var(--p-mute);pointer-events:none}
+.mesh-hud b{color:var(--p-ink);font-weight:650;margin-left:6px;font-variant-numeric:tabular-nums}
+.mesh-hud span:last-child b{color:var(--p-link)}
+.mesh-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.mesh-ctl button{min-height:46px;padding:0 22px;border-radius:8px;font:600 16px/1 var(--p-body);cursor:pointer;transition:transform .15s ease-out,background .15s ease-out}
+.btn-cut{background:var(--p-ink);color:#fff;border:0}
+.btn-cut:hover{background:#000}
+.btn-reset{background:transparent;color:var(--p-ink);border:1.5px solid var(--p-ink)}
+.btn-reset:hover:not(:disabled){background:#fff}
+.btn-reset:disabled{opacity:.55;cursor:default}
+.mesh-ctl button:active:not(:disabled){transform:scale(.97)}
+.mesh-tip{margin:0;font-size:var(--fs-small);color:var(--p-mute)}
+
+/* Timeline: a plain rule down the left with dots. */
+.tl{list-style:none;margin:0!important;padding:0 0 0 34px!important;position:relative;display:grid;gap:28px;max-width:60ch}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--p-accent)}
+.tl li{position:relative;margin:0}
+.tl li::before{content:"";position:absolute;left:-34px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--p-accent)}
+.tl time{display:block;font-weight:650;color:var(--p-link)}
+.tl p{margin:4px 0 0!important}
+.tl-win p{font-weight:700;font-size:var(--fs-lead)}
+
+.limits{list-style:none;margin:0!important;padding:0!important;display:grid;gap:14px;grid-template-columns:minmax(0,1fr);max-width:none!important}
+@media (min-width:760px){.limits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.limits li{margin:0;padding:18px 20px 18px 22px;border:1px solid var(--p-line);border-left:4px solid var(--p-accent);border-radius:4px 10px 10px 4px;background:#fff}
+@media (max-width:640px){.mesh-hud{flex-direction:column;gap:6px}}

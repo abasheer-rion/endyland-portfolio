@@ -1,0 +1,27 @@
+/* Privacy and Terms pages. Leather title band, then paper with a plain 68ch reading column. */
+body{margin:0;background:var(--bk-paper);color:var(--bk-ink);font:var(--fs-body)/var(--lh-body,1.6) var(--bk-sans)}
+.legal-hero{background:var(--bk-leather);color:var(--bk-paper);padding:calc(var(--bar-h) + clamp(32px,6vw,88px)) var(--gut) clamp(40px,6vw,84px);border-bottom:1px solid var(--bk-brass)}
+.legal-hero-in{width:var(--wrap);margin-inline:auto}
+.legal-hero h1{margin:0 0 .25em;font:italic 500 clamp(2.75rem,1.4rem + 5.6vw,6rem)/.95 var(--bk-serif);letter-spacing:-.025em;text-wrap:balance}
+.legal-hero p{max-width:var(--measure);margin:0;font-size:var(--fs-lead);line-height:1.5;color:var(--bk-cream)}
+.legal-hero .updated{margin-top:1em;font-size:1rem;color:var(--bk-paper)}
+.legal{width:var(--wrap);margin-inline:auto;padding:clamp(40px,6vw,88px) 0 0;display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1100px){.legal{grid-template-columns:minmax(200px,260px) minmax(0,var(--measure));gap:clamp(48px,6vw,112px);justify-content:start}}
+.legal-toc{font-size:1rem}
+@media (min-width:1100px){.legal-toc{position:sticky;top:calc(var(--bar-h) + 16px);align-self:start}}
+.legal-toc h2{margin:0 0 .6em;font:500 1.25rem/1.2 var(--bk-serif)}
+.legal-toc ol{margin:0;padding:0;list-style:none;border-left:1px solid var(--bk-brass)}
+.legal-toc a{display:block;padding:6px 0 6px 14px;color:var(--bk-ink);text-decoration:none}
+.legal-toc a:hover{color:var(--bk-rust);text-decoration:underline;text-underline-offset:4px}
+.legal-toc a:focus-visible,.prose a:focus-visible{outline:3px solid var(--bk-ink);outline-offset:3px}
+.prose{max-width:var(--measure)}
+.prose h2{scroll-margin-top:calc(var(--bar-h) + 16px);font-size:clamp(1.75rem,1.3rem + 1.4vw,2.5rem);margin-top:2.2em}
+.prose h2:first-child{margin-top:0}
+.prose a{color:#8A3F1A;text-decoration:underline;text-underline-offset:3px}
+.prose a:hover{color:var(--bk-ink)}
+.prose table{width:100%;border-collapse:collapse;font-size:1rem}
+.prose th,.prose td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid rgba(23,16,10,.25)}
+.prose th{font-family:var(--bk-serif);font-weight:500;font-size:1.0625rem;border-bottom:1px solid var(--bk-brass)}
+.table-scroll{overflow-x:auto;margin:0 0 1.2em}
+.table-scroll table{min-width:34rem;margin:0}
+.legal-note{max-width:var(--measure);margin-top:2.4em;padding:16px 18px;background:var(--bk-vellum);border-left:3px solid var(--bk-brass);font-size:1rem}

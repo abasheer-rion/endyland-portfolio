@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="rion">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,58 +17,103 @@
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
-<link rel="stylesheet" href="/startup-work/rion-county-api/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
 <link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-rion-county-api">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
-<canvas class="proj-scene" aria-hidden="true"></canvas>
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>County records API and client intake</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo">
+    <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo" decoding="async">
     <p class="proj-kicker">RION sub-project</p>
     <h1>County records API and client intake</h1>
     <p class="proj-summary">One API in front of 3 county record systems, and client intake that runs on its own.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Automation engineer</dd></div><div><dt>Dates</dt><dd>Sep 2025 to Jun 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Flask</li><li>AWS Lambda</li><li>REST</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media rion-glass"><div class="flow"><img src="img/figure.svg" width="800" height="450" alt="Diagram: property, owner and records systems sit behind one API with a cache, serving 1K+ lookups a day." fetchpriority="high" decoding="async"><svg class="packets" viewBox="0 0 800 450" aria-hidden="true" focusable="false"><rect class="cache" x="312" y="157" width="216" height="136" rx="12"/><circle class="pk pk-a" cx="224" cy="125" r="5"/><circle class="pk pk-b" cx="224" cy="225" r="5"/><circle class="pk pk-c" cx="224" cy="325" r="5"/><circle class="pk pk-o" cx="524" cy="225" r="5"/><circle class="pk pk-o late" cx="524" cy="225" r="4"/></svg></div><figcaption>How the pieces fit.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
+    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Diagram: property, owner and records systems sit behind one API with a cache, serving 1K+ lookups a day." fetchpriority="high" decoding="async"><figcaption>How the pieces fit.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats pipe"><li class="stat rion-glow"><b>3</b><span>county systems behind one API</span></li><li class="stat rion-glow"><b>1K+</b><span>lookups a day, cached</span></li><li class="stat rion-glow"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster onboarding</span></li></ul>
-    <div class="rion-code rion-glow" aria-hidden="true"><div class="rc-bar"><i></i><i></i><i></i><span>lookup</span></div><div class="rc-body"><p class="ln cmd">lookup --from property,owner,records</p><p class="ln"><b>sources </b> 3 county systems</p><p class="ln"><b>api     </b> 1, with a cache</p><p class="ln"><b>volume  </b> 1K+ lookups a day</p><p class="ln cmd">intake --auto</p><p class="ln"><b>onboard </b> 70% faster, no duplicates</p></div></div>
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">Three county systems and a lot of typing.</h2>
+    <div class="prose"><p>Property, owner and records information each live in their own county system. Anyone who needed a full picture had to ask three places and put the answers together by hand.</p><p>Client intake had the same shape: the same details typed into more than one place, which is where duplicate entries come from.</p></div>
   </section>
 
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">One API in front, a cache behind it, intake on autopilot.</h2>
+    <div class="prose"><p>I put all 3 county systems behind one API, so a caller asks one place, not three. The API caches answers, so a repeat lookup does not hit the county system again. It handles 1K+ lookups a day.</p><p>I also automated client intake end to end. A client is entered once and the rest runs on its own. Onboarding got 70% faster and duplicate entries stopped.</p></div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How a lookup works</h2>
+    <ol class="a-steps">
+      <li><h3>Three systems</h3><p>Property, owner and records each live in their own county system. Each one is read on its own.</p></li>
+      <li><h3>One API in front</h3><p>I put all 3 behind one API. Callers ask one place, not three.</p></li>
+      <li><h3>A cache for repeats</h3><p>The API caches answers. It handles 1K+ lookups a day.</p></li>
+      <li><h3>Intake on its own</h3><p>Intake runs end to end without hand entry. Onboarding got 70% faster and duplicate entries stopped.</p></li>
+    </ol>
+    <figure class="a-diagram">
+      <div class="fig-scroll" tabindex="0" role="region" aria-label="Lookup drawing, scrolls sideways on small screens">
+      <svg viewBox="0 0 1000 340" role="img" aria-labelledby="ct-t ct-d" focusable="false">
+        <title id="ct-t">How a county lookup works</title>
+        <desc id="ct-d">Property, owner and records systems each sit behind one API with a cache. Callers ask the API. It serves cached answers and reads the county systems only when needed. It handles over a thousand lookups a day.</desc>
+        <defs><marker id="ct-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
+<path class="dg-line" d="M250 70H370" marker-end="url(#ct-ar)"/><path class="dg-line" d="M250 170H370" marker-end="url(#ct-ar)"/><path class="dg-line" d="M250 270H370" marker-end="url(#ct-ar)"/><path class="dg-line" d="M630 170H750" marker-end="url(#ct-ar)"/><rect class="dg-node" x="20" y="40" width="230" height="60" rx="6"/><text class="dg-t" x="135.0" y="76.0">Property system</text><rect class="dg-node" x="20" y="140" width="230" height="60" rx="6"/><text class="dg-t" x="135.0" y="176.0">Owner system</text><rect class="dg-node" x="20" y="240" width="230" height="60" rx="6"/><text class="dg-t" x="135.0" y="276.0">Records system</text><rect class="dg-dark" x="370" y="80" width="260" height="180" rx="6"/><text class="dg-w" x="500.0" y="166.0">One API</text><text class="dg-s" x="500.0" y="188.0" style="fill:#fff">with a cache</text><rect class="dg-node" x="750" y="130" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="166.0">Callers</text><text class="dg-s" x="865.0" y="188.0">ask one place, not three</text><text class="dg-s" x="865" y="240">1K+ lookups a day</text>
+      </svg>
+      </div>
+      <figcaption>Drawn for this site from the numbers on this page.</figcaption>
+    </figure>
+    <figure class="a-diagram">
+      <div class="fig-scroll" tabindex="0" role="region" aria-label="Intake drawing, scrolls sideways on small screens">
+      <svg viewBox="0 0 1000 200" role="img" aria-labelledby="in-t in-d" focusable="false">
+        <title id="in-t">How client intake runs</title>
+        <desc id="in-d">A new client is entered once. Intake runs on its own through the steps, with no hand entry, so there are no duplicate records. Onboarding is 70 percent faster.</desc>
+        <defs><marker id="in-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
+<path class="dg-line" d="M250 100H370" marker-end="url(#in-ar)"/><path class="dg-line" d="M630 100H750" marker-end="url(#in-ar)"/><rect class="dg-node" x="20" y="60" width="230" height="80" rx="6"/><text class="dg-t" x="135.0" y="96.0">New client</text><text class="dg-s" x="135.0" y="118.0">entered once</text><rect class="dg-dark" x="370" y="60" width="260" height="80" rx="6"/><text class="dg-w" x="500.0" y="96.0">Intake runs on its own</text><text class="dg-s" x="500.0" y="118.0" style="fill:#fff">no hand entry</text><rect class="dg-node" x="750" y="60" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="96.0">Onboarded</text><text class="dg-s" x="865.0" y="118.0">no duplicates</text><text class="dg-s" x="500" y="170">70% faster onboarding</text>
+      </svg>
+      </div>
+      <figcaption>Drawn for this site from the numbers on this page.</figcaption>
+    </figure>
+  </section>
+  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">By the numbers</h2>
+    <ul class="stats"><li class="stat"><b>3</b><span>county systems behind one API</span></li><li class="stat"><b>1K+</b><span>lookups a day, cached</span></li><li class="stat"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster onboarding</span></li></ul>
+  </section>
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Put 3 county record systems (property, owner and records) behind one API.</li>
-      <li>Added caching for 1K+ lookups a day.</li>
-      <li>Automated client intake end to end. Onboarding got 70% faster and duplicate entries stopped.</li>
-    </ul>
+    <h2 id="did-h">What I owned</h2>
+    <ul class="did-list"><li>Put 3 county record systems (property, owner and records) behind one API.</li><li>Added caching for 1K+ lookups a day.</li><li>Automated client intake end to end. Onboarding got 70% faster and duplicate entries stopped.</li></ul>
+  </section>
+
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose"><p>One clean interface hides messy systems. Callers never needed to know there were three of them.</p><p>A cache is the cheapest speed-up when the same questions repeat.</p></div>
   </section>
 
   <section class="proj-section proj-related" aria-labelledby="related-h">
@@ -80,12 +125,16 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/startup-work/rion-county-api/main.js"></script>

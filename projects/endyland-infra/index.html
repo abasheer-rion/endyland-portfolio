@@ -4,39 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>endyland hosting and status page | Ayan Basheer</title>
-<meta name="description" content="The hosting, status page and backups behind endyland.com.">
+<meta name="description" content="The hosting, status page and backups behind endyland.com: Cloudflare Pages, Workers, tunnels, a status page that checks every 5 minutes, and automatic deploys.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/projects/endyland-infra/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/projects/endyland-infra/">
 <meta property="og:title" content="endyland hosting and status page | Ayan Basheer">
-<meta property="og:description" content="The hosting, status page and backups behind endyland.com.">
+<meta property="og:description" content="The hosting, status page and backups behind endyland.com: Cloudflare Pages, Workers, tunnels, a status page that checks every 5 minutes, and automatic deploys.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B0420">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#EFE3C8">
+<meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
-<link rel="stylesheet" href="/projects/endyland-infra/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
 <body class="proj-page proj-endyland-infra">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/" aria-current="true">Projects<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/projects/" aria-current="true">Projects</a></li>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
@@ -47,51 +51,110 @@
     <p class="proj-kicker">Infrastructure</p>
     <h1>endyland hosting and status page</h1>
     <p class="proj-summary">The hosting, status page and backups behind endyland.com.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>Oct 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Cloudflare Workers</li><li>Cloudflare Pages</li><li>Cloudflare tunnels</li><li>GitHub Actions</li></ul></dd></div></dl>
+    <dl class="proj-meta"><div><dt>Dates</dt><dd>Oct 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Cloudflare Workers</li><li>Cloudflare Pages</li><li>Cloudflare tunnels</li><li>D1</li><li>GitHub Actions</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="screen"><img src="img/status.webp" width="780" height="340" alt="The endyland status page: All services are up, and the portfolio at 100% uptime." fetchpriority="high" decoding="async"></div><figcaption>The status page. It checks every service every 5 minutes.<span class="credit">Screenshot of my own status page.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="frame"><picture><source media="(max-width:640px)" srcset="img/status-m.webp" width="780" height="765"><img src="img/status.webp" width="1500" height="636" alt="The endyland status page. A green banner says all services are up. The Portfolio card shows up for 19 days, 24 hours 100 percent, 7 days 100 percent, 30 days 99.98 percent, and a 90 day bar of daily checks." fetchpriority="high" decoding="async"></picture></div><figcaption>The live status page, captured on November 11, 2026. It checks every service every 5 minutes. This crop shows the portfolio only.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <div class="numbers-grid">
-    <div class="stage" aria-hidden="true">
-      <canvas class="proj-scene"></canvas>
-      <p class="stage-hud"><span>Rack 01</span><span class="stage-check">Checking</span></p>
-    </div>
-    <div class="numbers-side">
-    <ul class="stats"><li class="stat"><b>5 min</b><span>between health checks</span></li></ul>
-    <div class="uptime" aria-hidden="true"><p class="uptime-k"><span>One square per health check</span><span>Latest</span></p><ol class="uptime-bar"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol></div>
-    </div>
+  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">In numbers</h2>
+    <div class="sec-body">
+      <ul class="stats"><li class="stat"><b>5 min</b><span>between health checks</span></li><li class="stat"><b><span class="visually-hidden">99.98%</span><span aria-hidden="true" data-count="99.98" data-post="%">99.98%</span></b><span>portfolio uptime over 30 days</span></li><li class="stat"><b>90 days</b><span>of checks kept</span></li><li class="stat"><b><span class="visually-hidden">30 min</span><span aria-hidden="true" data-count="30" data-post=" min">30 min</span></b><span>between GitHub uptime checks</span></li></ul>
     </div>
   </section>
+  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <div class="sec-body">
+      <p>A portfolio should be up when someone clicks it, and its owner should know within minutes if it is not. A bad push should not be able to take it down either.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="approach" aria-labelledby="approach-h">
+    <h2 id="approach-h">The approach</h2>
+    <div class="sec-body">
+      <p>The site is plain files on Cloudflare Pages. The small services around it run as Cloudflare Workers or behind Cloudflare tunnels, so nothing has to be opened on my home network. A status page watches all of it, and deploys run on their own when new code lands, after the site checks pass.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="sec-body">
 
-  <section class="proj-section proj-did" aria-labelledby="did-h">
+      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/arch.svg" width="1000" height="640" alt="Three rows. A change goes live: push to main, site checks, deploy to Cloudflare Pages, verify the live site serves the new commit. Uptime is checked on its own: every 5 minutes a Worker checks the services, saves results to a D1 database, and the status page reads them. Two slower checks run on GitHub: every 30 minutes for uptime, and Mondays for security settings." loading="lazy" decoding="async"></div></div><figcaption>What runs where, drawn for this site.</figcaption></figure>
+      <h3>A change goes live</h3>
+      <p>A push to the main branch starts the site checks. They look for broken links, missing image sizes, inline scripts, a loosened security policy and anything else that would make a page worse. If they pass, the site is deployed to Cloudflare Pages. A last step asks the live site which commit it is serving and fails if it is the wrong one.</p>
+      <p>Only the main branch can deploy. The deploy token can edit Pages and nothing else, and only that branch can read it.</p>
+      <h3>The status page</h3>
+      <p>A Cloudflare Worker wakes every 5 minutes, checks each service all at once with a 10 second limit and no redirects followed, and stores the result in a small D1 database. A service is up only if every one of its checks passes. The portfolio, for example, must answer 200 with a content security policy, and its security.txt file must be there.</p>
+      <p>The page reads only the small summary tables, which keeps it fast, and answers are cached for 60 seconds. It shows the last 24 hours, 7 days and 30 days as percentages, a bar for each of the last 90 days, and a list of incidents, which open when a service goes down and close when it comes back.</p>
+      <h3>Slower checks on GitHub</h3>
+      <p>A scheduled job checks every address and certificate every 30 minutes. On Mondays another one checks that the security.txt date is still valid, the sitemap is right, and the HSTS and CAA settings are in place. Both only report. They never block a deploy.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="security" aria-labelledby="security-h">
+    <h2 id="security-h">Security settings</h2>
+    <div class="sec-body">
+      <p>The connection settings were tightened in one scripted pass, with the state before it saved so every change can be rolled back.</p>
+      <div class="table-wrap" tabindex="0" role="group" aria-label="Security settings table">
+      <table class="facts">
+        <caption>What changed</caption>
+        <thead><tr><th scope="col">Setting</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">SSL mode</th><td>Full</td><td>Full (strict)</td></tr>
+          <tr><th scope="row">Always use HTTPS</th><td>Off</td><td>On</td></tr>
+          <tr><th scope="row">Minimum TLS</th><td>1.0</td><td>1.2</td></tr>
+          <tr><th scope="row">HSTS</th><td>Off</td><td>6 months, subdomains</td></tr>
+          <tr><th scope="row">www address</th><td>Separate</td><td>301 to endyland.com</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The pages send a strict content security policy with no inline scripts, and refuse to be framed. The domain sends no email, and its records say so, which stops anyone from spoofing it.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="results" aria-labelledby="results-h">
+    <h2 id="results-h">Results</h2>
+    <div class="sec-body">
+      <p>On November 11, 2026 the status page showed the portfolio up for 19 days in a row, with 100% over the last 24 hours and 7 days and 99.98% over 30 days. The response time was 72 milliseconds at the moment of the capture.</p>
+      <p>Deploys need no manual steps. The repo is private, so there is no link, and the screenshot above is cropped to the portfolio so it shows only what belongs on this page.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Host the site on Cloudflare Pages, with Workers and tunnels for the rest.</li>
-      <li>Built a status page that checks every service every 5 minutes.</li>
-      <li>Deploys run on their own when new code lands, after the site checks pass.</li>
-      <li>Set up backups for the services behind the site.</li>
-    </ul>
+    <div class="sec-body">
+      <ul class="did-list">
+        <li>Host the site on Cloudflare Pages, with Workers and tunnels for the rest.</li>
+        <li>Built a status page that checks every service every 5 minutes.</li>
+        <li>Deploys run on their own when new code lands, after the site checks pass.</li>
+        <li>Set up backups for the services behind the site.</li>
+      </ul>
+    </div>
   </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
+  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="sec-body">
+      <p>Check the live result, not only the build. Asking the site which commit it serves catches a deploy that "succeeded" but went nowhere.</p>
+      <p>Give every key the smallest job. A token that can edit Pages and nothing else is a small thing to lose.</p>
+      <p>Keep a record of the settings before you change them. The saved copy turns a risky change into one you can undo.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/web-design/endyland/">endyland.com</a></li></ul>
+    <div class="sec-body"><ul class="plain-list"><li><a href="/web-design/endyland/">endyland.com</a>, the site this runs.</li></ul></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/projects/endyland-infra/main.js"></script>

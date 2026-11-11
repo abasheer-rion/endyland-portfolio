@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<title>Verizon work in three numbers: $70M a year in revenue on a tool I built, 200+ voice devices backed up, $480K a year saved off VMware.</title>
+<defs>
+<pattern id="st" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r=".9" fill="#D9AE4A"/></pattern>
+<pattern id="st2" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="translate(3 4)"><circle cx="3" cy="3" r="1.1" fill="#D9AE4A"/></pattern>
+<linearGradient id="fd" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="mk"><rect width="800" height="450" fill="url(#fd)"/></mask>
+<style>
+text{font-family:-apple-system,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif;fill:#EFE3C8}
+.n{font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;font-weight:700;fill:#D9AE4A;font-variant-numeric:lining-nums}
+.l{font-size:32px}
+.sq{fill:#D9AE4A;opacity:.16;animation:fl 6s ease-out infinite}
+@keyframes fl{0%,6%{opacity:.16}22%,80%{opacity:1}100%{opacity:.16}}
+.dot{animation:dr 4.8s ease-in-out infinite alternate}
+@keyframes dr{from{transform:translateY(0)}to{transform:translateY(var(--dy,300px))}}
+</style>
+</defs>
+<rect width="800" height="450" fill="#26180F"/>
+<rect y="428" width="800" height="22" fill="url(#st)" mask="url(#mk)" opacity=".7"/>
+<line x1="26" y1="40" x2="26" y2="410" stroke="#5A3A22" stroke-width="2"/>
+<circle class="dot" style="--dy:340px" cx="26" cy="46" r="8" fill="#D9AE4A"/>
+<text x="64" y="122" class="n" text-anchor="start" font-size="84">$70M</text>
+<text x="360" y="84" class="l" text-anchor="start" >a year in revenue</text>
+<text x="360" y="124" class="l" text-anchor="start" >on the tool I built</text>
+<line x1="64" y1="148" x2="760" y2="148" stroke="#B8872E" stroke-width="1.5"/>
+<text x="64" y="247" class="n" text-anchor="start" font-size="84">200+</text>
+<text x="360" y="209" class="l" text-anchor="start" >voice devices</text>
+<text x="360" y="249" class="l" text-anchor="start" >now backed up</text>
+<line x1="64" y1="273" x2="760" y2="273" stroke="#B8872E" stroke-width="1.5"/>
+<text x="64" y="372" class="n" text-anchor="start" font-size="84">$480K</text>
+<text x="360" y="334" class="l" text-anchor="start" >a year saved</text>
+<text x="360" y="374" class="l" text-anchor="start" >off VMware</text>
+</svg>

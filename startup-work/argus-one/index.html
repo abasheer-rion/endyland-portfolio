@@ -4,90 +4,158 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Argus One | Ayan Basheer</title>
-<meta name="description" content="The theft-detection AI. It watches live store cameras, tracks body pose and gives each person one risk score.">
+<meta name="description" content="The theft-detection AI. It watched live store cameras, tracked body pose and gave each person one risk score. Part of Argus, which ended in 2026.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-one/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-one/">
 <meta property="og:title" content="Argus One | Ayan Basheer">
-<meta property="og:description" content="The theft-detection AI. It watches live store cameras, tracks body pose and gives each person one risk score.">
+<meta property="og:description" content="The theft-detection AI. It watched live store cameras, tracked body pose and gave each person one risk score. Part of Argus, which ended in 2026.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400..600&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
-<link rel="stylesheet" href="/startup-work/argus-one/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
+<link rel="modulepreload" href="/startup-work/argus/main.js">
 </head>
-<body class="proj-page proj-one a-dots proj-argus-one">
+<body class="proj-page proj-argus-one">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<canvas class="proj-scene" id="one-scene" aria-hidden="true"></canvas>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>Argus One</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo">
-    <p class="proj-kicker">Argus sub-project</p>
+    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
+    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
     <h1>Argus One</h1>
-    <p class="proj-summary">The theft-detection AI. It watches live store cameras, tracks body pose and gives each person <span class="a-key">one risk score</span>.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>About half the commits, plus tests, docs, streaming and deployment.</dd></div><div><dt>Dates</dt><dd>Apr 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>EVA-CLIP</li><li>FastAPI</li></ul></dd></div></dl>
+    <p class="proj-summary">The theft-detection AI. It watched live store cameras, tracked body pose and gave each person <span class="a-key">one risk score</span>.</p>
+    <dl class="proj-meta"><div><dt>Role</dt><dd>About half the commits, plus tests, docs, streaming and deployment.</dd></div><div><dt>Dates</dt><dd>Apr 2026 to 2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>EVA-CLIP</li><li>FastAPI</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media one-cam"><div class="one-feed"><img src="img/camera.webp" width="632" height="350" alt="A store camera view with labeled boxes around customers, staff and deliveries." fetchpriority="high" decoding="async"><span class="one-hud" aria-hidden="true"><span class="one-rec">Live</span><span class="one-time">00:00:00</span><span class="one-scan"></span><span class="one-c one-c1"></span><span class="one-c one-c2"></span><span class="one-c one-c3"></span><span class="one-c one-c4"></span><span class="one-lock one-lock1"></span><span class="one-lock one-lock2"></span><span class="one-risk"><span class="one-risk-l">Risk</span><span class="one-risk-bar"><span></span></span></span></span></div><figcaption>An example camera view, recreated for the Argus site.</figcaption></figure>
+    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Diagram: a camera frame goes through YOLOv8 person detection, pose estimation and EVA-CLIP into one risk score from 0 to 100, weighted 40 percent classification, 25 pose, 15 time in one spot, 15 hand near body and 5 concealment." fetchpriority="high" decoding="async"><figcaption>How one score is built. Drawn for this site from the project&#8217;s own notes.</figcaption></figure>
   </header>
+
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#limits-h">What it cannot see</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">A wall of video is not an alert.</h2>
+    <div class="prose">
+      <p>A store with many cameras produces more video than anyone can watch. A person at the counter cannot also study a screen of grey squares. Theft is usually found afterward, when someone scrolls through footage to see what happened.</p>
+      <p>We needed something that watches every feed, picks out the few moments that look wrong, and tells staff early with one clear number.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">Read the body, not just the picture.</h2>
+    <div class="prose">
+      <p>Argus One splits the job. One model finds the people. A second tracks how each body moves, using 17 points on the body. A third reads what the scene looks like. Then a small fusion step weighs five signals into a single score from 0 to 100 for each person.</p>
+      <p>Signals include a hand moving toward the torso, reaching for a high shelf, crouching, staying in one spot for a long time, and quick hand movement. A score of 75 or more raises an alert. Repeat alerts are held back for 30 seconds so staff are not spammed.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How one score gets built</h2>
+    <div class="table-wrap a-table" tabindex="0" role="region" aria-label="Models in the pipeline, scrolls sideways on small screens">
+      <table>
+        <caption>The models in the pipeline</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Job</th><th scope="col">Output</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">YOLOv8n</th><td>Finds people and bags</td><td>Boxes and classes</td></tr>
+          <tr><th scope="row">YOLOv8x-Pose</th><td>Tracks body pose</td><td>17 keypoints per person</td></tr>
+          <tr><th scope="row">EVA02-CLIP-L-14</th><td>Reads the visual scene</td><td>A 1024-number description</td></tr>
+          <tr><th scope="row">YOLO classifier</th><td>Shoplifting or normal</td><td>One label</td></tr>
+          <tr><th scope="row">LightGBM</th><td>Fuses the signals</td><td>A risk probability</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="a-pair">
+      <div class="prose">
+        <p>Pose gives 22 numbers per person, such as hand-to-torso distance, elbow angle, body height and hand speed. Speed uses a 10-frame window so a quick grab shows up as a spike.</p>
+        <p>The weights that make the final score are classification 40%, pose risk 25%, time in one spot 15%, hand near body 15% and concealment 5%.</p>
+        <p>When the score crosses the threshold an alert goes out as a signed message to the business app, which shows it on the dashboard.</p>
+      </div>
+      <div class="table-wrap a-table" tabindex="0" role="region" aria-label="Signal weights">
+        <table><caption>Signal weights</caption><thead><tr><th scope="col">Signal</th><th scope="col">Weight</th></tr></thead><tbody><tr><th scope="row">Classification</th><td>40%</td></tr><tr><th scope="row">Pose risk</th><td>25%</td></tr><tr><th scope="row">Time in one spot</th><td>15%</td></tr><tr><th scope="row">Hand near body</th><td>15%</td></tr><tr><th scope="row">Concealment</th><td>5%</td></tr></tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="limits-h">
+    <h2 id="limits-h">What it cannot see</h2>
+    <div class="prose">
+      <p>The project notes are direct about this. Argus One does not detect an item actually going into a bag, goods disappearing from a shelf, concealment under clothing, eye gaze, or groups working together. It scores behavior that often goes with theft. It does not prove theft.</p>
+      <p>That is why the output is a score that points a person at a clip, and why a human decides what happens next.</p>
+    </div>
+  </section>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>1</b><span>risk score per person</span></li><li class="stat"><b>About half</b><span>of the commits are mine</span></li></ul>
+    <ul class="stats"><li class="stat"><b>1</b><span>risk score per person</span></li><li class="stat"><b>5</b><span>signals weighted into it</span></li><li class="stat"><b><span class="visually-hidden">92%</span><span aria-hidden="true" data-count="92" data-post="%">92%</span></b><span>model accuracy</span></li><li class="stat"><b>About half</b><span>of the commits are mine</span></li></ul>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
+    <h2 id="did-h">What I owned</h2>
     <ul class="did-list">
-      <li>Combines person detection, body pose and visual signals into one risk score per person.</li>
+      <li>Combined person detection, body pose and visual signals into one risk score per person.</li>
       <li>Wrote about half the commits, plus the tests, docs, the streaming link and deployment.</li>
       <li>Fine-tuned a vision model on store camera clips to cut false alarms.</li>
       <li>Built the streaming agent: a desktop app that sends a store&#8217;s camera feeds to Argus.</li>
     </ul>
   </section>
 
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose">
+      <p>Several small signals beat one clever model. Splitting the job made each piece easy to test and easy to explain to a store owner.</p>
+      <p>Writing down what a model cannot do is part of shipping it.</p>
+    </div>
+  </section>
+
   <section class="proj-section proj-related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li></ul>
+    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li><li><a href="/startup-work/argus-dashboard/">Where the alerts show up</a></li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
-<script type="module" src="/startup-work/argus-one/main.js"></script>
+<script type="module" src="/startup-work/argus/main.js"></script>
 </body>
 </html>

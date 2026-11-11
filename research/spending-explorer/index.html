@@ -1,45 +1,44 @@
 <!doctype html>
-<html lang="en" data-theme="tab-research">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Public spending data explorer | Ayan Basheer</title>
-<meta name="description" content="A search tool for county spending records.">
+<meta name="description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, a search that took 20 minutes now takes under 5 seconds.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/research/spending-explorer/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/research/spending-explorer/">
 <meta property="og:title" content="Public spending data explorer | Ayan Basheer">
-<meta property="og:description" content="A search tool for county spending records.">
+<meta property="og:description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, a search that took 20 minutes now takes under 5 seconds.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#050705">
+<meta name="theme-color" content="#17100A">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/research/project-theme.css">
 <link rel="stylesheet" href="/research/spending-explorer/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
-<body class="proj-page proj-spending-explorer">
+<body class="proj-page proj-se">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/web-design/">Web design</a></li>
-      <li><a href="/research/" aria-current="true">Research<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="true">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<canvas class="proj-scene" id="se-scene" aria-hidden="true"></canvas>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Public spending data explorer</span></li></ol></nav>
@@ -48,23 +47,40 @@
     <div class="proj-intro">
     <p class="proj-kicker">Data project</p>
     <h1>Public spending data explorer</h1>
-    <p class="proj-summary">A search tool for county spending records.</p>
+    <p class="proj-summary">A search tool for county spending records. The records were messy, so most of the work was cleaning them until one question could get one answer.</p>
     <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Data pipeline</li></ul></dd></div></dl>
     <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
     </div>
     <figure class="proj-hero-media"><img src="img/figure.svg" width="800" height="450" alt="Diagram: 250K+ rows are cleaned and 40+ duplicate vendors merged, so a 20-minute search takes under 5 seconds." fetchpriority="high" decoding="async"><figcaption>How it works, drawn from the numbers below.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
   </header>
-
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">250K+</span><span aria-hidden="true" data-count="250" data-post="K+">250K+</span></b><span>rows cleaned</span></li><li class="stat"><b><span class="visually-hidden">40+</span><span aria-hidden="true" data-count="40" data-post="+">40+</span></b><span>duplicate vendors merged</span></li><li class="stat"><b><span class="visually-hidden">20 min</span><span aria-hidden="true" data-count="20" data-post=" min">20 min</span></b><span>per search before</span></li><li class="stat"><b>Under 5 s</b><span>per search now</span></li></ul>
+<ul class="stats"><li class="stat"><b>250K+</b><span>rows cleaned</span></li><li class="stat"><b>40+</b><span>duplicate vendors merged</span></li><li class="stat"><b>20 min</b><span>per search before</span></li><li class="stat"><b>Under 5 s</b><span>per search now</span></li></ul>
   </section>
 
-  <section class="proj-section se-merge" aria-labelledby="merge-h">
+  <section class="proj-section " aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <p class="lede">Public records are public, and still hard to use.</p>
+    <p>County spending comes as a long list of payments. The same vendor shows up under several spellings, so asking &#8220;how much did we pay this company?&#8221; means hunting for every variant by hand. Each question took about 20 minutes.</p>
+    <p>The goal was a search that gives one answer per question, fast enough to ask follow-ups.</p>
+  </section>
+
+  <section class="proj-section " aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <ol class="steps">
+      <li><b>Start with the raw rows</b><span>250K+ rows of county spending records.</span></li>
+      <li><b>Clean</b><span>Make the rows comparable so they can be searched and added up.</span></li>
+      <li><b>Merge vendors</b><span>40+ vendors appeared under more than one name. Each now has one.</span></li>
+      <li><b>Search</b><span>A question that took 20 minutes by hand takes under 5 seconds.</span></li>
+    </ol>
+  </section>
+
+  <section class="proj-section " aria-labelledby="merge-h">
     <h2 id="merge-h">One vendor, many spellings</h2>
-    <div class="rs-screen se-screen">
+    <p>Try it on a few sample rows. They are made up for this page, but the real records had 40+ vendors spelled this way.</p>
+    <div class="table-wrap se-wrap" tabindex="0" role="region" aria-label="Sample spending rows">
       <table class="se-table">
-        <caption class="visually-hidden">Sample spending rows, before or after merging duplicate vendors</caption>
+        <caption>Sample spending rows, before or after merging duplicate vendors</caption>
         <thead><tr><th scope="col">Vendor</th><th scope="col">Amount</th></tr></thead>
         <tbody>
           <tr class="se-row se-first" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">CEDAR HOLLOW PAVING</span></td><td class="se-amt">$18,240.00</td></tr>
@@ -83,16 +99,15 @@
       <button type="button" class="rs-btn se-btn" aria-pressed="false" aria-controls="se-status">Merge duplicates</button>
       <p class="se-status" id="se-status" aria-live="polite">9 rows, 3 vendors spelled 9 ways.</p>
     </div>
-    <p class="rs-note">Sample rows made up for this page. The real records had 40+ vendors like these.</p>
   </section>
 
-  <section class="proj-section se-time" aria-labelledby="time-h">
+  <section class="proj-section " aria-labelledby="time-h">
     <h2 id="time-h">Time to answer one search</h2>
     <div class="se-race" role="img" aria-label="By hand: 20 minutes. Now: under 5 seconds.">
-      <div class="se-lane se-slow"><span class="se-label">By hand</span><span class="se-track"><i></i></span><span class="se-time-v">20 min</span></div>
-      <div class="se-lane se-fast"><span class="se-label">Now</span><span class="se-track"><i></i></span><span class="se-time-v">Under 5 s</span></div>
+      <div class="se-lane"><span class="se-label">By hand</span><span class="se-track"><i class="se-slow"></i></span><span class="se-time-v">20 min</span></div>
+      <div class="se-lane"><span class="se-label">Now</span><span class="se-track"><i class="se-fast"></i></span><span class="se-time-v">Under 5 s</span></div>
     </div>
-    <p class="rs-note">Bars to scale. The second bar is less than half a percent of the first.</p>
+    <p>Bars are to scale. Twenty minutes is 1,200 seconds, so under 5 seconds is at least 240 times faster, and the second bar is less than half a percent of the first.</p>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
@@ -104,16 +119,28 @@
     </ul>
   </section>
 
+  <section class="proj-section " aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <ul class="findings">
+      <li><b>Most of a data tool is cleaning</b>The search was simple once vendors had one name each.</li>
+      <li><b>Show the mess, not just the result</b>The sample table above exists so a visitor can see what merging does to the totals.</li>
+    </ul>
+  </section>
+
   <p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/research/spending-explorer/main.js"></script>

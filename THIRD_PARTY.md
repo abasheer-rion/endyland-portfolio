@@ -10,13 +10,6 @@ required, it is given anyway.
 
 | File | Photographer | Source | License |
 |---|---|---|---|
-| `startup-work/argus-edge-board/img/board.webp`, `thumb.webp` | Umberto | https://unsplash.com/photos/jXd2FSvcRr8 | Unsplash License |
-| `projects/fpga-risc/img/photo.webp`, `thumb.webp` | Sourabh Belekar | https://unsplash.com/photos/qChPy3L7Nz4 | Unsplash License |
-| `projects/sensor-node/img/photo.webp`, `thumb.webp` | Thorium | https://unsplash.com/photos/ely59DfJwN8 | Unsplash License |
-| `projects/bench-rig/img/photo.webp`, `thumb.webp` | Ludovic Delot | https://www.pexels.com/photo/18471414/ | Pexels License |
-| `projects/gohighlevel-mcp/img/photo.webp`, `thumb.webp` | Mohamed Nohassi | https://unsplash.com/photos/-0xMiYQmk8g | Unsplash License |
-| `projects/ses-mailer/img/photo.webp`, `thumb.webp` | Brett Jordan | https://unsplash.com/photos/LPZy4da9aRo | Unsplash License |
-| `experience/verizon/img/photo.webp`, `thumb.webp` | Taylor Vick | https://unsplash.com/photos/M5tzZtFCOfs | Unsplash License |
 
 Unsplash License: https://unsplash.com/license. Pexels License: https://www.pexels.com/license/.
 
@@ -26,8 +19,7 @@ Logos, screenshots and photos of YoTummy, New Door Investments, Detail Theory, S
 Solutions belong to those businesses. They are shown as portfolio work with the owner's OK (2026-10-22). Files live in
 each project's `img/` folder. No Verizon logo is used.
 
-Client photos (not stock): `web-design/detail-theory/img/wash.webp` and `finish.webp` come from Detail Theory's own site
-repo. The Argus dashboard screens (`threat.webp`, `analytics.webp`) come from the app's demo account.
+Web design screenshots are captured from the live client sites with headless Chrome (11 November 2026), and from this site's own build for endyland.com. No stock photos are used on the web design pages. The Argus and RION screenshots under `startup-work/` were captured in November 2026 from the live sites (useargus.co, docs.useargus.co, status.useargus.co, rionsolution.com) and show sample data only. The in-store board and Argus One figures are drawings made for this site.
 
 ## Fonts
 

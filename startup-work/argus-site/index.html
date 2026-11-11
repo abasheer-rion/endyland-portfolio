@@ -4,39 +4,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>useargus.co | Ayan Basheer</title>
-<meta name="description" content="The Argus marketing site.">
+<meta name="description" content="The Argus marketing site, built with Next.js, with its docs and status page. Part of Argus, which ended in 2026.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-site/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-site/">
 <meta property="og:title" content="useargus.co | Ayan Basheer">
-<meta property="og:description" content="The Argus marketing site.">
+<meta property="og:description" content="The Argus marketing site, built with Next.js, with its docs and status page. Part of Argus, which ended in 2026.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400..600&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
-<link rel="stylesheet" href="/startup-work/argus-site/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
+<link rel="modulepreload" href="/startup-work/argus/main.js">
 </head>
-<body class="proj-page proj-site a-dots proj-argus-site">
+<body class="proj-page proj-argus-site">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
@@ -44,34 +49,71 @@
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo">
-    <p class="proj-kicker">Argus sub-project</p>
-    <h1>useargus<span class="s-tld">.co</span></h1>
-    <p class="proj-summary">The Argus <span class="a-key">marketing site</span>.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Built it and run it. Most of the human-written commits are mine.</dd></div><div><dt>Dates</dt><dd>Mar 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Clerk</li><li>GSAP (first site)</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://useargus.co" rel="noopener">useargus.co</a></li><li><a href="https://docs.useargus.co" rel="noopener">docs.useargus.co</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
+    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
+    <h1>useargus.co</h1>
+    <p class="proj-summary">The Argus <span class="a-key">marketing site</span>, its docs and its status page.</p>
+    <dl class="proj-meta"><div><dt>Role</dt><dd>Built it and ran it. Most of the human-written commits are mine.</dd></div><div><dt>Dates</dt><dd>Mar 2026 to 2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Clerk</li><li>GSAP (first site)</li></ul></dd></div></dl>
+    <ul class="proj-links"><li><a href="https://useargus.co" rel="noopener">useargus.co</a></li><li><a href="https://docs.useargus.co" rel="noopener">docs.useargus.co</a></li><li><a href="https://status.useargus.co" rel="noopener">status</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media site-stage"><div class="site-browser"><div class="site-bar" aria-hidden="true"><i></i><i></i><i></i><span>useargus.co</span></div><img src="img/site.webp" width="1440" height="712" alt="The full useargus.co home page." fetchpriority="high" decoding="async"></div><div class="site-phone" aria-hidden="true"><img src="img/phone.webp" width="480" height="985" alt="" decoding="async"></div></figure>
+    <figure class="proj-hero-media a-shot"><img src="img/site.webp" width="1440" height="796" alt="The useargus.co home page: Run your whole store from one place, with Book my demo and Start free buttons." fetchpriority="high" decoding="async"><figcaption>The live home page, captured in November 2026.</figcaption></figure>
   </header>
 
-  <div class="site-band" aria-hidden="true"><div class="site-band-in"><span>Cameras</span><span>Invoices</span><span>Money</span><span>Stock</span><span>Staff</span><span>Register</span><span>Cameras</span><span>Invoices</span><span>Money</span><span>Stock</span><span>Staff</span><span>Register</span></div></div>
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#screens-h">Screens</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">A store owner has about a minute.</h2>
+    <div class="prose">
+      <p>The people we sold to run busy stores. They will not read a long page about computer vision. In that minute the site has to say what Argus does, show that it is easy to start and show that it works with the cameras and register they already have.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">Say it in plain words, then prove it.</h2>
+    <div class="prose">
+      <p>The headline is the whole pitch: run your whole store from one place. Under it sit the three things an owner worries about. It is free for 60 days with no card needed. Setup takes under 5 minutes. And nothing new goes on the wall.</p>
+      <p>The rest of the page backs those up. A four-step setup, the registers it works with (Verifone and Gilbarco, with more on the way), the camera and recorder brands, a demo of the dashboard, and a section of numbers that no single tool can give you, such as the share of what left the store that was actually paid for.</p>
+      <p>Cookies are handled openly: a banner offers reject non-essential next to accept.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How it is built</h2>
+    <div class="a-split">
+      <div class="prose">
+        <p>The site is Next.js. I built the first version in March 2026, with GSAP for its animation, then rebuilt it into the current one. Clerk provides sign-in for the Log in button.</p>
+        <p>The docs at docs.useargus.co came from a documentation template and cover getting started, cameras, incidents and the dashboard, with search and a light and dark switch. The status page shows the website, dashboard and docs with 90 days of history.</p>
+        <p>I ran the site day to day.</p>
+      </div>
+      <figure class="a-shot phone"><img src="img/phone.webp" width="390" height="590" alt="The useargus.co home page on a phone, with the headline and the Book my demo button." loading="lazy" decoding="async"><figcaption>The same page on a 390 pixel phone.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="proj-section proj-gallery" aria-labelledby="screens-h">
+    <h2 id="screens-h">Screens from the live sites</h2>
+    <ul class="gallery">
+      <li><figure><a class="lb" href="img/app.webp" data-w="1440" data-h="740"><img src="img/app.webp" width="1440" height="740" alt="The Getting started section of useargus.co: Up and running in under 5 minutes, with a four-step setup and a card showing six live cameras." loading="lazy" decoding="async"></a><figcaption>Setup in four steps, with sample data.</figcaption></figure></li>
+      <li><figure><a class="lb" href="img/numbers.webp" data-w="1440" data-h="740"><img src="img/numbers.webp" width="1440" height="740" alt="The numbers section of useargus.co: Numbers none of your other tools can give you, with a sample reading of 96.4 percent paid for." loading="lazy" decoding="async"></a><figcaption>The numbers section. The 96.4% reading is labeled a sample.</figcaption></figure></li>
+      <li><figure><a class="lb" href="img/docs.webp" data-w="1440" data-h="900"><img src="img/docs.webp" width="1440" height="900" alt="The Argus docs site, Quick Start page, with a left menu of Get Started, Cameras, Incidents and Your Dashboard." loading="lazy" decoding="async"></a><figcaption>docs.useargus.co, the Quick Start page.</figcaption></figure></li>
+      <li><figure><a class="lb" href="img/status.webp" data-w="1440" data-h="900"><img src="img/status.webp" width="1440" height="900" alt="The Argus status page: All systems working, with 90 day uptime bars for the website, dashboard and docs." loading="lazy" decoding="async"></a><figcaption>status.useargus.co.</figcaption></figure></li>
+    </ul>
+  </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
+    <h2 id="did-h">What I owned</h2>
     <ul class="did-list">
       <li>Built the first site in March 2026, then the current one.</li>
-      <li>Run it day to day. Most of the human-written commits are mine.</li>
+      <li>Ran it day to day. Most of the human-written commits are mine.</li>
       <li>Set up the docs site at docs.useargus.co from a template.</li>
     </ul>
   </section>
 
-  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
-    <h2 id="gallery-h">Gallery</h2>
-    <ul class="gallery">
-      <li class="g-wide"><figure><a class="lb" href="img/numbers.webp" data-w="1200" data-h="966"><img src="img/numbers.webp" width="1200" height="966" alt="A useargus.co section: Numbers none of your other tools can give you, with a 96.4% paid for reading and sample cards." loading="lazy" decoding="async"></a><figcaption>The numbers section, with sample figures.</figcaption></figure></li>
-      <li><figure><a class="lb" href="img/phone.webp" data-w="480" data-h="985"><img src="img/phone.webp" width="480" height="985" alt="The useargus.co home page on a phone." loading="lazy" decoding="async"></a><figcaption>The site on a phone.</figcaption></figure></li>
-      <li class="g-wide"><figure><a class="lb" href="img/app.webp" data-w="1200" data-h="876"><img src="img/app.webp" width="1200" height="876" alt="A useargus.co section: Everything your store runs on, in one app, with cards for cameras, invoices, money, stock, staff and register." loading="lazy" decoding="async"></a><figcaption>What is in the app, today and next.</figcaption></figure></li>
-    </ul>
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose">
+      <p>On a sales page, the number you can show beats the adjective. Wherever a figure was a sample, the site said so on the page.</p>
+      <p>Plain words and a short list of proof beat clever motion for a busy store owner.</p>
+    </div>
   </section>
 
   <section class="proj-section proj-related" aria-labelledby="related-h">
@@ -83,14 +125,18 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
-<script type="module" src="/startup-work/argus-site/main.js"></script>
+<script type="module" src="/startup-work/argus/main.js"></script>
 </body>
 </html>

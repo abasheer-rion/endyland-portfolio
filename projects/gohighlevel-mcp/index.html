@@ -4,39 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Claude for GoHighLevel | Ayan Basheer</title>
-<meta name="description" content="A connector that lets Claude read and work inside a GoHighLevel CRM.">
+<meta name="description" content="An MCP server with 48 tools that lets Claude read and work inside a GoHighLevel CRM, built for New Door in April 2026.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/projects/gohighlevel-mcp/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/projects/gohighlevel-mcp/">
 <meta property="og:title" content="Claude for GoHighLevel | Ayan Basheer">
-<meta property="og:description" content="A connector that lets Claude read and work inside a GoHighLevel CRM.">
+<meta property="og:description" content="An MCP server with 48 tools that lets Claude read and work inside a GoHighLevel CRM, built for New Door in April 2026.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B0420">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#EFE3C8">
+<meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
-<link rel="stylesheet" href="/projects/gohighlevel-mcp/style.css">
 <link rel="modulepreload" href="/shared/project.js">
 </head>
 <body class="proj-page proj-gohighlevel-mcp">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/" aria-current="true">Projects<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/projects/" aria-current="true">Projects</a></li>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
@@ -47,50 +51,100 @@
     <p class="proj-kicker">AI tool</p>
     <h1>Claude for GoHighLevel</h1>
     <p class="proj-summary">A connector that lets Claude read and work inside a GoHighLevel CRM.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>Apr 2026</dd></div><div><dt>Built for</dt><dd>New Door Investments</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>MCP</li><li>GoHighLevel API</li></ul></dd></div></dl>
+    <dl class="proj-meta"><div><dt>Dates</dt><dd>Apr 2026</dd></div><div><dt>Built for</dt><dd>New Door Investments</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>MCP</li><li>GoHighLevel API</li><li>Next.js</li><li>TypeScript</li><li>Vercel</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="screen"><img src="img/photo.webp" width="1400" height="1021" alt="A small toy robot next to a laptop." fetchpriority="high" decoding="async"></div><figcaption><span class="credit">Photo: Mohamed Nohassi on <a href="https://unsplash.com/photos/-0xMiYQmk8g" rel="noopener">Unsplash</a> (Unsplash License). A stock photo, not the real thing.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/flow.svg" width="1000" height="420" alt="A person asks Claude in plain words. Claude calls a tool on an MCP server on Vercel, which checks a secret and calls the GoHighLevel API. The answer comes back as text." fetchpriority="high" decoding="async"></div></div><figcaption>From a question to the CRM, as a diagram drawn for this site. The repo is private, so there is no screenshot of the code.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <div class="numbers-grid">
-    <div class="stage" aria-hidden="true">
-      <canvas class="proj-scene"></canvas>
-      <p class="stage-hud"><span>Tools</span><span>48 / 48</span></p>
-      <p class="stage-hud stage-foot"><span class="stage-slot">Slot 01</span><span class="blink">&#9660;</span></p>
-    </div>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">48</span><span aria-hidden="true" data-count="48">48</span></b><span>tools Claude can use in the CRM</span></li></ul>
+  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">In numbers</h2>
+    <div class="sec-body">
+      <ul class="stats"><li class="stat"><b><span class="visually-hidden">48</span><span aria-hidden="true" data-count="48">48</span></b><span>tools Claude can use in the CRM</span></li><li class="stat"><b><span class="visually-hidden">11</span><span aria-hidden="true" data-count="11">11</span></b><span>groups, from contacts to calendars</span></li><li class="stat"><b>24 + 24</b><span>tools that look things up, and tools that change something</span></li><li class="stat"><b><span class="visually-hidden">3</span><span aria-hidden="true" data-count="3">3</span></b><span>days from first commit to the full toolset</span></li></ul>
     </div>
   </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
+  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <div class="sec-body">
+      <p>A real estate team lives in its CRM: contacts, deals, notes, tasks, calendars and messages. Finding something there takes clicks through several screens, and updating a lot of records means doing it one by one.</p>
+      <p>Claude can already read and write well. What it lacked was a way into GoHighLevel, the CRM the New Door team uses.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="approach" aria-labelledby="approach-h">
+    <h2 id="approach-h">The approach</h2>
+    <div class="sec-body">
+      <p>MCP, the Model Context Protocol, is the standard way to give Claude tools. I built an MCP server that wraps the GoHighLevel API. Each thing the CRM can do became a tool with a name, a description and a typed input, so Claude can pick the right one from a plain request.</p>
+      <p>It is a small Next.js app written in TypeScript and hosted on Vercel. Claude connects to it as a custom connector, and one endpoint serves every tool.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="sec-body">
+      <p>A person asks Claude something like "who did we tag as 1031 last week?" Claude chooses a tool, fills in its input, and sends the call to the server. The server checks the shared secret, calls the GoHighLevel API with the account token, and returns the result as text. If the API refuses, the error comes back the same way, so Claude can explain what went wrong.</p>
+      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/tools.svg" width="1000" height="560" alt="Bar chart of the 48 tools by group. Contacts 8, opportunities 6, calendars 6, tasks 5, forms surveys and media 5, notes 4, conversations 4, workflows 3, campaigns 3, custom fields 2, location and users 2." loading="lazy" decoding="async"></div></div><figcaption>The 48 tools by group.</figcaption></figure>
+      <h3>What one tool looks like</h3>
+      <p>Every tool is described to Claude in plain words and has a typed input. This is the contact search, from the real code, with the descriptions trimmed.</p>
+      <pre class="code" tabindex="0"><span class="k">search_contacts</span>
+  query         <span class="m">text to match on name, email or phone</span>
+  limit         <span class="m">1 to 100, default 20</span>
+  startAfter    <span class="m">paging: from the last reply</span>
+  startAfterId  <span class="m">paging: from the last reply</span></pre>
+      <p>Lists come back a page at a time. The reply says where the next page starts, and Claude passes that back in to keep going.</p>
+      <h3>Care with actions that cannot be undone</h3>
+      <p>Half the tools only look things up. The other half change something. Three are marked in their titles as destructive or high impact: deleting a contact, deleting an opportunity, and sending an SMS or email. The description of each tells Claude to confirm with the person first. Sending a message goes to a real lead right away, so it is never a draft.</p>
+      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/care.svg" width="1000" height="330" alt="Three boxes. Look things up: search, get and list tools, nothing changes. Change one record: create, update, tag, note and task tools. Flagged high impact: delete contact, delete opportunity and send message, where Claude must confirm with the person first." loading="lazy" decoding="async"></div></div><figcaption>Three kinds of tools. The third kind is the one that asks first.</figcaption></figure>
+      <h3>Keeping it private</h3>
+      <p>The endpoint needs a shared secret, sent as a bearer token, and the server compares it in constant time. The CRM token and location id live in the host&#8217;s environment settings, never in the code. A small status page on the server shows whether each setting is present without showing its value.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="results" aria-labelledby="results-h">
+    <h2 id="results-h">Results</h2>
+    <div class="sec-body">
+      <p>The New Door team got a connector with the whole CRM behind it: 48 tools across 11 groups, 24 that read and 24 that change something. It was built in about three days, from the first commit on April 21 to the last on April 23, 2026, in four commits.</p>
+      <details class="tools-all"><summary>Every tool, by group</summary>
+      <div class="table-wrap" tabindex="0" role="group" aria-label="All 48 tools"><table class="facts"><caption>All 48 tools</caption><thead><tr><th scope="col">Group</th><th scope="col">Count</th><th scope="col">Tools</th></tr></thead><tbody><tr><th scope="row">Contacts, look up</th><td>2</td><td><code>search_contacts</code>, <code>get_contact</code></td></tr><tr><th scope="row">Contacts, change</th><td>6</td><td><code>create_contact</code>, <code>update_contact</code>, <code>upsert_contact</code>, <code>delete_contact</code>, <code>add_contact_tags</code>, <code>remove_contact_tags</code></td></tr><tr><th scope="row">Opportunities</th><td>6</td><td><code>list_opportunities</code>, <code>get_opportunity</code>, <code>get_pipelines</code>, <code>create_opportunity</code>, <code>update_opportunity_stage</code>, <code>delete_opportunity</code></td></tr><tr><th scope="row">Notes</th><td>4</td><td><code>list_contact_notes</code>, <code>create_note</code>, <code>update_note</code>, <code>delete_note</code></td></tr><tr><th scope="row">Tasks</th><td>5</td><td><code>list_contact_tasks</code>, <code>create_task</code>, <code>update_task</code>, <code>complete_task</code>, <code>delete_task</code></td></tr><tr><th scope="row">Conversations</th><td>4</td><td><code>search_conversations</code>, <code>get_conversation</code>, <code>get_conversation_messages</code>, <code>send_message</code></td></tr><tr><th scope="row">Calendars</th><td>6</td><td><code>get_calendars</code>, <code>list_calendar_events</code>, <code>get_calendar_free_slots</code>, <code>create_appointment</code>, <code>update_appointment</code>, <code>delete_appointment</code></td></tr><tr><th scope="row">Workflows</th><td>3</td><td><code>list_workflows</code>, <code>add_contact_to_workflow</code>, <code>remove_contact_from_workflow</code></td></tr><tr><th scope="row">Campaigns</th><td>3</td><td><code>list_campaigns</code>, <code>add_contact_to_campaign</code>, <code>remove_contact_from_campaign</code></td></tr><tr><th scope="row">Custom fields and values</th><td>2</td><td><code>list_custom_fields</code>, <code>list_custom_values</code></td></tr><tr><th scope="row">Location and users</th><td>2</td><td><code>get_location</code>, <code>list_users</code></td></tr><tr><th scope="row">Forms, surveys and media</th><td>5</td><td><code>list_forms</code>, <code>list_form_submissions</code>, <code>list_surveys</code>, <code>list_survey_submissions</code>, <code>list_media</code></td></tr></tbody></table></div>
+      </details>
+      <p>The repo is private and the data in the CRM is the team&#8217;s own, so there are no screenshots of real records on this page.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="did" aria-labelledby="did-h">
     <h2 id="did-h">What I did</h2>
-    <div class="dialog">
-    <ul class="did-list">
-      <li>Built an MCP server with 48 tools that lets Claude work inside a GoHighLevel CRM.</li>
-      <li>Built it for the <a href="/web-design/new-door/">New Door</a> team.</li>
-    </ul>
-    <span class="dialog-more" aria-hidden="true"></span>
+    <div class="sec-body">
+      <ul class="did-list">
+        <li>Built an MCP server with 48 tools that lets Claude work inside a GoHighLevel CRM.</li>
+        <li>Built it for the <a href="/web-design/new-door/">New Door</a> team.</li>
+        <li>Added confirmation rules on the tools that delete data or send messages.</li>
+        <li>Protected the endpoint with a shared secret and kept every token in settings, out of the code.</li>
+      </ul>
     </div>
   </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
+  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="sec-body">
+      <p>Good tool descriptions matter as much as the code. Claude chooses tools by reading them, so each one says what it returns, what it needs, and what to check first.</p>
+      <p>Mark the dangerous tools plainly. A tool that sends a real message needs a loud name and an instruction to confirm, because nothing downstream can unsend it.</p>
+      <p>Start with a small set and grow it. The server began with a handful of tools and grew to the full CRM surface once the pattern worked.</p>
+    </div>
+  </section>
+  <section class="proj-section story" id="related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/web-design/new-door/">New Door Investments</a></li></ul>
+    <div class="sec-body"><ul class="plain-list"><li><a href="/web-design/new-door/">New Door Investments</a>, who it was built for.</li><li><a href="/projects/ses-mailer/">Bulk email app on Amazon SES</a>, the other tool built for New Door.</li></ul></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/projects/gohighlevel-mcp/main.js"></script>

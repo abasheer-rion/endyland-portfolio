@@ -1,90 +1,114 @@
 <!doctype html>
-<html lang="en" data-theme="tab-experience">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Voice network device backups | Ayan Basheer</title>
-<meta name="description" content="200+ live voice-network devices had no backups. I automated the fix.">
+<meta name="description" content="200+ live voice-network devices had no backups at Verizon. I automated the fix.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/experience/verizon-backups/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/experience/verizon-backups/">
 <meta property="og:title" content="Voice network device backups | Ayan Basheer">
-<meta property="og:description" content="200+ live voice-network devices had no backups. I automated the fix.">
+<meta property="og:description" content="200+ live voice-network devices had no backups at Verizon. I automated the fix.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B2545">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#EFE3C8">
+<meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/experience/project-theme.css">
-<link rel="stylesheet" href="/experience/verizon-backups/style.css">
-<link rel="modulepreload" href="/shared/project.js">
 </head>
 <body class="proj-page proj-verizon-backups">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/" aria-current="true">Experi&shy;ence<span class="tab-ind" aria-hidden="true"></span></a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/" aria-current="true">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<canvas class="proj-scene" id="scene" aria-hidden="true"></canvas>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/experience/">Experience</a></li><li><a href="/experience/verizon/">Verizon</a></li><li><span>Voice network device backups</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <p class="proj-kicker">Verizon</p>
     <h1>Voice network device backups</h1>
     <p class="proj-summary">200+ live voice-network devices had no backups. I automated the fix.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Found the gap and automated the fix</dd></div><div><dt>Dates</dt><dd>Verizon internship, 2025 and 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>SSH</li></ul></dd></div></dl>
     <ul class="proj-links"><li class="proj-nolink">Internal tool. No public link.</li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="fig-stage"><img src="img/figure.svg" width="800" height="450" alt="Diagram: a grid of 200+ devices, each now backed up." fetchpriority="high" decoding="async"><svg class="fig-fx" viewBox="0 0 800 450" aria-hidden="true" focusable="false"><defs><linearGradient id="bk-sw" x1="0" x2="1"><stop offset="0" stop-color="#FFC857" stop-opacity="0"/><stop offset="1" stop-color="#FFC857" stop-opacity=".32"/></linearGradient><clipPath id="bk-clip"><rect x="36" y="84" width="582" height="296"/></clipPath></defs><g clip-path="url(#bk-clip)"><g><rect x="-120" y="84" width="120" height="296" fill="url(#bk-sw)"/><rect x="-2" y="84" width="3" height="296" fill="#FFC857"/><animateTransform attributeName="transform" type="translate" values="36 0;740 0" dur="4.2s" repeatCount="indefinite"/></g></g></svg></div><div class="tblock" aria-hidden="true"><span>EX-01.3</span><span>SHEET 3 OF 4</span><span>NOT TO SCALE</span></div><figcaption>Each square is one device.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="fig-stage"><img src="img/figure.svg" width="800" height="450" alt="Diagram: twenty squares, each standing for ten devices, fill in one after another to show 200+ voice-network devices now backed up." fetchpriority="high" decoding="async"></div><figcaption>Twenty squares, each standing for ten devices, fill in as the backups come online.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">200+</span><span aria-hidden="true" data-count="200" data-post="+">200+</span></b><span>devices with no backups</span></li><li class="stat"><b>3+</b><span>days of testing</span></li><li class="stat"><b><span class="visually-hidden">25+</span><span aria-hidden="true" data-count="25" data-post="+">25+</span></b><span>items in the requirements spec</span></li></ul>
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <p>Live voice-network devices, session border controllers among them, were set to keep no backups. That left disaster recovery open on a live carrier voice network: if a device failed, there was nothing recent to restore from.</p>
+    <p>I found 200+ devices in that state, and set out to close the gap.</p>
   </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Found 200+ live voice-network devices with no backups.</li>
-      <li>Automated the backups in Python and tested them for 3+ days.</li>
-      <li>Stopped an unsafe rollout after finding a firmware problem.</li>
-      <li>Wrote a 25+ item requirements spec and handed the work to operations.</li>
-    </ul>
+  <section class="proj-section" aria-labelledby="built-h">
+    <h2 id="built-h">What I built</h2>
+    <div class="split"><div>
+    <p>I wrote Python automation that takes the backups over SSH and the devices&#8217; own command line, so they run on their own.</p>
+    <p>I tested it unattended for 3+ days on 4 nodes and checked that a restore worked from the backups, end to end. While configuring the devices I found a firmware dependency, which meant the planned rollout was not supported. I stopped it before it went out.</p>
+    <p>Last, I wrote a requirements spec of 25+ items and handed the work to operations.</p>
+    </div>    <ul class="facts-list"><li><b>200+</b><span>devices with no backups, now covered</span></li><li><b>3+</b><span>days of unattended testing</span></li><li><b>4</b><span>nodes in the test run</span></li><li><b>25+</b><span>items in the requirements spec</span></li></ul>
+    </div>
   </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/experience/verizon/">Part of Verizon</a></li></ul>
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <p>Five steps, from a gap nobody had counted to a job operations owns.</p>
+    <figure class="plate"><ol class="pipe"><li><span class="pipe-fig">200+</span><h3>Find the gap</h3><p>Devices that were set to keep no backups.</p></li><li><h3>Automate it</h3><p>Python over SSH takes the backups on its own.</p></li><li><span class="pipe-fig">3+ days</span><h3>Validate</h3><p>Ran unattended on 4 nodes. A restore was checked end to end.</p></li><li><h3>Stop at the gate</h3><p>A firmware dependency showed up, so I stopped an unsafe rollout.</p></li><li><span class="pipe-fig">25+</span><h3>Hand it over</h3><p>A requirements spec of 25+ items, then the work moved to operations.</p></li></ol><figcaption>The first and last boxes are the numbers that matter: what was missing and what was written down.</figcaption></figure>
+    <h3>The validation run</h3>
+    <figure class="plate"><div class="lanes-axis"><span>Node</span><span><span>Start</span><span>3+ days, unattended</span></span></div>
+    <ol class="lanes"><li><span class="lane-name">Node 1</span><span class="lane-bar"></span></li><li><span class="lane-name">Node 2</span><span class="lane-bar"></span></li><li><span class="lane-name">Node 3</span><span class="lane-bar"></span></li><li><span class="lane-name">Node 4</span><span class="lane-bar"></span></li></ol>
+    <figcaption>Four nodes ran the backups with nobody watching for 3+ days. When the run ended I checked that a restore from those backups worked, start to finish.</figcaption></figure>
+  </section>
+  <section class="proj-section" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">Results</h2>
+    <ul class="stats"><li class="stat"><b><span class="visually-hidden">200+</span><span aria-hidden="true" data-count="200" data-post="+">200+</span></b><span>devices that had no backups</span></li><li class="stat"><b>3+</b><span>days of unattended testing</span></li><li class="stat"><b>4</b><span>nodes in the test run</span></li><li class="stat"><b><span class="visually-hidden">25+</span><span aria-hidden="true" data-count="25" data-post="+">25+</span></b><span>items in the requirements spec</span></li><li class="stat"><b>1</b><span>unsafe rollout stopped</span></li></ul>
+  </section>
+  <section class="proj-section" aria-labelledby="did-h">
+    <h2 id="did-h">What I owned</h2>
+    <ul class="did-list"><li>Found 200+ live voice-network devices with no backups.</li><li>Automated the backups in Python and tested them for 3+ days.</li><li>Stopped an unsafe rollout after finding a firmware problem.</li><li>Wrote a 25+ item requirements spec and handed the work to operations.</li></ul>
+  </section>
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <ul class="learn-list"><li>Test the restore, not just the copy. A backup you have never restored is a guess.</li><li>A good gate saves more than it costs. Finding the firmware dependency before the rollout was cheaper than finding it after.</li><li>Hand over with a spec. Writing down what the backups must do is what let someone else run them.</li></ul>
+  </section>
+  <section class="proj-section" aria-labelledby="related-h">
+    <h2 id="related-h">More from Verizon</h2>
+    <ul class="plain-list"><li><a href="/experience/verizon/">Part of Verizon</a></li><li><a href="/experience/verizon-trunk-tool/">Carrier Trunk Provisioning Tool</a></li><li><a href="/experience/verizon-cloud-move/">Moving apps off VMware</a></li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/experience/verizon/">Back to Verizon</a><a class="back-link" href="/experience/">Back to Experience</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/experience/verizon-backups/main.js"></script>

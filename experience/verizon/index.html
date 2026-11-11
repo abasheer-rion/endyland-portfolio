@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="tab-experience">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,84 +12,86 @@
 <meta property="og:title" content="Verizon | Ayan Basheer">
 <meta property="og:description" content="Two summers automating network work at Verizon in Richardson, TX.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B2545">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#EFE3C8">
+<meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/experience/project-theme.css">
-<link rel="stylesheet" href="/experience/verizon/style.css">
-<link rel="modulepreload" href="/shared/project.js">
 </head>
 <body class="proj-page proj-verizon">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/" aria-current="true">Experi&shy;ence<span class="tab-ind" aria-hidden="true"></span></a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/" aria-current="true">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<canvas class="proj-scene" id="scene" aria-hidden="true"></canvas>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/experience/">Experience</a></li><li><span>Verizon</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <p class="proj-kicker">Network engineer intern, software and automation</p>
     <h1>Verizon</h1>
-    <p class="proj-summary">Two summers automating network work at Verizon in Richardson, TX.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Network engineer intern (software and automation)</dd></div><div><dt>Dates</dt><dd>Jun to Aug 2025, and Jun to Aug 2026</dd></div><div><dt>Place</dt><dd>Richardson, TX</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>SSH</li><li>REST APIs</li><li>CI/CD</li><li>VMware</li></ul></dd></div></dl>
+    <p class="proj-summary">Two summers automating network work in Richardson, TX: a provisioning tool, device backups and a move off VMware.</p>
+    <dl class="proj-meta"><div><dt>Role</dt><dd>Network engineer intern (software and automation)</dd></div><div><dt>Dates</dt><dd>Jun to Aug 2025, and Jun to Aug 2026</dd></div><div><dt>Place</dt><dd>Richardson, TX</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Bash</li><li>SSH</li><li>REST APIs</li><li>CI/CD</li><li>VMware</li></ul></dd></div></dl>
     <ul class="proj-links"><li class="proj-nolink">Internal tools. No public link.</li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="fig-stage"><img src="img/photo.webp" width="1400" height="785" alt="Rows of blue network cables plugged into a switch." fetchpriority="high" decoding="async"><svg class="fig-fx" viewBox="0 0 1400 785" aria-hidden="true" focusable="false"><circle class="fx-ants" cx="960" cy="360" r="130" fill="none" stroke="#FFC857" stroke-width="4" stroke-dasharray="14 10"/><path d="M1052 268L1170 150H1380" fill="none" stroke="#FFC857" stroke-width="3"/><circle cx="1052" cy="268" r="7" fill="#FFC857"/><rect x="1180" y="98" width="200" height="46" fill="#FFC857"/><text x="1280" y="130" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="24" font-weight="700" letter-spacing="3" fill="#0B2545">DETAIL A</text></svg></div><div class="tblock" aria-hidden="true"><span>EX-01</span><span>SHEET 1 OF 4</span><span>NOT TO SCALE</span></div><figcaption><span class="credit">Photo: Taylor Vick on <a href="https://unsplash.com/photos/M5tzZtFCOfs" rel="noopener">Unsplash</a> (Unsplash License). A stock photo, not the real thing.</span></figcaption></figure>
+    <figure class="proj-hero-media"><div class="fig-stage"><img src="img/figure.svg" width="800" height="450" alt="Verizon work in three numbers: $70M a year in revenue on a tool I built, 200+ voice devices backed up, $480K a year saved off VMware." fetchpriority="high" decoding="async"></div><figcaption>The three results, drawn for this site. Details for each are below.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
+  <section class="proj-section" aria-labelledby="job-h">
+    <h2 id="job-h">Two summers, three problems</h2>
+    <p>I was a network engineer intern on the software and automation side, in Richardson, TX, in the summers of 2025 and 2026. The work was the kind people do by hand until someone writes it down as code: setting up carrier trunks, keeping backups of voice-network devices, and moving applications from one platform to another.</p>
+    <p>I wrote the code in Python and Bash, worked over SSH and REST APIs, and wrote runbooks so the work could be handed on. Each project below has a clear result you can count.</p>
+    <p>Two smaller pieces sit beside them. My configuration scripts cut manual configuration time by 35%. Scripts I wrote for micro-node maintenance windows removed about 90% of the manual actions during firmware updates.</p>
+  </section>
+  <section class="proj-section" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">Results</h2>
     <ul class="stats"><li class="stat"><b><span class="visually-hidden">$70M</span><span aria-hidden="true" data-count="70" data-pre="$" data-post="M">$70M</span></b><span>a year in revenue on the tool I built</span></li><li class="stat"><b><span class="visually-hidden">$480K</span><span aria-hidden="true" data-count="480" data-pre="$" data-post="K">$480K</span></b><span>a year saved by leaving VMware</span></li><li class="stat"><b>$2M+</b><span>more savings projected</span></li><li class="stat"><b><span class="visually-hidden">200+</span><span aria-hidden="true" data-count="200" data-post="+">200+</span></b><span>devices given backups</span></li><li class="stat"><b><span class="visually-hidden">300+</span><span aria-hidden="true" data-count="300" data-post="+">300+</span></b><span>automatic tests in the release pipeline</span></li></ul>
   </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Found 200+ live voice-network devices with no backups, and automated the fix.</li>
-      <li>Built the Carrier Trunk Provisioning Tool alone. It is the record system and API behind a $70M-a-year revenue line.</li>
-      <li>Built a release pipeline with 300+ automatic tests.</li>
-      <li>Moved apps off VMware to Verizon&#8217;s internal cloud, saving $480K a year, with $2M+ more projected.</li>
-      <li>Wrote a 25+ item requirements spec and handed the backup work to operations.</li>
-    </ul>
+  <section class="proj-section" aria-labelledby="work-h">
+    <h2 id="work-h">The three projects</h2>
+    <ul class="work-list"><li><a class="work-row" href="/experience/verizon-trunk-tool/"><img src="/experience/verizon-trunk-tool/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div><span class="row-num">$70M</span><h3>Carrier Trunk Provisioning Tool</h3><p>The record system and API for carrier trunks, behind a revenue line worth $70M a year. I built it alone in Python and shipped it through a release pipeline that runs 300+ automatic tests.</p><span class="row-go">Read the project</span></div></a></li><li><a class="work-row" href="/experience/verizon-backups/"><img src="/experience/verizon-backups/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div><span class="row-num">200+</span><h3>Voice network device backups</h3><p>More than 200 live voice-network devices were set to keep no backups. I proved it, automated the fix, tested it for 3+ days, stopped an unsafe rollout and handed the work to operations.</p><span class="row-go">Read the project</span></div></a></li><li><a class="work-row" href="/experience/verizon-cloud-move/"><img src="/experience/verizon-cloud-move/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div><span class="row-num">$480K</span><h3>Moving apps off VMware</h3><p>I led the move of applications from VMware to Verizon&#8217;s internal cloud. It saves $480K a year, with $2M+ more projected from the migration framework I built.</p><span class="row-go">Read the project</span></div></a></li></ul>
   </section>
-
-  <section class="proj-section proj-subs" aria-labelledby="subs-h">
-    <h2 id="subs-h">Notable work</h2>
-    <ul class="cards">
-      <li><a class="card-link" href="/experience/verizon-trunk-tool/" data-node="0"><span class="sheet-no" aria-hidden="true">SHEET 2</span><img src="/experience/verizon-trunk-tool/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>Carrier Trunk Provisioning Tool</h3><p>The record system and API behind a $70M-a-year revenue line. I built it alone.</p><span class="card-go">See the project</span></div></a></li>
-      <li><a class="card-link" href="/experience/verizon-backups/" data-node="1"><span class="sheet-no" aria-hidden="true">SHEET 3</span><img src="/experience/verizon-backups/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>Voice network device backups</h3><p>200+ live voice-network devices had no backups. I automated the fix.</p><span class="card-go">See the project</span></div></a></li>
-      <li><a class="card-link" href="/experience/verizon-cloud-move/" data-node="2"><span class="sheet-no" aria-hidden="true">SHEET 4</span><img src="/experience/verizon-cloud-move/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>Moving apps off VMware</h3><p>Moved apps off VMware to Verizon&#8217;s internal cloud, saving $480K a year.</p><span class="card-go">See the project</span></div></a></li>
-    </ul>
+  <section class="proj-section" aria-labelledby="did-h">
+    <h2 id="did-h">What I owned</h2>
+    <ul class="did-list"><li>Found 200+ live voice-network devices with no backups, and automated the fix.</li><li>Built the Carrier Trunk Provisioning Tool alone. It is the record system and API behind a $70M-a-year revenue line.</li><li>Built a release pipeline with 300+ automatic tests.</li><li>Moved apps off VMware to Verizon&#8217;s internal cloud, saving $480K a year, with $2M+ more projected.</li><li>Wrote a 25+ item requirements spec and handed the backup work to operations.</li></ul>
+  </section>
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <ul class="learn-list"><li>Start with a count. The backup work began with a number of devices that had no backups, and that number made the case on its own.</li><li>Test the thing you will rely on. A 300-test gate is what let releases go out with no manual deploy steps.</li><li>Write it down for the next person. The 25+ item spec and the runbooks are what let operations own the work after I handed it over.</li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/experience/">Back to Experience</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/experience/verizon/main.js"></script>

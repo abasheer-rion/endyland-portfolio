@@ -1,112 +1,156 @@
 <!doctype html>
-<html lang="en" data-theme="argus-app">
+<html lang="en" data-theme="argus-dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Argus Dashboard | Ayan Basheer</title>
-<meta name="description" content="One screen for running a store: loss prevention, stock, money and staff.">
+<meta name="description" content="One screen for running a store: loss prevention, stock, money and staff. Part of Argus, which ended in 2026.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-dashboard/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-dashboard/">
 <meta property="og:title" content="Argus Dashboard | Ayan Basheer">
-<meta property="og:description" content="One screen for running a store: loss prevention, stock, money and staff.">
+<meta property="og:description" content="One screen for running a store: loss prevention, stock, money and staff. Part of Argus, which ended in 2026.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#171717">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400..600&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
-<link rel="stylesheet" href="/startup-work/argus-dashboard/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
+<link rel="modulepreload" href="/startup-work/argus/main.js">
 </head>
-<body class="proj-page proj-dash proj-argus-dashboard">
+<body class="proj-page proj-argus-dashboard">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
-<canvas class="proj-scene" id="dash-scene" aria-hidden="true"></canvas>
-
 <main id="main" class="proj">
-  <nav class="dash-rail" aria-label="On this page">
-    <img class="dash-mark" src="/startup-work/argus/img/mark.webp" width="128" height="128" alt="" decoding="async">
-    <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#numbers-h">By the numbers</a></li>
-      <li><a href="#did-h">What I did</a></li>
-      <li><a href="#app-h">In the app</a></li>
-      <li><a href="#related-h">Related</a></li>
-    </ul>
-    <p class="dash-live" aria-hidden="true"><span></span>Live</p>
-  </nav>
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>Argus Dashboard</span></li></ol></nav>
 
   <header class="proj-hero" id="overview">
     <div class="proj-intro">
-    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo">
-    <p class="proj-kicker">Argus sub-project</p>
+    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
+    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
     <h1>Argus Dashboard</h1>
     <p class="proj-summary">One screen for running a store: loss prevention, stock, money and staff.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. About 70% of the code.</dd></div><div><dt>Dates</dt><dd>Jan 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>JavaScript</li><li>Node and Express</li><li>Postgres on Hetzner</li><li>Clerk</li><li>Stripe</li><li>Cloudflare Pages</li></ul></dd></div></dl>
+    <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. About 70% of the code.</dd></div><div><dt>Dates</dt><dd>Jan 2026 to 2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>JavaScript</li><li>Node and Express</li><li>Postgres on Hetzner</li><li>Clerk</li><li>Stripe</li><li>Cloudflare Pages</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://portal.rionsolution.com" rel="noopener">Store portal</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media a-tilt"><div class="a-tilt-in"><img src="img/dashboard.webp" width="1215" height="830" alt="The Argus dashboard: Good morning, Maria, with 96.4% paid for, alerts, invoices and sales by hour." fetchpriority="high" decoding="async"><span class="a-glare" aria-hidden="true"></span></div><figcaption>The dashboard as shown on useargus.co, with sample data.</figcaption></figure>
+    <figure class="proj-hero-media a-shot"><img src="img/dashboard.webp" width="990" height="680" alt="The Argus dashboard demo: Good morning, Maria, with sales today, transactions, alerts, sales by hour, who is on shift and low stock." fetchpriority="high" decoding="async"><figcaption>The dashboard demo on useargus.co, captured in November 2026. Sample data.</figcaption></figure>
   </header>
+
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">A store owner should not need six apps.</h2>
+    <div class="prose">
+      <p>A store runs on cameras, a register, invoices, stock, money and staff. Each lives in a different tool. The owner stitches the picture together by hand, usually at the end of a long day.</p>
+      <p>RION already had a client portal called NEXUS, built as several separate apps. It was not one screen a store manager could glance at.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">Turn a multi-app portal into one store screen.</h2>
+    <div class="a-split">
+      <div class="prose">
+        <p>I turned the portal into one screen and renamed it Argus. It kept the same pieces underneath: a store portal, an admin app, a phone app, an ops app, a status page and bulk email.</p>
+        <p>On top of that I built what a store actually looks at. The demo shows sales today and by hour, transactions, who is on shift, what is running low, and alerts with a dollar amount next to each one.</p>
+        <p>Later work added camera monitoring, links to the register (POS) and to QuickBooks, invoice emails, faster pages and alerts.</p>
+      </div>
+      <figure class="a-fig"><img src="img/setup.webp" width="368" height="424" alt="The setup step of the dashboard: Your cameras are live, with six camera tiles marked live." loading="lazy" decoding="async"><figcaption>The last setup step: every camera comes online and shows as live. From the demo on useargus.co, November 2026.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="prose"><p>Every front end talks to one Node and Express API. The API keeps its data in Postgres, signs people in with Clerk and handles billing with Stripe. The AI service sends its alerts to the API as signed messages, so the dashboard can show them with the camera and the store they came from.</p></div>
+    <figure class="a-diagram">
+      <div class="fig-scroll" tabindex="0" role="region" aria-label="Dashboard architecture drawing, scrolls sideways on small screens">
+      <svg viewBox="0 0 1000 380" role="img" aria-labelledby="dd-t dd-d" focusable="false">
+        <title id="dd-t">How the dashboard fits together</title>
+        <desc id="dd-d">Six front ends, the store portal, admin, phone app, ops app, status page and bulk email, all talk to one Node and Express API. The API stores data in Postgres, signs people in with Clerk and bills with Stripe. The Argus AI service sends signed alerts into the API.</desc>
+        <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FCA5A5"/></marker></defs>
+        <g class="dg-line" style="stroke:#FCA5A5"><path d="M270 72H320M270 126H320M270 180H320M270 234H320M270 288H320M270 342H320"/><path d="M320 72V342"/><path d="M320 190H370" marker-end="url(#ar2)"/><path d="M630 150H730" marker-end="url(#ar2)"/><path d="M630 230H730" marker-end="url(#ar2)"/><path d="M500 80V130" marker-end="url(#ar2)"/></g>
+        <g style="fill:none;stroke:#C9C9C3;stroke-width:1.5">
+          <rect x="20" y="50" width="250" height="44" rx="4"/><rect x="20" y="104" width="250" height="44" rx="4"/><rect x="20" y="158" width="250" height="44" rx="4"/><rect x="20" y="212" width="250" height="44" rx="4"/><rect x="20" y="266" width="250" height="44" rx="4"/><rect x="20" y="320" width="250" height="44" rx="4"/>
+        </g>
+        <g style="font-size:16px;fill:#F5F5F2;text-anchor:middle"><text x="145" y="78">Store portal</text><text x="145" y="132">Admin</text><text x="145" y="186">Phone app</text><text x="145" y="240">Ops app</text><text x="145" y="294">Status page</text><text x="145" y="348">Bulk email</text></g>
+        <rect x="370" y="130" width="260" height="120" rx="6" style="fill:#DC2626"/><text x="500" y="182" style="font-size:20px;fill:#fff;text-anchor:middle">Node and Express API</text><text x="500" y="210" style="font-size:14px;fill:#fff;text-anchor:middle">one backend for every app</text>
+        <rect x="730" y="120" width="230" height="60" rx="4" style="fill:#222;stroke:#C9C9C3;stroke-width:1.5"/><text x="845" y="157" style="font-size:17px;fill:#F5F5F2;text-anchor:middle">Postgres</text>
+        <rect x="730" y="200" width="230" height="60" rx="4" style="fill:#222;stroke:#C9C9C3;stroke-width:1.5"/><text x="845" y="237" style="font-size:17px;fill:#F5F5F2;text-anchor:middle">Clerk sign-in, Stripe billing</text>
+        <rect x="390" y="22" width="220" height="56" rx="4" style="fill:#222;stroke:#C9C9C3;stroke-width:1.5"/><text x="500" y="56" style="font-size:16px;fill:#F5F5F2;text-anchor:middle">Argus AI service</text>
+              </svg>
+      </div>
+      <figcaption>Drawn for this site. The AI service posts signed alerts to the API. Everything a store sees comes from that one API.</figcaption>
+    </figure>
+    <div class="prose"><p>One backend for six apps means a fix or a new field shows up everywhere at once.</p></div>
+  </section>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">About 70%</span><span aria-hidden="true" data-count="70" data-pre="About " data-post="%">About 70%</span></b><span>of the code is mine</span><svg class="spark" viewBox="0 0 200 40" aria-hidden="true" focusable="false"><path d="M0 30 C20 28 30 12 50 16 S80 34 100 22 S140 6 160 12 S190 20 200 8"/></svg></li><li class="stat"><b>6</b><span>apps in one: store portal, admin, phone, ops, status, email</span><svg class="spark" viewBox="0 0 200 40" aria-hidden="true" focusable="false"><path d="M0 34 L33 34 L33 26 L66 26 L66 20 L100 20 L100 15 L133 15 L133 10 L166 10 L166 5 L200 5"/></svg></li></ul>
+    <ul class="stats"><li class="stat"><b><span class="visually-hidden">About 70%</span><span aria-hidden="true" data-count="70" data-pre="About " data-post="%">About 70%</span></b><span>of the code is mine</span></li><li class="stat"><b>6</b><span>apps in one: store portal, admin, phone, ops, status, email</span></li></ul>
+    <p class="a-note">A small team wrote the rest of the code.</p>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
+    <h2 id="did-h">What I owned</h2>
     <ul class="did-list">
       <li>Wrote about 70% of the code. A small team wrote the rest.</li>
       <li>Turned a multi-app client portal, RION NEXUS, into one store screen and renamed it Argus.</li>
-      <li>It includes a store portal, admin, phone app, ops app, status page and bulk email.</li>
-      <li>Recent work: camera monitoring, register (POS) and QuickBooks links, invoice emails, faster pages and alerts.</li>
+      <li>It included a store portal, admin, phone app, ops app, status page and bulk email.</li>
+      <li>Later work: camera monitoring, register (POS) and QuickBooks links, invoice emails, faster pages and alerts.</li>
     </ul>
   </section>
 
-  <section class="proj-section proj-gallery" aria-labelledby="app-h">
-    <h2 id="app-h">In the app</h2>
-    <ul class="gallery">
-      <li><figure class="on-dark"><a class="lb" href="img/threat.webp" data-w="1600" data-h="900"><img src="img/threat.webp" width="1600" height="900" alt="The loss prevention screen: cameras grouped by store zone, each with a risk score, plus alert totals." loading="lazy" decoding="async"></a><figcaption>Loss prevention: every camera by store zone, with a risk score. Demo account, sample data.</figcaption></figure></li>
-      <li><figure class="on-dark"><a class="lb" href="img/analytics.webp" data-w="1600" data-h="900"><img src="img/analytics.webp" width="1600" height="900" alt="The analytics screen: loss prevented, detection accuracy, response time and an activity trend." loading="lazy" decoding="async"></a><figcaption>Analytics for loss prevention. Demo account, sample data.</figcaption></figure></li>
-    </ul>
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose">
+      <p>A store dashboard has to answer one question first: is the store okay right now? Everything else sits behind that.</p>
+      <p>Putting several apps behind one API is cheaper to maintain than it looks, as long as each app keeps a clear job.</p>
+    </div>
   </section>
 
   <section class="proj-section proj-related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li></ul>
+    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li><li><a href="/startup-work/rion/">Built on RION NEXUS, from RION Solutions</a></li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
-<script type="module" src="/startup-work/argus-dashboard/main.js"></script>
+<script type="module" src="/startup-work/argus/main.js"></script>
 </body>
 </html>

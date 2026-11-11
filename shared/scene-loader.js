@@ -8,7 +8,7 @@
 // - Checks for WebGL 2 first. Without it, or if anything fails, it adds class "no-webgl" to <html>
 //   and the page shows its CSS fallback instead.
 // - Runs one animation loop and stops it when the tab is hidden, the canvas is off screen,
-//   or the visitor prefers reduced motion. With reduced motion it draws one still frame.
+//   or the tab is hidden. Reduced motion is ignored on purpose (owner decision): scenes always animate.
 // - Tells your scene its size and pixel ratio, and lowers the pixel ratio if frames run slow.
 // - Adds class "on" to the canvas after the first frame, so CSS can fade it in.
 //
@@ -18,14 +18,14 @@
 //   scene = {
 //     resize(width, height, dpr)  required. Called first, then on every size or pixel ratio change.
 //     frame(t, dt)                required. Draw one frame. t and dt are in seconds. t stops while paused.
-//     still()                     optional. Draw one calm frame for reduced motion. Defaults to frame(0, 0).
+//     still()                     optional. Draws one frame while the loop is stopped (resize while off screen).
 //     dispose()                   optional. Free GPU resources.
 //   }
 //
 // Several canvases on one page are fine: call mountScene once per canvas.
 // For a plain 2D canvas, pass webgl: false.
 
-import { prefersReducedMotion, onReducedMotionChange, isLowPower } from './motion.js';
+import { isLowPower } from './motion.js';
 
 export function hasWebGL2() {
   try {
@@ -64,11 +64,10 @@ export function mountScene({
       const low = isLowPower();
       const cap = low ? lowDprCap : dprCap;
       let dpr = Math.min(devicePixelRatio || 1, cap);
-      const reducedSubs = new Set();
       const ctx = {
         canvas, low, dpr,
-        get reduced() { return prefersReducedMotion(); },
-        onReducedChange(cb) { reducedSubs.add(cb); return () => reducedSubs.delete(cb); },
+        reduced: false,
+        onReducedChange() { return () => {}; },
       };
       let scene;
       try {
@@ -108,11 +107,9 @@ export function mountScene({
         raf = requestAnimationFrame(frame);
       };
       const sync = () => {
-        const reduced = prefersReducedMotion();
-        const want = !lost && !paused && !reduced && !document.hidden && onScreen;
+        const want = !lost && !paused && !document.hidden && onScreen;
         if (want && !running) { running = true; prev = 0; raf = requestAnimationFrame(frame); }
         if (!want && running) { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
-        if (reduced && !lost) still();
       };
 
       measure();
@@ -121,7 +118,6 @@ export function mountScene({
       if ('IntersectionObserver' in window) {
         new IntersectionObserver((e) => { onScreen = e[e.length - 1].isIntersecting; sync(); }, { rootMargin }).observe(canvas);
       }
-      onReducedMotionChange((r) => { reducedSubs.forEach((cb) => cb(r)); sync(); });
       if (webgl) {
         canvas.addEventListener('webglcontextlost', (e) => {
           e.preventDefault(); lost = true; sync(); document.documentElement.classList.add(fallbackClass);

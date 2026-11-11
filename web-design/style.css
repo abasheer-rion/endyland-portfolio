@@ -1,217 +1,73 @@
-/* web-design tab. Only this page loads this file. Art direction: docs/DESIGN.md, "Web design".
-   Bright Memphis and Bauhaus: cream paper, chunky ink outlines, hard offset shadows, springy motion.
-   Motion only runs when main.js adds .wd-motion to <html> (JS on and no reduced motion).
-   Without it every card shows both faces, stacked, with no flip. */
+/* Web design tab. A walnut-brown page with a stippled brass corner, then paper for reading.
+   Tokens come from /shared/base.css (--bk-*). Work rows are a screenshot beside plain text.
+   Text never sits on the stipple: the dots live in the top corner, behind the title only. */
 :root{
-  --bg:#FFF4E0; --tint:#FFF4E0; --ink:#1B1B1F; --mute:#45454F; --paper:#FFFDF7;
-  --coral:#FF5A4E; --sun:#FFC93C; --blue:#2D5BFF; --mint:#2EC4B6; --pink:#FF8FC7;
-  --display:"Archivo",ui-sans-serif,system-ui,sans-serif; --body:"DM Sans",ui-sans-serif,system-ui,sans-serif;
-  --line:4px solid var(--ink);
-  --spring:cubic-bezier(.34,1.56,.64,1);
-  --tb-bg:rgba(255,244,224,.97); --tb-fg:#1B1B1F; --tb-mute:#45454F; --tb-accent:#FF5A4E; --tb-border:#1B1B1F;
-  --tb-font:"DM Sans",ui-sans-serif,system-ui,sans-serif; --focus:#1B1B1F; --ft-fg:#1B1B1F;
-  --badge-bg:#FFC93C; --badge-fg:#1B1B1F; --badge-border:#1B1B1F;
+  --brass-hair:rgba(184,135,46,.5);
+  --ink-hair:rgba(23,16,10,.28);
+  --focus:var(--bk-foil);
 }
-/* A real spring curve where the browser supports linear() easing. */
-@supports (transition-timing-function:linear(0,1)){
-  :root{--spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1.004 83.8%,1)}
-}
-/* The page tint follows the card in view. Every tint keeps ink text well above AA. */
-html[data-pal="1"]{--tint:#FFEDE4}
-html[data-pal="2"]{--tint:#FFF3CF}
-html[data-pal="3"]{--tint:#E9EFFF}
-html[data-pal="4"]{--tint:#E2F6F1}
-html[data-pal="5"]{--tint:#FFE9F3}
-html[data-pal="6"]{--tint:#E9F4FF}
-
-html{background:var(--bg);color:var(--ink)}
-html.wd-motion{scroll-behavior:smooth}
-body{background:var(--tint);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;transition:background-color .9s ease}
-/* Dot paper behind everything. Fixed, so it costs nothing while scrolling. */
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:radial-gradient(rgba(27,27,31,.13) 1.6px,transparent 1.8px);background-size:30px 30px}
-:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 3px #fff}
-
-/* ---------- Tab bar and footer, themed ---------- */
-.tabbar{border-bottom-color:var(--ink);box-shadow:0 2px 0 var(--ink)}
-.tabbar-home{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 120}
-.site-footer{gap:12px 14px;padding-top:72px}
-.site-footer p,.site-footer ul a{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--ink);
-  border-radius:999px;padding:4px 14px;box-shadow:3px 3px 0 var(--ink)}
-.site-footer ul a{font-weight:600;text-decoration:none;transition:transform .35s var(--spring),box-shadow .35s var(--spring)}
-.site-footer ul a:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral)}
-
-/* ---------- 3D scene ---------- */
-/* shared/scene-loader.js adds .on after the first frame. */
-.scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity .9s ease}
-.scene.on{opacity:1}
-html.wd-grab{cursor:grab}
-html.wd-grabbing,html.wd-grabbing *{cursor:grabbing!important;-webkit-user-select:none;user-select:none}
-/* No WebGL: flat Memphis shapes in CSS instead. */
-.scene-fallback{position:fixed;inset:0;z-index:0;pointer-events:none;display:none;overflow:hidden}
-html.no-webgl .scene{display:none}
-html.no-webgl .scene-fallback{display:block}
-.scene-fallback::before,.scene-fallback::after{content:"";position:absolute;border:var(--line)}
-.scene-fallback::before{width:min(34vw,320px);aspect-ratio:1;right:8vw;top:18vh;border-radius:50%;background:var(--coral);box-shadow:14px 14px 0 rgba(27,27,31,.16)}
-.scene-fallback::after{width:min(30vw,280px);aspect-ratio:2/1;right:22vw;top:52vh;border-radius:999px 999px 0 0;background:var(--sun);
-  transform:rotate(-14deg);box-shadow:14px 14px 0 rgba(27,27,31,.16)}
-html.no-webgl body::before{background-image:radial-gradient(rgba(27,27,31,.13) 1.6px,transparent 1.8px),
-  linear-gradient(135deg,transparent 46%,var(--mint) 46% 54%,transparent 54%);background-size:30px 30px,100% 100%;
-  background-position:0 0,0 0;opacity:1}
-
-/* ---------- Layout ---------- */
+html{background:var(--bk-walnut);color:var(--bk-paper)}
+body{background:var(--bk-walnut);color:var(--bk-paper);font-family:var(--bk-sans);font-size:var(--fs-body);line-height:var(--lh-body)}
+::selection{background:var(--bk-foil);color:var(--bk-ink)}
 main{position:relative;z-index:1}
-.intro,.items{max-width:1240px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+a{text-underline-offset:3px}
 
-/* ---------- Intro ---------- */
-.intro{position:relative;min-height:calc(100vh - 66px);min-height:calc(100svh - 66px);display:flex;flex-direction:column;
-  justify-content:center;padding-top:6vh;padding-bottom:12vh}
-.kicker{align-self:flex-start;margin:0 0 22px;padding:6px 16px;font:700 14px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;
-  background:var(--sun);border:3px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);rotate:-4deg}
-.intro h1{margin:0;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;font-size:clamp(58px,11.5vw,172px);
-  line-height:.9;letter-spacing:-.03em;color:var(--ink);max-width:7ch;
-  /* A cream halo keeps the letters readable when a shape drifts behind them. */
-  text-shadow:-3px -3px 0 var(--tint),3px -3px 0 var(--tint),-3px 3px 0 var(--tint),3px 3px 0 var(--tint),
-    0 -4px 0 var(--tint),0 4px 0 var(--tint),-4px 0 0 var(--tint),4px 0 0 var(--tint),10px 10px 0 var(--coral)}
-.intro h1 .word{display:inline-block;white-space:nowrap}
-.intro h1 .ch{display:inline-block;transform-origin:50% 90%}
-.lede{max-width:28ch;margin:30px 0 0;padding:14px 20px;font-size:clamp(19px,1.7vw,23px);line-height:1.45;
-  background:#fff;border:3px solid var(--ink);border-radius:20px;box-shadow:7px 7px 0 var(--ink);rotate:1deg}
-/* A bouncing arrow that says "scroll". Decoration only. */
-.intro::after{content:"";position:absolute;left:var(--gut);bottom:5vh;width:54px;height:54px;border:3px solid var(--ink);border-radius:50%;
-  background:var(--mint) url("img/arrow.svg") center/26px no-repeat;box-shadow:4px 4px 0 var(--ink)}
+/* ---------- Hero ---------- */
+.intro{position:relative;overflow:hidden;padding:calc(var(--bar-h) + clamp(56px,11vw,150px)) var(--gut) clamp(56px,8vw,112px)}
+.stipple{position:absolute;inset:0 0 auto auto;width:min(70%,900px);height:min(70%,560px);z-index:0;pointer-events:none;color:var(--bk-brass);
+  background-image:var(--bk-stipple),var(--bk-stipple);background-size:6px 6px,9px 9px;background-position:0 0,3px 4px;opacity:.55;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 100% 0,#000 0,transparent 100%);mask-image:radial-gradient(ellipse 80% 80% at 100% 0,#000 0,transparent 100%)}
+.intro-copy{position:relative;z-index:1;width:var(--wrap);margin-inline:auto}
+.intro h1{margin:0;font-family:var(--bk-serif);font-weight:400;font-optical-sizing:auto;font-size:var(--fs-h1);line-height:.95;letter-spacing:-.03em;color:var(--bk-paper)}
+.intro h1 em{font-style:italic;color:var(--bk-foil)}
+.lede{margin:clamp(22px,3vw,40px) 0 0;max-width:26ch;font:italic 400 clamp(1.5rem,1.1rem + 1.6vw,2.5rem)/1.25 var(--bk-serif);font-optical-sizing:auto;text-wrap:balance}
+.intro-sub{margin:clamp(20px,2.4vw,32px) 0 0;max-width:var(--measure);color:var(--bk-cream);text-wrap:pretty}
 
-/* ---------- Crossed ribbons ---------- */
-.ribbons{position:relative;height:170px;overflow:hidden;margin:-30px 0 64px;pointer-events:none}
-.ribbon{position:absolute;left:-300px;right:-300px;top:50%;border-block:3px solid var(--ink);background-repeat:repeat-x}
-.ribbon-a{height:62px;margin-top:-31px;background-image:url("img/ribbon-a.svg");background-size:auto 56px;background-position:0 center;
-  transform:rotate(-4deg) translateX(var(--rba,0px))}
-.ribbon-b{height:48px;margin-top:-24px;background-image:url("img/ribbon-b.svg");background-size:auto 42px;background-position:0 center;
-  transform:rotate(3deg) translateX(var(--rbb,0px))}
+/* ---------- How I build ---------- */
+.process{background:var(--bk-paper);color:var(--bk-ink);padding:var(--section) var(--gut);border-block:1px solid var(--brass-hair)}
+.process-in{width:var(--wrap);margin-inline:auto;display:grid;gap:clamp(24px,4vw,64px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){.process-in{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}}
+.process h2{margin:0;font:500 var(--fs-h2)/1.08 var(--bk-serif);font-optical-sizing:auto;letter-spacing:-.015em;text-wrap:balance;max-width:14ch}
+.process .prose{max-width:var(--measure)}
+.process .prose p{margin:0 0 1.1em}
+.process :focus-visible{outline-color:var(--bk-rust)}
 
-/* ---------- Cards ---------- */
-.items{display:grid;gap:56px 34px;grid-template-columns:minmax(0,1fr);padding-bottom:12vh;counter-reset:item}
-.item{--c1:var(--coral);--c2:var(--sun);--c3:var(--blue);--on1:var(--ink);--tilt:-1deg;
-  position:relative;counter-increment:item;perspective:1300px}
-#yotummy{--c1:#FFC93C;--c2:#FF5A4E;--c3:#2EC4B6;--tilt:1.8deg}
-#new-door{--c1:#2D5BFF;--c2:#2EC4B6;--c3:#FFC93C;--on1:#fff;--tilt:-1.2deg}
-#detail-theory{--c1:#FFC93C;--c2:#FF5A4E;--c3:#2D5BFF;--tilt:1.3deg}
-#swadesi-mangoes{--c1:#2EC4B6;--c2:#FFC93C;--c3:#FF5A4E;--tilt:-1.4deg}
-#rion-website{--c1:#FF5A4E;--c2:#2D5BFF;--c3:#2EC4B6;--tilt:1.2deg}
-#endyland{--c1:#FF5A4E;--c2:#FFC93C;--c3:#2D5BFF;--tilt:-1.6deg}
-@media (min-width:900px){
-  .items{grid-template-columns:repeat(12,minmax(0,1fr))}
-  #yotummy{grid-column:1/8}
-  #new-door{grid-column:8/13;margin-top:150px}
-  #detail-theory{grid-column:2/7}
-  #swadesi-mangoes{grid-column:7/13;margin-top:90px}
-  #rion-website{grid-column:1/7}
-  #endyland{grid-column:7/13;margin-top:120px}
+/* ---------- Work rows ---------- */
+.items{display:flex;flex-direction:column;padding:var(--section) var(--gut) 0;gap:clamp(56px,8vw,120px)}
+.work{width:var(--wrap);margin-inline:auto;display:grid;gap:clamp(20px,3vw,48px);grid-template-columns:minmax(0,1fr);align-items:center;content-visibility:auto;contain-intrinsic-size:auto 560px}
+@media (min-width:1000px){
+  .work{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .work:nth-child(even){grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .work:nth-child(even) .work-shot{order:2}
 }
+.work-shot{display:block;border:1px solid var(--brass-hair);background:var(--bk-leather);padding:clamp(6px,.8vw,12px)}
+.work-img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.work-text{min-width:0}
+.work h2{margin:0 0 .35em;font:500 var(--fs-h2)/1.05 var(--bk-serif);font-optical-sizing:auto;letter-spacing:-.015em;text-wrap:balance}
+.work h2 a{color:var(--bk-paper);text-decoration:none;background:linear-gradient(var(--bk-foil),var(--bk-foil)) 0 100%/0 2px no-repeat;transition:background-size .2s var(--bk-out)}
+.work h2 a:hover{background-size:100% 2px}
+.work-desc{margin:0 0 .8em;font-size:var(--fs-lead);line-height:1.4;max-width:34ch;text-wrap:balance}
+.work-detail{margin:0 0 .8em;max-width:var(--measure);color:var(--bk-cream)}
+.work-role{margin:0 0 1.2em;padding-left:14px;border-left:2px solid var(--bk-brass);font:italic 400 1.15rem/1.4 var(--bk-serif);color:var(--bk-paper)}
+.work-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
+.work-links a{color:var(--bk-foil);font-weight:500;transition:color .15s var(--bk-out),transform .15s var(--bk-out)}
+.work-links a:hover{color:var(--bk-paper)}
+.work-links a:active{transform:scale(.97)}
+.work-links .link-more{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;background:var(--bk-brass);color:var(--bk-ink);font-weight:600;text-decoration:none;border-radius:2px}
+.work-links .link-more:hover{background:var(--bk-foil);color:var(--bk-ink)}
+.work .badge-private{color:var(--bk-cream);--badge-border:var(--bk-saddle)}
 
-.card{position:relative;transform-style:preserve-3d;
-  transform:rotate(var(--tilt)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1))}
-.flip{position:relative;transform-style:preserve-3d}
-.face{position:relative;border:var(--line);color:var(--ink)}
-.face-front{background:var(--c1);color:var(--on1);padding:16px 16px 22px;border-radius:26px 26px 0 0;
-  background-image:radial-gradient(color-mix(in srgb,var(--c2) 70%,transparent) 3px,transparent 3.5px);background-size:22px 22px}
-.face-back{background:var(--paper);border-top:0;border-radius:0 0 26px 26px;padding:24px 26px 28px;box-shadow:10px 10px 0 var(--ink)}
-.face-front{box-shadow:10px 0 0 var(--ink)}
-/* The number sticker on each card. The "/ ''" keeps it out of screen readers. */
-.face-front::before{content:counter(item,decimal-leading-zero) / "";position:absolute;z-index:2;right:-14px;top:-18px;width:62px;height:62px;
-  display:grid;place-items:center;border-radius:50%;border:var(--line);background:var(--c2);color:var(--ink);
-  font:900 22px/1 var(--display);box-shadow:4px 4px 0 var(--ink);rotate:12deg}
-.frame{border:var(--line);border-radius:16px;overflow:hidden;background:#fff}
-.item-img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.item h2{margin:16px 4px 0;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 115;
-  font-size:clamp(26px,2.6vw,38px);line-height:1.05;letter-spacing:-.01em}
-.face-back p{margin:0 0 12px}
-.face-back::before{content:"";display:block;height:14px;margin:-24px -26px 20px;border-bottom:3px solid var(--ink);
-  background:repeating-linear-gradient(-45deg,var(--c1) 0 12px,var(--c2) 12px 24px)}
-.item-role{color:var(--mute);font-weight:600}
-.item-links{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
-.item-links a{display:inline-block;padding:6px 14px;font-weight:700;color:var(--ink);text-decoration:none;background:#fff;
-  border:3px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--c1);
-  transition:transform .4s var(--spring),box-shadow .4s var(--spring),background-color .2s}
-.item-links a:hover{background:var(--c2);transform:translate(-2px,-3px) rotate(-2deg);box-shadow:6px 7px 0 var(--ink)}
-.item-links a::after{content:" \2197" / ""}
-.badge-private{font-weight:600;padding:5px 12px 5px 10px;border-width:2px}
+/* Rows rise in as they scroll into view: opacity and a short slide, ease-out. */
+html.wd-anim .work{opacity:0;transform:translateY(16px);transition:opacity .25s var(--bk-out),transform .25s var(--bk-out)}
+html.wd-anim .work.in{opacity:1;transform:none}
 
-/* The flip buttons are added by main.js and only shown when cards can flip. */
-.flip-btn{display:none}
-
-/* ---------- Motion on ---------- */
-html.wd-motion .flip{display:grid;transition:transform 1.1s var(--spring)}
-html.wd-motion .face{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:26px;
-  border:var(--line);box-shadow:10px 10px 0 var(--ink);transition:box-shadow .45s var(--spring)}
-html.wd-motion .face-back{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;padding-top:44px}
-html.wd-motion .face-back::before{position:absolute;left:0;right:0;top:0;margin:0;border-radius:22px 22px 0 0}
-html.wd-motion .item.flipped .flip{transform:rotateY(180deg)}
-html.wd-motion .face-front{cursor:pointer}
-html.wd-motion .card:hover .face,html.wd-motion .item:focus-within .face{box-shadow:16px 16px 0 var(--c3)}
-html.wd-motion .face-front::after{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:var(--glare,0);
-  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.5),transparent 45%);transition:opacity .3s}
-
-html.wd-motion .flip-btn{display:inline-flex;align-items:center;gap:8px;position:absolute;z-index:3;padding:8px 16px 8px 10px;
-  font:700 16px/1 var(--body);color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:999px;cursor:pointer;
-  box-shadow:4px 4px 0 var(--ink);transition:transform .45s var(--spring),box-shadow .45s var(--spring)}
-html.wd-motion .face-front .flip-btn{right:26px;bottom:24px}
-html.wd-motion .face-back .flip-btn{right:22px;top:30px}
-.flip-btn svg{width:26px;height:26px;transition:rotate .6s var(--spring)}
-.flip-btn:hover{transform:translate(-2px,-2px) scale(1.05);box-shadow:6px 6px 0 var(--ink)}
-.flip-btn:hover svg{rotate:180deg}
-html.wd-motion .face-front h2{padding-right:120px}
-
-/* Reveal: cards drop in and spring upright as they scroll into view. */
-html.wd-motion .item{transition:transform 1.2s var(--spring) var(--d,0s),opacity .5s ease var(--d,0s)}
-html.wd-motion .item:not(.in){opacity:0;transform:translateY(120px) rotateX(-38deg) rotateZ(calc(var(--tilt) * 5)) scale(.86)}
-html.wd-motion .frame{transition:transform 1s var(--spring) calc(var(--d,0s) + .18s)}
-html.wd-motion .item:not(.in) .frame{transform:scale(.7) rotate(-6deg)}
-html.wd-motion .item h2{transition:transform .9s var(--spring) calc(var(--d,0s) + .3s),opacity .4s calc(var(--d,0s) + .3s)}
-html.wd-motion .item:not(.in) h2{transform:translateY(30px);opacity:0}
-html.wd-motion .face-front::before{transition:transform 1s var(--spring) calc(var(--d,0s) + .45s)}
-html.wd-motion .item:not(.in) .face-front::before{transform:scale(0) rotate(-200deg)}
-
-/* Intro: letters fall in one by one, then jiggle on hover. Scroll pulls them apart (translate, set by main.js). */
-html.wd-motion .intro h1 .ch{transition:transform 1.1s var(--spring) calc(var(--i) * 55ms + 120ms),opacity .3s calc(var(--i) * 55ms + 120ms);
-  translate:0 calc(var(--hp,0) * var(--dy,0) * 1px);rotate:calc(var(--hp,0) * var(--dr,0) * 1deg)}
-html.wd-motion .intro.pre h1 .ch{transform:translateY(-110%) rotate(-18deg) scale(.4);opacity:0}
-html.wd-motion .intro h1 .ch.boing{animation:boing .8s var(--spring)}
-@keyframes boing{0%{scale:1}25%{scale:1.25 .75}50%{scale:.85 1.2}75%{scale:1.08 .94}100%{scale:1}}
-html.wd-motion .kicker,html.wd-motion .lede{transition:transform 1s var(--spring) .7s,opacity .4s .7s}
-html.wd-motion .lede{transition-delay:.85s}
-html.wd-motion .intro.pre .kicker{transform:scale(0) rotate(-30deg);opacity:0}
-html.wd-motion .intro.pre .lede{transform:translateY(40px) rotate(6deg);opacity:0}
-html.wd-motion .intro::after{animation:nudge 1.8s var(--spring) infinite}
-@keyframes nudge{0%,60%,100%{translate:0 0}30%{translate:0 12px}}
-
-@media (max-width:640px){
-  body{font-size:17px}
-  .intro{justify-content:flex-start;padding-top:9vh;padding-bottom:40vh}
-  .intro::after{left:auto;right:var(--gut);bottom:auto;top:9vh}
-  .lede{margin-top:24px}
-  .items{gap:48px}
-  .card{transform:rotate(calc(var(--tilt) * .5)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1))}
-  .face-front::before{right:-6px;width:52px;height:52px;font-size:19px}
-  html.wd-motion .face-front h2{padding-right:0;margin-bottom:58px}
-  html.wd-motion .face-front .flip-btn{left:16px;right:auto;bottom:18px}
-  html.wd-motion .face-back .flip-btn{position:static;align-self:flex-start;margin-top:22px;order:9}
-  html.wd-motion .face-back{padding-top:40px}
-  .ribbons{height:120px;margin:-20px 0 36px}
-}
-
-@media (prefers-reduced-motion:reduce){
-  .scene,body{transition:none}
-}
-/* The hint under the title matches the device: grab and throw with a mouse, tap on a touch screen. */
-.hint-touch{display:none}
-@media (hover:none),(pointer:coarse){.hint-fine{display:none}.hint-touch{display:inline}}
-/* The picture and the title on the front open the project page. The Flip button turns the card. */
-a.frame{display:block;color:inherit}
-.front-title{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 3px no-repeat;transition:background-size .3s}
-.front-title:hover,.front-title:focus-visible{background-size:100% 3px}
-a.front-img:hover .item-img{filter:saturate(1.15) brightness(1.03)}
-/* Turned by the keyboard: no slow spin, so focus never sits on a face you cannot see. */
-html.wd-motion .item.snap .flip{transition:none}
-/* The shape hints only make sense when the shapes move. */
-html:not(.wd-motion) .live-only,html.no-webgl .live-only{display:none}
+/* ---------- Compare table ---------- */
+.compare{margin-top:var(--section);background:var(--bk-paper);color:var(--bk-ink);padding:var(--section) var(--gut);border-top:1px solid var(--brass-hair);content-visibility:auto;contain-intrinsic-size:auto 600px}
+.compare-in{width:var(--wrap);margin-inline:auto}
+.compare h2{margin:0 0 clamp(20px,3vw,40px);font:500 var(--fs-h2)/1.08 var(--bk-serif);font-optical-sizing:auto;letter-spacing:-.015em}
+.compare .table-wrap{border-top:2px solid var(--bk-ink)}
+.compare table{width:100%;min-width:620px;border-collapse:collapse;font-size:1rem;line-height:1.5}
+.compare th,.compare td{padding:14px 20px 14px 0;text-align:left;vertical-align:top;border-bottom:1px solid var(--ink-hair)}
+.compare thead th{font-weight:600;color:var(--bk-saddle)}
+.compare tbody th{font-family:var(--bk-serif);font-weight:500;font-size:1.2rem;white-space:nowrap}
+.compare :focus-visible{outline-color:var(--bk-rust)}

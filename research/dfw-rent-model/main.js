@@ -1,10 +1,23 @@
-// DFW rental pricing model project page. Only this page loads this file.
-// Shared parts (what I did reveal, count-up, gallery lightbox, back links) come from /shared/project.js.
-// The scatter plot (scatter.js) is a plain 2D canvas loaded after first paint by the shared loader,
-// so it works with WebGL off. It assembles as you scroll; with reduced motion it shows the finished plot.
+// DFW rental pricing model page. Only this page loads this file.
+// Shared parts (reveal, count-up, back links) come from /shared/project.js.
+// One small calculator: what a 6% band means in dollars for a rent you type in.
 import { initProject } from '../../shared/project.js';
-import { mountScene } from '../../shared/scene-loader.js';
+import { onVisible } from '../../shared/motion.js';
 
 initProject();
+document.querySelectorAll('.steps').forEach((ol) => {
+  [...ol.children].forEach((li, i) => li.style.setProperty('--i', i));
+  onVisible([ol], () => ol.classList.add('in'), { threshold: 0.15 });
+});
 
-mountScene({ canvas: document.getElementById('dfw-scatter'), load: () => import('./scatter.js'), webgl: false, dprCap: 2, lowDprCap: 2 });
+const form = document.querySelector('.dfw-calc');
+const input = document.getElementById('dfw-rent');
+const out = document.getElementById('dfw-out');
+const usd = (v) => `$${Math.round(v).toLocaleString('en-US')}`;
+form.addEventListener('submit', (e) => e.preventDefault());
+input.addEventListener('input', () => {
+  const v = parseFloat(input.value);
+  out.textContent = v > 0
+    ? `Within 6% of ${usd(v)} is ${usd(v * 0.94)} to ${usd(v * 1.06)}.`
+    : 'Type a rent to see the band.';
+});

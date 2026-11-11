@@ -1,126 +1,276 @@
-/* Shared by every page: reset, skip link, tab bar, footer, badges, page transitions.
-   Kept small on purpose. Each tab brings its own fonts, colors and art in its own folder.
-   A tab themes the shared parts by setting these on :root in its own CSS: */
+/* Shared by every page: tokens, reset, skip link, the glass top bar, readability base, footer, private badge, page turn.
+   The site is "a printed book and a brass workshop". This file holds the book: its palette, its top bar,
+   its type scale and reading surfaces, its footer. Each tab and each brand keeps its own body styling in its own folder.
+   The top bar is the one glass thing on the site. Everything else is flat matte colour, hairlines, stippled dots.
+   See docs/DESIGN.md. */
 :root{
-  --gut:clamp(16px,4vw,56px);
-  --tb-bg:rgba(7,9,15,.97);    /* tab bar background */
-  --tb-fg:#ECEFF4;             /* tab bar text */
-  --tb-mute:#A4ACBD;           /* tabs that are not current */
-  --tb-accent:#A597FF;         /* current tab marker */
-  --tb-border:rgba(201,208,218,.14);
-  --tb-font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-  --tb-radius:999px;
-  --focus:#A597FF;             /* keyboard focus ring */
-  --ft-fg:#A4ACBD;             /* footer text */
-  --badge-bg:rgba(255,255,255,.08);
+  /* Palette. Flat and matte. Dark sections are leather with paper text, light sections are paper with ink text. */
+  --bk-ink:#17100A;      /* ink brown, text on paper */
+  --bk-leather:#26180F;  /* dark sections, the footer */
+  --bk-walnut:#35221A;   /* raised dark surfaces */
+  --bk-saddle:#5A3A22;   /* hover, secondary rules on dark */
+  --bk-brass:#B8872E;    /* hardware: current tab, rules, rivets */
+  --bk-foil:#D9AE4A;     /* foil gold: flat, or as a stippled engraved fill. Never a glow. */
+  --bk-paper:#EFE3C8;    /* light sections, text on leather */
+  --bk-vellum:#F6EEDB;   /* lighter paper, plates */
+  --bk-rust:#9C4A22;     /* rare emphasis */
+  --bk-cream:#D9CBAA;    /* muted text on leather (about 9:1) */
+  /* Type. Characterful serif for display, quiet humanist sans for UI and body, mono for code only. */
+  --bk-serif:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --bk-sans:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bk-mono:ui-monospace,Menlo,monospace;
+  /* Easing. Ease-out for entrances, ease-in for exits, no bounce. */
+  --bk-out:cubic-bezier(.2,.7,.2,1);
+  --bk-in:cubic-bezier(.4,0,1,1);
+  /* Stipple and grain. Use as background-image, then set background-size (stipple 4px to 8px). */
+  --bk-stipple:radial-gradient(circle at 50% 50%,currentColor .7px,transparent 1.1px);
+  --bk-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .06 0 0 0 0 .04 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* Layout. Fluid, generous. --gut is the side padding (18px on phones, up to 72px on big screens).
+     --wrap is the content width: the screen minus both gutters, capped at 1480px. Full-bleed sections ignore it. */
+  --gut:clamp(18px,4.5vw,72px);
+  --wrap:min(100% - 2 * var(--gut),1480px);
+  --measure:68ch;        /* prose column. Never wider than --measure-wide. */
+  --measure-wide:75ch;
+  --section:clamp(64px,9vw,140px);   /* vertical rhythm between big sections */
+  --space-1:8px; --space-2:16px; --space-3:clamp(20px,2.4vw,32px); --space-4:clamp(32px,4vw,56px);
+  /* Type scale. Body runs 17px on phones to 20px on desktop, line-height 1.6. Nothing goes under 14px. */
+  --fs-body:clamp(1.0625rem,.96rem + .33vw,1.25rem);
+  --fs-lead:clamp(1.25rem,1.05rem + .9vw,1.75rem);
+  --fs-small:clamp(.875rem,.85rem + .1vw,.9375rem);
+  --fs-h1:clamp(2.75rem,1.4rem + 5.6vw,6.5rem);
+  --fs-h2:clamp(2rem,1.3rem + 2.6vw,3.5rem);
+  --fs-h3:clamp(1.3rem,1.1rem + .9vw,1.8rem);
+  --lh-body:1.6;
+  /* The top bar. --bar-h is how much room a page leaves at the top so the bar never covers its first line. */
+  --bar-top:10px;
+  --bar-h:80px;
+
+  /* Pages that still set these keep working. The shared nav no longer reads them. */
+  --tb-bg:var(--bk-walnut); --tb-fg:var(--bk-paper); --tb-mute:var(--bk-cream); --tb-accent:var(--bk-brass);
+  --tb-border:rgba(184,135,46,.4); --tb-font:var(--bk-sans); --tb-radius:2px;
+  --focus:var(--bk-rust);          /* keyboard focus ring on page content. Dark pages set their own. */
+  --ft-fg:var(--bk-cream);         /* retained, the footer sets its own colour */
+  --badge-bg:transparent;
   --badge-fg:currentColor;
-  --badge-border:rgba(255,255,255,.22);
+  --badge-border:currentColor;
 }
+@media (max-width:760px){:root{--bar-top:8px;--bar-h:68px}}
+html:not(.js){--bar-h:80px}
+@media (max-width:760px){html:not(.js){--bar-h:116px}}
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:84px}
-/* Phones: the tab bar takes two rows (about 104px), so jumps to an item leave more room. */
-@media (max-width:760px){html{scroll-padding-top:116px}}
-/* Glows and decorations may reach past the screen edge. body clips them sideways (clip, unlike hidden,
-   does not turn body into a scroller, so the sticky tab bar and window scrolling still work). html needs
-   its own value, or body's would pass to the window and phones would still let the page pan sideways. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--bar-h) + 12px)}
+/* Decorations may reach past the screen edge. body clips them sideways (clip, unlike hidden, does not make
+   body a scroller). html needs its own value, or body's would pass to the window and phones could pan sideways. */
 html{overflow-x:hidden}
-body{margin:0;overflow-x:clip}
+body{margin:0;overflow-x:clip;font-size:var(--fs-body);line-height:var(--lh-body)}
 img,svg,canvas{display:block;max-width:100%}
 img{height:auto}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
 
-.skip{position:absolute;left:var(--gut);top:-80px;z-index:100;background:#fff;color:#000;
-  padding:10px 16px;border-radius:8px;font:600 16px/1.2 var(--tb-font);text-decoration:none}
+.skip{position:absolute;left:var(--gut);top:-80px;z-index:100;background:var(--bk-paper);color:var(--bk-ink);
+  padding:10px 16px;border:2px solid var(--bk-ink);border-radius:2px;font:600 16px/1.2 var(--bk-sans);text-decoration:none}
 .skip:focus{top:12px}
+.on-dark :focus-visible,.surface--dark :focus-visible{outline-color:var(--bk-foil)}
 
 .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* ---------- Tab bar ---------- */
-.tabbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;
-  padding:12px var(--gut);background:var(--tb-bg);border-bottom:1px solid var(--tb-border);
-  font-family:var(--tb-font);color:var(--tb-fg);view-transition-name:tabbar}
-.tabbar-home{font-weight:700;font-size:17px;line-height:24px;letter-spacing:-.01em;text-decoration:none;padding:6px 0;margin-right:auto}
-.tabbar-home[aria-current="page"]{color:var(--tb-accent)}
-.tabbar ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
-  max-width:100%;-webkit-overflow-scrolling:touch}
-.tabbar ul::-webkit-scrollbar{display:none}
-/* Every tab is the same width on every page, whatever the font, so the tabs never jump and the marker
-   slides straight across during the page transition. 136px fits "Startup work" in a 15px monospace.
-   A tab page marks its tab aria-current="page". A project page marks its parent tab aria-current="true". */
-.tabbar li{flex:0 0 136px}
-.tabbar ul a{position:relative;display:block;padding:9px 14px;border-radius:var(--tb-radius);font-size:15px;
-  line-height:18px;text-align:center;text-decoration:none;color:var(--tb-mute);white-space:nowrap;transition:color .2s}
-.tabbar ul a:hover{color:var(--tb-fg)}
-.tabbar ul a[aria-current]{color:var(--tb-fg);font-weight:600}
-/* The marker under the current tab. It slides from tab to tab during the page transition. */
-.tab-ind{position:absolute;left:14px;right:14px;bottom:3px;height:3px;border-radius:3px;background:var(--tb-accent);
-  view-transition-name:tab-ind}
-/* Phones and narrow tablets: the five tabs share one row in equal columns, so none hide off screen.
-   "Experience" carries a soft hyphen (&shy;) in the markup, so it breaks as Experi-ence when the column is narrow. */
-@media (max-width:760px){
-  .tabbar{padding-top:8px;padding-bottom:6px;gap:4px}
-  .tabbar nav{width:100%}
-  .tabbar ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;width:100%;overflow:visible}
-  .tabbar li{flex:none;min-width:0}
-  .tabbar ul a{display:flex;align-items:center;justify-content:center;height:100%;min-height:44px;padding:6px 2px;
-    font-size:13px;line-height:1.15;letter-spacing:-.01em;white-space:normal;-webkit-hyphens:manual;hyphens:manual}
-  .tab-ind{left:18%;right:18%;bottom:2px}
+/* ---------- Top bar: dynamic glass ----------
+   <header class="bar"> holds a rounded, translucent pill centred at the top of every page. Tint follows what is
+   behind it (nav.js sets data-tone="dark" or "light"; dark is the default). It condenses after the first scroll
+   (scale .94 and a second, blurrier glass layer fades in), slides away on scroll down and returns on scroll up,
+   draws page progress as a thin line, and a brass indicator slides under the hovered, focused or current link.
+   Phones: the links fold into a menu button whose panel grows from the button (scale .95 to 1, 200ms).
+   Without JS the links stay in a row (two rows on phones). Without backdrop-filter, or with reduced transparency,
+   the glass becomes solid colour. Only transform, opacity and clip-path animate. */
+.bar{--bar-bg:rgba(38,24,15,.74);--bar-bg2:rgba(38,24,15,.88);--bar-solid:#26180F;--bar-fg:#EFE3C8;--bar-line:rgba(217,174,74,.5);
+  --bar-hi:rgba(246,238,219,.2);--bar-ind:#D9AE4A;--bar-track:rgba(239,227,200,.2);--bar-hover:rgba(239,227,200,.1);--bar-focus:#D9AE4A;
+  position:fixed;top:0;left:0;right:0;z-index:70;display:flex;justify-content:center;
+  padding:calc(var(--bar-top) + env(safe-area-inset-top)) var(--gut) 0;pointer-events:none;font-family:var(--bk-sans);
+  transition:transform .25s var(--bk-out);view-transition-name:bar}
+.bar[data-tone="light"]{--bar-bg:rgba(246,238,219,.76);--bar-bg2:rgba(246,238,219,.9);--bar-solid:#F6EEDB;--bar-fg:#17100A;--bar-line:rgba(90,58,34,.45);
+  --bar-hi:rgba(255,255,255,.6);--bar-ind:#9C4A22;--bar-track:rgba(23,16,10,.18);--bar-hover:rgba(23,16,10,.07);--bar-focus:#9C4A22}
+.bar.is-hidden{transform:translateY(calc(-100% - 14px));transition-duration:.2s;transition-timing-function:var(--bk-in)}
+
+.bar-in{position:relative;isolation:isolate;pointer-events:auto;display:flex;align-items:center;gap:clamp(6px,1.6vw,24px);
+  max-width:100%;height:56px;padding:0 10px 0 22px;border:1px solid var(--bar-line);border-radius:999px;color:var(--bar-fg);
+  box-shadow:0 12px 32px -16px rgba(23,16,10,.6);transform-origin:50% 0;
+  transition:transform .25s var(--bk-out)}
+.bar.is-condensed .bar-in{transform:scale(.94)}
+.bar-in::before,.bar-in::after{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;pointer-events:none}
+.bar-in::before{background:var(--bar-bg);box-shadow:inset 0 1px 0 var(--bar-hi);
+  -webkit-backdrop-filter:blur(12px) saturate(1.5);backdrop-filter:blur(12px) saturate(1.5)}
+.bar-in::after{background:var(--bar-bg2);opacity:0;transition:opacity .25s var(--bk-out);
+  -webkit-backdrop-filter:blur(26px) saturate(1.7);backdrop-filter:blur(26px) saturate(1.7)}
+.bar.is-condensed .bar-in::after{opacity:1}
+
+.bar-brand{display:inline-flex;align-items:center;gap:9px;min-height:44px;margin-right:4px;color:inherit;text-decoration:none;
+  font:italic 500 20px/1 var(--bk-serif);font-optical-sizing:auto;letter-spacing:.005em;white-space:nowrap}
+.bar-brand::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--bar-ind)}
+
+.bar-nav{position:relative}
+.bar-nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:2px}
+.bar-nav a{position:relative;display:flex;align-items:center;min-height:44px;padding:0 clamp(10px,1.2vw,16px);border-radius:999px;color:inherit;
+  font:500 15px/1 var(--bk-sans);letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.bar-nav a:hover{background:var(--bar-hover)}
+.bar-nav a:active{transform:scale(.97)}
+.bar-nav a[aria-current]{font-weight:600}
+/* Current link underline without JS. With JS the sliding indicator replaces it. */
+.bar-nav a[aria-current]::after{content:"";position:absolute;left:clamp(10px,1.2vw,16px);right:clamp(10px,1.2vw,16px);bottom:7px;height:2px;background:var(--bar-ind)}
+.js .bar-nav a[aria-current]::after{display:none}
+.bar-ind{position:absolute;left:0;bottom:7px;width:1px;height:2px;background:var(--bar-ind);transform-origin:0 50%;
+  transform:translateX(var(--ix,0px)) scaleX(var(--iw,0));opacity:0;pointer-events:none;
+  transition:transform .25s var(--bk-out),opacity .15s var(--bk-out)}
+.bar-nav.has-ind .bar-ind{opacity:1}
+.bar-brand:focus-visible,.bar-nav a:focus-visible,.bar-menu:focus-visible{outline:2px solid var(--bar-focus);outline-offset:-2px;border-radius:999px}
+.bar-brand:focus-visible{outline-offset:4px}
+
+.bar-progress{position:absolute;left:28px;right:28px;bottom:0;height:2px;border-radius:2px;background:var(--bar-track);overflow:hidden;pointer-events:none}
+.bar-progress i{display:block;height:100%;background:var(--bar-ind);transform:scaleX(var(--prog,0));transform-origin:0 50%}
+@supports (animation-timeline:scroll()){
+  .bar-progress i{transform:scaleX(0);animation:bar-prog linear both;animation-timeline:scroll(root)}
+  @keyframes bar-prog{to{transform:scaleX(1)}}
 }
-@media (max-width:400px){.tabbar ul a{font-size:12px}}
 
-/* ---------- Footer ---------- */
-.site-footer{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;
-  padding:56px var(--gut) 40px;color:var(--ft-fg);font:14px/1.5 var(--tb-font)}
-.site-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
-.site-footer a{text-underline-offset:3px}
-.site-footer p{margin:0;margin-right:auto}
+.bar-menu{display:none;align-items:center;gap:10px;min-height:44px;margin-left:auto;padding:0 14px 0 16px;border:0;border-radius:999px;
+  background:transparent;color:inherit;font:500 15px/1 var(--bk-sans);cursor:pointer}
+.bar-menu:hover{background:var(--bar-hover)}
+.bar-menu:active{transform:scale(.97)}
+.bar-menu i{position:relative;width:16px;height:10px}
+.bar-menu i::before,.bar-menu i::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:1px;
+  transition:transform .2s var(--bk-out)}
+.bar-menu i::before{top:0}
+.bar-menu i::after{bottom:0}
+.bar-menu[aria-expanded="true"] i::before{transform:translateY(4px) rotate(45deg)}
+.bar-menu[aria-expanded="true"] i::after{transform:translateY(-4px) rotate(-45deg)}
 
-/* ---------- Private repo badge ---------- */
-.badge-private{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;border-radius:999px;
-  font-size:13px;line-height:1.4;white-space:nowrap;background:var(--badge-bg);color:var(--badge-fg);border:1px solid var(--badge-border)}
+@media (max-width:860px) and (min-width:761px){
+  .bar-nav a{font-size:14px;padding:0 9px}
+  .bar-brand{font-size:18px}
+}
+@media (max-width:760px){
+  .bar-in{height:52px;padding:0 6px 0 16px;width:100%}
+  /* With JS the links fold into a panel that grows from the menu button. */
+  .js .bar-menu{display:inline-flex}
+  .js .bar-nav{position:absolute;top:calc(100% + 8px);right:0;min-width:min(260px,calc(100vw - 2 * var(--gut)));padding:8px;border:1px solid var(--bar-line);border-radius:20px;
+    background:var(--bar-bg2);color:var(--bar-fg);box-shadow:0 18px 40px -18px rgba(23,16,10,.7),inset 0 1px 0 var(--bar-hi);
+    -webkit-backdrop-filter:blur(26px) saturate(1.7);backdrop-filter:blur(26px) saturate(1.7);
+    transform-origin:100% 0;transform:scale(.95);opacity:0;visibility:hidden;
+    transition:transform .16s var(--bk-in),opacity .16s var(--bk-in),visibility 0s linear .16s}
+  .js .bar-nav.is-open{transform:none;opacity:1;visibility:visible;transition:transform .2s var(--bk-out),opacity .2s var(--bk-out),visibility 0s}
+  .js .bar-nav ul{flex-direction:column;align-items:stretch;gap:0}
+  .js .bar-nav a{min-height:48px;padding:0 14px;font-size:17px;border-radius:12px}
+  .js .bar-nav a[aria-current]{background:var(--bar-hover)}
+  .js .bar-nav a[aria-current]::after{display:block;left:14px;right:auto;width:18px;bottom:12px}
+  .js .bar-ind{display:none}
+  /* No JS: brand on top, links in a scrolling row beneath. */
+  html:not(.js) .bar-in{flex-wrap:wrap;height:auto;padding:4px 10px 8px 16px;border-radius:26px;row-gap:0}
+  html:not(.js) .bar-nav{flex:1 1 100%;overflow-x:auto}
+  html:not(.js) .bar-nav a[aria-current]::after{bottom:3px}
+}
+
+/* Solid fallback: no backdrop-filter support, or the visitor asked for less transparency. */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .bar-in::before,.bar-in::after{background:var(--bar-solid);backdrop-filter:none}
+  .js .bar-nav{background:var(--bar-solid);backdrop-filter:none}
+}
+@media (prefers-reduced-transparency:reduce){
+  .bar-in::before,.bar-in::after{background:var(--bar-solid);-webkit-backdrop-filter:none;backdrop-filter:none}
+  .js .bar-nav{background:var(--bar-solid);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@media (forced-colors:active){.bar-in{border-color:CanvasText}.bar-in::before,.bar-in::after{background:Canvas}}
+
+/* ---------- Readability base ----------
+   Wide, calm pages. .wrap is the fluid content width, .prose is a 68ch reading column, .surface is a solid
+   reading surface for text that would otherwise sit over a canvas or stipple. Text never sits on busy dots. */
+.wrap{width:var(--wrap);margin-inline:auto}
+.wrap--bleed{width:100%;margin-inline:0;padding-inline:var(--gut)}
+.section{padding-block:var(--section)}
+.stack>*+*{margin-top:var(--space-3)}
+.prose{max-width:var(--measure);font-size:var(--fs-body);line-height:var(--lh-body);text-wrap:pretty}
+.prose--wide{max-width:var(--measure-wide)}
+.prose :where(p,ul,ol,dl,blockquote,figure,table){margin:0 0 1.1em}
+.prose :where(h2){margin:2.2em 0 .6em;font-family:var(--bk-serif);font-weight:500;font-size:var(--fs-h2);line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
+.prose :where(h3){margin:1.8em 0 .5em;font-family:var(--bk-serif);font-weight:500;font-size:var(--fs-h3);line-height:1.25;text-wrap:balance}
+.prose :where(h2,h3):first-child{margin-top:0}
+.prose :where(li){margin-bottom:.4em}
+.prose :where(a){text-underline-offset:3px}
+.lead{font-size:var(--fs-lead);line-height:1.45;max-width:var(--measure)}
+.small{font-size:var(--fs-small);line-height:1.5}
+.surface{background:var(--bk-vellum);color:var(--bk-ink);border:1px solid rgba(23,16,10,.28);border-radius:2px;padding:clamp(20px,3.2vw,48px);
+  box-shadow:3px 3px 0 -1px var(--bk-vellum),3px 3px 0 rgba(23,16,10,.28)}
+.surface--dark{background:var(--bk-leather);color:var(--bk-paper);border-color:rgba(184,135,46,.55);box-shadow:none}
+.surface--plain{box-shadow:none}
+/* Tables scroll sideways inside .table-wrap (give it tabindex="0" and a label), or restack on phones with .restack. */
+.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-wrap:focus-visible{outline-offset:-3px}
+table{border-collapse:collapse;max-width:100%;font-size:var(--fs-small)}
+:where(th,td){padding:.6em .9em;text-align:left;vertical-align:top}
+@media (max-width:640px){
+  table.restack,table.restack tbody,table.restack tr,table.restack td,table.restack th{display:block;width:100%}
+  table.restack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.restack tr{padding:.6em 0;border-bottom:1px solid currentColor}
+  table.restack td::before{content:attr(data-label);display:block;font-variant-caps:all-small-caps;letter-spacing:.1em;opacity:.8}
+}
+
+/* ---------- Footer ----------
+   A plain leather band: copyright on the left, five links on the right (GitHub, LinkedIn, Contact, Privacy, Terms). */
+.site-footer{position:relative;z-index:1;margin-top:clamp(64px,9vw,128px);padding:clamp(32px,4vw,52px) var(--gut) calc(36px + env(safe-area-inset-bottom));
+  background:var(--bk-leather);color:var(--bk-paper);font:var(--fs-small)/1.6 var(--bk-sans)}
+.footer-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;max-width:min(1480px,100%);margin:0 auto;
+  padding-top:20px;border-top:1px solid rgba(184,135,46,.6)}
+.site-footer p{margin:0;color:var(--bk-cream)}
+.site-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 6px}
+.site-footer li a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--bk-paper);text-decoration:underline;
+  text-decoration-color:rgba(217,174,74,.55);text-underline-offset:4px;transition:color .15s var(--bk-out)}
+.site-footer li a:hover{color:var(--bk-foil)}
+.site-footer a:focus-visible{outline:2px solid var(--bk-foil);outline-offset:2px}
+@media (max-width:560px){.site-footer li a{padding:0 8px 0 0;margin-right:8px}.footer-in{align-items:flex-start}}
+
+/* ---------- Private repo badge ----------
+   A small outlined label, square corners. Colour follows the page. */
+.badge-private{display:inline-flex;align-items:center;gap:6px;padding:3px 9px 3px 7px;border-radius:2px;
+  font:500 14px/1.4 var(--bk-sans);letter-spacing:.02em;white-space:nowrap;
+  background:var(--badge-bg);color:var(--badge-fg);border:1px solid var(--badge-border)}
 .badge-private svg{width:12px;height:12px;flex:none}
 
-/* ---------- Page transitions ----------
-   Same-site navigations cross-fade with the View Transitions API, no JS needed.
-   The tab bar stays put, the marker slides, and the page content slides by direction
-   (shared/nav.js adds "forward" or "back"). Browsers without it get a short fade in on load. */
+/* ---------- Page turn ----------
+   Same-site navigations use the View Transitions API, no JS needed. The top bar stays put.
+   The new page slides in from the right edge behind a short clip-path wipe (250ms, ease-out), the old one
+   settles away a little quicker (200ms). Going back along the tabs turns the other way (shared/nav.js adds
+   "forward" or "back"). Browsers without it get a short fade-in on load. */
 @view-transition{navigation:auto}
-/* main gets its name only while a transition runs (shared/nav.js adds class "vt"). A name all the time
-   would stop glass panels inside main from blurring the 3D scene behind them. Without JS the whole
-   page cross-fades and the tab bar still stays put. */
+/* main gets its name only while a transition runs (shared/nav.js adds class "vt"). A name all the time would
+   flatten pages that draw a 3D scene behind main. Without JS the whole page cross-fades and the chrome still stays put. */
 html.vt main{view-transition-name:page}
-::view-transition-group(tab-ind){animation-duration:.45s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
-::view-transition-old(page){animation:vt-out .28s cubic-bezier(.4,0,1,1) both}
-::view-transition-new(page){animation:vt-in .5s cubic-bezier(.2,.7,.2,1) both}
-html:active-view-transition-type(forward)::view-transition-old(page){animation-name:vt-out-left}
-html:active-view-transition-type(forward)::view-transition-new(page){animation-name:vt-in-right}
-html:active-view-transition-type(back)::view-transition-old(page){animation-name:vt-out-right}
-html:active-view-transition-type(back)::view-transition-new(page){animation-name:vt-in-left}
-@keyframes vt-out{to{opacity:0;transform:scale(.98)}}
-@keyframes vt-in{from{opacity:0;transform:translateY(18px)}}
-@keyframes vt-out-left{to{opacity:0;transform:translateX(-6vw)}}
-@keyframes vt-out-right{to{opacity:0;transform:translateX(6vw)}}
-@keyframes vt-in-right{from{opacity:0;transform:translateX(8vw)}}
-@keyframes vt-in-left{from{opacity:0;transform:translateX(-8vw)}}
-/* Tab to project page and back ("deeper" and "up", set by nav.js): the new page and its theme wipe in
+::view-transition-group(tab-cur){animation-duration:.25s;animation-timing-function:var(--bk-out)}
+::view-transition-old(page){animation:pt-out .2s var(--bk-in) both}
+::view-transition-new(page){animation:pt-in .25s var(--bk-out) both}
+html:active-view-transition-type(forward)::view-transition-old(page){animation-name:pt-out-left}
+html:active-view-transition-type(forward)::view-transition-new(page){animation-name:pt-in-right}
+html:active-view-transition-type(back)::view-transition-old(page){animation-name:pt-out-right}
+html:active-view-transition-type(back)::view-transition-new(page){animation-name:pt-in-left}
+@keyframes pt-out{to{opacity:0}}
+@keyframes pt-in{from{opacity:0}}
+@keyframes pt-out-left{to{opacity:0;transform:translateX(-3vw)}}
+@keyframes pt-out-right{to{opacity:0;transform:translateX(3vw)}}
+@keyframes pt-in-right{from{clip-path:inset(0 0 0 100%);transform:translateX(5vw)}to{clip-path:inset(0 0 0 0)}}
+@keyframes pt-in-left{from{clip-path:inset(0 100% 0 0);transform:translateX(-5vw)}to{clip-path:inset(0 0 0 0)}}
+/* Tab to project page and back ("deeper" and "up", set by nav.js): the new page and its theme are inked in
    as a circle from the click point. The old page stays still underneath. */
 html:active-view-transition-type(deeper)::view-transition-old(root),
 html:active-view-transition-type(up)::view-transition-old(root){animation:none}
 html:active-view-transition-type(deeper)::view-transition-new(root),
-html:active-view-transition-type(up)::view-transition-new(root){animation:vt-wash .62s cubic-bezier(.3,.6,.2,1) both}
+html:active-view-transition-type(up)::view-transition-new(root){animation:vt-wash .5s var(--bk-out) both}
 @keyframes vt-wash{
   from{clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%))}
   to{clip-path:circle(150vmax at var(--vt-x,50%) var(--vt-y,50%))}
 }
 @supports not (view-transition-name:none){
-  main{animation:page-in .5s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes page-in{from{opacity:0;transform:translateY(14px)}}
+  main{animation:page-in .25s var(--bk-out) both}
+  @keyframes page-in{from{opacity:0;transform:translateX(24px)}}
 }
 
-@media (prefers-reduced-motion:reduce){
-  @view-transition{navigation:none}
-  main{animation:none!important}
-  .tabbar ul a{transition:none}
-}
+@media print{.bar{display:none}}

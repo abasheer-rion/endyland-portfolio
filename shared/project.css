@@ -3,19 +3,19 @@
    or its own style.css):
      --p-bg --p-surface --p-ink --p-mute --p-accent --p-accent-bg --p-on-accent --p-link --p-line
      --p-display --p-display-weight --p-body --p-mono --p-radius
-   plus the tab bar and footer variables from base.css (--tb-*, --focus, --ft-fg, --badge-*).
+   plus --focus and --badge-* from base.css. The top bar and footer are the book's own and are not themed.
+   Defaults here are the book system: paper, ink brown, rust, a serif display face, ledger stats, plates, hairline rules.
    Every color pair listed above is checked for WCAG AA in the theme files.
-   Motion only runs under html.pj-anim, which /shared/project.js adds when reduced motion is off.
-   With no JS, or reduced motion, everything shows in its final state. See docs/DESIGN.md. */
+   Motion runs under html.pj-anim, which /shared/project.js adds. With no JS everything shows in its final state. See docs/DESIGN.md. */
 :root{
-  --p-bg:#FFFFFF; --p-surface:#F5F5F5; --p-ink:#111111; --p-mute:#555555; --p-accent:#0057B8; --p-accent-bg:#0057B8;
-  --p-on-accent:#FFFFFF; --p-link:#0057B8; --p-line:rgba(0,0,0,.12);
-  --p-display:ui-sans-serif,system-ui,sans-serif; --p-display-weight:700;
-  --p-body:ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace;
-  --p-radius:14px; --p-max:1160px;
+  --p-bg:#EFE3C8; --p-surface:#F6EEDB; --p-ink:#17100A; --p-mute:#5A3A22; --p-accent:#9C4A22; --p-accent-bg:#26180F;
+  --p-on-accent:#EFE3C8; --p-link:#9C4A22; --p-line:rgba(23,16,10,.3);
+  --p-display:"Newsreader","Iowan Old Style",Georgia,serif; --p-display-weight:500;
+  --p-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif; --p-mono:ui-monospace,Menlo,monospace;
+  --p-radius:2px; --p-max:1480px;
 }
 html{background:var(--p-bg);color:var(--p-ink)}
-body.proj-page{background:var(--p-bg);color:var(--p-ink);font-family:var(--p-body);font-size:17px;line-height:1.6}
+body.proj-page{background:var(--p-bg);color:var(--p-ink);font-family:var(--p-body);font-size:var(--fs-body);line-height:var(--lh-body)}
 ::selection{background:var(--p-accent);color:var(--p-on-accent)}
 
 /* Optional scene canvas a page builder can add. Decoration only, behind the content. */
@@ -23,87 +23,106 @@ body.proj-page{background:var(--p-bg);color:var(--p-ink);font-family:var(--p-bod
 .proj-scene.on{opacity:1}
 html.no-webgl .proj-scene{display:none}
 
-.proj{position:relative;z-index:1;max-width:var(--p-max);margin:0 auto;padding:18px var(--gut) 24px}
+.proj{position:relative;z-index:1;max-width:calc(var(--p-max) + 2 * var(--gut));margin:0 auto;padding:calc(var(--bar-h) + clamp(8px,1.5vw,24px)) var(--gut) 24px}
+/* Reading columns: running text stays 68ch wide while figures, stats and plates use the full width. */
+.proj-section>p,.proj-section>ul:not([class]),.proj-section>ol:not([class]),.proj-section>dl:not([class]),.proj .prose{max-width:var(--measure)}
+.proj-section>p{margin:0 0 1.1em}
+.proj-section>p+p{margin-top:0}
+.proj .surface{margin-block:var(--space-3)}
 .proj a{color:var(--p-link);text-underline-offset:3px;text-decoration-thickness:1px}
 .proj a:hover{text-decoration-thickness:2px}
-.proj h1,.proj h2,.proj h3{font-family:var(--p-display);font-weight:var(--p-display-weight);color:var(--p-ink);text-wrap:balance}
-.proj p,.proj li,.proj dd{text-wrap:pretty}
+.proj h1,.proj h2,.proj h3{font-family:var(--p-display);font-weight:var(--p-display-weight);color:var(--p-ink);text-wrap:balance;font-optical-sizing:auto}
+.proj p,.proj li,.proj dd{text-wrap:pretty;hanging-punctuation:first}
 
 /* ---------- Crumbs and back links ---------- */
 .proj-crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;
-  font:500 14px/1.4 var(--p-mono);color:var(--p-mute)}
+  font:500 16px/1.4 var(--p-body);color:var(--p-mute)}
 .proj-crumbs li+li::before{content:"/";margin-right:10px;color:var(--p-mute)}
 .proj-crumbs a{display:inline-flex;align-items:center;min-height:44px;color:var(--p-ink)}
 .back-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600}
-.back-link::before{content:"";width:10px;height:10px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);flex:none}
+.back-link::before{content:"";width:10px;height:10px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);flex:none;transition:transform .15s var(--bk-out,ease-out)}
+.back-link:hover::before{transform:translateX(-3px) rotate(45deg)}
 .proj-back{margin:0;padding:28px 0 8px;border-top:1px solid var(--p-line);display:flex;flex-wrap:wrap;gap:4px 28px}
 
 /* ---------- Hero ---------- */
 .proj-hero{display:grid;gap:28px;padding:20px 0 44px;grid-template-columns:minmax(0,1fr)}
 @media (min-width:960px){.proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;gap:48px}}
 .proj-logo{display:block;height:auto;max-height:56px;width:auto;max-width:220px;margin:0 0 20px}
-.proj-kicker{margin:0 0 10px;font:600 13px/1.4 var(--p-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--p-mute)}
-.proj h1{margin:0 0 16px;font-size:clamp(40px,7vw,80px);line-height:1;letter-spacing:-.02em}
-.proj-summary{margin:0 0 24px;max-width:38ch;font-size:clamp(19px,2.2vw,23px);line-height:1.45}
+.proj-kicker{margin:0 0 10px;font:500 17px/1.4 var(--p-body);color:var(--p-mute)}
+.proj h1{margin:0 0 16px;font-size:var(--fs-h1);line-height:.96;letter-spacing:-.025em}
+.proj-summary{margin:0 0 24px;max-width:46ch;font-size:var(--fs-lead);line-height:1.45}
 .proj-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px 28px;margin:0 0 24px}
-.proj-meta dt{font:600 12px/1.4 var(--p-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--p-mute)}
+.proj-meta dt{font:600 14px/1.4 var(--p-body);color:var(--p-mute);padding-top:6px;border-top:1px solid var(--p-line)}
 .proj-meta dd{margin:4px 0 0}
 .proj-meta .meta-stack{grid-column:1/-1}
 .proj-stack{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.proj-stack li{padding:2px 10px;border:1px solid var(--p-line);border-radius:999px;font-size:14px;line-height:1.6;background:var(--p-surface)}
+.proj-stack li{padding:2px 10px;border:1px solid var(--p-line);border-radius:2px;font-size:var(--fs-small);line-height:1.6;background:var(--p-surface)}
 .proj-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
-.proj-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;
-  background:var(--p-accent-bg);color:var(--p-on-accent);font-weight:600;text-decoration:none}
+.proj-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:2px;
+  background:var(--p-accent-bg);color:var(--p-on-accent);font-weight:600;text-decoration:none;
+  transition:transform .15s ease-out,filter .15s ease-out}
+.proj-links a:active{transform:scale(.97)}
 .proj-links a::after{content:"";width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);flex:none}
 .proj-links a:hover{filter:brightness(1.08)}
-.proj-nolink{color:var(--p-mute);font-size:15px}
+.proj-nolink{color:var(--p-mute);font-size:var(--fs-small)}
 .proj-hero-media{margin:0}
-.proj-hero-media img{width:100%;border-radius:var(--p-radius);border:1px solid var(--p-line);background:var(--p-surface)}
+.proj-hero-media img{width:100%;border-radius:var(--p-radius);border:1px solid var(--p-line);background:var(--p-surface);
+  padding:8px;box-shadow:3px 3px 0 -1px var(--p-surface),3px 3px 0 var(--p-line)}
 
 /* ---------- Captions and credits ---------- */
-.proj figcaption{margin-top:10px;font-size:14px;line-height:1.5;color:var(--p-mute)}
-.proj .credit{display:block;margin-top:2px;font-size:13px;color:var(--p-mute)}
+.proj figcaption{margin-top:10px;font-size:var(--fs-small);line-height:1.5;color:var(--p-mute)}
+.proj .credit{display:block;margin-top:2px;font-size:var(--fs-small);color:var(--p-mute)}
 .proj .credit a{color:inherit}
 
 /* ---------- Sections ---------- */
-.proj-section{padding:44px 0;border-top:1px solid var(--p-line)}
-.proj h2{margin:0 0 24px;font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.01em}
-.proj h3{margin:0 0 6px;font-size:21px;line-height:1.25}
+.proj-section{position:relative;padding:clamp(48px,6vw,96px) 0;border-top:1px solid var(--p-line);content-visibility:auto;contain-intrinsic-size:auto 600px}
+.proj h2{margin:0 0 clamp(20px,2.4vw,32px);max-width:24ch;font-size:var(--fs-h2);line-height:1.08;letter-spacing:-.015em}
+.proj h3{margin:0 0 8px;font-size:var(--fs-h3);line-height:1.25}
 
 /* What I did. Items rise in one after another (project.js). */
-.did-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;max-width:72ch;font-size:18px}
+.did-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;max-width:var(--measure);font-size:var(--fs-body)}
 .did-list li{position:relative;padding-left:32px}
-.did-list li::before{content:"";position:absolute;left:0;top:.7em;width:16px;height:3px;border-radius:2px;background:var(--p-accent)}
-html.pj-anim .did-list li{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);
-  transition-delay:calc(var(--i,0) * 80ms)}
-html.pj-anim .did-list li.in{opacity:1;transform:none}
+.did-list li::before{content:"";position:absolute;left:0;top:.8em;width:18px;height:1px;background:var(--p-accent);box-shadow:0 3px 0 var(--p-accent)}
+/* Ink-wipe reveal: each line is uncovered left to right, 30ms after the one above. */
+html.pj-anim .did-list li,html.pj-anim [data-wipe]{clip-path:inset(0 100% 0 0);opacity:0;
+  transition:clip-path .45s var(--bk-out,ease-out),opacity .2s ease-out;transition-delay:calc(var(--i,0) * 30ms)}
+html.pj-anim .did-list li.in,html.pj-anim [data-wipe].in{clip-path:inset(0 0 0 0);opacity:1}
 
 /* Big numbers. Count up once when they scroll in (project.js). The HTML always holds the final value. */
-.stats{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))}
-.stat{padding:20px 20px 18px;border:1px solid var(--p-line);border-radius:var(--p-radius);background:var(--p-surface)}
-.stat b{display:block;font-family:var(--p-display);font-weight:var(--p-display-weight);font-size:clamp(28px,3.6vw,42px);line-height:1.05;
-  font-variant-numeric:tabular-nums;color:var(--p-ink)}
-.stat>span:last-child{display:block;margin-top:8px;color:var(--p-mute);font-size:15px;line-height:1.4}
+/* Stats read as ledger entries: a heavy rule on top, hairline columns, a hairline above each label. */
+.stats{list-style:none;margin:0 0 8px 1px;padding:0;display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));
+  border-top:2px solid var(--p-ink)}
+.stat{padding:18px 20px 16px;box-shadow:-1px 0 0 var(--p-line),0 1px 0 var(--p-line)}
+.stat b{display:block;font-family:var(--p-display);font-weight:var(--p-display-weight);font-size:clamp(32px,4vw,52px);line-height:1;
+  font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum","tnum";color:var(--p-ink)}
+.stat>span:last-child{display:block;margin-top:12px;padding-top:8px;border-top:1px dotted var(--p-mute);color:var(--p-mute);font-size:var(--fs-small);line-height:1.4}
+html.pj-anim .stats>li{opacity:0;transform:translateY(8px);transition:opacity .25s ease-out,transform .25s var(--bk-out,ease-out);transition-delay:calc(var(--i,0) * 30ms)}
+html.pj-anim .stats>li.in{opacity:1;transform:none}
 
 /* Sub-projects and related cards. */
 .cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
-.card-link{display:flex;flex-direction:column;height:100%;border:1px solid var(--p-line);border-radius:var(--p-radius);overflow:hidden;
-  background:var(--p-surface);text-decoration:none;color:var(--p-ink)}
+/* Cards are plates: a paper edge round the picture and a stacked offset edge. */
+.card-link{display:flex;flex-direction:column;height:100%;padding:10px;border:1px solid var(--p-line);border-radius:var(--p-radius);
+  background:var(--p-surface);text-decoration:none;color:var(--p-ink);
+  box-shadow:3px 3px 0 -1px var(--p-surface),3px 3px 0 var(--p-line);transition:transform .15s ease-out,box-shadow .15s ease-out}
 .proj .card-link{color:var(--p-ink);text-decoration:none}
-.card-link img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--p-line)}
-.card-link .card-body{padding:16px 18px 20px}
-.card-link p{margin:0;color:var(--p-mute);font-size:15px}
-.card-link .card-go{display:inline-block;margin-top:12px;color:var(--p-link);font-weight:600;font-size:15px}
+.card-link:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 -1px var(--p-surface),4px 4px 0 var(--p-line)}
+.card-link:active{transform:scale(.97)}
+.card-link img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--p-line)}
+.card-link .card-body{padding:14px 8px 10px}
+.card-link p{margin:0;color:var(--p-mute);font-size:var(--fs-small)}
+.card-link .card-go{display:inline-block;margin-top:12px;color:var(--p-link);font-weight:600;font-size:var(--fs-small)}
 .card-link:hover .card-go{text-decoration:underline}
-.plain-list{margin:0;padding-left:20px;display:grid;gap:8px;max-width:72ch}
+.plain-list{margin:0;padding-left:20px;display:grid;gap:10px;max-width:var(--measure)}
 .products{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
-.products li{padding:18px;border:1px solid var(--p-line);border-radius:var(--p-radius);background:var(--p-surface)}
+.products li{padding:18px;border:1px solid var(--p-line);border-radius:var(--p-radius);background:var(--p-surface);box-shadow:3px 3px 0 -1px var(--p-surface),3px 3px 0 var(--p-line)}
 .products b{display:block;font-family:var(--p-display);font-size:22px;letter-spacing:.04em}
 
 /* ---------- Gallery and lightbox ---------- */
 .gallery{list-style:none;margin:0;padding:0;display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));align-items:start}
 .gallery figure{margin:0}
-.gallery a{display:block;border-radius:var(--p-radius);overflow:hidden;border:1px solid var(--p-line);background:var(--p-surface);cursor:zoom-in}
+.gallery a{display:block;padding:8px;border-radius:var(--p-radius);border:1px solid var(--p-line);background:var(--p-surface);cursor:zoom-in;
+  box-shadow:3px 3px 0 -1px var(--p-surface),3px 3px 0 var(--p-line)}
 .gallery img{width:100%}
 .gallery .on-dark a,.proj-hero-media.on-dark img{background:#16181D}
 .lightbox{width:min(1400px,96vw);max-width:none;max-height:94vh;margin:auto;padding:0;border:0;border-radius:var(--p-radius);
@@ -113,27 +132,28 @@ html.pj-anim .did-list li.in{opacity:1;transform:none}
 .lightbox img{flex:1 1 auto;min-height:0;width:100%;max-height:calc(94vh - 72px);object-fit:contain;background:#0D0E12}
 .lightbox figcaption{flex:none;margin:0;padding:12px 120px 14px 18px;font:14px/1.5 var(--p-body);color:#C9CCD3}
 .lightbox figcaption a{color:inherit}
-.lb-btn{position:absolute;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:999px;
+.lb-btn{position:absolute;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:2px;
   background:rgba(13,14,18,.78);color:#fff;font:600 24px/1 system-ui,sans-serif;cursor:pointer}
 .lb-btn:hover{background:rgba(255,255,255,.18)}
+.lb-btn:active{transform:scale(.97)}
 .lb-close{top:10px;right:10px}
 .lb-prev{bottom:10px;right:62px}
 .lb-next{bottom:10px;right:10px}
 .lightbox[data-count="1"] .lb-prev,.lightbox[data-count="1"] .lb-next{display:none}
 .lightbox[data-count="1"] figcaption{padding-right:18px}
-html.pj-anim .lightbox[open]{animation:lb-in .28s cubic-bezier(.2,.7,.2,1)}
-@keyframes lb-in{from{opacity:0;transform:scale(.97)}}
+html.pj-anim .lightbox[open]{animation:lb-in .25s cubic-bezier(.2,.7,.2,1)}
+@keyframes lb-in{from{opacity:0;transform:scale(.95)}}
 
 /* ---------- Page-theme transition ----------
    Going from a tab to one of its projects (or back) wipes the new page's theme in as a circle from
    where you clicked. The CSS lives in base.css, the click point is saved by nav.js. */
 
-@media (prefers-reduced-motion:reduce){
-  html.pj-anim .did-list li{opacity:1;transform:none;transition:none}
-  html.pj-anim .lightbox[open]{animation:none}
-}
 @media (max-width:640px){
-  body.proj-page{font-size:16px}
-  .did-list{font-size:17px}
-  .proj-section{padding:36px 0}
+  .proj-section{padding:44px 0}
+  .proj-links a{width:100%;justify-content:space-between}
 }
+/* Tables inside project pages scroll sideways rather than stretching the page. */
+.proj .table-wrap{margin:0 0 var(--space-3)}
+.proj table{width:100%;color:var(--p-ink)}
+.proj th{font-weight:600;border-bottom:2px solid var(--p-ink)}
+.proj td{border-bottom:1px solid var(--p-line)}

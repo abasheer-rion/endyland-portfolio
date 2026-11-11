@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="t d">
+<title id="t">The in-store AI board</title>
+<desc id="d">Block drawing of the NanoPi R76S store box: a Rockchip RK3576 chip with 4 GB of memory and 64 GB of eMMC storage, two 2.5 gigabit Ethernet ports, and a 5 volt USB-C power input. Drawn for this site, not a photo.</desc>
+<defs>
+<pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r=".9" fill="#B8872E" opacity=".35"/></pattern>
+</defs>
+<rect width="800" height="450" fill="#1D1D1D"/>
+<rect x="40" y="40" width="720" height="370" rx="18" fill="#242424" stroke="#B8872E" stroke-width="2"/>
+<rect x="40" y="40" width="720" height="370" rx="18" fill="url(#dots)"/>
+<g fill="#1D1D1D" stroke="#B8872E" stroke-width="2"><circle cx="68" cy="68" r="9"/><circle cx="732" cy="68" r="9"/><circle cx="68" cy="382" r="9"/><circle cx="732" cy="382" r="9"/></g>
+<g fill="none" stroke="#D9AE4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M170 170H250l30 30h30"/><path d="M170 225H310"/><path d="M170 280H250l30-30h30"/>
+<path d="M490 200h30l30-30h90"/><path d="M490 225h140"/><path d="M490 250h30l30 30h90"/>
+<path d="M400 120V92H470"/><path d="M400 330v28H470"/>
+</g>
+<rect x="310" y="130" width="180" height="190" rx="8" fill="#101010" stroke="#EFE3C8" stroke-width="2"/>
+<text x="400" y="212" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#EFE3C8">RK3576</text>
+<text x="400" y="238" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#D9CBAA">NanoPi R76S</text>
+<text x="400" y="296" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#D9CBAA">4 GB RAM, 64 GB eMMC</text>
+<g font-family="system-ui,sans-serif" font-size="14" fill="#EFE3C8">
+<rect x="70" y="150" width="100" height="150" rx="6" fill="#101010" stroke="#EFE3C8" stroke-width="2"/>
+<text x="120" y="212" text-anchor="middle">2.5 GbE</text><text x="120" y="234" text-anchor="middle">x 2</text>
+<rect x="630" y="170" width="100" height="110" rx="6" fill="#101010" stroke="#EFE3C8" stroke-width="2"/>
+<text x="680" y="218" text-anchor="middle">USB-C</text><text x="680" y="240" text-anchor="middle">5 V, 3 A</text>
+</g>
+<text x="400" y="438" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#D9CBAA">Drawn for this site. Not a photo.</text>
+</svg>

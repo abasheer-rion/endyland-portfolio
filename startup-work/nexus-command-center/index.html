@@ -1,91 +1,128 @@
 <!doctype html>
-<html lang="en" data-theme="rion">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NEXUS Command Center | Ayan Basheer</title>
-<meta name="description" content="An admin dashboard for RION’s Stripe payments, and the server behind it.">
+<meta name="description" content="An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/startup-work/nexus-command-center/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/startup-work/nexus-command-center/">
 <meta property="og:title" content="NEXUS Command Center | Ayan Basheer">
-<meta property="og:description" content="An admin dashboard for RION’s Stripe payments, and the server behind it.">
+<meta property="og:description" content="An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#04070D">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
-<link rel="stylesheet" href="/startup-work/nexus-command-center/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
 <link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-nexus-command-center">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
-<canvas class="proj-scene" aria-hidden="true"></canvas>
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>NEXUS Command Center</span></li></ol></nav>
 
-  <header class="proj-hero nx-window">
-    <div class="nx-bar" aria-hidden="true"><i></i><i></i><i></i><span>nexus / command center</span><em>admin</em></div>
+  <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo">
+    <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo" decoding="async">
     <p class="proj-kicker">RION sub-project</p>
     <h1>NEXUS Command Center</h1>
     <p class="proj-summary">An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Wrote the server. All 147 of its commits are mine.</dd></div><div><dt>Dates</dt><dd>Dec 2025 to Feb 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Node</li><li>Express</li><li>Postgres</li><li>Stripe</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="flow"><img src="img/figure.svg" width="800" height="450" alt="Diagram: Stripe payments flow into a Node and Postgres server, which feeds the admin dashboard." fetchpriority="high" decoding="async"><svg class="packets" viewBox="0 0 800 450" aria-hidden="true" focusable="false"><rect class="hb hb1" x="40" y="170" width="190" height="110" rx="6"/><rect class="hb hb2" x="300" y="170" width="200" height="110" rx="6"/><rect class="hb hb3" x="570" y="170" width="190" height="110" rx="6"/><circle class="pk pk1" cx="234" cy="225" r="5"/><circle class="pk pk2" cx="504" cy="225" r="5"/><circle class="pk pk1 late" cx="234" cy="225" r="4"/><circle class="pk pk2 late" cx="504" cy="225" r="4"/></svg></div><figcaption>How the pieces fit. Both live links are offline now.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
+    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Diagram: Stripe payments flow into a Node and Postgres server, which feeds the admin dashboard." fetchpriority="high" decoding="async"><figcaption>How the pieces fit. Both live links are offline now.</figcaption></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat rion-glow"><i class="meter" aria-hidden="true"><i class="m-147"></i></i><b><span class="visually-hidden">147</span><span aria-hidden="true" data-count="147">147</span></b><span>server commits, all mine</span></li><li class="stat rion-glow"><i class="meter" aria-hidden="true"><i class="m-94"></i></i><b><span class="visually-hidden">94</span><span aria-hidden="true" data-count="94">94</span></b><span>dashboard commits</span></li></ul>
-    <div class="rion-code rion-glow" aria-hidden="true"><div class="rc-bar"><i></i><i></i><i></i><span>git</span></div><div class="rc-body"><p class="ln cmd">git rev-list --count HEAD   # server</p><p class="ln"><b>147</b></p><p class="ln cmd">git rev-list --count HEAD   # dashboard</p><p class="ln"><b>94</b></p></div></div>
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">Payments needed to reach the team&#8217;s records.</h2>
+    <div class="prose"><p>RION takes payments through Stripe. Each payment has to land somewhere the team can see it, search it and trust it. Without that, someone checks Stripe by hand and copies numbers across.</p><p>NEXUS is RION&#8217;s multi-tenant client portal: an admin dashboard for staff, a client portal, and a backend that serves both. The Command Center is the payments side of it.</p></div>
   </section>
 
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">One server in the middle.</h2>
+    <div class="prose"><p>I wrote the server. It takes payments from Stripe, stores them in Postgres, and serves them to an admin dashboard so RION&#8217;s team sees the same record the payment system has.</p><p>The dashboard has 94 commits. The server has 147, and all of them are mine.</p></div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <ol class="a-steps">
+      <li><h3>Payments come in</h3><p>RION takes payments through Stripe. Each one has to reach the team&#8217;s records.</p></li>
+      <li><h3>The server keeps them</h3><p>A Node and Express server stores them in Postgres.</p></li>
+      <li><h3>The team sees them</h3><p>The admin dashboard shows the payments to the RION team.</p></li>
+    </ol>
+    <figure class="a-diagram">
+      <div class="fig-scroll" tabindex="0" role="region" aria-label="Payment flow drawing, scrolls sideways on small screens">
+      <svg viewBox="0 0 1000 300" role="img" aria-labelledby="nx-t nx-d" focusable="false">
+        <title id="nx-t">How payments reach the team</title>
+        <desc id="nx-d">Stripe payments flow into a Node and Express server that stores them in Postgres. The admin dashboard reads from the server and shows the payments to the RION team.</desc>
+        <defs><marker id="nx-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
+<path class="dg-line" d="M250 130H370" marker-end="url(#nx-ar)"/><path class="dg-line" d="M630 130H750" marker-end="url(#nx-ar)"/><path class="dg-line" d="M500 170V220" marker-end="url(#nx-ar)"/><rect class="dg-node" x="20" y="90" width="230" height="80" rx="6"/><text class="dg-t" x="135.0" y="126.0">Stripe</text><text class="dg-s" x="135.0" y="148.0">payments</text><rect class="dg-dark" x="370" y="90" width="260" height="80" rx="6"/><text class="dg-w" x="500.0" y="126.0">Server</text><text class="dg-s" x="500.0" y="148.0" style="fill:#fff">Node and Express</text><rect class="dg-node" x="750" y="90" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="126.0">Admin dashboard</text><text class="dg-s" x="865.0" y="148.0">for the RION team</text><rect class="dg-node" x="370" y="220" width="260" height="60" rx="6"/><text class="dg-t" x="500.0" y="256.0">Postgres</text><text class="dg-s" x="500" y="60">147 commits, all mine</text><text class="dg-s" x="865" y="60">94 commits</text>
+      </svg>
+      </div>
+      <figcaption>Drawn for this site. The live links for this project are offline now.</figcaption>
+    </figure>
+  </section>
+  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
+    <h2 id="numbers-h">By the numbers</h2>
+    <ul class="stats"><li class="stat"><b><span class="visually-hidden">147</span><span aria-hidden="true" data-count="147">147</span></b><span>server commits, all mine</span></li><li class="stat"><b><span class="visually-hidden">94</span><span aria-hidden="true" data-count="94">94</span></b><span>dashboard commits</span></li></ul>
+  </section>
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Wrote the server behind an admin dashboard for RION&#8217;s Stripe payments system.</li>
-      <li>All 147 server commits are mine. The dashboard itself has 94 commits.</li>
-    </ul>
+    <h2 id="did-h">What I owned</h2>
+    <ul class="did-list"><li>Wrote the server behind an admin dashboard for RION&#8217;s Stripe payments system.</li><li>All 147 server commits are mine. The dashboard itself has 94 commits.</li></ul>
+  </section>
+
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose"><p>A payments system is mostly about records that agree. When the server is the single place payments are stored, every screen tells the same story.</p><p>Counting commits is a blunt measure, but it is an honest one for who wrote what.</p></div>
   </section>
 
   <section class="proj-section proj-related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/rion/">Part of RION Solutions</a></li></ul>
+    <ul class="plain-list"><li><a href="/startup-work/rion/">Part of RION Solutions</a></li><li><a href="/startup-work/argus-dashboard/">NEXUS became the Argus Dashboard</a></li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/startup-work/rion/">Back to RION Solutions</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/startup-work/nexus-command-center/main.js"></script>

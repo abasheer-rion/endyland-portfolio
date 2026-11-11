@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="new-door">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,101 +20,131 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
+<link rel="stylesheet" href="/web-design/case.css">
 <link rel="stylesheet" href="/web-design/new-door/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="modulepreload" href="/web-design/new-door/main.js">
 </head>
 <body class="proj-page proj-new-door">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/web-design/" aria-current="true">Web design<span class="tab-ind" aria-hidden="true"></span></a></li>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/" aria-current="true">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>New Door Investments</span></li></ol></nav>
 
-  <header class="proj-hero nd-hero">
+  <header class="cs-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="img/logo.webp" width="154" height="168" alt="New Door logo">
+    <img class="proj-logo" src="img/logo.webp" width="420" height="70" alt="New Door Investments logo" decoding="async">
     <p class="proj-kicker">Client site and tools</p>
     <h1>New Door Investments</h1>
     <p class="proj-summary">Website and tools for a Texas land and real estate investment firm.</p>
     <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. 68 of the 69 site commits.</dd></div><div><dt>Dates</dt><dd>Site Apr to Sep 2026. Email app Dec 2025 to Sep 2026.</dd></div><div><dt>Client</dt><dd>New Door Investments</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Vercel</li><li>Google Sheets</li><li>GoHighLevel</li><li>Amazon SES</li><li>Electron</li><li>Docker</li></ul></dd></div></dl>
     <ul class="proj-links"><li><a href="https://newdoorinvestments.net" rel="noopener">newdoorinvestments.net</a></li><li><a href="https://inventory.newdoorinvestments.net" rel="noopener">Inventory site</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media nd-media">
-      <div class="nd-frame">
-        <img src="img/hero.webp" width="1440" height="900" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments." fetchpriority="high" decoding="async">
-        <span class="nd-fog" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="nd-door" aria-hidden="true"><span class="nd-leaf nd-leaf-l"></span><span class="nd-leaf nd-leaf-r"></span></span>
-      </div>
-    </figure>
+    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The New Door Investments home page today: a glass building at twilight under the headline Discover High-Performance Real Estate Investments and Services." fetchpriority="high" decoding="async"><figcaption>The live site, captured 11 November 2026.</figcaption></figure>
   </header>
 
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>68 of 69</b><span>commits on the site</span></li><li class="stat"><b><span class="visually-hidden">25,000</span><span aria-hidden="true" data-count="25000" data-comma="1">25,000</span></b><span>emails a month for about $8</span></li><li class="stat"><b><span class="visually-hidden">48</span><span aria-hidden="true" data-count="48">48</span></b><span>tools in the CRM connector for Claude</span></li></ul>
+    <h2 id="numbers-h" class="visually-hidden">The numbers</h2>
+    <ul class="stats"><li class="stat"><b>68 of 69</b><span>commits on the site</span></li><li class="stat"><b><span class="visually-hidden">25,000</span><span aria-hidden="true" data-count="25000">25,000</span></b><span>emails a month for about $8</span></li><li class="stat"><b><span class="visually-hidden">48</span><span aria-hidden="true" data-count="48">48</span></b><span>tools in the CRM connector for Claude</span></li><li class="stat"><b><span class="visually-hidden">15</span><span aria-hidden="true" data-count="15">15</span></b><span>properties on the inventory site today</span></li></ul>
   </section>
 
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <div class="nd-did">
-    <ul class="did-list">
-      <li>Moved the site off Framer to Next.js on Vercel, and added Google Analytics.</li>
-      <li>Added land development pages, a booking page and case studies.</li>
-      <li>Built the inventory site. Listings load live from a Google Sheet, and the buyer form sends leads straight into their CRM.</li>
-      <li>Built a <a href="/projects/ses-mailer/">desktop bulk email app</a> for the team on Amazon SES. About $8 a month for 25,000 emails.</li>
-      <li>Built a <a href="/projects/gohighlevel-mcp/">connector with 48 tools</a> that lets Claude work inside their CRM.</li>
-    </ul>
-    <svg class="nd-plat" viewBox="0 0 400 320" aria-hidden="true" focusable="false">
-      <path class="nd-road" pathLength="1" d="M-10 268 C 90 250, 150 300, 250 276 S 380 230, 410 244"/>
-      <path class="nd-edge" pathLength="1" d="M34 40 L360 26 L376 226 C 300 214, 250 250, 180 246 L 40 236 Z"/>
-      <g class="nd-lots">
-        <path pathLength="1" d="M34 40 L118 36 L122 134 L37 138 Z"/>
-        <path pathLength="1" d="M118 36 L200 33 L204 130 L122 134 Z"/>
-        <path pathLength="1" d="M200 33 L282 29 L288 127 L204 130 Z"/>
-        <path pathLength="1" d="M282 29 L360 26 L368 124 L288 127 Z"/>
-        <path pathLength="1" d="M37 138 L122 134 L126 240 L40 236 Z"/>
-        <path pathLength="1" d="M122 134 L204 130 L180 246 L126 240 Z"/>
-        <path pathLength="1" d="M204 130 L288 127 L292 228 C 250 246, 210 248, 180 246 Z"/>
-        <path pathLength="1" d="M288 127 L368 124 L376 226 C 340 220, 310 222, 292 228 Z"/>
-      </g>
-    </svg>
+  <section class="proj-section case-sec " id="problem" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <div class="case-body">
+<p class="lead">A land and real estate firm whose website was a design-tool page, whose listings lived in a spreadsheet, and whose leads lived in a CRM.</p>
+<p>New Door sources and manages land and commercial property in Texas. The marketing site was built in Framer. Listings changed often and were kept in a Google Sheet. Buyers who wanted to be told about deals had no way to say what they wanted, and the team sent email in bulk through a tool that charged by the contact.</p>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="approach" aria-labelledby="approach-h">
+    <h2 id="approach-h">Approach</h2>
+    <div class="case-body">
+<p>Keep the tools the team already used, and connect them with small pieces of code instead of replacing them.</p>
+<ol>
+<li><b>Move the main site to Next.js on Vercel,</b> with Google Analytics, so pages are code in a repository and load fast.</li>
+<li><b>Add pages that sell the work:</b> land development pages, a booking page and case studies.</li>
+<li><b>Build the inventory site</b> as a single static page that reads listings straight from the team's Google Sheet.</li>
+<li><b>Send leads where the team already works.</b> The buyer form posts into their CRM.</li>
+<li><b>Build two tools for the team:</b> a desktop bulk email app and a connector that lets Claude work inside the CRM.</li>
+</ol>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="how" aria-labelledby="how-h">
+    <h2 id="how-h">How a lead moves</h2>
+    <div class="case-body">
+<figure><ol class="flow" style="--cols:4" aria-label="How a buyer lead moves from listing to CRM"><li><b>Google Sheet</b><span>The team edits listings here</span></li><li><b>Inventory site</b><span>Loads the sheet live on every visit</span></li><li><b>Buyer form</b><span>A buyer says what they want</span></li><li><b>CRM</b><span>The lead lands as a contact with fields filled in</span></li></ol></figure><p>The inventory page reads the sheet by column position, so the team keeps the first ten columns in order: name, address, city, acres, lots, use, price per unit, asking price, status and notes. A copy of the data is built into the page as a fallback, so listings still show if the sheet cannot be reached.</p>
+<p>The buyer form asks for 18 fields, including buyer type (builder, investor, land banker or realtor), target county and city, price range, acres, lots, funding and timeline. It posts JSON to a webhook in the CRM, which creates the contact and applies a tag.</p>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="results" aria-labelledby="results-h">
+    <h2 id="results-h">Results</h2>
+    <div class="case-body">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col">What</th><th scope="col">Number</th></tr></thead><tbody><tr><td>Site commits that are mine</td><td>68 of 69</td></tr><tr><td>Bulk email cost</td><td>About $8 a month for 25,000 emails</td></tr><tr><td>CRM connector</td><td>48 tools</td></tr><tr><td>Listings on the inventory site today</td><td>15 properties</td></tr><tr><td>Fields on the buyer form</td><td>18</td></tr></tbody></table></div><p>The main site presents three services: a standing land development advisor, three-level land due diligence reports, and coaching for first-time flippers. Visitors can book a call or ask to sell to the firm directly from the home page.</p>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="owned" aria-labelledby="owned-h">
+    <h2 id="owned-h">What I owned</h2>
+    <div class="case-body">
+<ul class="did-list">
+<li>Moved the site off Framer to Next.js on Vercel, and added Google Analytics.</li>
+<li>Added land development pages, a booking page and case studies.</li>
+<li>Built the inventory site. Listings load live from a Google Sheet, and the buyer form sends leads straight into their CRM.</li>
+<li>Built a desktop bulk email app for the team on Amazon SES. About $8 a month for 25,000 emails.</li>
+<li>Built a connector with 48 tools that lets Claude work inside their CRM.</li>
+</ul>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="learned" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="case-body">
+<ul>
+<li>A spreadsheet works as a content system when its columns are treated like a contract, written down and not reordered.</li>
+<li>A built-in fallback copy of the data costs little and keeps the page useful when the sheet is slow or private.</li>
+<li>Connecting existing tools beat replacing them. The team kept their habits and gained a site, a form and a mailer.</li>
+</ul>
+    </div>
+  </section>
+  <section class="proj-section case-sec " id="screens" aria-labelledby="screens-h">
+    <h2 id="screens-h">Screens</h2>
+    <div class="case-body">
+<div class="shots"><figure class="wide"><a class="lb" href="img/inventory.webp" data-w="1440" data-h="900"><img src="img/inventory.webp" width="1440" height="900" alt="The Available Inventory page today: search and filter controls above a grid of property cards with price, acres, lots and use." loading="lazy" decoding="async"></a><figcaption>The inventory site today. Listings come live from a Google Sheet.</figcaption></figure><figure><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The New Door services section today: three cards for the land development advisor, land due diligence reports and fix and flip mentorship." loading="lazy" decoding="async"></a><figcaption>Services on the main site.</figcaption></figure><figure class="phone"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The New Door home page on a phone today." loading="lazy" decoding="async"></a><figcaption>The main site on a 390 pixel wide phone.</figcaption></figure></div>
     </div>
   </section>
 
-  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
-    <h2 id="gallery-h">Gallery</h2>
-    <ul class="gallery">
-      <li><figure><a class="lb" href="img/inventory.webp" data-w="1200" data-h="750"><img src="img/inventory.webp" width="1200" height="750" alt="The inventory site listing land for sale." loading="lazy" decoding="async"></a><figcaption>The inventory site. Listings come live from a Google Sheet.</figcaption></figure></li>
-      <li><figure><a class="lb" href="img/services.webp" data-w="1200" data-h="968"><img src="img/services.webp" width="1200" height="968" alt="Six service cards under the heading How We Create Value Through Real Estate." loading="lazy" decoding="async"></a><figcaption>Service cards on the main site.</figcaption></figure></li>
-      <li><figure><a class="lb" href="img/expertise.webp" data-w="1200" data-h="677"><img src="img/expertise.webp" width="1200" height="677" alt="The Our Expertise section with a photo of a modern house at dusk." loading="lazy" decoding="async"></a><figcaption>The expertise section.</figcaption></figure></li>
-    </ul>
-  </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
+  <section class="proj-section case-sec proj-related" aria-labelledby="related-h">
     <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/projects/ses-mailer/">Bulk email app</a></li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li><li><a href="/startup-work/rion/">Delivered through RION Solutions</a></li></ul>
+    <div class="case-body"><ul class="plain-list"><li><a href="/projects/ses-mailer/">Bulk email app</a></li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li><li><a href="/startup-work/rion/">Delivered through RION Solutions</a></li></ul></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/web-design/">Back to Web design</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/web-design/new-door/main.js"></script>

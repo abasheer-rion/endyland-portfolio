@@ -4,183 +4,136 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Projects | Ayan Basheer</title>
-<meta name="description" content="Things Ayan Basheer built for himself and friends: Claude for GoHighLevel, the endyland servers and more.">
+<meta name="description" content="Things Ayan Basheer built: Safe Home, a sensor node, Claude for GoHighLevel, the endyland servers and more.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/projects/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/projects/">
 <meta property="og:title" content="Projects | Ayan Basheer">
-<meta property="og:description" content="Things Ayan Basheer built for himself and friends: Claude for GoHighLevel, the endyland servers and more.">
+<meta property="og:description" content="Things Ayan Basheer built: Safe Home, a sensor node, Claude for GoHighLevel, the endyland servers and more.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B0420">
+<meta name="theme-color" content="#26180F">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/projects/style.css">
-<link rel="modulepreload" href="/projects/main.js">
 </head>
 <body class="tab tab-projects">
 <a class="skip" href="#main">Skip to content</a>
-<!-- The 3D scene for this tab. Decoration only: everything it shows is also in the HTML below. -->
-<canvas id="scene" class="scene" aria-hidden="true"></canvas>
-<div class="scene-fallback" aria-hidden="true"></div>
-<!-- CRT glass: scanlines, a rolling bar and rounded screen corners. Decoration only. -->
-<div class="crt" aria-hidden="true"></div>
-<div class="crt-edge" aria-hidden="true"></div>
-
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/" aria-current="page">Projects<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/projects/" aria-current="page">Projects</a></li>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<!-- Score display. Decoration only. -->
-<div class="hud" aria-hidden="true">
-  <p class="hud-row"><span class="hud-k">1UP</span> <span class="hud-v" data-score>000000</span></p>
-  <p class="hud-row"><span class="hud-k">HI</span> <span class="hud-v" data-hi>000000</span></p>
-  <p class="hud-row"><span class="hud-k">STAGE</span> <span class="hud-v" data-stage>1-0</span></p>
-  <p class="hud-bar"><span data-bar></span></p>
-</div>
 
 <main id="main">
 <section class="intro" aria-labelledby="page-h">
-  <div class="intro-screen">
-    <p class="kicker">Tab 04</p>
-    <h1 id="page-h"><span class="h1-text">Projects</span></h1>
-    <p class="lede">Hardware and tools I built. Insert coin.</p>
-    <p class="start-row"><a class="start" href="#fpga-risc">Press start</a><span class="credit" aria-hidden="true">Credit 01</span></p>
+  <div class="intro-text">
+    <h1 id="page-h">Projects</h1>
+    <p class="lede">Hardware, tools and a hackathon win. Each one has its own page with the problem, how it works, the real numbers and what I learned.</p>
   </div>
 </section>
-
 <div class="items">
-  <article class="item cab cab-pink" id="fpga-risc" aria-labelledby="fpga-risc-h" data-color="#FF4FD8">
-    <header class="cab-top"><h2 id="fpga-risc-h" class="cab-marquee">8-bit RISC processor on FPGA</h2></header>
-    <div class="cab-body">
-      <div class="cab-screen">
-        <img class="item-img" src="/projects/fpga-risc/img/thumb.webp" width="800" height="450" alt="Close-up of a green circuit board. A stock photo." loading="lazy" decoding="async">
-        <span class="cab-glass" aria-hidden="true"></span>
-      </div>
-      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
-      <div class="item-body">
-        <p>An 8-bit processor I designed in Verilog and ran on an FPGA.</p>
-        <ul class="item-links">
-          <li><a class="link-more" href="/projects/fpga-risc/">See the project</a></li>
-        </ul>
-      </div>
+  <article class="row" id="safe-home" aria-labelledby="safe-home-h">
+    <a class="row-pic" href="/projects/safe-home/" tabindex="-1" aria-hidden="true"><img src="/projects/safe-home/img/thumb.webp" width="800" height="450" alt="" fetchpriority="high" decoding="async"></a>
+    <div class="row-text">
+      <p class="row-win">Winner, HackUTD 2026</p><h2 id="safe-home-h"><a href="/projects/safe-home/">Safe Home</a></h2>
+      <p class="row-sum">A home black box that keeps reporting through an outage. It won HackUTD 2026.</p>
+      <p class="row-fig"><b>385 of 649</b> commits are mine</p>
+      <p class="row-tags">ESP32 &middot; ESP-NOW &middot; MapLibre &middot; Cloudflare</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/safe-home/">See the project</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item cab cab-cyan" id="sensor-node" aria-labelledby="sensor-node-h" data-color="#3DF2FF">
-    <header class="cab-top"><h2 id="sensor-node-h" class="cab-marquee">Low-power wireless sensor node</h2></header>
-    <div class="cab-body">
-      <div class="cab-screen">
-        <img class="item-img" src="/projects/sensor-node/img/thumb.webp" width="800" height="450" alt="An ESP32 development board. A stock photo." loading="lazy" decoding="async">
-        <span class="cab-glass" aria-hidden="true"></span>
-      </div>
-      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
-      <div class="item-body">
-        <p>A battery sensor that went from 3 days to 6 weeks on one charge.</p>
-        <ul class="item-links">
-          <li><a class="link-more" href="/projects/sensor-node/">See the project</a></li>
-        </ul>
-      </div>
+  <article class="row" id="fpga-risc" aria-labelledby="fpga-risc-h">
+    <a class="row-pic" href="/projects/fpga-risc/" tabindex="-1" aria-hidden="true"><img src="/projects/fpga-risc/img/thumb.svg" width="800" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="row-text">
+      <h2 id="fpga-risc-h"><a href="/projects/fpga-risc/">8-bit RISC processor on FPGA</a></h2>
+      <p class="row-sum">An 8-bit processor I designed in Verilog and ran on an FPGA.</p>
+      <p class="row-fig"><b>5 stages, 50 MHz</b> and 40+ tests</p>
+      <p class="row-tags">Verilog &middot; Vivado &middot; Artix-7</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/fpga-risc/">See the project</a></li></ul>
     </div>
-    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item cab cab-yellow" id="bench-rig" aria-labelledby="bench-rig-h" data-color="#FFE14D">
-    <header class="cab-top"><h2 id="bench-rig-h" class="cab-marquee">Automated bench test rig</h2></header>
-    <div class="cab-body">
-      <div class="cab-screen">
-        <img class="item-img" src="/projects/bench-rig/img/thumb.webp" width="800" height="450" alt="Electronic lab equipment on a bench. A stock photo." loading="lazy" decoding="async">
-        <span class="cab-glass" aria-hidden="true"></span>
-      </div>
-      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
-      <div class="item-body">
-        <p>Lab instruments driven by Python, so an amplifier test runs in 90 seconds.</p>
-        <ul class="item-links">
-          <li><a class="link-more" href="/projects/bench-rig/">See the project</a></li>
-        </ul>
-      </div>
+  <article class="row" id="sensor-node" aria-labelledby="sensor-node-h">
+    <a class="row-pic" href="/projects/sensor-node/" tabindex="-1" aria-hidden="true"><img src="/projects/sensor-node/img/thumb.svg" width="800" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="row-text">
+      <h2 id="sensor-node-h"><a href="/projects/sensor-node/">Low-power wireless sensor node</a></h2>
+      <p class="row-sum">A battery sensor that went from 3 days to 6 weeks on one charge.</p>
+      <p class="row-fig"><b>3 days to 6 weeks</b> on one 18650 cell</p>
+      <p class="row-tags">ESP32 &middot; C &middot; I2C &middot; KiCad</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/sensor-node/">See the project</a></li></ul>
     </div>
-    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item cab cab-pink" id="gohighlevel-mcp" aria-labelledby="gohighlevel-mcp-h" data-color="#FF4FD8">
-    <header class="cab-top"><h2 id="gohighlevel-mcp-h" class="cab-marquee">Claude for GoHighLevel</h2></header>
-    <div class="cab-body">
-      <div class="cab-screen">
-        <img class="item-img" src="/projects/gohighlevel-mcp/img/thumb.webp" width="800" height="450" alt="A small toy robot next to a laptop. A stock photo." loading="lazy" decoding="async">
-        <span class="cab-glass" aria-hidden="true"></span>
-      </div>
-      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
-      <div class="item-body">
-        <p>A connector that lets Claude read and work inside a GoHighLevel CRM.</p>
-        <ul class="item-links">
-          <li><a class="link-more" href="/projects/gohighlevel-mcp/">See the project</a></li>
-          <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-      </div>
+  <article class="row" id="bench-rig" aria-labelledby="bench-rig-h">
+    <a class="row-pic" href="/projects/bench-rig/" tabindex="-1" aria-hidden="true"><img src="/projects/bench-rig/img/thumb.svg" width="800" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="row-text">
+      <h2 id="bench-rig-h"><a href="/projects/bench-rig/">Automated bench test rig</a></h2>
+      <p class="row-sum">Lab instruments driven by Python, so an amplifier test runs in 90 seconds.</p>
+      <p class="row-fig"><b>45 min to 90 s</b> for a 12-point test</p>
+      <p class="row-tags">Python &middot; SCPI &middot; Oscilloscope</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/bench-rig/">See the project</a></li></ul>
     </div>
-    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item cab cab-cyan" id="ses-mailer" aria-labelledby="ses-mailer-h" data-color="#3DF2FF">
-    <header class="cab-top"><h2 id="ses-mailer-h" class="cab-marquee">Bulk email app on Amazon SES</h2></header>
-    <div class="cab-body">
-      <div class="cab-screen">
-        <img class="item-img" src="/projects/ses-mailer/img/thumb.webp" width="800" height="450" alt="A mail icon on a phone screen. A stock photo." loading="lazy" decoding="async">
-        <span class="cab-glass" aria-hidden="true"></span>
-      </div>
-      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
-      <div class="item-body">
-        <p>A desktop app that sends the New Door team&#8217;s bulk email through Amazon SES.</p>
-        <ul class="item-links">
-          <li><a class="link-more" href="/projects/ses-mailer/">See the project</a></li>
-          <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-      </div>
+  <article class="row" id="gohighlevel-mcp" aria-labelledby="gohighlevel-mcp-h">
+    <a class="row-pic" href="/projects/gohighlevel-mcp/" tabindex="-1" aria-hidden="true"><img src="/projects/gohighlevel-mcp/img/thumb.svg" width="800" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="row-text">
+      <h2 id="gohighlevel-mcp-h"><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></h2>
+      <p class="row-sum">A connector that lets Claude read and work inside a GoHighLevel CRM.</p>
+      <p class="row-fig"><b>48 tools</b> in 11 groups</p>
+      <p class="row-tags">MCP &middot; Next.js &middot; TypeScript</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/gohighlevel-mcp/">See the project</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
   </article>
-  <article class="item cab cab-yellow" id="endyland-infra" aria-labelledby="endyland-infra-h" data-color="#FFE14D">
-    <header class="cab-top"><h2 id="endyland-infra-h" class="cab-marquee">endyland hosting and status page</h2></header>
-    <div class="cab-body">
-      <div class="cab-screen">
-        <img class="item-img" src="/projects/endyland-infra/img/thumb.webp" width="800" height="450" alt="The endyland status page: All services are up, and the portfolio at 100% uptime." loading="lazy" decoding="async">
-        <span class="cab-glass" aria-hidden="true"></span>
-      </div>
-      <div class="cab-panel" aria-hidden="true"><span class="stick"></span><span class="btns"><i></i><i></i><i></i></span></div>
-      <div class="item-body">
-        <p>The hosting, status page and backups behind endyland.com.</p>
-        <ul class="item-links">
-          <li><a class="link-more" href="/projects/endyland-infra/">See the project</a></li>
-          <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-      </div>
+  <article class="row" id="ses-mailer" aria-labelledby="ses-mailer-h">
+    <a class="row-pic" href="/projects/ses-mailer/" tabindex="-1" aria-hidden="true"><img src="/projects/ses-mailer/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="row-text">
+      <h2 id="ses-mailer-h"><a href="/projects/ses-mailer/">Bulk email app on Amazon SES</a></h2>
+      <p class="row-sum">A desktop app that sends the New Door team&#8217;s bulk email through Amazon SES.</p>
+      <p class="row-fig"><b>25,000 emails</b> a month for about $8</p>
+      <p class="row-tags">Electron &middot; Amazon SES</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/ses-mailer/">See the project</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <div class="cab-base" aria-hidden="true"><span class="slot"></span><span class="slot"></span></div>
+  </article>
+  <article class="row" id="endyland-infra" aria-labelledby="endyland-infra-h">
+    <a class="row-pic" href="/projects/endyland-infra/" tabindex="-1" aria-hidden="true"><img src="/projects/endyland-infra/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="row-text">
+      <h2 id="endyland-infra-h"><a href="/projects/endyland-infra/">endyland hosting and status page</a></h2>
+      <p class="row-sum">The hosting, status page and backups behind endyland.com.</p>
+      <p class="row-fig"><b>5 min</b> between health checks</p>
+      <p class="row-tags">Cloudflare &middot; D1 &middot; GitHub Actions</p>
+      <ul class="item-links"><li><a class="link-more" href="/projects/endyland-infra/">See the project</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    </div>
   </article>
 </div>
-<p class="tab-credits">Stock photos, free under their licenses: circuit board by Sourabh Belekar (Unsplash), ESP32 board by Thorium (Unsplash), lab bench by Ludovic Delot (Pexels), toy robot by Mohamed Nohassi (Unsplash), mail icon by Brett Jordan (Unsplash). Each project page links the original.</p>
+<p class="tab-note">Pictures are screenshots of my own live sites and apps, or diagrams drawn for this site. The apps were run on my machine with made-up data. The diagrams show only what the projects did.</p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
-
-<script type="module" src="/projects/main.js"></script>
 </body>
 </html>

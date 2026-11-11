@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="rion">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,36 +17,41 @@
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
-<link rel="stylesheet" href="/startup-work/rion/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
 <link rel="modulepreload" href="/startup-work/rion/brand.js">
 </head>
 <body class="proj-page proj-rion">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
-<canvas class="proj-scene" aria-hidden="true"></canvas>
+<canvas class="proj-scene" id="rion-scene" aria-hidden="true"></canvas>
+
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><span>RION Solutions</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="img/logo.webp" width="520" height="144" alt="RION logo">
+    <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo" decoding="async">
     <p class="proj-kicker">Automation engineer</p>
     <h1>RION Solutions</h1>
     <p class="proj-summary">An AI automation agency, and the parent company of Argus.</p>
@@ -54,63 +59,89 @@
     <ul class="proj-links"><li><a href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
     <div class="rion-stage" aria-hidden="true"></div>
-    <figure class="proj-hero-media rion-frame rion-flatten"><div class="rf-bar" aria-hidden="true"><i></i><i></i><i></i><span>rionsolution.com</span></div><img class="rion-tilt" src="img/hero.webp" width="1440" height="900" alt="The RION home page: Intelligent Scalable Automation for Modern Businesses, over a starfield." fetchpriority="high" decoding="async"></figure>
   </header>
 
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How the work fit</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li><li><a href="#site-h">The live site</a></li><li><a href="#subs-h">Projects</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">Small businesses lose time to repeat work.</h2>
+    <div class="prose"><p>RION sells automation to businesses that do the same steps by hand every day: typing a new client into three systems, looking up the same county record again, shipping a change by running commands one at a time.</p><p>Each of those costs hours, and each makes errors that cost more hours to find.</p></div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">Automate the repeat work, then keep it running.</h2>
+    <div class="prose"><p>RION builds clean automation systems and AI builds for its clients, and sells three products on top: FORGE for custom AI builds, ARGUS for security and monitoring, and NEXUS, a client portal.</p><p>I worked as an automation engineer. I took the repeat work in front of me, such as intake, county lookups and deploys, and turned it into services that run on their own.</p></div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How the work fit together</h2>
+    <div class="prose"><p>Four pieces carried most of my time. Client intake ran end to end with no hand entry. The services behind it ran on Python, Flask and AWS Lambda. A Docker and GitHub Actions pipeline shipped changes. And one API sat in front of three county record systems.</p></div>
+    <figure class="a-diagram">
+      <div class="fig-scroll" tabindex="0" role="region" aria-label="RION work drawing, scrolls sideways on small screens">
+      <svg viewBox="0 0 1000 340" role="img" aria-labelledby="rd-t rd-d" focusable="false">
+        <title id="rd-t">What I worked on at RION</title>
+        <desc id="rd-d">Client intake automation, services on Python, Flask and AWS Lambda, a Docker and GitHub Actions deploy pipeline, and one API in front of three county record systems.</desc>
+        <defs><marker id="rd-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
+<path class="dg-line" d="M250 100H370" marker-end="url(#rd-ar)"/><path class="dg-line" d="M630 100H750" marker-end="url(#rd-ar)"/><path class="dg-line" d="M500 140V200" marker-end="url(#rd-ar)"/><rect class="dg-node" x="20" y="60" width="230" height="80" rx="6"/><text class="dg-t" x="135.0" y="96.0">Client intake</text><text class="dg-s" x="135.0" y="118.0">automated end to end</text><rect class="dg-dark" x="370" y="60" width="260" height="80" rx="6"/><text class="dg-w" x="500.0" y="96.0">Services</text><text class="dg-s" x="500.0" y="118.0" style="fill:#fff">Python, Flask, AWS Lambda</text><rect class="dg-node" x="750" y="60" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="96.0">Deploys</text><text class="dg-s" x="865.0" y="118.0">Docker, GitHub Actions</text><rect class="dg-node" x="370" y="200" width="260" height="80" rx="6"/><text class="dg-t" x="500.0" y="236.0">County records API</text><text class="dg-s" x="500.0" y="258.0">3 systems, one API, cached</text><text class="dg-s" x="135" y="170">70% faster onboarding</text><text class="dg-s" x="500" y="312">1K+ lookups a day</text><text class="dg-s" x="865" y="170">40% faster deploys</text><text class="dg-s" x="500" y="40">10K+ AWS transactions a day</text>
+      </svg>
+      </div>
+      <figcaption>Drawn for this site from the numbers on this page.</figcaption>
+    </figure>
+  </section>
+
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat rion-glow"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster client onboarding</span></li><li class="stat rion-glow"><b><span class="visually-hidden">10K+</span><span aria-hidden="true" data-count="10" data-post="K+">10K+</span></b><span>AWS transactions a day</span></li><li class="stat rion-glow"><b><span class="visually-hidden">40%</span><span aria-hidden="true" data-count="40" data-post="%">40%</span></b><span>faster deploys</span></li><li class="stat rion-glow"><b>1K+</b><span>county lookups a day</span></li><li class="stat rion-glow"><b><span class="visually-hidden">95%</span><span aria-hidden="true" data-count="95" data-post="%">95%</span></b><span>on-time delivery</span></li><li class="stat rion-glow"><b>8+</b><span>client deployments</span></li></ul>
-    <div class="rion-code rion-glow" aria-hidden="true"><div class="rc-bar"><i></i><i></i><i></i><span>rion status</span></div><div class="rc-body"><p class="ln cmd">rion status</p><p class="ln"><b>onboarding </b> 70% faster</p><p class="ln"><b>aws        </b> 10K+ transactions a day</p><p class="ln"><b>deploys    </b> 40% faster</p><p class="ln"><b>county api </b> 1K+ lookups a day</p><p class="ln"><b>clients    </b> 8+ deployments, 95% on time</p></div></div>
+    <h2 id="numbers-h">What it reached</h2>
+    <ul class="stats"><li class="stat"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster client onboarding</span></li><li class="stat"><b><span class="visually-hidden">10K+</span><span aria-hidden="true" data-count="10" data-post="K+">10K+</span></b><span>AWS transactions a day</span></li><li class="stat"><b><span class="visually-hidden">40%</span><span aria-hidden="true" data-count="40" data-post="%">40%</span></b><span>faster deploys</span></li><li class="stat"><b>1K+</b><span>county lookups a day</span></li><li class="stat"><b><span class="visually-hidden">95%</span><span aria-hidden="true" data-count="95" data-post="%">95%</span></b><span>on-time delivery</span></li><li class="stat"><b>8+</b><span>client deployments</span></li></ul>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Automated client intake end to end. Onboarding got 70% faster and duplicate entries stopped.</li>
-      <li>Kept 10K+ AWS transactions a day running.</li>
-      <li>Made deploys 40% faster with Docker and GitHub Actions.</li>
-      <li>Put 3 county record systems behind one API, with caching for 1K+ lookups a day.</li>
-      <li>Delivered 95% on time across 8+ client deployments.</li>
-    </ul>
+    <h2 id="did-h">What I owned</h2>
+    <ul class="did-list"><li>Automated client intake end to end. Onboarding got 70% faster and duplicate entries stopped.</li><li>Kept 10K+ AWS transactions a day running.</li><li>Made deploys 40% faster with Docker and GitHub Actions.</li><li>Put 3 county record systems behind one API, with caching for 1K+ lookups a day.</li><li>Delivered 95% on time across 8+ client deployments.</li></ul>
   </section>
 
-  <section class="proj-section proj-products" aria-labelledby="products-h">
-    <h2 id="products-h">The three products</h2>
-    <ul class="products"><li class="rion-glow prod-forge"><span class="prod-n" aria-hidden="true">01</span><b>FORGE</b>Custom AI builds.</li><li class="rion-glow prod-argus"><span class="prod-n" aria-hidden="true">02</span><b>ARGUS</b>Security and monitoring. It became <a href="/startup-work/argus/">Argus</a>.</li><li class="rion-glow prod-nexus"><span class="prod-n" aria-hidden="true">03</span><b>NEXUS</b>The client portal. It became the <a href="/startup-work/argus-dashboard/">Argus Dashboard</a>.</li></ul>
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose"><p>Most of the value in automation is in the boring middle: duplicate records, retries, and a deploy that does not need a person watching it.</p><p>Delivering for clients means the schedule is part of the product. Shipping 95% on time came from small, repeatable deploys.</p></div>
+  </section>
+
+
+  <section class="proj-section proj-gallery" aria-labelledby="site-h">
+    <h2 id="site-h">The live site</h2>
+    <ul class="gallery">
+      <li><figure><a class="lb" href="img/hero.webp" data-w="1440" data-h="900"><img src="img/hero.webp" width="1440" height="900" alt="The RION home page: Intelligent Scalable Automation for Modern Businesses, with Check out a live demo and Explore Solutions buttons." loading="lazy" decoding="async"></a><figcaption>rionsolution.com, captured in November 2026.</figcaption></figure></li>
+      <li><figure><a class="lb" href="img/products.webp" data-w="1440" data-h="900"><img src="img/products.webp" width="1440" height="900" alt="The RION product cards: ARGUS, AI Security and Monitoring, and NEXUS, Client Portal." loading="lazy" decoding="async"></a><figcaption>The products section: FORGE, ARGUS and NEXUS.</figcaption></figure></li>
+      <li><figure><a class="lb" href="img/phone.webp" data-w="390" data-h="844"><img src="img/phone.webp" width="390" height="844" alt="The rionsolution.com home page on a phone." loading="lazy" decoding="async"></a><figcaption>The home page on a 390 pixel phone.</figcaption></figure></li>
+    </ul>
   </section>
 
   <section class="proj-section proj-subs" aria-labelledby="subs-h">
     <h2 id="subs-h">Notable projects</h2>
-    <ul class="cards">
-      <li><a class="card-link rion-glow" href="/startup-work/nexus-command-center/"><img src="/startup-work/nexus-command-center/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>NEXUS Command Center</h3><p>An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</p><span class="card-go">See the project</span></div></a></li>
-      <li><a class="card-link rion-glow" href="/startup-work/rion-county-api/"><img src="/startup-work/rion-county-api/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>County records API and client intake</h3><p>One API in front of 3 county record systems, and client intake that runs on its own.</p><span class="card-go">See the project</span></div></a></li>
-      <li><a class="card-link rion-glow" href="/web-design/rion-website/"><img src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>RION Solutions website</h3><p>A rebuild of the RION Solutions website in Next.js.</p><span class="card-go">See the project</span></div></a></li>
+    <ul class="sub-list">
+      <li><a href="/startup-work/nexus-command-center/"><img src="/startup-work/nexus-command-center/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div><h3>NEXUS Command Center</h3><p>An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</p></div></a></li>
+      <li><a href="/startup-work/rion-county-api/"><img src="/startup-work/rion-county-api/img/figure.svg" width="800" height="450" alt="" loading="lazy" decoding="async"><div><h3>County records API and client intake</h3><p>One API in front of 3 county record systems, and client intake that runs on its own.</p></div></a></li>
+      <li><a href="/web-design/rion-website/"><img src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div><h3>RION Solutions website</h3><p>A rebuild of the RION Solutions website in Next.js.</p></div></a></li>
     </ul>
   </section>
 
   <section class="proj-section proj-clients" aria-labelledby="clients-h">
     <h2 id="clients-h">Client work delivered through RION</h2>
-    <ul class="plain-list clients"><li><a href="/web-design/new-door/">New Door Investments</a></li><li><a href="/web-design/detail-theory/">Detail Theory</a></li><li><a href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></li><li><a href="/web-design/yotummy/">YoTummy prototype</a></li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li></ul>
+    <ul class="plain-list"><li><a href="/web-design/new-door/">New Door Investments</a></li><li><a href="/web-design/detail-theory/">Detail Theory</a></li><li><a href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></li><li><a href="/web-design/yotummy/">YoTummy prototype</a></li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li><li><a href="/startup-work/argus/">Argus</a></li></ul>
   </section>
 
-  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
-    <h2 id="gallery-h">Gallery</h2>
-    <ul class="gallery">
-      <li><figure class="rion-frame"><a class="lb" href="img/products.webp" data-w="1000" data-h="1304"><img src="img/products.webp" width="1000" height="1304" alt="Three product cards: FORGE, ARGUS and NEXUS." loading="lazy" decoding="async"></a><figcaption>The three products on rionsolution.com.</figcaption></figure></li>
-      <li><figure class="rion-frame"><a class="lb" href="img/phone.webp" data-w="600" data-h="1298"><img src="img/phone.webp" width="600" height="1298" alt="The rionsolution.com home page on a phone: Intelligent Scalable Automation for Modern Businesses." loading="lazy" decoding="async"></a><figcaption>The home page on a phone.</figcaption></figure></li>
-    </ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
+  <p class="proj-back"><a class="back-link" href="/startup-work/rion/">Back to RION Solutions</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/startup-work/rion/main.js"></script>

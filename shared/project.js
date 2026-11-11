@@ -4,25 +4,21 @@
 //   initProject();
 //
 // What it does:
-// - "What I did" reveal: list items in .did-list rise in one after another as they scroll into view.
+// - Reveal: lines in .did-list are inked in left to right, one after another (30ms apart), as they scroll into
+//   view. Ledger entries in .stats fade up the same way. Any element with data-wipe gets the same ink-wipe.
 // - Count-up: numbers marked [data-count] count up once when they scroll into view. The HTML always
 //   holds the final value, and screen readers read a hidden copy of it.
 // - Gallery lightbox: links in .gallery (a.lb) open their full image in a <dialog>. Arrow keys move,
 //   Escape closes, focus goes back to the link. Without JS the link just opens the image.
 // - Back links: a.back-link goes back in history when the visitor came straight from that page, so the
 //   tab keeps its scroll position. Otherwise it is a normal link.
-// The page-theme transition (a circle wipe from the click point) is CSS in base.css plus nav.js.
-// With reduced motion: no reveal, no count-up, no lightbox animation. Everything shows in its end state.
-import { prefersReducedMotion, onReducedMotionChange, onVisible } from './motion.js';
+// The page turn and the page-theme transition (a circle wipe from the click point) are CSS in base.css plus nav.js.
+import { onVisible } from './motion.js';
 
 const root = document.documentElement;
 
 export function initProject({ reveal = true, counts = true, gallery = true, back = true } = {}) {
-  root.classList.toggle('pj-anim', !prefersReducedMotion());
-  onReducedMotionChange((r) => {
-    root.classList.toggle('pj-anim', !r);
-    if (r) document.querySelectorAll('.did-list li').forEach((li) => li.classList.add('in'));
-  });
+  root.classList.add('pj-anim');
   if (reveal) setupReveal();
   if (counts) setupCounts();
   if (gallery) setupGallery();
@@ -30,19 +26,21 @@ export function initProject({ reveal = true, counts = true, gallery = true, back
 }
 
 // ---------- What I did ----------
-export function setupReveal(selector = '.did-list') {
+export function setupReveal(selector = '.did-list, .stats') {
   for (const list of document.querySelectorAll(selector)) {
     const items = [...list.children];
     items.forEach((li, i) => li.style.setProperty('--i', String(i)));
     onVisible([list], () => items.forEach((li) => li.classList.add('in')), { threshold: 0.05 });
   }
+  // Single elements marked data-wipe are inked in on their own when they scroll in.
+  onVisible(document.querySelectorAll('[data-wipe]'), (el) => el.classList.add('in'), { threshold: 0.1 });
 }
 
 // ---------- Count-up ----------
 // Markup: <b><span class="visually-hidden">$480K</span><span aria-hidden="true" data-count="480" data-pre="$" data-post="K">$480K</span></b>
 export function setupCounts(selector = '[data-count]') {
   const els = [...document.querySelectorAll(selector)];
-  if (!els.length || prefersReducedMotion()) return;
+  if (!els.length) return;
   onVisible(els, (el) => {
     const end = parseFloat(el.dataset.count);
     if (!Number.isFinite(end)) return;
@@ -57,7 +55,6 @@ export function setupCounts(selector = '[data-count]') {
       return pre + s + post;
     };
     const step = (now) => {
-      if (prefersReducedMotion()) { el.textContent = final; return; }
       const k = Math.min(1, (now - t0) / dur);
       const e = 1 - Math.pow(1 - k, 3);
       el.textContent = k >= 1 ? final : fmt(end * e);

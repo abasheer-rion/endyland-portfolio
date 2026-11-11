@@ -12,171 +12,152 @@
 <meta property="og:title" content="Web design | Ayan Basheer">
 <meta property="og:description" content="Sites and apps Ayan Basheer designed and built: endyland.com, YoTummy, RION Solutions and more.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#FFF4E0">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#26180F">
+<meta name="color-scheme" content="dark light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/web-design/style.css">
 <link rel="modulepreload" href="/web-design/main.js">
-<link rel="modulepreload" href="/web-design/bus.js">
 </head>
 <body class="tab tab-web-design">
 <a class="skip" href="#main">Skip to content</a>
-<!-- The 3D scene for this tab. Decoration only: everything it shows is also in the HTML below. -->
-<canvas id="scene" class="scene" aria-hidden="true"></canvas>
-<div class="scene-fallback" aria-hidden="true"></div>
-
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/web-design/" aria-current="page">Web design<span class="tab-ind" aria-hidden="true"></span></a></li>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/" aria-current="page">Web design</a></li>
       <li><a href="/research/">Research</a></li>
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main">
 <section class="intro" aria-labelledby="page-h">
-  <p class="kicker">Tab 01</p>
-  <h1 id="page-h">Web design</h1>
-  <p class="lede">Sites and apps I designed and built. <span class="hint-fine live-only">Grab a shape and throw it.</span><span class="hint-touch live-only">Tap a shape to bounce it.</span></p>
+  <div class="intro-copy">
+    <h1 id="page-h">Web <em>design</em></h1>
+    <p class="lede">Sites and apps I designed and built, for clients and for myself.</p>
+    <p class="intro-sub">Six projects: a food marketplace with a phone app, a land investment firm, a car detailer, a mango shop, a software company and this site. Each one has its own page with the problem, how it works, the numbers and what I learned.</p>
+  </div>
+  <div class="stipple" aria-hidden="true"></div>
 </section>
 
-<div class="ribbons" aria-hidden="true"><div class="ribbon ribbon-a"></div><div class="ribbon ribbon-b"></div></div>
+<section class="process" aria-labelledby="process-h">
+  <div class="process-in">
+    <h2 id="process-h">How I build a client site</h2>
+    <div class="prose">
+      <p>I start with the one thing a visitor has to do: order food, book a detail, ask about a property. Everything on the page either leads to that or gets cut.</p>
+      <p>Then I build the smallest version that does it. Detail Theory is one hand-written page and two small server handlers. New Door&#8217;s inventory site is one static file that reads a Google Sheet. Small things are easy to hand over and easy to fix.</p>
+      <p>Clients already have tools they trust, so I connect to them instead of replacing them. Bookings go to Google Calendar. Leads go to the CRM. Payments stay in Stripe and Shopify.</p>
+      <p>After launch I keep the repository, the deploys and the checks in order, so the next change is as easy as the first.</p>
+    </div>
+  </div>
+</section>
 
-<div class="items">
-  <article class="item" id="yotummy" aria-labelledby="yotummy-h">
-    <div class="card">
-      <div class="flip">
-        <div class="face face-front">
-          <a class="frame front-img" href="/web-design/yotummy/" tabindex="-1"><img class="item-img" src="/web-design/yotummy/img/thumb.webp" width="800" height="450" alt="The YoTummy home page: a food photo hero with a search box and category chips." loading="lazy" decoding="async"></a>
-          <h2 id="yotummy-h"><a class="front-title" href="/web-design/yotummy/">YoTummy</a></h2>
-        </div>
-        <div class="face face-back">
-        <p>A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.</p>
-        <p class="item-role">Only developer</p>
-        <ul class="item-links">
-        <li><a class="link-more" href="/web-design/yotummy/">See the project</a></li>
-        <li><a class="link-site" href="https://yotummy.com" rel="noopener">yotummy.com</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-        </div>
-      </div>
+<div class="items" id="work">
+  <article class="work" id="yotummy" aria-labelledby="yotummy-h">
+    <a class="work-shot" href="/web-design/yotummy/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/yotummy/img/thumb.webp" width="800" height="450" alt="The YoTummy home page: a food photo hero with a search box and category chips." loading="lazy" decoding="async"></a>
+    <div class="work-text">
+      <h2 id="yotummy-h"><a href="/web-design/yotummy/">YoTummy</a></h2>
+      <p class="work-desc">A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.</p>
+      <p class="work-detail">206 commits, all mine, and version 3.1.1 shipped to both app stores.</p>
+      <p class="work-role">Only developer</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/yotummy/">See the project</a></li><li><a class="link-site" href="https://yotummy.com" rel="noopener">yotummy.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
   </article>
-  <article class="item" id="new-door" aria-labelledby="new-door-h">
-    <div class="card">
-      <div class="flip">
-        <div class="face face-front">
-          <a class="frame front-img" href="/web-design/new-door/" tabindex="-1"><img class="item-img" src="/web-design/new-door/img/thumb.webp" width="800" height="450" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments." loading="lazy" decoding="async"></a>
-          <h2 id="new-door-h"><a class="front-title" href="/web-design/new-door/">New Door Investments</a></h2>
-        </div>
-        <div class="face face-back">
-        <p>Website and tools for a Texas land and real estate investment firm.</p>
-        <p class="item-role">Developer. 68 of the 69 site commits.</p>
-        <ul class="item-links">
-        <li><a class="link-more" href="/web-design/new-door/">See the project</a></li>
-        <li><a class="link-site" href="https://newdoorinvestments.net" rel="noopener">newdoorinvestments.net</a></li>
-        <li><a class="link-site" href="https://inventory.newdoorinvestments.net" rel="noopener">Inventory site</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-        </div>
-      </div>
+  <article class="work" id="new-door" aria-labelledby="new-door-h">
+    <a class="work-shot" href="/web-design/new-door/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/new-door/img/thumb.webp" width="800" height="450" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments and Services." loading="lazy" decoding="async"></a>
+    <div class="work-text">
+      <h2 id="new-door-h"><a href="/web-design/new-door/">New Door Investments</a></h2>
+      <p class="work-desc">Website and tools for a Texas land and real estate investment firm.</p>
+      <p class="work-detail">A live inventory page fed by a Google Sheet, a buyer form wired to their CRM, and a bulk email app that sends 25,000 emails a month for about $8.</p>
+      <p class="work-role">Developer. 68 of the 69 site commits.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/new-door/">See the project</a></li><li><a class="link-site" href="https://newdoorinvestments.net" rel="noopener">newdoorinvestments.net</a></li><li><a class="link-site" href="https://inventory.newdoorinvestments.net" rel="noopener">Inventory site</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
   </article>
-  <article class="item" id="detail-theory" aria-labelledby="detail-theory-h">
-    <div class="card">
-      <div class="flip">
-        <div class="face face-front">
-          <a class="frame front-img" href="/web-design/detail-theory/" tabindex="-1"><img class="item-img" src="/web-design/detail-theory/img/thumb.webp" width="800" height="450" alt="The Detail Theory home page: a glossy car under the headline We Come To You." loading="lazy" decoding="async"></a>
-          <h2 id="detail-theory-h"><a class="front-title" href="/web-design/detail-theory/">Detail Theory</a></h2>
-        </div>
-        <div class="face face-back">
-        <p>Website and online booking for a premium mobile car detailer in Dallas-Fort Worth.</p>
-        <p class="item-role">Developer. About two thirds of the commits.</p>
-        <ul class="item-links">
-        <li><a class="link-more" href="/web-design/detail-theory/">See the project</a></li>
-        <li><a class="link-site" href="https://detail-theory.com" rel="noopener">detail-theory.com</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-        </div>
-      </div>
+  <article class="work" id="detail-theory" aria-labelledby="detail-theory-h">
+    <a class="work-shot" href="/web-design/detail-theory/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/detail-theory/img/thumb.webp" width="800" height="450" alt="The Detail Theory home page: a glossy blue car under the headline We Come To You." loading="lazy" decoding="async"></a>
+    <div class="work-text">
+      <h2 id="detail-theory-h"><a href="/web-design/detail-theory/">Detail Theory</a></h2>
+      <p class="work-desc">Website and online booking for a premium mobile car detailer in Dallas-Fort Worth.</p>
+      <p class="work-detail">One hand-written page with a booking form that lands in the business calendar and a live 5.0 Google rating.</p>
+      <p class="work-role">Developer. About two thirds of the commits.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/detail-theory/">See the project</a></li><li><a class="link-site" href="https://detail-theory.com" rel="noopener">detail-theory.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
   </article>
-  <article class="item" id="swadesi-mangoes" aria-labelledby="swadesi-mangoes-h">
-    <div class="card">
-      <div class="flip">
-        <div class="face face-front">
-          <a class="frame front-img" href="/web-design/swadesi-mangoes/" tabindex="-1"><img class="item-img" src="/web-design/swadesi-mangoes/img/thumb.webp" width="800" height="450" alt="The Swadesi Mangoes store: a logo, an orange menu, a green banner and a photo of ripe mangoes." loading="lazy" decoding="async"></a>
-          <h2 id="swadesi-mangoes-h"><a class="front-title" href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></h2>
-        </div>
-        <div class="face face-back">
-        <p>A mango shop&#8217;s storefront, rebuilt in Next.js with Shopify behind it.</p>
-        <p class="item-role">Developer. 22 of the 24 commits.</p>
-        <ul class="item-links">
-        <li><a class="link-more" href="/web-design/swadesi-mangoes/">See the project</a></li>
-        <li><a class="link-site" href="https://swadesimangoes.com" rel="noopener">swadesimangoes.com</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-        </div>
-      </div>
+  <article class="work" id="swadesi-mangoes" aria-labelledby="swadesi-mangoes-h">
+    <a class="work-shot" href="/web-design/swadesi-mangoes/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/swadesi-mangoes/img/thumb.webp" width="800" height="450" alt="The Swadesi Mangoes store: a logo, an orange menu, a green banner and a photo of mangoes." loading="lazy" decoding="async"></a>
+    <div class="work-text">
+      <h2 id="swadesi-mangoes-h"><a href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></h2>
+      <p class="work-desc">A mango shop’s storefront, rebuilt in Next.js with Shopify behind it.</p>
+      <p class="work-detail">A custom storefront and cart drawer on top of Shopify, with checkout left to Shopify.</p>
+      <p class="work-role">Developer. 22 of the 24 commits.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/swadesi-mangoes/">See the project</a></li><li><a class="link-site" href="https://swadesimangoes.com" rel="noopener">swadesimangoes.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
   </article>
-  <article class="item" id="rion-website" aria-labelledby="rion-website-h">
-    <div class="card">
-      <div class="flip">
-        <div class="face face-front">
-          <a class="frame front-img" href="/web-design/rion-website/" tabindex="-1"><img class="item-img" src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="The RION Solutions home page: a dark starfield with a red glow behind the headline." loading="lazy" decoding="async"></a>
-          <h2 id="rion-website-h"><a class="front-title" href="/web-design/rion-website/">RION Solutions website</a></h2>
-        </div>
-        <div class="face face-back">
-        <p>A rebuild of the RION Solutions website in Next.js.</p>
-        <p class="item-role">Developer. 14 of the 18 commits.</p>
-        <ul class="item-links">
-        <li><a class="link-more" href="/web-design/rion-website/">See the project</a></li>
-        <li><a class="link-site" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-        </ul>
-        </div>
-      </div>
+  <article class="work" id="rion-website" aria-labelledby="rion-website-h">
+    <a class="work-shot" href="/web-design/rion-website/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="The RION Solutions home page: a dark starfield with a red glow behind the headline." loading="lazy" decoding="async"></a>
+    <div class="work-text">
+      <h2 id="rion-website-h"><a href="/web-design/rion-website/">RION Solutions website</a></h2>
+      <p class="work-desc">A rebuild of the RION Solutions website in Next.js.</p>
+      <p class="work-detail">The Framer site rebuilt with Next.js, Tailwind and Framer Motion.</p>
+      <p class="work-role">Developer. 14 of the 18 commits.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/rion-website/">See the project</a></li><li><a class="link-site" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
   </article>
-  <article class="item" id="endyland" aria-labelledby="endyland-h">
-    <div class="card">
-      <div class="flip">
-        <div class="face face-front">
-          <a class="frame front-img" href="/web-design/endyland/" tabindex="-1"><img class="item-img" src="/web-design/endyland/img/thumb.webp" width="800" height="450" alt="The endyland.com home page with the antenna beam drawn in 3D." loading="lazy" decoding="async"></a>
-          <h2 id="endyland-h"><a class="front-title" href="/web-design/endyland/">endyland.com</a></h2>
-        </div>
-        <div class="face face-back">
-        <p>This portfolio. A home page and five tabs, each with its own look, and a live 3D antenna beam.</p>
-        <p class="item-role">Design and code</p>
-        <ul class="item-links">
-        <li><a class="link-more" href="/web-design/endyland/">See the project</a></li>
-        <li><a class="link-site" href="https://endyland.com" rel="noopener">endyland.com</a></li>
-        <li><a class="link-code" href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li>
-        </ul>
-        </div>
-      </div>
+  <article class="work" id="endyland" aria-labelledby="endyland-h">
+    <a class="work-shot" href="/web-design/endyland/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/endyland/img/thumb.webp" width="800" height="450" alt="The Web design page of this site: a brown page with the title Web design in large serif type and a gold dotted corner." loading="lazy" decoding="async"></a>
+    <div class="work-text">
+      <h2 id="endyland-h"><a href="/web-design/endyland/">endyland.com</a></h2>
+      <p class="work-desc">This portfolio. A home page and five tabs, each with its own look, and a live 3D antenna beam.</p>
+      <p class="work-detail">No build step, a strict security policy, and automatic checks before every deploy.</p>
+      <p class="work-role">Design and code</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/endyland/">See the project</a></li><li><a class="link-site" href="https://endyland.com" rel="noopener">endyland.com</a></li><li><a class="link-code" href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li></ul>
     </div>
   </article>
 </div>
+
+<section class="compare" aria-labelledby="compare-h">
+  <div class="compare-in">
+    <h2 id="compare-h">The six at a glance</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Projects compared. Scrolls sideways on small screens.">
+      <table>
+        <thead><tr><th scope="col">Project</th><th scope="col">Built with</th><th scope="col">Connected to</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">YoTummy</th><td>Angular, Ionic, PHP, MySQL</td><td>Stripe, Mapbox, both app stores</td></tr>
+          <tr><th scope="row">New Door Investments</th><td>Next.js, one static page</td><td>Google Sheets, GoHighLevel, Amazon SES</td></tr>
+          <tr><th scope="row">Detail Theory</th><td>Plain HTML, CSS and JavaScript</td><td>Google Calendar, Google Places</td></tr>
+          <tr><th scope="row">Swadesi Mangoes</th><td>Next.js, Tailwind</td><td>Shopify</td></tr>
+          <tr><th scope="row">RION Solutions</th><td>Next.js, Tailwind, Framer Motion</td><td>Hosted separately</td></tr>
+          <tr><th scope="row">endyland.com</th><td>Plain HTML, CSS and JavaScript, three.js</td><td>Cloudflare Pages, GitHub Actions</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/web-design/main.js"></script>

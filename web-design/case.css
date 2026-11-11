@@ -1,0 +1,93 @@
+/* Web design project pages: the case-study layout. Loaded after /shared/project.css and before the page's own
+   style.css (which only sets the brand tokens and a few brand touches). Everything here reads the --p-* tokens,
+   so each brand page keeps its own colours and fonts.
+   Readability first: a 68ch reading column, 18 to 20px text, solid surfaces behind text, no text on images. */
+
+.proj{--case-gap:clamp(20px,3vw,48px)}
+.proj-page{font-size:var(--fs-body);line-height:1.6}
+
+/* ---------- Hero ---------- */
+.cs-hero{display:grid;gap:clamp(28px,4vw,56px);padding:clamp(12px,2vw,28px) 0 clamp(40px,5vw,72px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){.cs-hero{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center}}
+.cs-hero h1{font-size:clamp(2.6rem,1.2rem + 5vw,5.6rem);line-height:1;margin:0 0 18px}
+.cs-hero .proj-summary{font-size:var(--fs-lead);line-height:1.4;max-width:34ch;color:var(--p-ink)}
+.cs-hero .proj-hero-media{position:relative;margin:0}
+.cs-hero .proj-hero-media img{display:block;width:100%;height:auto;padding:0;border:1px solid var(--p-line);border-radius:var(--p-radius);
+  box-shadow:0 24px 48px -28px rgba(0,0,0,.45);background:var(--p-surface)}
+.cs-hero .proj-hero-media figcaption{margin-top:12px}
+
+/* ---------- Sections: heading on the left, reading column on the right ---------- */
+.case-sec{display:grid;gap:var(--case-gap);grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){
+  .case-sec{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+  .case-sec>h2{position:sticky;top:calc(var(--bar-h) + 20px);align-self:start;max-width:14ch}
+}
+.case-sec>h2{margin:0}
+.case-body{min-width:0}
+.case-body>p,.case-body>ul,.case-body>ol,.case-body>dl{max-width:var(--measure);margin:0 0 1.2em}
+.case-body>p:last-child{margin-bottom:0}
+.case-body h3{margin:1.8em 0 .5em;font-size:var(--fs-h3)}
+.case-body h3:first-child{margin-top:0}
+.case-body li{margin-bottom:.45em}
+.case-body .lead{font-size:var(--fs-lead);line-height:1.45;max-width:36ch}
+.case-body figure{margin:clamp(24px,3vw,40px) 0}
+.case-body figure:first-child{margin-top:0}
+
+/* ---------- Numbers ---------- */
+.proj-numbers{padding-block:clamp(36px,4vw,64px)}
+.proj-numbers .stats{margin:0}
+.stat b{font-size:clamp(2.2rem,1.4rem + 3vw,4rem)}
+.stat>span:last-child{font-size:1rem;line-height:1.45}
+
+/* ---------- Flow diagrams (drawn in HTML so they restack on phones and stay readable) ---------- */
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0;grid-template-columns:minmax(0,1fr);counter-reset:none}
+.flow>li{position:relative;margin:0;padding:18px 20px;background:var(--p-surface);border:1px solid var(--p-line);border-radius:var(--p-radius);color:var(--p-ink)}
+.flow>li+li{margin-top:34px}
+.flow>li+li::before{content:"";position:absolute;left:28px;top:-34px;height:34px;border-left:2px solid var(--p-accent)}
+.flow>li+li::after{content:"";position:absolute;left:23px;top:-9px;width:8px;height:8px;border-right:2px solid var(--p-accent);border-bottom:2px solid var(--p-accent);transform:rotate(45deg)}
+.flow b{display:block;font-family:var(--p-display);font-weight:var(--p-display-weight);font-size:1.25rem;line-height:1.25;margin-bottom:4px}
+.flow span{display:block;color:var(--p-mute);font-size:1rem;line-height:1.5}
+@media (min-width:900px){
+  .flow{grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:0 36px}
+  .flow>li+li{margin-top:0}
+  .flow>li+li::before{left:-36px;top:calc(50% - 1px);width:36px;height:0;border-left:0;border-top:2px solid var(--p-accent)}
+  .flow>li+li::after{left:-14px;top:calc(50% - 5px);transform:rotate(-45deg)}
+}
+.flow-note{margin:14px 0 0;font-size:var(--fs-small);color:var(--p-mute);max-width:var(--measure)}
+
+/* A two-lane diagram: several things on the left all feed one thing on the right. */
+.fan{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.fan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fan li{padding:14px 18px;background:var(--p-surface);border:1px solid var(--p-line);border-radius:var(--p-radius);color:var(--p-ink)}
+.fan li b{display:block;font-family:var(--p-display);font-weight:var(--p-display-weight);font-size:1.15rem;line-height:1.25}
+.fan li span{color:var(--p-mute);font-size:1rem}
+.fan-core{padding:18px 20px;background:var(--p-accent-bg);color:var(--p-on-accent);border-radius:var(--p-radius);align-self:center}
+.fan-core b{display:block;font-family:var(--p-display);font-weight:var(--p-display-weight);font-size:1.3rem;line-height:1.25;margin-bottom:4px}
+.fan-core span{font-size:1rem;line-height:1.5}
+@media (min-width:900px){.fan{grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);align-items:center}.fan::before{content:"";grid-column:2;grid-row:1;height:2px;background:var(--p-accent)}.fan ul{grid-column:1;grid-row:1}.fan-core{grid-column:3;grid-row:1}}
+
+/* ---------- Tables ---------- */
+.case-body .table-wrap{max-width:100%;overflow-x:auto;margin:0 0 1.4em;-webkit-overflow-scrolling:touch}
+.case-body table{width:100%;min-width:520px;border-collapse:collapse;font-size:1rem;line-height:1.5}
+.case-body th,.case-body td{padding:12px 16px 12px 0;text-align:left;vertical-align:top}
+.case-body th{font-weight:600;border-bottom:2px solid var(--p-ink)}
+.case-body td{border-bottom:1px solid var(--p-line)}
+.case-body td:first-child{font-weight:600;white-space:nowrap}
+
+/* ---------- Screens: real captures from the live sites ---------- */
+.shots{display:grid;gap:clamp(20px,2.4vw,36px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.shots{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.shots .wide{grid-column:1/-1}}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--p-line);border-radius:var(--p-radius);background:var(--p-surface)}
+.shots .phone{max-width:300px}
+.shots .phone img{border-radius:calc(var(--p-radius) + 6px)}
+.shots a{display:block;cursor:zoom-in}
+.shots figcaption{margin-top:12px;font-size:1rem;line-height:1.5;color:var(--p-mute);max-width:60ch}
+
+/* ---------- Related and back ---------- */
+.proj-related.case-sec .plain-list{margin:0}
+.proj-back{padding-top:clamp(24px,3vw,40px)}
+
+/* Short pages keep the footer low. */
+.proj-section{content-visibility:auto;contain-intrinsic-size:auto 700px}
+.cs-hero,.proj-numbers{content-visibility:visible}

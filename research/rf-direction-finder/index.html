@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="tab-research">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,12 +12,12 @@
 <meta property="og:title" content="RF direction finder and Butler matrix | Ayan Basheer">
 <meta property="og:description" content="A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#050705">
+<meta name="theme-color" content="#17100A">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/research/project-theme.css">
@@ -26,20 +26,19 @@
 </head>
 <body class="proj-page proj-rf-direction-finder">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/web-design/">Web design</a></li>
-      <li><a href="/research/" aria-current="true">Research<span class="tab-ind" aria-hidden="true"></span></a></li>
-      <li><a href="/startup-work/">Startup work</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="true">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
-
-<canvas class="proj-scene" id="rf-scene" aria-hidden="true"></canvas>
 
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>RF direction finder and Butler matrix</span></li></ol></nav>
@@ -52,30 +51,98 @@
     <dl class="proj-meta"><div><dt>Role</dt><dd>Models, experiments and reports. One of 3 on the team.</dd></div><div><dt>Dates</dt><dd>Sep 2026 to now</dd></div><div><dt>Program</dt><dd>UT Dallas RIDE</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>MATLAB</li><li>LaTeX</li><li>RF design</li><li>Vector network analyzer</li></ul></dd></div></dl>
     <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/find-then-steer.webp" width="1600" height="683" alt="Two plots. Left: the direction finder finds the beacon at 25 degrees. Right: the beam steered toward it." fetchpriority="high" decoding="async"><figcaption>The whole loop: listen, find the beacon at 25 degrees, then steer the beam to it.</figcaption></figure>
+    <figure class="proj-hero-media"><img src="img/loop.svg" width="760" height="360" alt="Two routes from a 5.8 GHz signal to a beam pointed at it. Top: the array, a direction finder, phase shifters, the beam. Bottom: a Butler matrix with four fixed beams, a power detector, pick the loudest, point there." fetchpriority="high" decoding="async"><figcaption>The whole idea: listen, find where the signal is, then point the beam at it. The lower route does it with passive parts and no phase measurement.</figcaption></figure>
   </header>
-
   <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
     <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>5.8 GHz</b><span>operating frequency</span></li><li class="stat"><b>2x2 and 4x4</b><span>arrays compared</span></li><li class="stat"><b>4</b><span>phase shift values: 22.5, 45, 90, 180 degrees</span></li><li class="stat"><b>About half</b><span>of the team&#8217;s commits</span></li></ul>
+<ul class="stats"><li class="stat"><b>5.8 GHz</b><span>operating frequency, wavelength 51.688 mm</span></li><li class="stat"><b>0.022&deg;</b><span>direction error of the 4x4 array at 20 dB, over 300 trials</span></li><li class="stat"><b>4.5x</b><span>less error than the 2x2 array, as the accuracy formula predicts</span></li><li class="stat"><b>About half</b><span>of the team&#8217;s commits</span></li></ul>
   </section>
 
-  <section class="proj-section rf-inst" aria-labelledby="inst-h">
-    <h2 id="inst-h">Find, then steer</h2>
-    <div class="rs-screen rf-screen">
-      <canvas id="rf-inst" class="rf-canvas" aria-hidden="true"></canvas>
-    </div>
-    <div class="rf-controls">
-      <div class="rf-modes" role="group" aria-label="What the plot shows">
-        <button type="button" class="rs-btn" data-mode="auto" aria-pressed="true">Auto loop</button>
-        <button type="button" class="rs-btn" data-mode="port" data-port="0" aria-pressed="false">Port 1</button>
-        <button type="button" class="rs-btn" data-mode="port" data-port="1" aria-pressed="false">Port 2</button>
-        <button type="button" class="rs-btn" data-mode="port" data-port="2" aria-pressed="false">Port 3</button>
-        <button type="button" class="rs-btn" data-mode="port" data-port="3" aria-pressed="false">Port 4</button>
+  <section class="proj-section " aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <p class="lede">Which way is a radio signal coming from, and can the antenna point itself there?</p>
+    <p>A signal at 5.8 GHz reaches each antenna in an array a tiny moment apart. That delay is the only clue to the direction. To use it you need the phase at every antenna, measured together.</p>
+    <p>Four separate receivers cannot do that cheaply. Each has its own clock and its own random phase offset every time it powers up, so the differences between them mean nothing. Purpose-built direction finders fix this with a shared clock and calibration hardware. We have a $100 budget per group.</p>
+    <p>The way around it is a Butler matrix: a passive network that forms several fixed beams. A power detector then only has to read how strong the signal is on each beam port. No shared clock, no phase calibration. The course also asked for software, theory and simulation first, so the numbers on this page all come from simulation.</p>
+  </section>
+
+  <section class="proj-section " aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="split">
+      <div>
+        <p>A wave arriving at angle &theta; travels a little further to each next antenna. With spacing <i>d</i> that gives a phase step of 2&pi;<i>d</i> sin(&theta;)/&lambda; between neighbours. At half-wavelength spacing, 25.844 mm at 5.8 GHz, a source at 30 degrees gives exactly 90 degrees. The simulation measured 90.00, which confirmed the equation everything else rests on.</p>
+        <ol class="steps">
+          <li><b>Listen</b><span>The array hears the signal. Each antenna hears it a little later than the next.</span></li>
+          <li><b>Find</b><span>A direction finder (beamscan, MVDR or MUSIC) turns those phase steps into an angle.</span></li>
+          <li><b>Steer</b><span>The same equation run backwards: give each antenna the opposite phase and all the signals line up and add.</span></li>
+          <li><b>Or skip the finding</b><span>A Butler matrix makes four fixed beams. Read the power on each port, pick the loudest, point there.</span></li>
+        </ol>
       </div>
-      <p class="rf-readout" id="rf-readout">Auto: beam locked on the beacon at +25.0 degrees.</p>
+      <figure class="fig"><img src="img/polar.svg" width="800" height="430" alt="Polar plot of a four-element array at 5.8 GHz steered to 0, 25 and 45 degrees. The main lobe at broadside is about 26 degrees wide and the first sidelobe is 11.3 dB below it." loading="lazy" decoding="async"><figcaption>Beam of a 4-element array, half a wavelength apart, steered to 0, 25 and 45 degrees. Drawn from the standard array formula. The main lobe is about 26 degrees wide at the half-power points, and the first sidelobe sits 11.3 dB down.</figcaption></figure>
     </div>
-    <p class="rs-note">A live sketch of the loop: listen, find the beacon, then turn the beam to it. Tap the plot to move the beacon. The port buttons show the four fixed beams of a textbook 4-port Butler matrix. Drawn for this site from the standard formulas, not measured data.</p>
+  </section>
+
+  <section class="proj-section " aria-labelledby="inst-h">
+    <h2 id="inst-h">Try it: find, then steer</h2>
+    <div class="inst">
+      <div class="fig-body inst-screen"><canvas id="rf-inst" class="rf-canvas" aria-hidden="true"></canvas></div>
+      <div class="rf-controls">
+        <div class="rf-modes" role="group" aria-label="What the plot shows">
+          <button type="button" class="rs-btn" data-mode="auto" aria-pressed="true">Auto loop</button>
+          <button type="button" class="rs-btn" data-mode="port" data-port="0" aria-pressed="false">Port 1</button>
+          <button type="button" class="rs-btn" data-mode="port" data-port="1" aria-pressed="false">Port 2</button>
+          <button type="button" class="rs-btn" data-mode="port" data-port="2" aria-pressed="false">Port 3</button>
+          <button type="button" class="rs-btn" data-mode="port" data-port="3" aria-pressed="false">Port 4</button>
+        </div>
+        <p class="rf-readout" id="rf-readout" aria-live="polite">Auto: beam locked on the beacon at +25.0 degrees.</p>
+      </div>
+      <p class="rs-note">A live sketch of the loop on a four-element line. Tap the plot to move the beacon. The port buttons show the four fixed beams of a textbook 4-port Butler matrix, with phase steps of -135, -45, +45 and +135 degrees. Drawn from the standard formulas, not measured data.</p>
+    </div>
+  </section>
+
+  <section class="proj-section " aria-labelledby="results-h">
+    <h2 id="results-h">What the simulations showed</h2>
+    <p class="lede">Every 2x2 and 4x4 number can be regenerated from the MATLAB scripts with fixed random seeds.</p>
+    <ul class="findings">
+      <li><b>A grid sees two angles, a line sees one</b>A line of antennas cannot tell a source above it from one below it. A 2x2 grid measures phase along two axes. A source at azimuth 30 and elevation 20 came back as 30.0 and 20.0. The 2x2 also has no sidelobes, because two elements per axis cannot make them.</li>
+      <li><b>More elements, a sharper and steadier estimate</b>At 20 dB the 2x2 is off by about 0.14 degrees and the 4x4 by 0.03. The 4x4 keeps working about 10 dB deeper into the noise, breaking near -15 dB instead of -5 dB. The beam is narrower too: 26 degrees across for the 4x4, 60 for the 2x2.</li>
+      <li><b>Two sources, and where each method gives up</b>On a line array MUSIC separates two sources 5 degrees apart, MVDR 12 and plain beamscan 40. On the 2x2, sources must differ along both grid axes, and then MUSIC separates them from 14 degrees apart. The 4x4 manages about 4 degrees, even for sources that share an axis.</li>
+      <li><b>Echoes</b>A coherent echo makes MUSIC collapse to 4 percent success on a line array while beamscan is untouched. On the 2x2 the order flips: MUSIC falls to 0.14, forward-backward averaging brings it back to 0.98, and beamscan fails because its beam is too wide.</li>
+      <li><b>Why 25.844 mm</b>At a full wavelength of spacing, one source shows up four times. That is why the elements sit half a wavelength apart.</li>
+      <li><b>Tapering</b>Chebyshev weights at -20 dB are the best trade for a steered beam on the 4x4: a cost of 4 to 8 degrees of extra beamwidth and 0.6 to 1.6 dB of gain. Steered to 30 degrees, no taper beats uniform weights near the edge.</li>
+    </ul>
+    <div class="fig-pair">
+      <figure class="fig"><img src="img/angle.svg" width="760" height="380" alt="Direction error against source azimuth for the 2x2 and 4x4 arrays, 20 dB." loading="lazy" decoding="async"><figcaption>Error across angle at 20 dB, elevation 20. Both arrays are worst at the edges. The 4x4 is about five times better everywhere.</figcaption></figure><figure class="fig"><img src="img/snr.svg" width="760" height="420" alt="Direction error against signal to noise ratio, log scale." loading="lazy" decoding="async"><figcaption>Error against signal strength. Open dots mark points where most trials lost the source.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="proj-section " aria-labelledby="steer-h">
+    <h2 id="steer-h">Pointing the beam with a few phase states</h2>
+    <div class="split flip">
+      <div>
+        <p>Real phase shifters have few settings, so the beam cannot point exactly where the finder says. The question is how much signal that costs.</p>
+        <p>With 2-bit phase shifters the average loss is under 1.1 dB at every target angle and the worst single case is 2.0 dB. Skipping the search step, or knowing the true angle, hardly changes it. Worst-case drop between neighbouring beam steps on the 2x2 is 1.52 dB with 2 bits, 0.17 with 3 and 0.04 with 4. On the 4x4 it is 9.3, 0.85 and 0.21 dB.</p>
+        <p>These all assume ideal elements. Adding about 0.5 dB and 5 degrees of mismatch between elements is the next test.</p>
+      </div>
+      <figure class="fig"><img src="img/find-steer.svg" width="760" height="450" alt="Loss in dB against target azimuth for find-then-steer with 2-bit phase shifters." loading="lazy" decoding="async"><figcaption>Power lost against a perfect beam. The solid line is the average, the dotted line the worst of 50 simulated boards.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="proj-section " aria-labelledby="build-h">
+    <h2 id="build-h">Where the build stands</h2>
+    <p>Hardware is parked while the simulations finish. On Nov 4 we compared three ways to build the 5.8 GHz board, using circuit models only. The lab can only make single-layer boards, which pushed the question.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Three board options compared">
+    <table>
+      <caption>Board options, circuit-model results (Nov 4, 2026)</caption>
+      <thead><tr><th scope="col">Option</th><th scope="col">Phase error</th><th scope="col">Worst return loss</th><th scope="col">Total with parts</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">4-layer, ordered</th><td>1.0 deg</td><td>12.4 dB</td><td>$142</td></tr>
+        <tr><th scope="row">2-layer, ordered</th><td>6.0 deg</td><td>7.3 dB (misses 10 dB)</td><td>$107</td></tr>
+        <tr><th scope="row">Single-layer, lab made</th><td>2.6 deg</td><td>10.3 dB</td><td>$83</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The recommendation is the lab-made single-layer board: it is the only option inside the $100 limit. Board prices for the ordered options are our estimates.</p>
   </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
@@ -89,30 +156,38 @@
     </ul>
   </section>
 
-  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
-    <h2 id="gallery-h">Gallery</h2>
-    <ul class="gallery">
-      <li><figure><a class="lb rs-reveal" href="img/music-maps.webp" data-w="1600" data-h="538"><img src="img/music-maps.webp" width="1600" height="538" alt="Three 4x4 direction maps, each with the true signal sources circled." loading="lazy" decoding="async"></a><figcaption>4x4 direction maps. The circles mark the true sources.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
-      <li><figure><a class="lb rs-reveal" href="img/gain-coverage.webp" data-w="1600" data-h="681"><img src="img/gain-coverage.webp" width="1600" height="681" alt="Two charts: signal drop between beam steps, and estimated gain, for 2 to 4 phase-shifter bits." loading="lazy" decoding="async"></a><figcaption>Signal drop and gain against phase-shifter bits.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
-      <li class="on-dark"><figure><a class="lb rs-reveal" href="img/butler-beams.webp" data-w="1227" data-h="787"><img src="img/butler-beams.webp" width="1227" height="787" alt="Four heat maps, one receiving beam per Butler matrix port." loading="lazy" decoding="async"></a><figcaption>The four receiving beams of an ideal 2x2 Butler matrix.<span class="credit">Plots from the project repo. My own work.</span></figcaption></figure></li>
+  <section class="proj-section " aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <ul class="findings">
+      <li><b>No single best algorithm</b>On one source all three tie. On two sources MUSIC is eight times finer. With echoes on a line array it is the worst. The ranking flips with the test, so every claim needs its test attached.</li>
+      <li><b>Write down what failed</b>Each finding gets a dated file, including the things that did not work. Those were the most useful ones later.</li>
+      <li><b>Perfect hardware is an assumption</b>Every result so far assumes ideal elements. Channel errors, patch elements and calibration are the gap between this page and a bench.</li>
     </ul>
   </section>
 
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/">The beam on the home page is a bigger cousin of this array</a></li></ul>
+  <section class="proj-section proj-gallery" aria-labelledby="gallery-h">
+    <h2 id="gallery-h">Plots from the project</h2>
+    <ul class="gallery">
+      <li><figure><a class="lb" href="img/music-maps.webp" data-w="1600" data-h="538"><img src="img/music-maps.webp" width="1600" height="538" alt="Three 4x4 direction maps, each with the true signal sources circled." loading="lazy" decoding="async"></a><figcaption>4x4 direction maps. The circles mark the true sources.<span class="credit">Plot from the project repo.</span></figcaption></figure></li>
+      <li><figure><a class="lb" href="img/gain-coverage.webp" data-w="1600" data-h="681"><img src="img/gain-coverage.webp" width="1600" height="681" alt="Two charts: signal drop between beam steps, and estimated gain, for 2 to 4 phase-shifter bits." loading="lazy" decoding="async"></a><figcaption>Signal drop and gain against phase-shifter bits.<span class="credit">Plot from the project repo.</span></figcaption></figure></li>
+      <li class="on-dark"><figure><a class="lb" href="img/butler-beams.webp" data-w="1227" data-h="787"><img src="img/butler-beams.webp" width="1227" height="787" alt="Four heat maps, one receiving beam per Butler matrix port." loading="lazy" decoding="async"></a><figcaption>The four receiving beams of an ideal 2x2 Butler matrix.<span class="credit">Plot from the project repo.</span></figcaption></figure></li>
+    </ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script type="module" src="/research/rf-direction-finder/main.js"></script>

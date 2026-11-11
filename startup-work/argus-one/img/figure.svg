@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="t d">
+<title id="t">How Argus One scores a person</title>
+<desc id="d">A camera frame goes through person detection, pose estimation and a visual encoder. Five signals are weighted into one score from 0 to 100: classification 40 percent, pose 25, time in one spot 15, hand near body 15, concealment 5. A score of 75 or more raises an alert.</desc>
+<rect width="800" height="450" fill="#FFFFFF"/>
+<g font-family="Georgia,serif" fill="#1A1A1A" text-anchor="middle">
+<g stroke="#1A1A1A" stroke-width="1.5" fill="#FAF9F5">
+<rect x="30" y="60" width="120" height="70" rx="3"/><rect x="190" y="60" width="140" height="70" rx="3"/><rect x="370" y="60" width="160" height="70" rx="3"/><rect x="570" y="60" width="200" height="70" rx="3"/>
+</g>
+<g font-size="18"><text x="90" y="100">Camera</text><text x="260" y="100">YOLOv8 people</text><text x="450" y="100">Pose, 17 points</text><text x="670" y="100">EVA-CLIP signals</text></g>
+<g font-family="system-ui,sans-serif" font-size="12" fill="#5A5A55"><text x="90" y="118">frames</text><text x="260" y="118">person and bag</text><text x="450" y="118">per person</text><text x="670" y="118">visual embedding</text></g>
+<g stroke="#B91C1C" stroke-width="2" fill="none"><path d="M152 95H186"/><path d="M332 95H366"/><path d="M532 95H566"/><path d="M670 132V180H400V196"/></g>
+<g fill="#B91C1C"><path d="M190 95l-8-4v8z"/><path d="M370 95l-8-4v8z"/><path d="M570 95l-8-4v8z"/><path d="M400 204l-4-8h8z"/></g>
+<rect x="250" y="204" width="300" height="56" rx="3" fill="#1D1D1D"/>
+<text x="400" y="238" font-size="20" fill="#FFFFFF">One risk score, 0 to 100</text>
+<g font-family="system-ui,sans-serif" font-size="13" fill="#1A1A1A" text-anchor="start">
+<text x="30" y="300">How the five signals are weighted</text>
+</g>
+<g stroke="#1A1A1A" stroke-width="1">
+<rect x="30" y="312" width="320" height="34" fill="#B91C1C"/><rect x="350" y="312" width="200" height="34" fill="#DC6B6B"/><rect x="550" y="312" width="120" height="34" fill="#E9A3A3"/><rect x="670" y="312" width="80" height="34" fill="#F3CFCF"/><rect x="750" y="312" width="20" height="34" fill="#FAF9F5"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="12" fill="#1A1A1A">
+<text x="190" y="334" fill="#FFFFFF" font-size="14">Classification 40%</text>
+<text x="450" y="334" font-size="14">Pose 25%</text>
+<text x="610" y="334" font-size="12">Dwell 15%</text>
+<text x="710" y="334" font-size="11">Hands 15%</text>
+<text x="760" y="366" text-anchor="end">Concealment 5%</text>
+</g>
+<text x="400" y="410" font-family="system-ui,sans-serif" font-size="14" fill="#5A5A55">At 75 or more an alert goes out. Repeat alerts are held back for 30 seconds.</text>
+</g>
+</svg>

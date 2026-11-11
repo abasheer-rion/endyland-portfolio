@@ -4,39 +4,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>In-store AI board | Ayan Basheer</title>
-<meta name="description" content="A custom circuit board for the in-store AI devices, built around the NanoPi R76S.">
+<meta name="description" content="A small box for in-store AI devices, built around the NanoPi R76S. Part of Argus, which ended in 2026.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-edge-board/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-edge-board/">
 <meta property="og:title" content="In-store AI board | Ayan Basheer">
-<meta property="og:description" content="A custom circuit board for the in-store AI devices, built around the NanoPi R76S.">
+<meta property="og:description" content="A small box for in-store AI devices, built around the NanoPi R76S. Part of Argus, which ended in 2026.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400..600&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
-<link rel="stylesheet" href="/startup-work/argus-edge-board/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/startup-work/pages.css">
+<link rel="modulepreload" href="/startup-work/argus/main.js">
 </head>
-<body class="proj-page proj-eb a-dots proj-argus-edge-board">
+<body class="proj-page proj-argus-edge-board">
 <a class="skip" href="#main">Skip to content</a>
-<header class="tabbar">
-  <a class="tabbar-home" href="/">endyland</a>
-  <nav aria-label="Sections">
-    <ul>
+<header class="bar" data-tone="dark">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
       <li><a href="/web-design/">Web design</a></li>
       <li><a href="/research/">Research</a></li>
-      <li><a href="/startup-work/" aria-current="true">Startup work<span class="tab-ind" aria-hidden="true"></span></a></li>
+      <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
-      <li><a href="/experience/">Experi&shy;ence</a></li>
-    </ul>
-  </nav>
+      <li><a href="/experience/">Experience</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
 </header>
 
 <main id="main" class="proj">
@@ -44,27 +49,74 @@
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo">
-    <p class="proj-kicker">Argus sub-project</p>
+    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
+    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
     <h1>In-store AI board</h1>
-    <p class="proj-summary">A custom circuit board for the in-store AI devices, built around the <span class="a-key">NanoPi R76S</span>.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Board design</dd></div><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>PCB design</li><li>NanoPi R76S</li></ul></dd></div></dl>
+    <p class="proj-summary">A small box for in-store AI devices, built around the <span class="a-key">NanoPi R76S</span>.</p>
+    <dl class="proj-meta"><div><dt>Role</dt><dd>Board design</dd></div><div><dt>Dates</dt><dd>2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>PCB design</li><li>NanoPi R76S</li><li>Linux arm64</li></ul></dd></div></dl>
     <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
     </div>
-    <figure class="proj-hero-media eb-photo"><img src="img/board.webp" width="1400" height="934" alt="Close-up of a blue circuit board." fetchpriority="high" decoding="async"><figcaption><span class="credit">Photo: Umberto on <a href="https://unsplash.com/photos/jXd2FSvcRr8" rel="noopener">Unsplash</a> (Unsplash License). A stock photo, not the real thing.</span></figcaption></figure>
+    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Block drawing of the NanoPi R76S board: an RK3576 chip with 4 GB of RAM and 64 GB of eMMC, two 2.5 gigabit Ethernet ports and a 5 volt USB-C power input." fetchpriority="high" decoding="async"><figcaption>A drawing made for this site from the board&#8217;s stated parts. It is not a photo.</figcaption></figure>
   </header>
 
-  <div class="eb-stage" aria-hidden="true">
-    <svg class="eb-fallback" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="none" stroke="#7F1D1D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 120H240l40 40h220"/><path d="M0 200H200l60-60h240"/><path d="M0 300H320l40-40h140"/><path d="M700 160h180l40-40h280"/><path d="M700 220h220l60 60h220"/><path d="M700 260h120l40 40h140l40 40h160"/><path d="M560 60v40"/><path d="M640 60v40"/><path d="M560 320v60"/><path d="M640 320v60"/></g><rect x="500" y="100" width="200" height="220" rx="10" fill="#262626" stroke="#3F3F3F" stroke-width="2"/><g stroke="#3F3F3F" stroke-width="6"><path d="M525 120v180M550 120v180M575 120v180M600 120v180M625 120v180M650 120v180M675 120v180"/></g><circle cx="40" cy="40" r="14" fill="none" stroke="#B4A06A" stroke-width="5"/><circle cx="1160" cy="40" r="14" fill="none" stroke="#B4A06A" stroke-width="5"/><circle cx="40" cy="380" r="14" fill="none" stroke="#B4A06A" stroke-width="5"/><circle cx="1160" cy="380" r="14" fill="none" stroke="#B4A06A" stroke-width="5"/><circle cx="960" cy="90" r="6" fill="#EF4444"/></svg>
-    <canvas class="eb-scene" id="eb-scene"></canvas>
-    <p class="eb-tag"><span>Board</span><span>NanoPi R76S</span></p>
-  </div>
+  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#hw-h">The hardware</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
+
+  <section class="proj-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">Some stores have no computer to run the agent.</h2>
+    <div class="prose">
+      <p>The Argus streaming agent runs on a Windows computer the store already has. Some stores have no back-office computer at all, so there was nowhere to run it.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">A small Linux box on the store&#8217;s router.</h2>
+    <div class="prose">
+      <p>The answer was a small board that plugs into a spare port on the store&#8217;s router and runs the whole agent with no screen: cameras, recorder, till, uploads and updates. The AI detection still happens in the cloud, so the box itself stays small.</p>
+      <p>The pick was the FriendlyElec NanoPi R76S because nothing thumb-sized had two network ports and built-in storage. A $485 mini PC and an $810 edge box were ruled out on cost.</p>
+    </div>
+  </section>
+
+  <section class="proj-section" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <ol class="a-steps">
+      <li><h3>Build</h3><p>Every agent build also makes an arm64 package for the box, and the build checks that the program really is arm64.</p></li>
+      <li><h3>Install</h3><p>Unpack the package and run one installer. It runs a self-test first and changes nothing if the test fails.</p></li>
+      <li><h3>Run</h3><p>The agent runs as a system service that restarts itself. Each box&#8217;s settings and state sit in one place.</p></li>
+      <li><h3>Update</h3><p>The box asks the server for an update built for arm64. A box is never given the Windows or x86 build. A release with no arm64 build means no update.</p></li>
+      <li><h3>Roll back</h3><p>Before every start a check runs. A new build that fails its self-test, or is started 3 times without staying up for 15 minutes, is swapped for the last good one and blocked for 24 hours.</p></li>
+    </ol>
+  </section>
+
+  <section class="proj-section" aria-labelledby="hw-h">
+    <h2 id="hw-h">The hardware</h2>
+    <div class="table-wrap a-table" tabindex="0" role="region" aria-label="Hardware, scrolls sideways on small screens">
+      <table>
+        <caption>What goes in one box</caption>
+        <tbody>
+          <tr><th scope="row">Board</th><td>FriendlyElec NanoPi R76S, 4 GB RAM and 64 GB eMMC, in its metal case. RK3576 chip, two 2.5 gigabit ports.</td></tr>
+          <tr><th scope="row">Power</th><td>5 V, 3 A USB-C supply. The network cable carries no power.</td></tr>
+          <tr><th scope="row">Cost</th><td>About $150 for the board, case and power supply from one retailer.</td></tr>
+          <tr><th scope="row">Avoid</th><td>The 3 GB version has no built-in storage. The bare-board versions come with no case or power supply.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose"><p><b>Where it stands.</b> This was tabled in 2026 before any box was bought, so it never ran on real hardware. Install, update and rollback were tested in automated builds only. A direct link to one kind of register was estimated and not built. What this page shows was designed, not a field result.</p></div>
+  </section>
 
   <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
+    <h2 id="did-h">What I owned</h2>
     <ul class="did-list">
       <li>Designed a custom circuit board around the NanoPi R76S for the in-store AI devices.</li>
+      <li>Compared the options and picked the board.</li>
     </ul>
+  </section>
+
+  <section class="proj-section" aria-labelledby="learned-h">
+    <h2 id="learned-h">What I learned</h2>
+    <div class="prose">
+      <p>Hardware decisions are mostly about what you can buy and ship quickly. Power, ports and storage ruled out most options before performance mattered.</p>
+      <p>A box nobody can visit needs a way back from a bad update, which is why it rolls itself back to the last good build.</p>
+    </div>
   </section>
 
   <section class="proj-section proj-related" aria-labelledby="related-h">
@@ -76,14 +128,18 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Ayan Basheer</p>
-  <ul>
-    <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
 </footer>
 
-<script type="module" src="/startup-work/argus-edge-board/main.js"></script>
+<script type="module" src="/startup-work/argus/main.js"></script>
 </body>
 </html>
