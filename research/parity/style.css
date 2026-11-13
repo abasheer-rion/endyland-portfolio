@@ -1,12 +1,44 @@
 /* Parity page. Only this page loads this file. Shared lab look: /research/project-theme.css. */
-.pa-verdict{margin:0 0 var(--space-3);padding:clamp(16px,2.4vw,28px) clamp(18px,2.6vw,32px);max-width:calc(var(--measure) + 40px);background:var(--p-surface);border:1px solid var(--p-line);border-left:4px solid #B8872E}
-.pa-verdict b{font:500 clamp(2.4rem,1.6rem + 3vw,4rem)/1 var(--p-display);color:var(--p-accent);margin-right:.3em;font-variant-numeric:lining-nums}
-.pa-gaunt{min-width:860px}
-.pa-gaunt th[scope=row]{min-width:16rem}
-.pa-gaunt small{display:block;margin-top:2px;font-weight:400;color:var(--p-mute);font-size:.9375rem}
-.pa-gaunt td{text-align:center;white-space:nowrap}
-.pa-gaunt td.ok{color:#D9AE4A;font-weight:600}
-.pa-gaunt td.no{color:var(--p-mute)}
+.fig-narrow{max-width:640px}
+.proj-hero-media.sfig{max-width:900px}
+/* Sharpe bars: a track from -0.2 to 0.8, a dashed line at the S&P 500's 0.54, bars that grow from zero when scrolled in. */
+.sbars{position:relative;display:grid;gap:8px;font-size:1.0625rem}
+.sb{display:grid;grid-template-columns:minmax(10em,15em) minmax(0,1fr) 3em;align-items:center;gap:12px}
+.sb b{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.sb-track{position:relative;height:22px}
+.sb-track::before{content:"";position:absolute;left:var(--z);top:-4px;bottom:-4px;width:1px;background:var(--p-line)}
+.sb-track i{position:absolute;left:var(--l);width:var(--w);top:0;bottom:0;background:var(--p-mute);transform-origin:left;transition:transform .55s var(--bk-out,ease-out);transition-delay:calc(var(--n,0) * 30ms)}
+.sb.neg .sb-track i{transform-origin:right}
+.sb.stk .sb-track i{background:var(--p-accent)}
+.sb.mkt .sb-track i{background:#C0643A}
+.sb.mkt span,.sb.mkt b{font-weight:600}
+html.pj-anim .sbars:not(.in) .sb-track i{transform:scaleX(0)}
+@media (max-width:640px){.sb{grid-template-columns:minmax(0,1fr) 3em;gap:2px 12px}.sb-track{grid-column:1 / -1;grid-row:2;height:16px}}
+/* Gauntlet grid: one square per test. Squares fill column by column when the grid scrolls in. */
+.grid-wrap{margin:var(--space-3) 0 0}
+.pgrid{width:100%;max-width:900px;border-collapse:collapse}
+.pgrid th,.pgrid td{padding:6px 4px;text-align:center;border:0;border-bottom:1px solid var(--p-line);background:transparent;position:static}
+.pgrid thead th{font-weight:600;font-size:1rem;border-bottom:2px solid var(--p-ink)}
+.pgrid thead th.b{color:var(--p-accent)}
+.pgrid tbody th{text-align:left;font-weight:500;padding-right:12px;min-width:15em}
+.pgrid small{display:block;font-size:1rem;color:var(--p-mute);font-weight:400}
+.g-m{display:block;width:22px;height:22px;margin:auto;border:2px solid var(--p-mute);box-sizing:border-box;transition:transform .3s var(--bk-out,ease-out),background-color .3s ease-out;transition-delay:calc(var(--c,0) * 30ms)}
+.g.p .g-m{background:var(--p-accent);border-color:var(--p-accent)}
+html.pj-anim .pgrid:not(.in) .g-m{transform:scale(.2);background:transparent}
+.grid-note{margin:12px 0 0;color:var(--p-mute)}
+@media (max-width:760px){
+  .pgrid tr{display:grid;grid-template-columns:repeat(11,1fr);align-items:center}
+  .pgrid tbody th{grid-column:1 / -1;min-width:0;padding:12px 0 2px;border-bottom:0;display:flex;justify-content:space-between;gap:12px}
+  .pgrid small{display:inline}
+  .pgrid thead th:first-child{display:none}
+  .pgrid thead th{font-size:.8125rem;padding:6px 0}
+  .g-m{width:70%;max-width:22px;aspect-ratio:1;height:auto}
+}
 .pa-gates{display:grid;gap:var(--space-3) clamp(24px,4vw,64px);grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));margin-top:var(--space-4)}
 .pa-gates ul{max-width:none}
-.pa-gates li b{font-weight:600}
+.pa-gates h3{margin-top:0}
+@media (min-width:1100px){
+  .proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center}
+  .proj h1{font-size:clamp(2.6rem,1.2rem + 3.4vw,4.6rem)}
+  .proj-hero-media.sfig{max-width:none}
+}

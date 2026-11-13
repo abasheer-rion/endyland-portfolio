@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Low-power wireless sensor node | Ayan Basheer</title>
-<meta name="description" content="A battery sensor on an ESP32 that went from 3 days to 6 weeks on one 18650 cell.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Low-power wireless sensor node - Ayan Basheer</title>
+<meta name="description" content="An ESP32 sensor node that went from about 3 days to 6 weeks on one 18650 cell by sleeping between readings.">
 <link rel="canonical" href="https://endyland.com/projects/sensor-node/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/projects/sensor-node/">
-<meta property="og:title" content="Low-power wireless sensor node | Ayan Basheer">
-<meta property="og:description" content="A battery sensor on an ESP32 that went from 3 days to 6 weeks on one 18650 cell.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Low-power wireless sensor node - Ayan Basheer">
+<meta property="og:description" content="An ESP32 sensor node that went from about 3 days to 6 weeks on one 18650 cell by sleeping between readings.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Low-power wireless sensor node - Ayan Basheer">
+<meta name="twitter:description" content="An ESP32 sensor node that went from about 3 days to 6 weeks on one 18650 cell by sleeping between readings.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#EFE3C8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -21,7 +36,9 @@
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/shared/models/stage.css">
+<link rel="stylesheet" href="/projects/sensor-node/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/projects/sensor-node/#webpage","url":"https://endyland.com/projects/sensor-node/","name":"Low-power wireless sensor node - Ayan Basheer","description":"An ESP32 sensor node that went from about 3 days to 6 weeks on one 18650 cell by sleeping between readings.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/projects/sensor-node/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/projects/sensor-node/#main","name":"Low-power wireless sensor node","headline":"Low-power wireless sensor node","description":"An ESP32 sensor node that went from about 3 days to 6 weeks on one 18650 cell by sleeping between readings.","url":"https://endyland.com/projects/sensor-node/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/projects/sensor-node/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://endyland.com/projects/"},{"@type":"ListItem","position":3,"name":"Low-power wireless sensor node","item":"https://endyland.com/projects/sensor-node/"}]}]}</script>
 </head>
 <body class="proj-page proj-sensor-node">
 <a class="skip" href="#main">Skip to content</a>
@@ -36,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/" aria-current="true">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -47,92 +65,50 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/projects/">Projects</a></li><li><span>Low-power wireless sensor node</span></li></ol></nav>
 
   <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">Hardware</p>
-    <h1>Low-power wireless sensor node</h1>
-    <p class="proj-summary">A battery sensor that went from 3 days to 6 weeks on one charge.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>ESP32</li><li>C</li><li>I2C</li><li>KiCad</li></ul></dd></div></dl>
-    <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
+    <div class="proj-intro" data-reveal="rise">
+      <h1>Low-power wireless sensor node</h1>
+      <p class="proj-summary">An ESP32 sensor node that went from about 3 days to 6 weeks on one 18650 cell by sleeping between readings.</p>
+      <p class="proj-facts">2026. ESP32, C, I2C and KiCad.</p>
     </div>
-    <figure class="proj-hero-media"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/cycle.svg" width="1000" height="470" alt="A schematic of current over time. The node sleeps at a very low current and wakes every 60 seconds for a short burst." fetchpriority="high" decoding="async"></div></div><figcaption>One minute in the life of the node, as a schematic drawn for this site. It is not to scale and it is not a measurement.</figcaption></figure>
+    <figure class="proj-hero-media">
+      <div class="sleepline" role="img" aria-label="A schematic of current over time. The node sleeps at a very low current and wakes every 60 seconds for a short burst.">
+        <div class="sl-track" aria-hidden="true">
+          <i class="sl-floor"></i>
+          <i class="sl-burst" style="--at:2%"></i><i class="sl-burst" style="--at:35.3%"></i><i class="sl-burst" style="--at:68.6%"></i>
+          <i class="sl-head"></i>
+        </div>
+        <div class="sl-ticks" aria-hidden="true"><span>0 s</span><span>60 s</span><span>120 s</span><span>180 s</span></div>
+      </div>
+      <figcaption>Sketch of the node's current over time: low while asleep, a short burst every 60 seconds.</figcaption>
+    </figure>
   </header>
 
-  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">In numbers</h2>
-    <div class="sec-body">
-      <ul class="stats"><li class="stat wide"><b>3 days to 6 weeks</b><span>battery life on one 18650 cell</span></li><li class="stat"><b>14x</b><span>longer on a charge</span></li><li class="stat"><b><span class="visually-hidden">60 s</span><span aria-hidden="true" data-count="60" data-post=" s">60 s</span></b><span>between reads</span></li><li class="stat"><b><span class="visually-hidden">2</span><span aria-hidden="true" data-count="2">2</span></b><span>layer board</span></li></ul>
+  <section class="proj-section" id="result" aria-labelledby="result-h">
+    <h2 id="result-h">Sleep between reads</h2>
+    <p>The node reads a sensor over I2C once a minute and sends the reading. An ESP32 draws far more current awake than asleep, so the firmware keeps it awake as briefly as possible. It sleeps, wakes every 60 seconds, takes one reading, sends it and goes back to sleep.</p>
+    <p>The first version lasted about 3 days on one 18650 cell. With this schedule it lasted 6 weeks, which is 42 days and 14 times as long.</p>
+    <div class="figure bars" data-reveal="rise" style="--lab:5.2em;--val:7.5em" role="img" aria-label="Two bars on one scale. Before, 3 days. After, 6 weeks, which is 42 days.">
+      <div class="bar-row"><span>Before</span><div class="track"><i class="bar-grow" style="--w:7.2%"></i></div><b>3 days</b></div>
+      <div class="bar-row"><span>After</span><div class="track"><i class="bar-grow bar-after" style="--w:100%"></i></div><b>6 weeks</b></div>
     </div>
+    <h3>Why sleeping saves so much</h3>
+    <p>Battery life depends on the average current, not the peak. A node that is awake for a moment each minute has an average close to its sleep current, because the time at the high current is so short. Reading the sensor, waiting for it and sending the reading all happen while the chip is on, so the code keeps that window short.</p>
   </section>
-  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="sec-body">
-      <p>A wireless sensor is only useful if it keeps running. The first version of this node lasted about 3 days on one 18650 cell. A sensor that needs a fresh battery every few days is a chore, not a sensor.</p>
-      <p>The goal was a node that reads a sensor once a minute and runs for weeks on the same cell.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">The approach</h2>
-    <div class="sec-body">
-      <p>The ESP32 draws far more current awake than asleep, so the fix is to be awake as little as possible. The firmware, written in C, puts the chip into sleep, wakes it every 60 seconds, takes one reading, sends it, and goes back to sleep.</p>
-      <p>I also drew the board myself in KiCad, as a 2-layer design.</p>
-      <p>That plan changed battery life from 3 days to 6 weeks. Six weeks is 42 days, which is 14 times as long.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="sec-body">
-      <p>The battery cell powers the board. On the board, the ESP32 runs the C firmware and talks to the sensor over I2C, a two-wire bus. Every 60 seconds it wakes, reads, sends and sleeps again.</p>
-      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/blocks.svg" width="1000" height="400" alt="Block diagram. An 18650 cell powers a 2-layer board. On the board an ESP32 running C firmware talks to a sensor over I2C, with a pull-up resistor on the lines. The node takes a reading every 60 seconds." loading="lazy" decoding="async"></div></div><figcaption>The parts of the node, drawn for this site.</figcaption></figure>
-      <h3>Why sleeping saves so much</h3>
-      <p>Battery life depends on the average current, not the peak. A node that is awake for a moment each minute and asleep the rest of the time has an average close to its sleep current, because the time at the high current is so short. The schematic at the top of the page shows the shape: tall, thin bursts on a very low floor.</p>
-      <p>This is also why every extra moment awake costs something. Reading the sensor, waiting for it and sending the reading all happen while the chip is on, so the code keeps that window short.</p>
-      <h3>The missing pull-up</h3>
-      <p>I2C lines are only pulled low by the chips on the bus. A resistor, called a pull-up, has to bring them back high. One was missing on this board, and I found it with an oscilloscope. A scope shows the line itself, which a debugger on the firmware cannot.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="sec-body">
 
-      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/life.svg" width="1000" height="330" alt="Two bars. Before, 3 days. After, 6 weeks, which is 42 days." loading="lazy" decoding="async"></div></div><figcaption>Battery life on one 18650 cell, before and after.</figcaption></figure>
-      <div class="table-wrap" tabindex="0" role="group" aria-label="Results table">
-      <table class="facts">
-        <caption>The node, before and after</caption>
-        <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Battery life</th><td>3 days before, 6 weeks after (42 days, 14 times longer)</td></tr>
-          <tr><th scope="row">Cell</th><td>One 18650</td></tr>
-          <tr><th scope="row">Reading interval</th><td>60 seconds</td></tr>
-          <tr><th scope="row">Board</th><td>2 layers, drawn in KiCad</td></tr>
-          <tr><th scope="row">Bug found</th><td>A missing I2C pull-up, found with an oscilloscope</td></tr>
-        </tbody>
-      </table>
+  <section class="proj-section last" id="board" aria-labelledby="board-h">
+    <h2 id="board-h">The board and the missing pull-up</h2>
+    <div class="split">
+      <div class="split-text">
+        <p>One 18650 cell powers a 2-layer board that I drew in KiCad. On the board an ESP32 runs the C firmware and talks to the sensor over I2C, a two-wire bus.</p>
+        <p>I2C lines are only pulled low by the chips on the bus. A resistor, called a pull-up, has to bring them back high. One was missing on this board, and I found it with an oscilloscope. A scope shows the line itself, which a debugger on the firmware cannot.</p>
+        <h3>More projects</h3>
+        <ul class="plain-list"><li><a href="/projects/safe-home/">Safe Home</a>, where an ESP32 box runs a mesh network</li><li><a href="/projects/bench-rig/">Automated bench test rig</a></li></ul>
       </div>
-      <p>There is no public repo or demo for this one, and I did not photograph the board, so this page shows diagrams only.</p>
+      <div class="split-fig">
+        <div class="model-stage" data-model="sensor-node" aria-label="A 3D model of a typical sensor node: a board with an ESP32 module, an I2C sensor, a regulator and one 18650 cell. As the page scrolls, the missing pull-up resistor drops onto the board."></div>
+        <p class="model-cap">A model of a typical node layout, not a photo of my board.</p>
+      </div>
     </div>
-  </section>
-  <section class="proj-section story" id="did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <div class="sec-body">
-      <ul class="did-list">
-        <li>Stretched battery life from 3 days to 6 weeks on one 18650 cell.</li>
-        <li>The ESP32 sleeps between reads, one every 60 seconds.</li>
-        <li>Wrote the C firmware and drew a 2-layer board in KiCad.</li>
-        <li>Found a missing pull-up resistor with an oscilloscope.</li>
-      </ul>
-    </div>
-  </section>
-  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="sec-body">
-      <p>For a battery device, the schedule matters more than the code. Deciding how long the chip is awake, and how often, set the battery life more than any single optimisation.</p>
-      <p>Hardware bugs hide from software tools. A missing resistor looks like a flaky sensor until you look at the signal with a scope.</p>
-      <p>Measure the result in the units that matter. "3 days to 6 weeks" says more than a current figure, because it is what someone holding the device would see.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="sec-body"><ul class="plain-list"><li><a href="/projects/safe-home/">Safe Home</a>, where an ESP32 box runs a mesh network.</li><li><a href="/projects/bench-rig/">Automated bench test rig</a>.</li></ul></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
@@ -142,8 +118,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -152,5 +129,6 @@
 </footer>
 
 <script type="module" src="/projects/sensor-node/main.js"></script>
+<script type="module" src="/shared/models/auto.js"></script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model kit test page | Ayan Basheer</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#26180F">
+<script src="/shared/nav.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/models/stage.css">
+<link rel="stylesheet" href="/shared/models/_gallery.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="bar-in">
+    <a class="bar-brand" href="/">endyland</a>
+    <button class="bar-menu" type="button" aria-expanded="false" aria-controls="bar-nav"><i aria-hidden="true"></i><span>Menu</span></button>
+    <nav class="bar-nav" id="bar-nav" aria-label="Sections">
+      <ul>
+      <li><a href="/web-design/">Web design</a></li>
+      <li><a href="/research/">Research</a></li>
+      <li><a href="/startup-work/">Startup work</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
+      </ul>
+      <span class="bar-ind" aria-hidden="true"></span>
+    </nav>
+    <span class="bar-progress" aria-hidden="true"><i></i></span>
+  </div>
+</header>
+
+<main id="main">
+<div class="gal">
+  <h1>Model kit test page</h1>
+  <p>Every 3D model in <code>shared/models/</code>, mounted the way a page would mount it. This page is for building and checking the models. It is not linked from the site and search engines are told to skip it.</p>
+  <div class="gal-grid">
+    <figure>
+      <div class="model-stage" data-model="sensor-box" data-explode="0" data-soft-gl aria-label="Safe Home sensor box, closed: a cream enclosure with an antenna on the right wall and the water sensor on a lead"></div>
+      <figcaption>Safe Home sensor box, closed</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="sensor-box" data-explode="scroll" data-labels data-soft-gl aria-label="Safe Home sensor box, opening as the page scrolls to show the boards and the battery pack"></div>
+      <figcaption>Safe Home sensor box, opened by scrolling</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="mesh" data-soft-gl aria-label="Nine houses passing messages to the one with internet. Click a house, or press Enter, to take one offline"></div>
+      <figcaption>Mesh neighbourhood. Click a house to take it offline</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="edge-unit" data-explode="0" data-soft-gl aria-label="A store camera wired to a small metal computer box"></div>
+      <figcaption>Argus store box and camera, closed</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="edge-unit" data-explode="1" data-labels data-soft-gl aria-label="The store camera and computer box taken apart to show the board"></div>
+      <figcaption>Argus store box and camera, opened</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="patch-array" data-angle="pointer" data-soft-gl aria-label="Four patch antennas on a board with the beam they form. Move the pointer to steer it"></div>
+      <figcaption>Four-element patch array, beam follows the pointer</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="patch-array" data-angle="auto" data-soft-gl aria-label="Four patch antennas on a board with the beam sweeping side to side"></div>
+      <figcaption>Four-element patch array, sweeping</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="fpga-board" data-soft-gl aria-label="A generic FPGA development board with switches, lights and a four-digit display"></div>
+      <figcaption>FPGA development board</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="sensor-node" data-pullup="auto" data-soft-gl aria-label="A small board with a radio module, a sensor and one 18650 cell"></div>
+      <figcaption>Sensor node board</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="pose" data-pose="auto" data-soft-gl aria-label="A figure made of 17 joints and the bones between them, moving between three poses"></div>
+      <figcaption>17-point pose figure</figcaption>
+    </figure>
+    <figure>
+      <div class="model-stage" data-model="logo" data-tone="light" data-soft-gl aria-label="The endyland mark as a solid object: a letter E whose three arms end in dots"></div>
+      <figcaption>Logo for paper</figcaption>
+    </figure>
+    <figure class="on-dark">
+      <div class="model-stage" data-model="logo" data-tone="dark" data-soft-gl aria-label="The endyland mark as a solid object, in paper and gold"></div>
+      <figcaption>Logo for leather</figcaption>
+    </figure>
+  </div>
+</div>
+</main>
+<script type="module" src="/shared/models/_gallery.js"></script>
+<footer class="site-footer">
+  <div class="footer-in">
+    <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
+    <ul>
+      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

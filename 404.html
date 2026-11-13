@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Not found</title><meta name="robots" content="noindex"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Page not found - Ayan Basheer</title><meta name="description" content="No page exists at this address on endyland.com. Links to the home page and the main sections."><meta name="robots" content="noindex"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <meta name="theme-color" content="#EFE3C8"><meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,18 +13,24 @@
 <link rel="stylesheet" href="/shared/base.css">
 <style>
 body{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--bk-paper);color:var(--bk-ink);font:18px/1.6 var(--bk-sans)}
-main{position:relative;min-height:80vh;padding:calc(var(--bar-h) + clamp(24px,6vw,72px)) var(--gut) clamp(72px,10vw,140px);overflow:hidden}
+main{position:relative;min-height:80vh;padding:calc(var(--bar-h) + clamp(24px,6vw,72px)) var(--gut) clamp(150px,22vw,260px);overflow:hidden}
 /* A stippled field, dense at the bottom and resolving upward into bare paper. */
 main::before{content:"";position:absolute;inset:0;pointer-events:none;color:var(--bk-saddle);
   background-image:var(--bk-stipple),var(--bk-stipple);background-size:5px 5px,8px 8px;background-position:0 0,3px 2px;
-  -webkit-mask-image:linear-gradient(to top,#000,transparent 32%);mask-image:linear-gradient(to top,#000,transparent 32%)}
+  -webkit-mask-image:linear-gradient(to top,#000,transparent 24%);mask-image:linear-gradient(to top,#000,transparent 24%)}
 main>*{position:relative}
-h1{margin:0 0 18px;font:italic 500 clamp(72px,15vw,220px)/.84 var(--bk-serif);font-optical-sizing:auto;letter-spacing:-.03em;text-wrap:balance}
+h1{margin:0 0 18px;font:italic 500 clamp(56px,11vw,160px)/.84 var(--bk-serif);font-optical-sizing:auto;letter-spacing:-.03em;text-wrap:balance}
 p{max-width:var(--measure);margin:0;font-size:var(--fs-lead);line-height:1.5}
 main a{color:#8A3F1A;text-underline-offset:4px}
 main a:focus-visible{outline:3px solid var(--bk-ink);outline-offset:4px}
+.go{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0;max-width:20rem;font-size:var(--fs-lead);line-height:1.3}
+.go a{display:flex;align-items:center;min-height:48px;font-family:var(--bk-serif);text-decoration:none;border-bottom:1px solid rgba(23,16,10,.3);transition:padding-left .15s var(--bk-out)}
+.go a:hover{padding-left:8px;text-decoration:underline}
+.go li:first-child a{border-top:1px solid rgba(23,16,10,.3)}
 h1{animation:press .25s var(--bk-out) both}
 p{animation:press .25s var(--bk-out) .03s both}
+.go li{animation:press .25s var(--bk-out) both}
+.go li:nth-child(2){animation-delay:30ms}.go li:nth-child(3){animation-delay:60ms}.go li:nth-child(4){animation-delay:90ms}.go li:nth-child(5){animation-delay:120ms}.go li:nth-child(6){animation-delay:150ms}
 @keyframes press{from{opacity:0;transform:translateY(8px) scale(.985)}}
 </style></head>
 <body>
@@ -36,19 +46,22 @@ p{animation:press .25s var(--bk-out) .03s both}
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
     <span class="bar-progress" aria-hidden="true"><i></i></span>
   </div>
 </header>
-<main id="main"><h1>No signal</h1><p>Nothing lives at this address. Head back to <a href="/">endyland.com</a>, or try <a href="/web-design/">Web design</a>, <a href="/research/">Research</a>, <a href="/startup-work/">Startup work</a>, <a href="/projects/">Projects</a> or <a href="/experience/">Experience</a>.</p></main>
+<main id="main"><h1>Page not found</h1><p>This address has no page.</p>
+<ul class="go"><li><a href="/">Home</a></li><li><a href="/web-design/">Web design</a></li><li><a href="/research/">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li><li><a href="/code/">Code</a></li></ul></main>
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

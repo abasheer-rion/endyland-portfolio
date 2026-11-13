@@ -1,0 +1,16 @@
+/* Test page for the 3D model kit. Not linked from the site. */
+.gal{width:var(--wrap);margin:0 auto;padding:calc(var(--bar-h,80px) + 32px) 0 96px}
+.gal h1{font:500 var(--fs-h2)/1.1 var(--bk-serif);margin:0 0 12px}
+.gal>p{max-width:68ch;margin:0 0 40px}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:40px 32px}
+.gal-grid figure{margin:0}
+.gal-grid figcaption{font:500 var(--fs-h3)/1.2 var(--bk-serif);margin:8px 0 0}
+.gal-grid .model-stage{background:var(--bk-vellum);border:1px solid var(--bk-cream)}
+.gal-grid .on-dark .model-stage{background:var(--bk-leather);border-color:var(--bk-walnut)}
+.gal-solo{position:fixed;inset:0;z-index:999;background:var(--bk-vellum)}
+.gal-solo.dark{background:var(--bk-leather)}
+.gal-solo.clear{background:transparent}
+.gal-solo .model-stage{aspect-ratio:auto;height:100%}
+/* ?bg=clear: nothing but the model on a transparent page, for poster shots. */
+.gal-bare,.gal-bare body{background:transparent!important}
+.gal-bare body>:not(.gal-solo){display:none!important}

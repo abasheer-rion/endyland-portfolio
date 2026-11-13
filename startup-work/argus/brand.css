@@ -1,8 +1,6 @@
-/* Argus brand tokens for all five Argus pages. Components are in /startup-work/pages.css (argus, argus-dashboard, argus-one, argus-edge-board,
-   argus-site). The body keeps Argus: white paper, red, Fraunces and Inter. The site chrome (top bar, footer) is shared.
-   The Argus Dashboard page sets data-theme="argus-dark" on <html> for the app's dark look.
-   Readable by design: a fluid wide layout, 68ch prose, solid backgrounds behind all text, AA contrast or better.
-   Motion runs under html.pj-anim (set by /shared/project.js): short rises and fades only. */
+/* Argus brand tokens for the five Argus pages. Components are in /startup-work/pages.css. The body keeps Argus:
+   white paper, red, Fraunces and Inter. The site chrome (top bar, footer) is shared.
+   The Argus Dashboard page sets data-theme="argus-dark" on <html> for the app's dark look. */
 :root{
   --p-bg:#FFFFFF; --p-surface:#FAF9F5; --p-ink:#1A1A1A; --p-mute:#4A4A45;
   --p-accent:#DC2626; --p-accent-bg:#B91C1C; --p-on-accent:#FFFFFF; --p-link:#A31919; --p-line:rgba(26,26,26,.24);
@@ -10,23 +8,17 @@
   --p-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; --p-mono:ui-monospace,Menlo,monospace; --p-radius:4px;
   --bk-serif:"Fraunces",ui-serif,Georgia,serif; --bk-sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --focus:#A31919;
-  --badge-bg:transparent; --badge-fg:#1A1A1A; --badge-border:#1A1A1A;
-  --a-red:#DC2626; --a-deep:#A31919; --a-panel:#1D1D1D; --a-ink:#1A1A1A;
-  --a-ease:cubic-bezier(.2,.7,.2,1);
+  --a-red:#DC2626; --a-deep:#A31919; --a-ink:#1A1A1A; --a-ease:cubic-bezier(.2,.7,.2,1);
   --d-fill:#FFFFFF; --d-ink:#1A1A1A; --d-mute:#4A4A45; --d-red:#A31919; --d-soft:#FEF2F2; --d-dark:#1D1D1D; --d-on:#FFFFFF;
-  --a-dots:radial-gradient(circle at 50% 50%,currentColor 1px,transparent 1.5px);
 }
 html[data-theme="argus-dark"]{
   --p-bg:#171717; --p-surface:#222222; --p-ink:#F5F5F2; --p-mute:#C9C9C3; --p-link:#FCA5A5; --p-line:rgba(255,255,255,.22);
-  --p-accent-bg:#DC2626; --focus:#FCA5A5; --badge-fg:#F5F5F2; --badge-border:#C9C9C3; --a-deep:#FCA5A5; --a-ink:#F5F5F2;
+  --p-accent-bg:#DC2626; --focus:#FCA5A5; --a-deep:#FCA5A5; --a-ink:#F5F5F2;
   --d-fill:#222222; --d-ink:#F5F5F2; --d-mute:#C9C9C3; --d-red:#FCA5A5; --d-soft:#2B1717; --d-dark:#DC2626; --d-on:#FFFFFF;
   color-scheme:dark;
 }
-.proj-page{font-size:var(--fs-body)}
 .proj h1{font-size:clamp(3rem,1.4rem + 6vw,7rem);font-weight:400;letter-spacing:-.035em;line-height:.95}
 .proj h2{font-size:clamp(2rem,1.3rem + 2.4vw,3.4rem);letter-spacing:-.02em;line-height:1.08}
 .proj h3{letter-spacing:-.01em}
 .proj p,.proj li,.proj dd{hanging-punctuation:none}
-
-/* The key phrase: red, underlined, as on useargus.co. */
-.a-key{color:var(--a-deep);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.14em}
+html[data-theme="argus-dark"] .proj-logo{background:#fff;padding:8px 14px;border-radius:6px;max-height:60px}

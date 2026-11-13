@@ -1,5 +1,6 @@
 // Experience hero art: an engraved halftone. Gold dots on leather swell and shrink in rings that travel
-// outward from a point, like a signal leaving a mast. Decoration only (aria-hidden, no text sits on it).
+// outward from a point, like a signal leaving a mast. The point eases toward the pointer while it is over the
+// page (mouse and trackpad only) and rests at 62%, 50% otherwise. Decoration only (aria-hidden, no text sits on it).
 // Plain 2D canvas started by /shared/scene-loader.js after first paint. The loader stops it off screen and in a
 // hidden tab and sets the pixel ratio (cap 1.5 on desktop, 1 on phones). Phones get a coarser dot grid.
 // Dots are drawn in four sizes, one path each, so a frame is four fills.
@@ -12,6 +13,15 @@ export function start(ctx) {
   const g = canvas.getContext('2d');
   if (!g) throw new Error('2D canvas unavailable');
   let W = 1, H = 1, dpr = 1, cols = 0, rows = 0, step = 0;
+  let tx = 0.62, ty = 0.5, px = 0.62, py = 0.5; // target and current origin, as fractions of the canvas
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const move = (e) => {
+    const r = canvas.getBoundingClientRect();
+    if (!r.width) return;
+    tx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    ty = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+  };
+  if (fine) addEventListener('pointermove', move, { passive: true });
 
   const resize = (w, h, d) => {
     W = w; H = h; dpr = d;
@@ -22,10 +32,12 @@ export function start(ctx) {
     rows = Math.ceil(h / step) + 1;
   };
 
-  const frame = (t) => {
+  const frame = (t, dt = 0.016) => {
+    const k0 = 1 - Math.exp(-4 * dt);
+    px += (tx - px) * k0; py += (ty - py) * k0;
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     g.clearRect(0, 0, W, H);
-    const ox = W * 0.62, oy = H * 0.5;
+    const ox = W * px, oy = H * py;
     const reach = Math.hypot(Math.max(ox, W - ox), Math.max(oy, H - oy));
     const paths = [];
     for (let i = 0; i < SIZES; i++) paths.push(new Path2D());
@@ -54,5 +66,5 @@ export function start(ctx) {
     g.globalAlpha = 1;
   };
 
-  return { resize, frame, still: () => frame(0.4), dispose() {} };
+  return { resize, frame, still: () => frame(0.4), dispose() { removeEventListener('pointermove', move); } };
 }

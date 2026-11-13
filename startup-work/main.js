@@ -27,3 +27,19 @@ mountScene({
   dprCap: 1.5,
   lowDprCap: 1,
 });
+
+// Hovering or focusing a ledger row shows that project's picture in the company's frame.
+document.querySelectorAll('.co').forEach((co) => {
+  const fig = co.querySelector('.co-fig');
+  if (!fig) return;
+  const swap = document.createElement('img');
+  swap.className = 'swap'; swap.alt = ''; swap.decoding = 'async';
+  fig.append(swap);
+  const show = (src) => { if (src) { swap.src = src; swap.classList.add('on'); } else swap.classList.remove('on'); };
+  co.querySelectorAll('.ledger a[data-thumb]').forEach((a) => {
+    a.addEventListener('pointerenter', () => show(a.dataset.thumb));
+    a.addEventListener('focus', () => show(a.dataset.thumb));
+    a.addEventListener('pointerleave', () => show(null));
+    a.addEventListener('blur', () => show(null));
+  });
+});

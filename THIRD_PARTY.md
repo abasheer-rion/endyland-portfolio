@@ -29,5 +29,7 @@ Inter, Geist, Geist Mono, Kalam, Cabin, Fraunces, Figtree.
 
 ## Own work
 
+The logo mark, the favicon and the eight 3D models in `shared/models/` were drawn for this site. They use no outside assets. The model fallback posters are renders of those models. `/code/` shows numbers from the GitHub API, copied into `data/github.json` by the refresh job.
+
 Plots in `research/rf-direction-finder/img/` come from the project repo. Diagrams named `figure.svg` were drawn for
 this site and show only the numbers stated on their pages.

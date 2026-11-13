@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Public spending data explorer | Ayan Basheer</title>
-<meta name="description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, a search that took 20 minutes now takes under 5 seconds.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Public spending data explorer - Ayan Basheer</title>
+<meta name="description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, and a search that went from 20 minutes to under 5 seconds.">
 <link rel="canonical" href="https://endyland.com/research/spending-explorer/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/research/spending-explorer/">
-<meta property="og:title" content="Public spending data explorer | Ayan Basheer">
-<meta property="og:description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, a search that took 20 minutes now takes under 5 seconds.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Public spending data explorer - Ayan Basheer">
+<meta property="og:description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, and a search that went from 20 minutes to under 5 seconds.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Public spending data explorer - Ayan Basheer">
+<meta name="twitter:description" content="A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, and a search that went from 20 minutes to under 5 seconds.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#17100A">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/research/project-theme.css">
 <link rel="stylesheet" href="/research/spending-explorer/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/research/spending-explorer/#webpage","url":"https://endyland.com/research/spending-explorer/","name":"Public spending data explorer - Ayan Basheer","description":"A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, and a search that went from 20 minutes to under 5 seconds.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/research/spending-explorer/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/research/spending-explorer/#main","name":"Public spending data explorer","headline":"Public spending data explorer","description":"A search tool for county spending records: 250K+ rows cleaned, 40+ duplicate vendors merged, and a search that went from 20 minutes to under 5 seconds.","url":"https://endyland.com/research/spending-explorer/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/research/spending-explorer/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://endyland.com/research/"},{"@type":"ListItem","position":3,"name":"Public spending data explorer","item":"https://endyland.com/research/spending-explorer/"}]}]}</script>
 </head>
 <body class="proj-page proj-se">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,6 +49,7 @@
     <nav class="bar-nav" id="bar-nav" aria-label="Sections">
       <ul>
       <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="true">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -41,47 +58,21 @@
 </header>
 
 <main id="main" class="proj">
-  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Public spending data explorer</span></li></ol></nav>
+<nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Public spending data explorer</span></li></ol></nav>
 
-  <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">Data project</p>
-    <h1>Public spending data explorer</h1>
-    <p class="proj-summary">A search tool for county spending records. The records were messy, so most of the work was cleaning them until one question could get one answer.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Data pipeline</li></ul></dd></div></dl>
-    <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
-    </div>
-    <figure class="proj-hero-media"><img src="img/figure.svg" width="800" height="450" alt="Diagram: 250K+ rows are cleaned and 40+ duplicate vendors merged, so a 20-minute search takes under 5 seconds." fetchpriority="high" decoding="async"><figcaption>How it works, drawn from the numbers below.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
-  </header>
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-<ul class="stats"><li class="stat"><b>250K+</b><span>rows cleaned</span></li><li class="stat"><b>40+</b><span>duplicate vendors merged</span></li><li class="stat"><b>20 min</b><span>per search before</span></li><li class="stat"><b>Under 5 s</b><span>per search now</span></li></ul>
-  </section>
+<header class="proj-hero proj-hero--text">
+<h1>Public spending data explorer</h1>
+<p class="proj-summary">A search tool for county spending records. It cleans 250K+ rows and merges 40+ vendors that appear under several names. A search that took about 20 minutes by hand takes under 5 seconds.</p>
+<p class="proj-facts">2026. Python.</p>
+</header>
 
-  <section class="proj-section " aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <p class="lede">Public records are public, and still hard to use.</p>
-    <p>County spending comes as a long list of payments. The same vendor shows up under several spellings, so asking &#8220;how much did we pay this company?&#8221; means hunting for every variant by hand. Each question took about 20 minutes.</p>
-    <p>The goal was a search that gives one answer per question, fast enough to ask follow-ups.</p>
-  </section>
-
-  <section class="proj-section " aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <ol class="steps">
-      <li><b>Start with the raw rows</b><span>250K+ rows of county spending records.</span></li>
-      <li><b>Clean</b><span>Make the rows comparable so they can be searched and added up.</span></li>
-      <li><b>Merge vendors</b><span>40+ vendors appeared under more than one name. Each now has one.</span></li>
-      <li><b>Search</b><span>A question that took 20 minutes by hand takes under 5 seconds.</span></li>
-    </ol>
-  </section>
-
-  <section class="proj-section " aria-labelledby="merge-h">
-    <h2 id="merge-h">One vendor, many spellings</h2>
-    <p>Try it on a few sample rows. They are made up for this page, but the real records had 40+ vendors spelled this way.</p>
-    <div class="table-wrap se-wrap" tabindex="0" role="region" aria-label="Sample spending rows">
-      <table class="se-table">
-        <caption>Sample spending rows, before or after merging duplicate vendors</caption>
-        <thead><tr><th scope="col">Vendor</th><th scope="col">Amount</th></tr></thead>
+<section class="proj-section" aria-labelledby="merge-h">
+<h2 id="merge-h">One vendor, many spellings</h2>
+<p>County spending comes as a long list of payments. The same vendor appears under several spellings, so asking how much was paid to one company meant looking for every variant by hand. The tool cleans the rows so they can be added up and gives each vendor one name.</p>
+<p>The table shows three sample vendors with amounts invented for this page. Merging folds the spellings into one row with the total.</p>
+<div class="table-wrap se-wrap" tabindex="0" role="region" aria-label="Sample spending rows">
+<table class="se-table">
+                <thead><tr><th scope="col">Vendor</th><th scope="col">Amount</th></tr></thead>
         <tbody>
           <tr class="se-row se-first" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">CEDAR HOLLOW PAVING</span></td><td class="se-amt">$18,240.00</td></tr>
           <tr class="se-row se-dup" data-group="0" data-canon="Cedar Hollow Paving" data-total="28,275.75" data-n="4"><td class="se-v"><span class="se-name">Cedar Hollow Paving LLC</span></td><td class="se-amt">$6,115.50</td></tr>
@@ -94,48 +85,23 @@
           <tr class="se-row se-dup" data-group="2" data-canon="Mesquite Ridge Fleet Services" data-total="14,200.40" data-n="2"><td class="se-v"><span class="se-name">Mesquite Ridge Fleet Svc</span></td><td class="se-amt">$4,330.40</td></tr>
         </tbody>
       </table>
-    </div>
-    <div class="se-controls">
-      <button type="button" class="rs-btn se-btn" aria-pressed="false" aria-controls="se-status">Merge duplicates</button>
-      <p class="se-status" id="se-status" aria-live="polite">9 rows, 3 vendors spelled 9 ways.</p>
-    </div>
-  </section>
+</div>
+<div class="se-controls">
+<button type="button" class="rs-btn se-btn" aria-pressed="false" aria-controls="se-status">Merge duplicates</button>
+<p class="se-status" id="se-status" aria-live="polite">9 rows, 3 vendors spelled 9 ways.</p>
+</div>
+</section>
 
-  <section class="proj-section " aria-labelledby="time-h">
-    <h2 id="time-h">Time to answer one search</h2>
-    <div class="se-race" role="img" aria-label="By hand: 20 minutes. Now: under 5 seconds.">
-      <div class="se-lane"><span class="se-label">By hand</span><span class="se-track"><i class="se-slow"></i></span><span class="se-time-v">20 min</span></div>
-      <div class="se-lane"><span class="se-label">Now</span><span class="se-track"><i class="se-fast"></i></span><span class="se-time-v">Under 5 s</span></div>
-    </div>
-    <p>Bars are to scale. Twenty minutes is 1,200 seconds, so under 5 seconds is at least 240 times faster, and the second bar is less than half a percent of the first.</p>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Cleaned 250K+ rows of county spending records.</li>
-      <li>Merged 40+ duplicate vendors into one name each.</li>
-      <li>A search that took 20 minutes by hand now takes under 5 seconds.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section " aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <ul class="findings">
-      <li><b>Most of a data tool is cleaning</b>The search was simple once vendors had one name each.</li>
-      <li><b>Show the mess, not just the result</b>The sample table above exists so a visitor can see what merging does to the totals.</li>
-    </ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
+<p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

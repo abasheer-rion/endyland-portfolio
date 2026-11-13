@@ -1,8 +1,22 @@
 /* RF direction finder page. Only this page loads this file. Shared lab look: /research/project-theme.css. */
+.stage-sheet{background:#F6EEDB;border:1px solid #B8872E;border-radius:2px;padding:clamp(4px,1vw,12px)}
+.stage-sheet .model-stage{aspect-ratio:16/9;max-height:70svh}
+.beam-ctl{display:flex;align-items:center;gap:16px;margin-top:16px;max-width:760px}
+.beam-ctl label{font:italic 400 1.25rem/1 var(--p-display);white-space:nowrap}
+.beam-ctl input{flex:1;min-width:0;height:44px;margin:0;accent-color:#D9AE4A;cursor:pointer;touch-action:pan-y}
+.beam-ctl output{min-width:4.5ch;text-align:right;font:500 1.0625rem/1 var(--p-body);color:var(--p-accent);font-variant-numeric:tabular-nums}
+.fig-narrow{max-width:640px}
 .inst{max-width:1100px;margin:0 0 var(--space-3)}
 .inst-screen{padding:0!important;background:#26180F!important;border:1px solid #B8872E;border-radius:2px;overflow:hidden}
-.rf-canvas{width:100%;aspect-ratio:16/7;background:#26180F;cursor:crosshair;touch-action:manipulation}
+.rf-canvas{width:100%;aspect-ratio:16/7;background:#26180F;cursor:crosshair;touch-action:manipulation;display:block}
 @media (max-width:640px){.rf-canvas{aspect-ratio:4/5}}
 .rf-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:14px}
 .rf-modes{display:flex;flex-wrap:wrap;gap:8px}
-.rf-readout{margin:0;min-height:1.6em;font-size:1rem;color:var(--p-accent);font-variant-numeric:tabular-nums}
+.rf-readout{margin:0;min-height:1.6em;font-size:1.0625rem;color:var(--p-accent);font-variant-numeric:tabular-nums}
+.proj-hero-media.beam-fig{max-width:1100px}
+@media (min-width:1100px){
+  .proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center}
+  .proj-hero .proj-intro{max-width:34em}
+  .proj h1{font-size:clamp(2.6rem,1.2rem + 3.4vw,4.6rem)}
+  .stage-sheet .model-stage{aspect-ratio:4/3;max-height:none}
+}

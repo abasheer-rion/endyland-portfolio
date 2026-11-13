@@ -3,26 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Safe Home | Ayan Basheer</title>
-<meta name="description" content="A prototype home black box that keeps reporting through an outage. Built at HackUTD 2026, where it won.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Safe Home, HackUTD 2026 project - Ayan Basheer</title>
+<meta name="description" content="A home sensor box, a radio mesh that works without internet and a responder map. Built by four people at HackUTD 2026. 3rd place, State Farm track.">
 <link rel="canonical" href="https://endyland.com/projects/safe-home/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/projects/safe-home/">
-<meta property="og:title" content="Safe Home | Ayan Basheer">
-<meta property="og:description" content="A prototype home black box that keeps reporting through an outage. Built at HackUTD 2026, where it won.">
-<meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#F6F7F7">
+<meta property="og:title" content="Safe Home, HackUTD 2026 project - Ayan Basheer">
+<meta property="og:description" content="A home sensor box, a radio mesh that works without internet and a responder map. Built by four people at HackUTD 2026. 3rd place, State Farm track.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og/safe-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safe Home. Home sensor box, radio mesh and responder map. HackUTD 2026, 3rd place in the State Farm track. endyland logo on dark brown.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Safe Home, HackUTD 2026 project - Ayan Basheer">
+<meta name="twitter:description" content="A home sensor box, a radio mesh that works without internet and a responder map. Built by four people at HackUTD 2026. 3rd place, State Farm track.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og/safe-home.png">
+<meta name="twitter:image:alt" content="Safe Home. Home sensor box, radio mesh and responder map. HackUTD 2026, 3rd place in the State Farm track. endyland logo on dark brown.">
+<meta name="theme-color" content="#EFE3C8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
+<link rel="stylesheet" href="/shared/models/stage.css">
 <link rel="stylesheet" href="/projects/safe-home/style.css">
-<link rel="modulepreload" href="/shared/project.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/projects/safe-home/#webpage","url":"https://endyland.com/projects/safe-home/","name":"Safe Home, HackUTD 2026 project - Ayan Basheer","description":"A home sensor box, a radio mesh that works without internet and a responder map. Built by four people at HackUTD 2026. 3rd place, State Farm track.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og/safe-home.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/projects/safe-home/#main"}},{"@type":"CreativeWork","@id":"https://endyland.com/projects/safe-home/#main","name":"Safe Home","description":"A home sensor box, a radio mesh that works without internet and a responder map. Built by four people at HackUTD 2026. 3rd place, State Farm track.","url":"https://endyland.com/projects/safe-home/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og/safe-home.png","mainEntityOfPage":{"@id":"https://endyland.com/projects/safe-home/#webpage"},"award":"3rd place, State Farm track, HackUTD 2026 (the team won two awards at HackUTD 2026)","sameAs":"https://safehomemesh.us","contributor":[{"@type":"Person","name":"Adyaan Akram"},{"@type":"Person","name":"Saif Yusuff"},{"@type":"Person","name":"Dhruv Patel"}],"dateCreated":"2026"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://endyland.com/projects/"},{"@type":"ListItem","position":3,"name":"Safe Home","item":"https://endyland.com/projects/safe-home/"}]}]}</script>
 </head>
 <body class="proj-page proj-safe-home">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/" aria-current="true">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -48,120 +65,259 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/projects/">Projects</a></li><li><span>Safe Home</span></li></ol></nav>
 
   <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="winner"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.8l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 16.6l-5.9 3.2 1.2-6.5L2.5 8.7l6.6-.9z"/></svg>HackUTD 2026 winner</p>
-    <p class="proj-kicker">Hardware and web app</p>
-    <h1>Safe Home</h1>
-    <p class="proj-summary">A home black box that keeps reporting when Wi-Fi and cell go down, with one map for first responders.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>Nov 7-8, 2026</dd></div><div><dt>Role</dt><dd>Product, design and integration lead</dd></div><div><dt>Team</dt><dd>A 4-person team</dd></div><div><dt>Where</dt><dd>HackUTD 2026: Zero Day, UT Dallas</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>ESP32</li><li>ESP-NOW</li><li>Cloudflare Pages Functions</li><li>MongoDB Atlas</li><li>MapLibre</li><li>NVIDIA Nemotron</li><li>Vanilla JS and CSS</li><li>esbuild</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://safehomemesh.us" rel="noopener">Open the live site</a></li><li><a class="alt-link" href="https://utd-hackathon-26.pages.dev/" rel="noopener">Backup address</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <div class="proj-intro" data-reveal="rise">
+      <h1>Safe Home</h1>
+      <p class="proj-summary">A sensor box for homes, a radio mesh that carries its readings out of an area with no internet, and a map for responders.</p>
+      <p class="proj-facts">Built by four people at HackUTD 2026, UT Dallas, November 2026. It won two awards, including 3rd place in the State Farm track.</p>
+      <ul class="proj-links"><li><a href="https://safehomemesh.us" rel="noopener">Open safehomemesh.us</a></li><li><a class="alt-link" href="https://safehomemesh.us/demo" rel="noopener">Try the demo</a></li></ul>
     </div>
-    <figure class="proj-hero-media"><div class="frame"><picture><source media="(max-width:640px)" srcset="img/hero-m.webp" width="700" height="1348"><img src="img/hero.webp" width="1440" height="650" alt="The Safe Home website, captured today. Headline: See trouble sooner. Know where to look. Beside it, a command map of the Tampa area with wind readings and green dots for home sensors." fetchpriority="high" decoding="async"></picture></div><figcaption>The live site at safehomemesh.us, captured today with the map running. The map uses fictional readings.</figcaption></figure>
+    <figure class="proj-hero-media"><div class="shot"><picture><source media="(max-width:640px)" srcset="img/hero-m.webp" width="700" height="1348"><img src="img/hero.webp" width="1440" height="650" alt="The Safe Home website. The headline reads See trouble sooner. Know where to look. Beside it is a command map of the Tampa area with wind readings and green dots for home sensors." fetchpriority="high" decoding="async"></picture></div></figure>
   </header>
 
-  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">In numbers</h2>
-    <div class="sec-body">
-      <ul class="stats"><li class="stat"><b><span class="visually-hidden">4</span><span aria-hidden="true" data-count="4">4</span></b><span>people on the team</span></li><li class="stat"><b><span class="visually-hidden">59%</span><span aria-hidden="true" data-count="59" data-post="%">59%</span></b><span>of the 649 commits are mine (385)</span></li><li class="stat"><b><span class="visually-hidden">288</span><span aria-hidden="true" data-count="288">288</span></b><span>tests passing, per the project log</span></li><li class="stat"><b><span class="visually-hidden">49</span><span aria-hidden="true" data-count="49">49</span></b><span>docs in the repo</span></li></ul>
-    </div>
+  <section class="proj-section" id="overview" aria-labelledby="overview-h">
+    <h2 id="overview-h">What it is</h2>
+    <p>Safe Home is a prototype for the hours after a storm, when a home can lose power, Wi-Fi and cell service together and stop reporting. A small sensor box in each home records water, flame, tilt, mains power and connectivity. Boxes pass each other&#8217;s messages over a short-range radio mesh, so a box with no internet can still get a reading to a box that has it.</p>
+    <p>A cloud API stores the readings, applies fixed rules and adds public hazard feeds. Operators see the result on a map with a review queue. A hosted language model reads a bounded set of records through tools and drafts a cited brief for a person to check. Households get a separate view of their own box.</p>
+    <p>The purpose is to let response teams prioritise survivors who are without power or Wi-Fi. The repository calls the project a prototype, not a certified alarm or an emergency dispatch service.</p>
   </section>
-  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="sec-body">
-      <p>In a storm, the homes that most need help are often the ones that go quiet. Power drops, Wi-Fi drops, cell service drops, and the home stops reporting at the same moment it matters. A single alert rarely tells the whole story, and a missing report is easy to mistake for a calm one.</p>
-      <p>The project asked two questions. How can a home keep reporting when its own connection is gone? And how can the people checking on homes see all of it in one place?</p>
-    </div>
+
+  <section class="proj-section" id="result" aria-labelledby="result-h">
+    <h2 id="result-h">HackUTD 2026</h2>
+    <p>HackUTD 2026 was my first hackathon. The event is described as North America&#8217;s largest 24-hour hackathon. The team won two awards, including 3rd place in the State Farm track.</p>
+    <p>The team was Ayan Basheer, Adyaan Akram, Saif Yusuff and Dhruv Patel. The repository&#8217;s team notes credit the work like this.</p>
+    <ul class="plain-list">
+      <li>Ayan Basheer: product direction, design, the customer experience, the operator command workspace, infrastructure integration and release checks.</li>
+      <li>Dhruv Patel: the core API, the firmware and hardware clients, and the alert thresholds.</li>
+      <li>Adyaan Akram: the organization and database foundation, and the Nemotron integration.</li>
+      <li>Saif Yusuff: the customer portal styling.</li>
+    </ul>
+    <p>The first commit is dated November 7 at 1:53 pm Central. The repository holds 302 commits, the last on November 11. Until November 8 the product was called HomeBeacon, and the firmware and code identifiers still use that name.</p>
   </section>
-  <section class="proj-section story wide" id="mesh" aria-labelledby="mesh-h">
-    <h2 id="mesh-h">How the mesh survives an outage</h2>
-    <div class="sec-body">
-      <div class="mesh-grid">
-      <ol class="mesh-steps">
-        <li class="rv"><b>Every home has a box.</b> It senses power, connection and water.</li>
-        <li class="rv"><b>Boxes talk to each other.</b> Messages are encrypted with AES-128 and hop from box to box over an ESP-NOW mesh.</li>
-        <li class="rv"><b>One box with Internet uploads.</b> So a home with no Wi-Fi or cell can still get its report out.</li>
-        <li class="rv"><b>The map lights up.</b> First responders see the report next to nearby weather alerts.</li>
-      </ol>
-      <div class="mesh-stage">
-        <div class="mesh-box">
-          <canvas class="mesh-canvas" aria-hidden="true"></canvas>
-          <p class="mesh-hud" aria-hidden="true"><span>Reports delivered <b data-delivered>0</b></span><span>Houses offline <b data-offline>0</b></span></p>
-        </div>
-        <div class="mesh-ctl">
-          <button type="button" class="btn-cut" data-cut>Knock a house offline</button>
-          <button type="button" class="btn-reset" data-reset>Bring them back</button>
-          <p class="mesh-tip">You can also click a house in the picture.</p>
-          <p class="visually-hidden" role="status" aria-live="polite" data-status></p>
-        </div>
+
+  <section class="proj-section" id="flow" aria-labelledby="flow-h">
+    <h2 id="flow-h">How a reading travels</h2>
+    <div class="split">
+      <div class="split-text">
+        <ol class="plain-list trace" id="trace">
+          <li data-hit="sens e1 boxa">The Uno Q reads the water, flame and tilt sensors once a second and writes one JSON line to box A.</li>
+          <li data-hit="boxa">Box A applies a threshold with hysteresis to the water value: wet at a raw reading of 150 or more, dry again only below 80. It sends a snapshot every 30 seconds and an event whenever something changes.</li>
+          <li data-hit="boxb e2 boxa">Box B sends its own boot message and heartbeats over encrypted radio. Box A, acting as gateway, acknowledges them.</li>
+          <li data-hit="boxa e3 up">The gateway uploads each message with the device key of the box it came from. In the final demo a laptop on USB did the upload.</li>
+          <li data-hit="up e4 api e6 db">The API drops duplicates by event id and writes the reading to a time-series collection. A water event opens a critical flood incident that stays open until an operator resolves it.</li>
+          <li data-hit="api db feeds e5">The risk engine computes a status and a priority for each box and each map cell, and adds cached feed context.</li>
+          <li data-hit="api e7 ai e8 e8m map">The operator map and review queue refresh about every 4 seconds. An operator can open the box, run a model investigation, or queue a message that the box collects the next time it polls.</li>
+          <li data-hit="api e8 e8h e8c home mcp">The household sees its own box in the customer portal, or asks an assistant connected over MCP.</li>
+        </ol>
       </div>
+      <div class="split-fig arch-fig">
+        <figure class="figure">
+          <svg class="arch arch-wide" viewBox="0 0 760 668" role="img" aria-label="Architecture. At the home, an Arduino Uno Q sends sensor readings to box A, which talks to box B over encrypted radio. Box A, or a laptop on USB, uploads to Cloudflare Pages Functions. The functions use MongoDB Atlas, public hazard feeds and a Nemotron model, and serve the operator map, the household portal and an assistant over MCP." xmlns="http://www.w3.org/2000/svg"><defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="ah"/></marker><marker id="mks" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M10,1 L1,5 L10,9 z" class="ah"/></marker></defs><path class="e" data-id="e1" d="M210,56 H278" marker-end="url(#mk)"/><text class="el" x="244" y="44" text-anchor="middle">serial</text><path class="e" data-id="e2" d="M548,56 H482" marker-end="url(#mk)" marker-start="url(#mks)"/><text class="el" x="515" y="44" text-anchor="middle">radio</text><path class="e" data-id="e3" d="M365,102 V168" marker-end="url(#mk)"/><path class="e d" data-id="e3" d="M395,168 V102" marker-end="url(#mk)"/><path class="e" data-id="e4" d="M365,262 V338" marker-end="url(#mk)"/><path class="e d" data-id="e4" d="M395,338 V262" marker-end="url(#mk)"/><path class="e" data-id="e5" d="M655,262 V300 H445 V338" marker-end="url(#mk)"/><path class="e" data-id="e6" d="M250,394 H192" marker-end="url(#mk)" marker-start="url(#mks)"/><path class="e" data-id="e7" d="M510,394 H568" marker-end="url(#mk)" marker-start="url(#mks)"/><path class="e bus" data-id="e8" d="M380,452 V505" marker-end="url(#mk)"/><path class="e bus" data-id="e8" d="M120,505 H640"/><path class="e" data-id="e8m" d="M120,505 V558" marker-end="url(#mk)"/><path class="e" data-id="e8h" d="M380,505 V558" marker-end="url(#mk)"/><path class="e" data-id="e8c" d="M640,505 V558" marker-end="url(#mk)"/><g class="n" data-id="sens"><rect x="10" y="10" width="200" height="92" rx="4"/><text class="nt" x="24" y="38">Arduino Uno Q</text><text class="ns" x="24" y="61">water, flame, tilt,</text><text class="ns" x="24" y="81">mains sense</text></g><g class="n" data-id="boxa"><rect x="280" y="10" width="200" height="92" rx="4"/><text class="nt" x="294" y="38">Box A</text><text class="ns" x="294" y="61">XIAO ESP32-S3</text><text class="ns" x="294" y="81">mesh node, gateway</text></g><g class="n" data-id="boxb"><rect x="550" y="10" width="200" height="92" rx="4"/><text class="nt" x="564" y="38">Box B</text><text class="ns" x="564" y="61">XIAO ESP32-C3</text><text class="ns" x="564" y="81">relay, heartbeat</text></g><g class="n" data-id="up"><rect x="280" y="170" width="200" height="92" rx="4"/><text class="nt" x="294" y="198">Uplink</text><text class="ns" x="294" y="221">Wi-Fi and HTTPS,</text><text class="ns" x="294" y="241">or a laptop on USB</text></g><g class="n" data-id="feeds"><rect x="550" y="170" width="200" height="92" rx="4"/><text class="nt" x="564" y="198">Public feeds</text><text class="ns" x="564" y="221">NWS, FEMA, USGS,</text><text class="ns" x="564" y="241">NASA, Open-Meteo</text></g><g class="n" data-id="db"><rect x="10" y="340" width="180" height="108" rx="4"/><text class="nt" x="24" y="368">MongoDB Atlas</text><text class="ns" x="24" y="391">readings,</text><text class="ns" x="24" y="411">incidents,</text><text class="ns" x="24" y="431">audit trail</text></g><g class="n" data-id="api"><rect x="250" y="340" width="260" height="112" rx="4"/><text class="nt" x="264" y="368">Cloudflare</text><text class="nt" x="264" y="390">Pages Functions</text><text class="ns" x="264" y="413">ingest, risk rules, queue</text></g><g class="n" data-id="ai"><rect x="570" y="340" width="180" height="108" rx="4"/><text class="nt" x="584" y="368">Nemotron Nano</text><text class="ns" x="584" y="391">9B v2 on a rented</text><text class="ns" x="584" y="411">GPU, tool calls only</text></g><g class="n" data-id="map"><rect x="10" y="560" width="220" height="92" rx="4"/><text class="nt" x="24" y="588">Operator map</text><text class="ns" x="24" y="611">status, review queue,</text><text class="ns" x="24" y="631">box pages</text></g><g class="n" data-id="home"><rect x="270" y="560" width="220" height="92" rx="4"/><text class="nt" x="284" y="588">Household portal</text><text class="ns" x="284" y="611">one box, plain</text><text class="ns" x="284" y="631">wording</text></g><g class="n" data-id="mcp"><rect x="530" y="560" width="220" height="92" rx="4"/><text class="nt" x="544" y="588">Assistant over MCP</text><text class="ns" x="544" y="611">five read-only</text><text class="ns" x="544" y="631">tools</text></g><circle class="pk" r="6" cx="0" cy="0" visibility="hidden"><set attributeName="visibility" to="visible" begin="0s"/><animateMotion dur="7s" begin="0s" repeatCount="indefinite" calcMode="linear" path="M210,56 H365 V338 V452 V505 H120 V558"/></circle><circle class="pk" r="6" cx="0" cy="0" visibility="hidden"><set attributeName="visibility" to="visible" begin="3.5s"/><animateMotion dur="7s" begin="3.5s" repeatCount="indefinite" calcMode="linear" path="M548,56 H365 V338 V452 V505 H380 V558"/></circle><circle class="pk d" r="6" cx="0" cy="0" visibility="hidden"><set attributeName="visibility" to="visible" begin="1.2s"/><animateMotion dur="3.2s" begin="1.2s" repeatCount="indefinite" calcMode="linear" path="M395,338 V102"/></circle></svg>
+          <svg class="arch arch-tall" viewBox="0 0 360 1000" role="img" aria-label="Architecture, top to bottom. An Arduino Uno Q sends sensor readings to box A, which talks to box B over encrypted radio. Box A, or a laptop on USB, uploads to Cloudflare Pages Functions. The functions use MongoDB Atlas, public hazard feeds and a Nemotron model, and serve the operator map, the household portal and an assistant over MCP." xmlns="http://www.w3.org/2000/svg"><defs><marker id="mt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="ah"/></marker><marker id="mts" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M10,1 L1,5 L10,9 z" class="ah"/></marker></defs><path class="e" data-id="e1" d="M85,96 V132" marker-end="url(#mt)"/><text class="el" x="95" y="120" text-anchor="start">serial</text><path class="e" data-id="e2" d="M158,184 H202" marker-end="url(#mt)" marker-start="url(#mts)"/><text class="el" x="180" y="172" text-anchor="middle">radio</text><path class="e" data-id="e3" d="M55,236 V300" marker-end="url(#mt)"/><path class="e d" data-id="e3" d="M95,300 V236" marker-end="url(#mt)"/><path class="e" data-id="e4" d="M55,400 V446" marker-end="url(#mt)"/><path class="e d" data-id="e4" d="M95,446 V400" marker-end="url(#mt)"/><path class="e" data-id="e5" d="M275,400 V446" marker-end="url(#mt)"/><path class="e" data-id="e6" d="M85,556 V596" marker-end="url(#mt)" marker-start="url(#mts)"/><path class="e" data-id="e7" d="M275,556 V596" marker-end="url(#mt)" marker-start="url(#mts)"/><path class="e" data-id="e8" d="M180,556 V736" marker-end="url(#mt)"/><g class="n" data-id="sens"><rect x="15" y="10" width="330" height="86" rx="4"/><text class="nt" x="29" y="38">Arduino Uno Q</text><text class="ns" x="29" y="61">water, flame, tilt, mains sense</text></g><g class="n" data-id="boxa"><rect x="15" y="134" width="140" height="102" rx="4"/><text class="nt" x="29" y="162">Box A</text><text class="ns" x="29" y="185">XIAO ESP32-S3</text><text class="ns" x="29" y="205">mesh node,</text><text class="ns" x="29" y="225">gateway</text></g><g class="n" data-id="boxb"><rect x="205" y="134" width="140" height="102" rx="4"/><text class="nt" x="219" y="162">Box B</text><text class="ns" x="219" y="185">XIAO ESP32-C3</text><text class="ns" x="219" y="205">relay,</text><text class="ns" x="219" y="225">heartbeat</text></g><g class="n" data-id="up"><rect x="15" y="300" width="140" height="100" rx="4"/><text class="nt" x="29" y="328">Uplink</text><text class="ns" x="29" y="351">Wi-Fi and HTTPS,</text><text class="ns" x="29" y="371">or a laptop</text><text class="ns" x="29" y="391">on USB</text></g><g class="n" data-id="feeds"><rect x="205" y="300" width="140" height="100" rx="4"/><text class="nt" x="219" y="328">Public feeds</text><text class="ns" x="219" y="351">NWS, FEMA,</text><text class="ns" x="219" y="371">USGS, NASA,</text><text class="ns" x="219" y="391">Open-Meteo</text></g><g class="n" data-id="api"><rect x="15" y="446" width="330" height="110" rx="4"/><text class="nt" x="29" y="474">Cloudflare Pages Functions</text><text class="ns" x="29" y="497">ingest, risk rules, queue</text></g><g class="n" data-id="db"><rect x="15" y="596" width="140" height="108" rx="4"/><text class="nt" x="29" y="624">MongoDB Atlas</text><text class="ns" x="29" y="647">readings,</text><text class="ns" x="29" y="667">incidents,</text><text class="ns" x="29" y="687">audit trail</text></g><g class="n" data-id="ai"><rect x="205" y="596" width="140" height="108" rx="4"/><text class="nt" x="219" y="624">Nemotron Nano</text><text class="ns" x="219" y="647">9B v2 on a</text><text class="ns" x="219" y="667">rented GPU,</text><text class="ns" x="219" y="687">tool calls only</text></g><g class="n" data-id="map home mcp"><rect x="15" y="736" width="330" height="140" rx="4"/><text class="nt" x="29" y="764">Screens</text><text class="ns" x="29" y="787">Operator map and</text><text class="ns" x="29" y="807">review queue</text><text class="ns" x="29" y="827">Household portal</text><text class="ns" x="29" y="847">Assistant over MCP</text></g><circle class="pk" r="6" cx="0" cy="0" visibility="hidden"><set attributeName="visibility" to="visible" begin="0s"/><animateMotion dur="8s" begin="0s" repeatCount="indefinite" calcMode="linear" path="M85,53 V185 H55 V300 V446 V556 H180 V736"/></circle><circle class="pk d" r="6" cx="0" cy="0" visibility="hidden"><set attributeName="visibility" to="visible" begin="1.2s"/><animateMotion dur="3.4s" begin="1.2s" repeatCount="indefinite" calcMode="linear" path="M95,446 V236"/></circle></svg>
+        </figure>
       </div>
-      <p>The animation is a model of the idea, not a recording. Take a house offline and the reports find another route to the one with Internet. ESP-NOW is a protocol that lets ESP32 chips message each other directly, without a router.</p>
     </div>
   </section>
-  <section class="proj-section story" id="box" aria-labelledby="box-h">
-    <h2 id="box-h">What the box watches</h2>
-    <div class="sec-body">
-      <p>Each box checks three things. <strong>Power</strong>: whether home power is on, with a backup battery designed to keep the box recording during an outage. <strong>Wi-Fi</strong>: if the connection drops, the box keeps a local record and sends it when the connection returns. <strong>Conditions</strong>: connected sensors for water, heat, humidity and alarm signals, with changes flagged for someone to review.</p>
-      <figure class="fig"><div class="frame"><img src="img/box.webp" width="1200" height="683" alt="The Safe Home site section What the box monitors, showing Power, Wi-Fi and Conditions, then Help teams find the homes that need a check." loading="lazy" decoding="async"></div><figcaption>The box and what it reports, from the live site.</figcaption></figure>
-      <p>Readings become a timestamped record. Critical pings stay visible until someone reviews them, and a report that is missing stays marked unknown instead of being treated as fine. A person reviews each report and decides what happens next.</p>
+
+  <section class="proj-section" id="hardware" aria-labelledby="hardware-h" data-explode>
+    <h2 id="hardware-h">The box</h2>
+    <div class="split">
+      <div class="split-text">
+        <p>Two boxes were built. Box A is a Seeed XIAO ESP32-S3 that works as mesh node and gateway, with an Arduino Uno Q reading the sensors. Box B is a Seeed XIAO ESP32-C3 with no sensors. It relays messages and sends a heartbeat.</p>
+        <h3>Sensors on box A</h3>
+        <ul class="plain-list">
+          <li>A water level sensor on analog pin A0. The raw value was about 293 submerged and about 0 dry.</li>
+          <li>An infrared flame sensor on A1. It tripped in ambient light during bench work.</li>
+          <li>A tilt switch on D13 and an active buzzer on D11.</li>
+          <li>A mains-present input: the power module&#8217;s 3.3 V pin read on D3, so the box can report that home power is off.</li>
+        </ul>
+        <p>The Uno Q&#8217;s microcontroller samples these once a second and sends one JSON line over a serial link to the XIAO.</p>
+        <h3>Power and radio</h3>
+        <p>Power comes from a 6 x AA pack (9 V) through a breadboard power module, with diodes so USB and the batteries can feed the box together. Battery runtime was not measured. 24 hours is a design target. The only radio is the ESP32&#8217;s built-in 2.4 GHz radio, used for ESP-NOW between boxes and for Wi-Fi uplink. There is no LoRa and no cellular.</p>
+        <h3>Planned, not fitted</h3>
+        <p>A DS1307 clock did not answer on the Uno Q&#8217;s I2C bus, so time came from NTP, or from a gateway beacon when there was no internet. The firmware has build switches for a temperature and humidity sensor, an accelerometer, a motion sensor, a sound sensor, a display, a camera and a microSD journal. None were fitted for the demo. The temperature sensor never arrived.</p>
+        <p>The model is drawn from the parts list. It is not a scan of the printed enclosure.</p>
+      </div>
+      <div class="split-fig">
+        <div class="model-stage" data-model="sensor-box" data-labels aria-label="Safe Home box A, a 3D model drawn from its parts list. As the page scrolls the lid lifts and the boards, the battery pack and the sensors separate."></div>
+      </div>
     </div>
   </section>
-  <section class="proj-section story" id="map" aria-labelledby="map-h">
-    <h2 id="map-h">The command map</h2>
-    <div class="sec-body">
-      <p>First responders and operators work from one street map. Home reports sit next to weather alerts and disaster zones, so the question changes from "which alert fired" to "which homes near this storm have gone quiet". The site has three views: the command map, your home, and event history. Operators can also send a device message and record the follow-up.</p>
-      <p>You can try it without any real data. The demo runs a simulation in five steps: place, event, devices, normal readings and review. It plays back 60 minutes of fictional device reports around a fictional storm, and nothing in it touches a real device.</p>
-      <figure class="fig"><div class="frame"><img src="img/demo.webp" width="1440" height="900" alt="The Safe Home demo simulation page, captured today. A sidebar lists Map, Review, Overview, Devices, Fleet, News, Activity and Simulations. The main panel shows step 1, Place, with Dallas, Texas, a world radius of 20 km and an affected radius of 8 km, and a playback control." loading="lazy" decoding="async"></div><figcaption>The demo simulation page at safehomemesh.us/demo, captured today. Generated data only.</figcaption></figure>
+
+  <section class="proj-section" id="mesh" aria-labelledby="mesh-h">
+    <h2 id="mesh-h">The mesh and offline transport</h2>
+    <div class="split">
+      <div class="split-text">
+        <p>In the model, click a house to take its box offline. The packets find another route to the house with the dish, which has internet.</p>
+        <p>Boxes talk with ESP-NOW, Espressif&#8217;s peer-to-peer protocol. It needs no router and carries frames of up to 250 bytes. Each link is a unicast AES-128 encrypted peer taken from a provisioned list of MAC addresses. The radio drops frames from unknown senders and from senders with the wrong key.</p>
+        <p>A message is one packed struct: type, time to live, hop count, origin, destination, boot counter, sequence number, timestamp, flag bits, raw sensor values and a 24-character event name. The types are reading, event, acknowledgement and beacon.</p>
+        <h3>Routing</h3>
+        <p>Routing is controlled flooding. A box that is not online resends each new message to every peer except the one it came from, and lowers the time to live, which starts at 5 hops. A table of the last 128 messages stops a box from forwarding the same one twice within 1.5 seconds. A message&#8217;s identity is an FNV-1a hash of its type, origin, boot counter and sequence number.</p>
+        <h3>Gateways</h3>
+        <p>Any box with working internet announces itself with a beacon every 5 seconds, and the beacon carries the time. The gateway queues relayed messages for upload and floods an acknowledgement back to the origin. After 20 seconds without a beacon the other boxes forget the gateway, so another box can take over.</p>
+        <h3>Store and forward</h3>
+        <p>The origin keeps up to 48 unacknowledged messages and resends them every 4 seconds until an acknowledgement arrives. The gateway remembers the last 256 delivered messages and re-acknowledges duplicates. The boot counter is saved to flash, so sequence numbers after a reboot do not collide.</p>
+        <h3>What was measured</h3>
+        <p>The model shows nine houses. The hardware tests used two boards, an ESP32-S3 and an ESP32-C3, running a mesh test sketch on November 8.</p>
+        <ul class="plain-list">
+          <li>Both directions passed with no radio failures once antennas were attached. Without antennas the first test delivered 0 to 10% of frames.</li>
+          <li>During a 42-second gateway outage the sender held 14 messages. All were delivered within 7 seconds of the gateway coming back.</li>
+          <li>In a wrong-key test the boards heard 60 frames and accepted none.</li>
+        </ul>
+        <p>Multi-hop across three boards and gateway handover with real data are written as tests with no recorded result.</p>
+        <h3>Limits</h3>
+        <p>All boxes must share one Wi-Fi channel: the hotspot&#8217;s, or channel 1. One hop reaches about 100 to 200 m in open air. ESP-NOW&#8217;s default limit is about 7 encrypted peers, so the firmware allows 8 nodes. Every box holds every box&#8217;s device key, a trade-off made for the demo. The repository says a real deployment would use LoRa or Thread.</p>
+      </div>
+      <div class="split-fig">
+        <div class="model-stage wide" data-model="mesh" data-labels aria-label="Nine houses on a street, each with a sensor box and antenna. Packets hop from house to house toward the one with internet. Clicking a house takes it offline and the packets take another route."></div>
+        <div class="model-ctl" hidden>
+          <button type="button" class="btn-main" data-cut>Take a house offline</button>
+          <button type="button" class="btn-quiet" data-reset disabled>Bring them back</button>
+        </div>
+        <p class="model-state" role="status" aria-live="polite" data-state hidden>Offline <b data-off>0</b>. Reporting <b data-rep>8</b> of 8.</p>
+      </div>
     </div>
   </section>
-  <section class="proj-section story" id="system" aria-labelledby="system-h">
-    <h2 id="system-h">The whole system</h2>
-    <div class="sec-body">
-      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/figure.svg" width="1200" height="560" alt="A diagram. Home boxes pass encrypted messages to a box with Internet. It uploads to Cloudflare Pages Functions and MongoDB Atlas. A MapLibre street map shows home reports and nearby NWS alerts. An NVIDIA Nemotron assistant on Brev helps investigate." loading="lazy" decoding="async"></div></div><figcaption>A diagram drawn for this site. It shows only what the project does.</figcaption></figure>
-      <p>The boxes run ESP32 firmware. The web app and the API run on Cloudflare Pages Functions, reports are stored in MongoDB Atlas, and the map is MapLibre. An AI assistant running NVIDIA Nemotron helps operators investigate. Its checks passed on synthetic data.</p>
-      <p>Operators sign in, run simulations and can try a fictional hurricane at <a href="https://safehomemesh.us/demo" rel="noopener">safehomemesh.us/demo</a>.</p>
+
+  <section class="proj-section" id="firmware" aria-labelledby="firmware-h">
+    <h2 id="firmware-h">Firmware and edge software</h2>
+    <p>The ESP32 firmware is Arduino C++ with ArduinoJson 7. Shared headers are edited once and copied into each sketch by a sync script. The Uno Q sketch is built with arduino-cli.</p>
+    <div class="table-wrap" tabindex="0" role="group" aria-label="Firmware pieces">
+      <table class="facts">
+        <thead><tr><th scope="col">Piece</th><th scope="col">Lines</th><th scope="col">What it does</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Shared headers</th><td>962</td><td>Mesh, protocol, uplink, local history, history sync, power policy, root certificates</td></tr>
+          <tr><th scope="row">Box A sketch</th><td>378</td><td>Mesh node and gateway. Reads sensor lines from the Uno Q</td></tr>
+          <tr><th scope="row">Box B sketch</th><td>221</td><td>Relay-only node with a heartbeat</td></tr>
+          <tr><th scope="row">Mesh test sketch</th><td>135</td><td>Runs on two bare boards with no API keys</td></tr>
+          <tr><th scope="row">Uno Q sensor reader</th><td>74</td><td>Samples the sensors and writes the JSON line</td></tr>
+          <tr><th scope="row">Offline hub</th><td>142</td><td>Python and SQLite, with a password-protected page on the local network</td></tr>
+          <tr><th scope="row">Uno Q agent</th><td>about 6,400</td><td>20 Python 3.11 modules using only the standard library: service, updater with checksum and rollback, power modes, self-check, support bundle</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The uplink code uses Wi-Fi and HTTPS with pinned root certificates. Uploads queue on a microSD card when one is fitted, and otherwise in a 40-message RAM queue. A USB gateway mode lets a computer do the upload while the box still acts as mesh gateway.</p>
+    <p>Box A keeps a bounded history in flash and syncs it when its own Wi-Fi returns. A power policy header defines normal, saver and critical reporting rates. It has tests and is not wired into either sketch. Serial commands such as <code>selftest</code>, <code>mesh</code>, <code>ping</code> and <code>queue</code> print PASS or FAIL on the bench.</p>
+    <p>The Uno Q agent&#8217;s self-test passed on the board. Installing it as a system service was blocked by root access, so it did not run as a service.</p>
+  </section>
+
+  <section class="proj-section" id="backend" aria-labelledby="backend-h">
+    <h2 id="backend-h">The backend</h2>
+    <p>The server is JavaScript on Cloudflare Pages Functions, about 12,850 lines, with MongoDB Atlas as the database. A separate Cloudflare Worker runs every minute to refresh feed data and daily statistics. There is no framework and no Python backend.</p>
+    <h3>Ingest</h3>
+    <ol class="plain-list trace">
+      <li>Validate the body, check the box&#8217;s device key (stored hashed) and require a home assignment.</li>
+      <li>Reserve a receipt keyed by device and event id. A repeat of the same payload returns the stored answer. A changed payload with the same id returns 409.</li>
+      <li>Write to the telemetry time-series collection, which keeps 30 days. Evaluate hazards, update the device and complete the receipt.</li>
+    </ol>
+    <p>The box&#8217;s clock time and the server&#8217;s receipt time are stored separately, so a late upload is not shown as fresh.</p>
+    <h3>Incidents</h3>
+    <p>An incident stays open until an operator resolves it. Water detected opens a critical flood incident. External power lost opens a medium outage incident. A temperature of 55 C or more opens a high-temperature incident. A unique key allows one active incident per device and type.</p>
+    <h3>Risk rules</h3>
+    <p>The risk engine is a set of pure functions. Status runs from unknown through normal, watch and elevated to critical. Missing data is unknown, never normal. A box silent for more than 15 minutes is offline.</p>
+    <p>Rules can depend on duration. With mains power off a box is on watch at once, elevated after 1 hour and critical after 4 hours. A flame reading is critical at once. Readings outside the possible range are discarded and logged, not clamped. Areas are geohash cells, and a cell needs 3 or more boxes before it is reported.</p>
+    <p>Priority is scored separately: P1 is 80 points or more and P2 is 40 or more. Hazard context adds points: 15 inside an evacuation zone, 10 in a FEMA flood hazard area, 10 with a weather alert, and 10 for heavy rain together with a water signal.</p>
+    <h3>Other parts</h3>
+    <ul class="plain-list">
+      <li>Operators queue short messages for a box. The box polls and acknowledges. A message is queued, delivered, acknowledged, expired or cancelled.</li>
+      <li>Operator sessions, customer sessions, per-box device keys and customer OAuth tokens are kept separate.</li>
+      <li>Households pair a box by address, register boxes they built (up to 5 per account) and invite others by link.</li>
+      <li>A seeded, deterministic simulation engine generates 1 to 500 synthetic devices. The browser, the HTTP API, the command line and the MCP server share it.</li>
+      <li>Email through Resend is implemented. Sending to households is switched off.</li>
+    </ul>
+    <h3>Delivery and tests</h3>
+    <p>GitHub Actions runs the tests, a MongoDB check and the build on Node 22, then deploys pull-request previews and the main branch to Cloudflare Pages. The repository records 712 JavaScript tests passing with none failing on its latest full run, on November 10. It also has 10 browser scripts and 242 Python tests for the Uno Q agent and the model gateway. Accessibility audits use axe-core through Playwright.</p>
+  </section>
+
+  <section class="proj-section" id="dashboard" aria-labelledby="dashboard-h">
+    <h2 id="dashboard-h">The operator map and household portal</h2>
+    <p>The front end is vanilla JavaScript and CSS bundled with esbuild, with no React. The map is MapLibre GL on OpenFreeMap street tiles. It shows the lower 48 states with zoom to a state, a point for each box and overlays for each data source.</p>
+    <p>The operator workspace has the map, a page for each box (conditions, sensors, logs, messages and a workflow canvas), a review queue, and a table of alert thresholds generated from the same configuration the server uses. Operator pages refresh about every 4 seconds and customer pages about every 10.</p>
+    <p>Map views cover wind, sunlight, UV, temperature, flood, terrain, fire, air quality and fault lines. The workflow canvas draws an event&#8217;s recorded timeline as cards and connectors and never calls a model. The household portal shows one household&#8217;s box in plain wording, with a three.js view of the enclosure.</p>
+    <figure class="figure">
+      <div class="shot" data-reveal="unmask"><img src="img/demo.webp" width="1440" height="900" alt="The Safe Home demo simulation page. A sidebar lists Map, Review, Overview, Devices, Fleet, News, Activity and Simulations. The main panel shows step 1, Place, set to Dallas, Texas, with a world radius of 20 km, an affected radius of 8 km and a playback control." loading="lazy" decoding="async"></div>
+      <figcaption>The demo at safehomemesh.us/demo plays back 60 minutes of fictional device reports around a fictional storm. Nothing in it touches a real box.</figcaption>
+    </figure>
+  </section>
+
+  <section class="proj-section" id="feeds" aria-labelledby="feeds-h">
+    <h2 id="feeds-h">Public alert feeds</h2>
+    <p>The server fetches public hazard data, caches it per map tile in MongoDB with an expiry, and serves it as GeoJSON with the fetch time, its age and a stale flag. Feeds add points to priority and context to the map. They never change a box&#8217;s status. A feed that failed or was never fetched is reported as unverified and treated as unknown. Fire detections, air quality and grid demand need an API key held on the server.</p>
+    <div class="table-wrap" tabindex="0" role="group" aria-label="Public data feeds">
+      <table class="facts">
+        <thead><tr><th scope="col">Layer</th><th scope="col">Source</th><th scope="col">Refresh</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Weather alerts</th><td>National Weather Service active alerts</td><td>2 min</td></tr>
+          <tr><th scope="row">Flood hazard zones</th><td>FEMA National Flood Hazard Layer</td><td>24 h</td></tr>
+          <tr><th scope="row">Disaster declarations</th><td>OpenFEMA, with Census county outlines</td><td>24 h</td></tr>
+          <tr><th scope="row">River gauges</th><td>USGS stream stage</td><td>10 min</td></tr>
+          <tr><th scope="row">Earthquakes</th><td>USGS daily feed</td><td>5 min</td></tr>
+          <tr><th scope="row">Rain</th><td>Open-Meteo, 24-hour precipitation per cell</td><td>30 min</td></tr>
+          <tr><th scope="row">Open shelters</th><td>FEMA National Shelter System</td><td>10 min</td></tr>
+          <tr><th scope="row">Fire detections</th><td>NASA FIRMS, VIIRS NOAA-20</td><td>15 min</td></tr>
+          <tr><th scope="row">Air quality</th><td>AirNow</td><td>30 min</td></tr>
+          <tr><th scope="row">Grid demand</th><td>EIA hourly ERCOT demand</td><td>1 h</td></tr>
+          <tr><th scope="row">Wind, sun, UV, temperature</th><td>Open-Meteo, 60 fixed lower-48 points</td><td>30 min</td></tr>
+          <tr><th scope="row">Fault lines</th><td>USGS Quaternary fault database</td><td>24 h</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
-  <section class="proj-section story" id="did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <div class="sec-body">
-      <ul class="did-list">
-        <li>Owned product, design and integration on a 4-person team.</li>
-        <li>Built the web app and the street map command center that first responders use.</li>
-        <li>Wired the app to the API so the map shows live reports.</li>
-        <li>Wrote 385 of the team&#8217;s 649 commits, and 49 docs sit in the repo.</li>
-      </ul>
+
+  <section class="proj-section" id="ai" aria-labelledby="ai-h">
+    <h2 id="ai-h">The AI assistant</h2>
+    <p>The model is NVIDIA Nemotron Nano 9B v2. It was served by vLLM in Docker on one rented L40S GPU with 48 GB of memory, bound to localhost behind a small authenticated Python gateway and a Cloudflare tunnel. Calls are chat completions with tool definitions, at temperature 0, with at most 1,200 output tokens, not streamed, and with thinking switched off. The model does not run on the boxes.</p>
+    <div class="table-wrap" tabindex="0" role="group" aria-label="What the model does and what the server enforces">
+      <table class="facts">
+        <thead><tr><th scope="col">Use</th><th scope="col">What the model does</th><th scope="col">What the server enforces</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Box investigation</th><td>Four tool steps: read the sensor timeline, correlate signals, check health and connectivity, save a checkpoint. Writes a responder brief that separates recorded facts, interpretation and unknowns.</td><td>The server builds the evidence: the target box and up to 7 others in the same home. Citations must point to records that were supplied. Unsupported actions get one correction, then fail. Runs are kept 30 days.</td></tr>
+          <tr><th scope="row">Fleet review</th><td>Three tools: read a shortlist, check for gaps, save a checkpoint. Explains a review queue it cannot reorder.</td><td>Queue order comes from fixed rules. The scan is capped at 240 devices and 12 groups, 4 model rounds and 55 seconds. Four runs per operator per minute.</td></tr>
+          <tr><th scope="row">Map view</th><td>Turns a plain-language request into 1 to 3 of six fixed filters, such as power lost or water.</td><td>The server checks the filter names and runs the filters itself.</td></tr>
+          <tr><th scope="row">Household assistants</th><td>A remote MCP server with five read-only tools: build guide, list devices, device reports, run a simulation, simulation settings.</td><td>OAuth with customer-scoped tokens. No addresses, names or keys are returned.</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p>A harness builds each prompt from the code&#8217;s own thresholds, a runbook and five short knowledge files, trimmed to a token budget. Outside text such as alert wording and device names is wrapped and stripped of control characters. Golden test cases with a deterministic grader reject claims about occupancy, safe entry, damage, coverage and dispatch.</p>
+    <p>The model cannot run database queries, change a status, send a message or command hardware. If the provider fails, the app reports the failure. It does not fall back to the scripted simulator, which is labelled as not AI.</p>
+    <p>Recorded runs: all four investigation tools completed on synthetic records, and one production run on the bench Uno Q finished with four tool steps and three citations. The GPU had a shutdown timer set for the evening of November 8, so the hosted model is not expected to be running now.</p>
   </section>
-  <section class="proj-section story" id="timeline" aria-labelledby="timeline-h">
-    <h2 id="timeline-h">Two days at HackUTD</h2>
-    <div class="sec-body">
-      <ol class="tl">
-        <li class="rv"><time>Nov 7, afternoon</time><p>The hackathon starts. The team opens its repo at 1:53 pm.</p></li>
-        <li class="rv"><time>Nov 7, evening</time><p>The box firmware and the home box system get merged in.</p></li>
-        <li class="rv"><time>Nov 8, 1 am</time><p>First test on real hardware. Mesh fixes go in right after.</p></li>
-        <li class="rv tl-win"><time>The result</time><p>Safe Home wins HackUTD 2026: Zero Day.</p></li>
-      </ol>
-    </div>
+
+  <section class="proj-section" id="real" aria-labelledby="real-h">
+    <h2 id="real-h">What was real at the demo</h2>
+    <h3>Real</h3>
+    <ul class="plain-list">
+      <li>Water, flame and tilt sensors on the Uno Q, read once a second.</li>
+      <li>Dipping the water sensor produced a water event, and the live command center showed box A as critical with an open flood incident.</li>
+      <li>Box B&#8217;s boot message and heartbeats crossed encrypted ESP-NOW to box A and appeared in the cloud as a separate device.</li>
+      <li>Earlier on November 8, box A joined a phone hotspot, became the gateway and uploaded with no laptop in the path.</li>
+      <li>30 consecutive physical samples were accepted over 5 minutes 29 seconds.</li>
+      <li>Store and forward and wrong-key rejection were measured on two bare boards.</li>
+      <li>Real Nemotron inference through the deployed app, including one run on the bench device, and live public feeds.</li>
+    </ul>
+    <h3>Simulated or stood in</h3>
+    <ul class="plain-list">
+      <li>For the final demo box A&#8217;s Wi-Fi join kept failing, so a laptop on USB did the upload.</li>
+      <li>Everything beyond the two boxes: 95 fictional homes in four scenarios on the demo page, and up to 500 synthetic devices in the simulation page. Neither writes to the live database.</li>
+      <li>The Wi-Fi status card for the Uno Q hub is a server-side display setting. The actual Wi-Fi observation was false.</li>
+      <li>The battery runtime in the customer portal, about 6 hours, is an estimate from assumed inputs.</li>
+      <li>Box B carried no sensors. The camera, microSD journal, sound, motion and accelerometer inputs and the display were not in the demo build.</li>
+      <li>Insurer response, dispatch and notification flows take no outside action.</li>
+    </ul>
   </section>
-  <section class="proj-section story" id="limits" aria-labelledby="limits-h">
-    <h2 id="limits-h">What it is not, yet</h2>
-    <div class="sec-body">
-      <ul class="limits">
-        <li class="rv">A prototype. It is not a certified alarm or dispatch service.</li>
-        <li class="rv">How long the boxes last, and replaying data after an outage, still need testing on real hardware.</li>
-        <li class="rv">The hurricane demo is fictional, and the assistant&#8217;s checks used synthetic data.</li>
-        <li class="rv">The code is in a private repo, so there is no link.</li>
-      </ul>
-    </div>
-  </section>
-  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="sec-body">
-      <p>Say what you do not know. A missing report is not a calm report, so the product marks it unknown instead of guessing. That one rule shaped the map.</p>
-      <p>Test on real hardware early. The first run on real boxes happened at 1 am on day two, and the mesh fixes came right after. A simulation had not shown them.</p>
-      <p>Integration is most of the work. Boxes, firmware, API, map and assistant all had to work together, and the 288 passing tests helped keep them that way.</p>
-    </div>
+
+  <section class="proj-section last" id="limits" aria-labelledby="limits-h">
+    <h2 id="limits-h">Limits</h2>
+    <ul class="plain-list">
+      <li>It is a prototype, not a certified alarm or a dispatch service.</li>
+      <li>Battery runtime has not been measured. Power-loss tests, replay after internet removal and multi-hop tests on the real firmware are still to do.</li>
+      <li>ESP-NOW has short range and works on one channel. A gateway still needs its own internet.</li>
+      <li>The flame and sound inputs are proxies, not certified detectors.</li>
+      <li>The cloud rule for water, a raw reading of 1500 for 2 minutes, would not fire on the bench sensor, which read about 293. The demo flood incident came from the water event flag.</li>
+      <li>Receipt and time-series writes are not atomic. An interrupted ingest needs manual reconciliation.</li>
+      <li>On the free Cloudflare plan, Functions have a 10 ms CPU limit, and ingest returned 503 for exceeding it at least once.</li>
+      <li>The system never states occupancy, safe entry, damage, insurance coverage or dispatch.</li>
+      <li>The source repository is private and unlicensed.</li>
+    </ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
@@ -171,8 +327,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -181,5 +338,6 @@
 </footer>
 
 <script type="module" src="/projects/safe-home/main.js"></script>
+<script type="module" src="/shared/models/auto.js"></script>
 </body>
 </html>

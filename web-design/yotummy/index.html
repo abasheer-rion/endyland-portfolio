@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YoTummy | Ayan Basheer</title>
-<meta name="description" content="A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>YoTummy - Ayan Basheer</title>
+<meta name="description" content="A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app. Ayan Basheer is the only developer.">
 <link rel="canonical" href="https://endyland.com/web-design/yotummy/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/web-design/yotummy/">
-<meta property="og:title" content="YoTummy | Ayan Basheer">
-<meta property="og:description" content="A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="YoTummy - Ayan Basheer">
+<meta property="og:description" content="A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app. Ayan Basheer is the only developer.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YoTummy - Ayan Basheer">
+<meta name="twitter:description" content="A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app. Ayan Basheer is the only developer.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#FCFAF8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/web-design/case.css">
 <link rel="stylesheet" href="/web-design/yotummy/style.css">
 <link rel="modulepreload" href="/web-design/yotummy/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/web-design/yotummy/#webpage","url":"https://endyland.com/web-design/yotummy/","name":"YoTummy - Ayan Basheer","description":"A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app. Ayan Basheer is the only developer.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/web-design/yotummy/#main"}},{"@type":"CreativeWork","@id":"https://endyland.com/web-design/yotummy/#main","name":"YoTummy","description":"A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app. Ayan Basheer is the only developer.","url":"https://endyland.com/web-design/yotummy/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/web-design/yotummy/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Web design","item":"https://endyland.com/web-design/"},{"@type":"ListItem","position":3,"name":"YoTummy","item":"https://endyland.com/web-design/yotummy/"}]}]}</script>
 </head>
 <body class="proj-page proj-yotummy">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -48,101 +65,50 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>YoTummy</span></li></ol></nav>
 
   <header class="cs-hero">
-    <div class="proj-intro">
-    <img class="proj-logo" src="img/logo.webp" width="420" height="70" alt="YoTummy logo" decoding="async">
-    <p class="proj-kicker">Client site and app</p>
+    <div data-reveal-group>
     <h1>YoTummy</h1>
-    <p class="proj-summary">A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Only developer</dd></div><div><dt>Dates</dt><dd>Prototype Apr to Jun 2026. Main app Jun 2026 to now.</dd></div><div><dt>Client</dt><dd>YoTummy</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Angular 12 and 18</li><li>Ionic and Capacitor</li><li>PHP 7.4</li><li>MySQL</li><li>Stripe</li><li>Vercel</li><li>Hostinger</li><li>Next.js 16</li><li>Mapbox</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://yotummy.com" rel="noopener">yotummy.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">A marketplace for homemade food from local cooks, with a website, a seller portal, an admin panel and a phone app.</p>
+    <p class="proj-facts">Only developer, June 2026 to now. Angular, Ionic, PHP, MySQL and Stripe.</p>
+    <ul class="proj-links"><li><a href="https://yotummy.com" rel="noopener">yotummy.com</a></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The YoTummy home page today: a food photo hero with the headline Homemade, Delicious, a search box, a map button and 17 category chips." fetchpriority="high" decoding="async"><figcaption>The live site, captured 11 November 2026.</figcaption></figure>
+    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The YoTummy home page: a food photo hero with the headline Homemade, Delicious, a search box, a map button and food category chips." fetchpriority="high" decoding="async"></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h" class="visually-hidden">The numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">206</span><span aria-hidden="true" data-count="206">206</span></b><span>commits in the main app, all mine</span></li><li class="stat"><b>3.1.1</b><span>app version shipped to both stores</span></li><li class="stat"><b><span class="visually-hidden">164</span><span aria-hidden="true" data-count="164">164</span></b><span>commits on the redesign prototype</span></li><li class="stat"><b><span class="visually-hidden">4</span><span aria-hidden="true" data-count="4">4</span></b><span>apps: site, seller portal, admin, phone</span></li><li class="stat"><b><span class="visually-hidden">17</span><span aria-hidden="true" data-count="17">17</span></b><span>food categories on the home page today</span></li></ul>
-  </section>
-
-  <section class="proj-section case-sec " id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="case-body">
-<p class="lead">A marketplace that already had sellers and shoppers, running on code nobody on the team had written.</p>
-<p>YoTummy lets people buy homemade food from cooks and farmstands near them. When I joined I inherited the whole thing: a website, a seller portal, an admin panel and a phone app, all with real users. Payments sometimes failed to record, who could change what was not locked down, and there was no automatic deploy.</p>
-<p>The founder also wanted the site to feel less like a directory and more like a place to browse. Both jobs landed on one developer, so the order of work mattered.</p>
+  <section class="proj-section cs-sec" id="what" aria-labelledby="what-h">
+    <h2 id="what-h" data-reveal="rise">What it is</h2>
+    <div class="cs-body" data-reveal-group>
+<p>YoTummy lets people buy homemade food from cooks and farmstands near them. Shoppers use the website or the phone app. Cooks list food in the seller portal. The owners run the marketplace from the admin panel.</p>
+<p>The marketplace already had sellers and shoppers when I took over its code. The web apps are Angular 12 on a PHP 7.4 and MySQL backend, with Stripe for payments. The phone app is Angular 18 with Ionic and Capacitor, so one codebase goes to both app stores. The front ends are hosted on Vercel and the backend on Hostinger.</p>
     </div>
   </section>
-  <section class="proj-section case-sec " id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">Approach</h2>
-    <div class="case-body">
-<p>I fixed what could lose money or data first, then built what shoppers see, then pitched the bigger redesign with something they could click.</p>
-<ol>
-<li><b>Make it safe.</b> Fix Stripe and App Store payments so a payment still records when a setup key is missing. Close the holes around who can change what.</li>
-<li><b>Make it ship.</b> Set up automatic deploys, so a fix reaches users without a manual upload.</li>
-<li><b>Make it easier to find food.</b> A map of nearby sellers that groups pins into bubbles and works on phones. New home page sections and polished in-app messaging.</li>
-<li><b>Show the next step.</b> A separate Next.js prototype with a Mapbox photo-pin map and a category showcase, built to pitch a redesign to the founder.</li>
-</ol>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="case-body">
-<figure><div class="fan" role="group" aria-label="Four apps sit on one marketplace"><ul><li><b>Website</b><span>Browse homemade food near you</span></li><li><b>Seller portal</b><span>For the cooks who sell</span></li><li><b>Admin panel</b><span>For running the marketplace</span></li><li><b>Phone app</b><span>Shipped to both app stores</span></li></ul><div class="fan-core"><b>The marketplace behind them</b><span>PHP 7.4 and MySQL, with Stripe for payments. Hosted on Hostinger and Vercel.</span></div></div></figure><p>Shoppers use the website or the phone app. Cooks use the seller portal to list food. The admin panel is how the owners run the marketplace. The older apps are Angular 12 and 18, and the phone app is Ionic and Capacitor, which is how one codebase reaches both stores.</p>
-<p>The home page sorts food into 17 categories, from Baked Goods to Food Trucks, and the search box takes a ZIP code so results are local.</p>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="case-body">
-<p>The numbers below come from the repositories and the store listings.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col">What</th><th scope="col">Number</th><th scope="col">Where it comes from</th></tr></thead><tbody><tr><td>Main app commits</td><td>206, all mine</td><td>The app repository</td></tr><tr><td>Latest store release</td><td>3.1.1</td><td>App Store and Google Play</td></tr><tr><td>Prototype commits</td><td>164</td><td>The Next.js prototype repository</td></tr><tr><td>Apps maintained</td><td>4</td><td>Site, seller portal, admin panel, phone app</td></tr></tbody></table></div><p>What shoppers see today is in the screens below: a search box, 17 category chips, a trending grid of dishes with price and seller, and a section pointing to the phone app.</p>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="owned" aria-labelledby="owned-h">
-    <h2 id="owned-h">What I owned</h2>
-    <div class="case-body">
+  <section class="proj-section cs-sec" id="did" aria-labelledby="did-h">
+    <h2 id="did-h" data-reveal="rise">What I did</h2>
+    <div class="cs-body" data-reveal-group>
 <ul class="did-list">
-<li>Took over an inherited codebase and became its only developer.</li>
-<li>Added a map of nearby sellers that groups pins into bubbles, and made it work on phones.</li>
-<li>Rebuilt home page sections and polished in-app messaging.</li>
-<li>Shipped App Store and Google Play releases, up to version 3.1.1.</li>
-<li>Fixed Stripe and App Store payments, so a payment still records when a setup key is missing.</li>
-<li>Closed security holes around who can change what.</li>
-<li>Set up automatic deploys.</li>
-<li>Built a separate Next.js prototype to pitch a redesign to the founder.</li>
+<li>Fixed payment recording so real Stripe payments are still saved while the webhook secret is missing.</li>
+<li>Built the map of nearby sellers. Pins load first, and on phones a pinch zooms the map instead of the page.</li>
+<li>Rebuilt sections of the web home page and reworked in-app messaging: timestamps, a full-width seller chat and a badge that clears.</li>
+<li>Set up automatic deploys for the backend and the front ends, including a check that stops a failed database migration from running again.</li>
+<li>Prepared app version 3.1.1 for Android and iOS.</li>
+<li>Built a separate Next.js prototype with a Mapbox map of seller photos and a category showcase, to propose a redesign to the founder.</li>
 </ul>
     </div>
   </section>
-  <section class="proj-section case-sec " id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="case-body">
-<ul>
-<li>With inherited code, fix payments and permissions before anything shoppers can see. Those are the failures people notice last and pay for most.</li>
-<li>A map is mostly a performance problem. Grouping pins into bubbles is what keeps it usable on a phone.</li>
-<li>A working prototype in the framework you would really use is a stronger pitch than a mock-up.</li>
-</ul>
+  <section class="proj-section cs-sec" id="screens" aria-labelledby="screens-h">
+    <h2 id="screens-h" data-reveal="rise">Screens</h2>
+    <div class="cs-body" data-reveal-group>
+<div class="shots"><figure data-reveal="unmask"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The YoTummy Trending Near You grid: dishes with a price, a seller name and an order button." loading="lazy" decoding="async"></a></figure><figure class="phone" data-reveal="unmask"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The YoTummy site on a phone: header, headline and search box." loading="lazy" decoding="async"></a></figure></div>
     </div>
   </section>
-  <section class="proj-section case-sec " id="screens" aria-labelledby="screens-h">
-    <h2 id="screens-h">Screens</h2>
-    <div class="case-body">
-<div class="shots"><figure class="wide"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The YoTummy Trending Near You grid today: dishes with a price, a seller name and an order button." loading="lazy" decoding="async"></a><figcaption>Trending dishes near you, on yotummy.com today.</figcaption></figure><figure class="phone"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The YoTummy site on a phone today: header, headline and search box." loading="lazy" decoding="async"></a><figcaption>The same site on a 390 pixel wide phone.</figcaption></figure></div>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="case-body"><ul class="plain-list"><li><a href="/startup-work/rion/">The prototype was built through RION Solutions</a></li></ul></div>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/web-design/">Back to Web design</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

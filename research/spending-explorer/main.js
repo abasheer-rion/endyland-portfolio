@@ -1,20 +1,15 @@
 // Public spending data explorer page. Only this page loads this file.
 // Shared parts (reveal, count-up, back links) come from /shared/project.js.
 // The merge table: a button folds each vendor's spellings into one row with the total.
-// The search-time bars play once when they scroll in, both to scale.
 import { initProject } from '../../shared/project.js';
-import { onVisible } from '../../shared/motion.js';
 
 initProject();
-document.querySelectorAll('.steps').forEach((ol) => {
-  [...ol.children].forEach((li, i) => li.style.setProperty('--i', i));
-  onVisible([ol], () => ol.classList.add('in'), { threshold: 0.15 });
-});
 
 const btn = document.querySelector('.se-btn');
 const status = document.getElementById('se-status');
 const rows = [...document.querySelectorAll('.se-row')];
-rows.forEach((r) => {
+rows.forEach((r, i) => {
+  r.style.setProperty('--k', i);
   r.dataset.name = r.querySelector('.se-name').textContent;
   r.dataset.amt = r.querySelector('.se-amt').textContent;
 });
@@ -47,4 +42,3 @@ function setMerged(on) {
 }
 btn.addEventListener('click', () => setMerged(!merged));
 
-onVisible('.se-race', (el) => el.classList.add('is-in'), { threshold: 0.5 });

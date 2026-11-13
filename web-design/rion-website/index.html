@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RION Solutions website | Ayan Basheer</title>
-<meta name="description" content="A rebuild of the RION Solutions website in Next.js.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>RION Solutions website - Ayan Basheer</title>
+<meta name="description" content="A rebuild of the RION Solutions company website in Next.js. The live site still runs the Framer version.">
 <link rel="canonical" href="https://endyland.com/web-design/rion-website/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/web-design/rion-website/">
-<meta property="og:title" content="RION Solutions website | Ayan Basheer">
-<meta property="og:description" content="A rebuild of the RION Solutions website in Next.js.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="RION Solutions website - Ayan Basheer">
+<meta property="og:description" content="A rebuild of the RION Solutions company website in Next.js. The live site still runs the Framer version.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RION Solutions website - Ayan Basheer">
+<meta name="twitter:description" content="A rebuild of the RION Solutions company website in Next.js. The live site still runs the Framer version.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#000000">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -24,6 +39,7 @@
 <link rel="stylesheet" href="/web-design/case.css">
 <link rel="stylesheet" href="/web-design/rion-website/style.css">
 <link rel="modulepreload" href="/web-design/rion-website/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/web-design/rion-website/#webpage","url":"https://endyland.com/web-design/rion-website/","name":"RION Solutions website - Ayan Basheer","description":"A rebuild of the RION Solutions company website in Next.js. The live site still runs the Framer version.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/web-design/rion-website/#main"}},{"@type":"CreativeWork","@id":"https://endyland.com/web-design/rion-website/#main","name":"RION Solutions website","description":"A rebuild of the RION Solutions company website in Next.js. The live site still runs the Framer version.","url":"https://endyland.com/web-design/rion-website/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/web-design/rion-website/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Web design","item":"https://endyland.com/web-design/"},{"@type":"ListItem","position":3,"name":"RION Solutions website","item":"https://endyland.com/web-design/rion-website/"}]}]}</script>
 </head>
 <body class="proj-page proj-rion-website">
 <a class="skip" href="#main">Skip to content</a>
@@ -38,6 +54,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -46,94 +63,49 @@
 </header>
 
 <main id="main" class="proj">
-  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><a class="back-link" href="/startup-work/rion/">RION Solutions</a></li><li><span>RION Solutions website</span></li></ol></nav>
+  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>RION Solutions website</span></li></ol></nav>
 
   <header class="cs-hero">
-    <div class="proj-intro">
-    
-    <p class="proj-kicker">Company site rebuild</p>
+    <div data-reveal-group>
     <h1>RION Solutions website</h1>
-    <p class="proj-summary">A rebuild of the RION Solutions website in Next.js.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. 14 of the 18 commits.</dd></div><div><dt>Dates</dt><dd>Apr 2026</dd></div><div><dt>Company</dt><dd>RION Solutions</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Tailwind</li><li>Framer Motion</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">A rebuild of the RION Solutions company website in Next.js. The live site still runs the Framer version.</p>
+    <p class="proj-facts">Main developer, April 2026. Next.js, Tailwind and Framer Motion.</p>
+    <ul class="proj-links"><li><a href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The RION Solutions home page today: a dark starfield with a red glow behind the headline Intelligent Scalable Automation for Modern Businesses." fetchpriority="high" decoding="async"><figcaption>The live site, captured 11 November 2026. It still runs the Framer version.</figcaption></figure>
+    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The live RION Solutions home page: a dark starfield with a red glow behind the headline Intelligent Scalable Automation for Modern Businesses." fetchpriority="high" decoding="async"></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h" class="visually-hidden">The numbers</h2>
-    <ul class="stats"><li class="stat"><b>14 of 18</b><span>commits are mine</span></li><li class="stat"><b>3</b><span>tools in the rebuild: Next.js, Tailwind, Framer Motion</span></li></ul>
-  </section>
-
-  <section class="proj-section case-sec " id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="case-body">
-<p class="lead">A company site that needed to be code in a repository, not a page in a design tool.</p>
-<p>RION Solutions builds automation software. Its site was made in Framer. That is quick to start, but the team could not review changes like code, reuse components with the rest of the product work, or control how it was built and hosted.</p>
+  <section class="proj-section cs-sec" id="what" aria-labelledby="what-h">
+    <h2 id="what-h" data-reveal="rise">What it is</h2>
+    <div class="cs-body" data-reveal-group>
+<p>RION Solutions builds automation software. Its website was made in Framer. I rebuilt it in Next.js so it lives in a git repository, and changes go through pull requests like the rest of the company&#8217;s code.</p>
+<p>Styling moved from settings in the design tool to Tailwind classes. The motion the Framer site had is written with Framer Motion. The page keeps the look of the original: a dark starfield with a red glow, a headline about scalable automation, a Book a call button and the product sections, including the custom AI development offer.</p>
     </div>
   </section>
-  <section class="proj-section case-sec " id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">Approach</h2>
-    <div class="case-body">
-<p>Rebuild the same look and content in Next.js, so the site lives in git next to everything else the company ships.</p>
-<ul>
-<li><b>Next.js</b> for pages and routing.</li>
-<li><b>Tailwind</b> for styling, so the design tokens live in one place.</li>
-<li><b>Framer Motion</b> to keep the motion the Framer site had.</li>
-</ul>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="how" aria-labelledby="how-h">
-    <h2 id="how-h">Before and after</h2>
-    <div class="case-body">
-<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col"></th><th scope="col">Framer site</th><th scope="col">Next.js rebuild</th></tr></thead><tbody><tr><td>Where it lives</td><td>In a design tool</td><td>In a git repository</td></tr><tr><td>Styling</td><td>Set in the tool</td><td>Tailwind classes</td></tr><tr><td>Motion</td><td>Built in the tool</td><td>Framer Motion in code</td></tr><tr><td>Review</td><td>Visual only</td><td>Pull requests, like any code</td></tr></tbody></table></div><p>What visitors see today: a dark starfield hero with a red glow, a headline about scalable automation, a Book a call button, then product sections including a custom AI development offer.</p>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="case-body">
-<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col">What</th><th scope="col">Number</th></tr></thead><tbody><tr><td>Commits that are mine</td><td>14 of 18</td></tr><tr><td>Rebuild date</td><td>Apr 2026</td></tr><tr><td>Live today</td><td>The Framer version</td></tr><tr><td>Rebuild</td><td>Next.js, Tailwind, Framer Motion</td></tr></tbody></table></div><p>I do not claim a speed number here because I did not measure one. The live site still runs the Framer version, and the rebuild is the version that lives in the repository.</p>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="owned" aria-labelledby="owned-h">
-    <h2 id="owned-h">What I owned</h2>
-    <div class="case-body">
+  <section class="proj-section cs-sec" id="did" aria-labelledby="did-h">
+    <h2 id="did-h" data-reveal="rise">What I did</h2>
+    <div class="cs-body" data-reveal-group>
 <ul class="did-list">
 <li>Rebuilt the Framer site in Next.js with Tailwind and Framer Motion.</li>
-<li>Matched the live site's look: starfield, red glow and the product sections.</li>
+<li>Matched the live site&#8217;s starfield, red glow and product sections.</li>
 </ul>
     </div>
   </section>
-  <section class="proj-section case-sec " id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="case-body">
-<ul>
-<li>A rebuild is easy to start and hard to finish. Content, motion and small details decide whether it feels like the original.</li>
-<li>Writing down what is live and what is not keeps a portfolio honest.</li>
-</ul>
+  <section class="proj-section cs-sec" id="screens" aria-labelledby="screens-h">
+    <h2 id="screens-h" data-reveal="rise">The live site</h2>
+    <div class="cs-body" data-reveal-group>
+<div class="shots"><figure data-reveal="unmask"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The products section of the live site: a panel titled Explore Superior Solutions for Superior Businesses and an offer for custom AI development and integrations." loading="lazy" decoding="async"></a></figure><figure class="phone" data-reveal="unmask"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The RION Solutions home page on a phone." loading="lazy" decoding="async"></a></figure></div>
     </div>
   </section>
-  <section class="proj-section case-sec " id="screens" aria-labelledby="screens-h">
-    <h2 id="screens-h">Screens</h2>
-    <div class="case-body">
-<div class="shots"><figure class="wide"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The RION Solutions products section today: a panel titled Explore Superior Solutions for Superior Businesses and an offer for custom AI development and integrations." loading="lazy" decoding="async"></a><figcaption>The products section on the live site.</figcaption></figure><figure class="phone"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The RION Solutions home page on a phone today." loading="lazy" decoding="async"></a><figcaption>The live site on a 390 pixel wide phone.</figcaption></figure></div>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="case-body"><ul class="plain-list"><li><a href="/startup-work/rion/">RION Solutions</a></li></ul></div>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/web-design/">Back to Web design</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

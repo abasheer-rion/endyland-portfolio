@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ayan Basheer</title>
-<meta name="description" content="Ayan Basheer. Student at UT Dallas. Built the infrastructure behind Argus, which he cofounded. Won HackUTD 2026 with Safe Home.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Ayan Basheer - Electrical engineering student at UT Dallas | endyland</title>
+<meta name="description" content="Ayan Basheer, electrical engineering student at UT Dallas. RF, hardware and software projects, startup work and websites. Two awards at HackUTD 2026.">
 <link rel="canonical" href="https://endyland.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/">
-<meta property="og:title" content="Ayan Basheer">
-<meta property="og:description" content="Ayan Basheer. Student at UT Dallas. Built the infrastructure behind Argus, which he cofounded. Won HackUTD 2026 with Safe Home.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Ayan Basheer - Electrical engineering student at UT Dallas | endyland">
+<meta property="og:description" content="Ayan Basheer, electrical engineering student at UT Dallas. RF, hardware and software projects, startup work and websites. Two awards at HackUTD 2026.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering student at UT Dallas. RF, hardware and software. endyland logo on dark brown.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ayan Basheer - Electrical engineering student at UT Dallas | endyland">
+<meta name="twitter:description" content="Ayan Basheer, electrical engineering student at UT Dallas. RF, hardware and software projects, startup work and websites. Two awards at HackUTD 2026.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og/home.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering student at UT Dallas. RF, hardware and software. endyland logo on dark brown.">
 <meta name="theme-color" content="#17100A">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -21,7 +36,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/home/home.css">
-<link rel="modulepreload" href="/home/home.js">
+<link rel="stylesheet" href="/shared/models/stage.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://endyland.com/#person","name":"Ayan Basheer","url":"https://endyland.com/","alternateName":"endyland","image":"https://endyland.com/shared/brand/icon-512.png","jobTitle":"Electrical engineering student","affiliation":{"@type":"CollegeOrUniversity","name":"The University of Texas at Dallas","url":"https://www.utdallas.edu/"},"description":"Ayan Basheer, electrical engineering student at UT Dallas. RF, hardware and software projects, startup work and websites. Two awards at HackUTD 2026.","knowsAbout":["Electrical engineering","RF and antenna arrays","Embedded systems","FPGA design","Computer vision","Web development"],"sameAs":["https://www.linkedin.com/in/ayanbasheer","https://github.com/abasheer-rion"]},{"@type":"WebSite","@id":"https://endyland.com/#website","name":"Ayan Basheer","alternateName":"endyland","url":"https://endyland.com/","inLanguage":"en","publisher":{"@id":"https://endyland.com/#person"},"author":{"@id":"https://endyland.com/#person"}}]}</script>
 </head>
 <body class="home">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -46,89 +63,41 @@
 
 <main id="main">
 
-  <!-- 0. Hero -->
   <section class="hero" data-tone="dark" aria-labelledby="name">
     <div class="stage">
       <canvas id="scene" class="scene" aria-hidden="true"></canvas>
       <div class="still" aria-hidden="true"></div>
+      <div class="model-stage hero-mark" data-model="logo" data-tone="dark" data-poster="/shared/models/posters/logo.webp" aria-label="The endyland mark, a capital E whose three arms end in dots, as a solid object. Drag to turn it."></div>
       <div class="hero-text">
         <h1 id="name" aria-label="Ayan Basheer"><span class="ln ln-a"><span class="l" aria-hidden="true">A</span><span class="l" aria-hidden="true">y</span><span class="l" aria-hidden="true">a</span><span class="l" aria-hidden="true">n</span></span><span class="ln ln-b"><i><span class="l" aria-hidden="true">B</span><span class="l" aria-hidden="true">a</span><span class="l" aria-hidden="true">s</span><span class="l" aria-hidden="true">h</span><span class="l" aria-hidden="true">e</span><span class="l" aria-hidden="true">e</span><span class="l" aria-hidden="true">r</span></i></span></h1>
-        <p class="headline">I build the systems behind the product, and I ship them.</p>
-        <p class="lede">I study at UT Dallas. I cofounded Argus and built the infrastructure behind it until it ended in 2026. That same year I won HackUTD with Safe Home.</p>
-        <a class="latest" href="/projects/safe-home/" data-steer=".4,.3">
-          <span class="latest-tag">Latest</span>
-          <span class="latest-text">Won HackUTD 2026 with Safe Home</span>
-          <span class="latest-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <p class="note">The gold shape is the beam of a 6-element antenna array, drawn live in dots.<span class="live-only"> Move your pointer and it steers toward you. Click to send a ripple.</span></p>
+        <p class="headline">Electrical engineering student at UT Dallas. I build web apps, embedded hardware and the servers behind them.</p>
       </div>
     </div>
-    <ul class="proof" aria-label="Numbers from my work">
-      <li><b data-count="10" data-suffix="+">10+</b><span>stores ran Argus</span></li>
-      <li><b data-count="92" data-suffix="%">92%</b><span>model accuracy at Argus</span></li>
-      <li><b>$1M</b><span>valuation on Argus&rsquo;s first round</span></li>
-      <li><b data-count="72">72</b><span>algorithms in the Parity catalog</span></li>
-    </ul>
   </section>
 
-  <!-- 1. Bio -->
   <section class="sec t-light bio" id="about" data-tone="light" aria-labelledby="about-h">
-    <div class="in bio-grid">
-      <aside class="path" aria-hidden="true">
-        <ol>
-          <li data-for="1"><b>Verizon</b><span>Network engineering</span></li>
-          <li data-for="2"><b>UT Dallas</b><span>Antennas and RF</span></li>
-          <li data-for="3"><b>Argus</b><span>Cofounded, ended 2026</span></li>
-          <li data-for="4"><b>HackUTD 2026</b><span>Safe Home won</span></li>
-        </ol>
-      </aside>
-      <div class="bio-copy">
+    <div class="in">
+      <div class="bio-copy" data-reveal-group>
         <h2 id="about-h">About</h2>
-        <p class="step" data-step="1">I started in network engineering. I spent two summers at Verizon in Richardson, Texas, as an intern in software and automation. I found 200+ live voice-network devices with no backups and automated the fix. I built the Carrier Trunk Provisioning Tool on my own: the record system and API behind a $70M-a-year revenue line. Moving apps off VMware saves $480K a year. <a href="/experience/verizon/">The Verizon work</a></p>
-        <p class="step" data-step="2">At UT Dallas I am studying electrical engineering on the Fast Track BS/MS, and my interest moved to antennas and RF. In the RIDE program, a team of three built a 5.8 GHz array that finds where a signal comes from, then steers its beam toward it, along with a Butler matrix that steers with fixed phase shifts. I like the parts of a product most people never see: the servers, the tunnels, the pipes between things. <a href="/research/rf-direction-finder/">The direction finder</a></p>
-        <blockquote class="pull"><p>I care about things that work when nobody is watching.</p></blockquote>
-        <p class="step" data-step="3">Then startups. I cofounded Argus, an app for running a convenience store that started with AI cameras that spot theft. I led engineering and owned product strategy, pricing and delivery. Argus ran in 10+ stores, reached 92% model accuracy and raised a first round at a $1M valuation. It ended in 2026. Alongside it I worked as an automation engineer at RION Solutions, the agency that is Argus&rsquo;s parent company. <a href="/startup-work/argus/">The Argus story</a></p>
-        <p class="step" data-step="4">In November 2026 I won HackUTD with Safe Home, a home black box that keeps reporting when Wi-Fi and cell go down, with one map for first responders. I led product, design and integration for a team of four over two days. <a href="/projects/safe-home/">How Safe Home works</a></p>
-
-        <div class="now-else">
-          <section aria-labelledby="now-h">
-            <h3 id="now-h">Now</h3>
-            <ul>
-              <li><a href="/research/parity/">Parity</a>, a lab that tests trading strategies honestly</li>
-              <li><a href="/research/rf-direction-finder/">RF direction finder</a> at UT Dallas</li>
-              <li><a href="/web-design/yotummy/">YoTummy</a>, a homemade-food marketplace, as its only developer</li>
-              <li>Food bank coordinator at IAA and IACC</li>
-            </ul>
-          </section>
-          <section aria-labelledby="else-h">
-            <h3 id="else-h">Elsewhere</h3>
-            <ul>
-              <li>UT Dallas, BS in Electrical Engineering, Fast Track BS/MS, expected May 2028</li>
-              <li>Member of IEEE, IEEE MTT-S and BMES</li>
-              <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a> and <a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
-            </ul>
-          </section>
-        </div>
+        <p>I am studying electrical engineering at UT Dallas. In the RIDE program, a team of three designed and simulated a 5.8 GHz antenna array that finds where a signal comes from and steers its beam toward it. The receive board is designed and not yet built. <a href="/research/rf-direction-finder/">Read about the direction finder.</a></p>
+        <p>I spent two summers at Verizon in Richardson, Texas, on software and automation, and I worked as an automation engineer at RION Solutions. <a href="/experience/verizon/">Read about Verizon.</a></p>
+        <p>I was lead engineer at Argus, which makes software for convenience stores and is built heavily on computer vision. While I was there it presented at a Demo Day, joined NVIDIA Inception and the Cloudflare Startup Program, and was verified into POS systems. I handed off my work and left in 2026 to spend more time on school and electrical engineering. Argus continues under Rayan Sikkandar and the team. <a href="/startup-work/argus/">Read about Argus.</a></p>
+        <p>HackUTD 2026 was my first hackathon. My team won two awards, including 3rd place in the State Farm track, with Safe Home. It brings home sensor readings and nearby disaster alerts into one place so response teams can prioritise survivors without power or Wi-Fi. The team was Adyaan Akram, Saif Yusuff, Dhruv Patel and me. <a href="/projects/safe-home/">Read about Safe Home.</a></p>
       </div>
     </div>
   </section>
 
-  <!-- 2. Recently added -->
   <section class="sec t-dark recent" id="recent" data-tone="dark" aria-labelledby="recent-h">
     <div class="in">
-      <header class="sec-head">
-        <h2 id="recent-h">Recently added</h2>
-        <p>The newest work and write-ups on the site, newest first.</p>
-      </header>
-      <ul class="recent-row">
+      <h2 id="recent-h" data-reveal="wipe">Recently added</h2>
+      <ul class="recent-row" data-reveal-group>
         <!-- To add an item, see docs/home-sections.md. Newest first. -->
         <li class="rc rc--lead">
           <a href="/projects/safe-home/">
             <img src="/projects/safe-home/img/thumb.webp" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width:1100px) 52vw, 92vw" alt="The Safe Home website, showing the headline See trouble sooner. Know where to look. next to a map of home boxes.">
             <span class="rc-body">
-              <span class="rc-win">Won HackUTD 2026</span>
               <span class="rc-title">Safe Home</span>
-              <span class="rc-text">A home black box that keeps reporting when Wi-Fi and cell go down, with one map for first responders. 385 of 649 commits and 288 tests passing.</span>
+              <span class="rc-text">Two awards at HackUTD 2026, including 3rd place in the State Farm track. Sensor boxes in homes pass readings to each other when Wi-Fi is down, and an operator map shows them next to nearby disaster alerts.</span>
             </span>
           </a>
         </li>
@@ -137,7 +106,7 @@
             <img src="/research/parity/img/thumb.webp" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width:1100px) 18vw, (min-width:641px) 40vw, 92vw" alt="The Parity dashboard, a dark screen with a market chart and a list of strategies.">
             <span class="rc-body">
               <span class="rc-title">Parity</span>
-              <span class="rc-text">16 strategies tested, none beat the S&amp;P 500. Reported plainly.</span>
+              <span class="rc-text">A backtesting tool for trading strategies. 16 strategies tested, none passed all 11 tests.</span>
             </span>
           </a>
         </li>
@@ -145,27 +114,8 @@
           <a href="/startup-work/argus/">
             <img src="/startup-work/argus/img/thumb.webp" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width:1100px) 18vw, (min-width:641px) 40vw, 92vw" alt="The Argus website, with the headline Run your whole store from one place and a dashboard screenshot.">
             <span class="rc-body">
-              <span class="rc-title">Argus, ended 2026</span>
-              <span class="rc-text">The full story: the problem, the build, the results and how it ended.</span>
-            </span>
-          </a>
-        </li>
-        <li class="rc">
-          <a href="/experience/verizon/">
-            <svg class="rc-art" viewBox="0 0 320 180" width="800" height="450" role="img" aria-label="Three Verizon results as large numbers: $70M a year, $480K saved a year, and 200+ devices.">
-              <rect width="320" height="180" fill="#35221A"/>
-              <rect width="320" height="180" fill="url(#rc-dots)"/>
-              <g fill="#F6EEDB" font-family="Newsreader,Georgia,serif" font-weight="500">
-                <text x="20" y="54" font-size="38">$70M</text><text x="140" y="52" font-size="17" fill="#D9AE4A">a year</text>
-                <text x="20" y="104" font-size="38">$480K</text><text x="140" y="102" font-size="17" fill="#D9AE4A">saved a year</text>
-                <text x="20" y="154" font-size="38">200+</text><text x="140" y="152" font-size="17" fill="#D9AE4A">devices backed up</text>
-              </g>
-              <g stroke="#D9AE4A" stroke-opacity=".5"><path d="M20 66H300M20 116H300"/></g>
-              <defs><pattern id="rc-dots" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".5" fill="#B8872E" fill-opacity=".2"/></pattern></defs>
-            </svg>
-            <span class="rc-body">
-              <span class="rc-title">Verizon write-ups</span>
-              <span class="rc-text">The trunk tool, device backups and the move off VMware, each with its own page.</span>
+              <span class="rc-title">Argus</span>
+              <span class="rc-text">What the software does, what I built, and when I left in 2026.</span>
             </span>
           </a>
         </li>
@@ -173,231 +123,105 @@
     </div>
   </section>
 
-  <!-- 3. Web design -->
-  <section class="sec room t-vellum" id="web-design" data-bar-section="web-design" data-tone="light" aria-labelledby="web-h">
+  <section class="sec t-vellum code" id="code" data-tone="light" aria-labelledby="code-h">
+    <div class="in code-in">
+      <div class="code-text" data-reveal-group>
+        <h2 id="code-h">Code</h2>
+        <p id="code-line">My GitHub contributions over the past year.</p>
+        <a class="enter" href="/code/">See the year <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <canvas id="code-plate" class="code-plate" width="640" height="112" aria-hidden="true" data-reveal="unmask"></canvas>
+    </div>
+  </section>
+
+  <section class="sec room t-dark t-walnut" id="web-design" data-bar-section="web-design" data-tone="dark" aria-labelledby="web-h">
     <div class="in room-in">
-      <div class="room-lead">
-        <span class="numeral" aria-hidden="true">01</span>
+      <div class="room-lead" data-reveal-group>
         <h2 id="web-h">Web design</h2>
-        <p class="room-desc">Sites and apps for real clients: a homemade-food marketplace with a phone app, a land investment firm, a car detailer and a mango shop. I design them, write the code and ship them.</p>
-        <a class="enter" href="/web-design/">Enter 01 Web design <span aria-hidden="true">&rarr;</span></a>
+        <p class="room-desc">Sites and apps for clients, designed, built and deployed by me.</p>
+        <a class="enter" href="/web-design/">All web design <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="room-body">
-        <figure class="art art-web">
-          <svg viewBox="0 0 560 380" width="560" height="380" aria-hidden="true" focusable="false">
-            <defs>
-              <pattern id="w-dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.15" fill="#9C4A22"/></pattern>
-              <pattern id="w-dots2" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r=".9" fill="#B8872E"/></pattern>
-              <linearGradient id="w-fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-              <mask id="w-mask"><rect width="560" height="380" fill="url(#w-fade)"/></mask>
-            </defs>
-            <g class="fr f2" color="#17100A">
-              <rect x="170" y="120" width="380" height="240" rx="6" fill="#F6EEDB" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M170 146H550" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="188" cy="133" r="4" fill="currentColor"/><circle cx="202" cy="133" r="4" fill="currentColor"/><circle cx="216" cy="133" r="4" fill="currentColor"/>
-              <rect x="190" y="166" width="150" height="82" fill="url(#w-dots2)" mask="url(#w-mask)" transform="translate(0 0)"/>
-              <rect x="352" y="166" width="150" height="82" fill="url(#w-dots)"/>
-              <rect x="190" y="264" width="312" height="8" fill="currentColor" opacity=".55"/><rect x="190" y="282" width="250" height="8" fill="currentColor" opacity=".35"/>
-              <rect x="190" y="310" width="90" height="24" fill="#9C4A22"/>
-            </g>
-            <g class="fr f1" color="#17100A">
-              <rect x="10" y="20" width="380" height="250" rx="6" fill="#EFE3C8" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10 46H390" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="28" cy="33" r="4" fill="currentColor"/><circle cx="42" cy="33" r="4" fill="currentColor"/><circle cx="56" cy="33" r="4" fill="currentColor"/>
-              <rect x="32" y="74" width="170" height="18" fill="currentColor"/><rect x="32" y="100" width="120" height="18" fill="currentColor"/>
-              <rect x="32" y="136" width="150" height="7" fill="currentColor" opacity=".5"/><rect x="32" y="150" width="140" height="7" fill="currentColor" opacity=".5"/><rect x="32" y="164" width="110" height="7" fill="currentColor" opacity=".5"/>
-              <rect x="32" y="192" width="96" height="28" fill="#9C4A22"/>
-              <rect x="224" y="70" width="144" height="180" fill="url(#w-dots)" mask="url(#w-mask)"/>
-              <rect x="224" y="70" width="144" height="180" fill="none" stroke="currentColor" stroke-width="1"/>
-            </g>
-            <g class="fr f3" color="#17100A">
-              <rect x="458" y="16" width="86" height="168" rx="12" fill="#F6EEDB" stroke="currentColor" stroke-width="1.5"/>
-              <rect x="472" y="38" width="58" height="9" fill="currentColor"/><rect x="472" y="54" width="42" height="9" fill="currentColor"/>
-              <rect x="472" y="76" width="58" height="48" fill="url(#w-dots)"/>
-              <rect x="472" y="134" width="58" height="5" fill="currentColor" opacity=".5"/><rect x="472" y="146" width="40" height="5" fill="currentColor" opacity=".5"/>
-              <rect x="472" y="160" width="40" height="12" fill="#9C4A22"/>
-            </g>
-          </svg>
-          <figcaption>A drawn sketch of a site at laptop and phone width. Not a screenshot.</figcaption>
-        </figure>
-        <ol class="picks">
-          <li class="pick"><a href="/web-design/yotummy/"><span class="big"><span data-count="206">206</span></span><span class="pick-t"><h3>YoTummy</h3><p>A marketplace for homemade food. Four apps: the site, a seller portal, an admin panel and a phone app on both stores. 206 commits in the main app, all mine.</p></span></a></li>
-          <li class="pick"><a href="/web-design/new-door/"><span class="big"><span data-count="68">68</span> of 69</span><span class="pick-t"><h3>New Door Investments</h3><p>A land investment firm&rsquo;s site and tools, moved off Framer to Next.js. 68 of the 69 site commits are mine.</p></span></a></li>
-          <li class="pick"><a href="/web-design/detail-theory/"><span class="big">5.0</span><span class="pick-t"><h3>Detail Theory</h3><p>A mobile car detailer&rsquo;s one-page site, hand-written with no framework. Bookings land in a Google Calendar and the 5.0 rating shows live.</p></span></a></li>
-          <li class="pick"><a href="/web-design/swadesi-mangoes/"><span class="big"><span data-count="22">22</span> of 24</span><span class="pick-t"><h3>Swadesi Mangoes</h3><p>A mango shop&rsquo;s storefront rebuilt in Next.js with Shopify behind it.</p></span></a></li>
-        </ol>
-      </div>
+      <ol class="picks" data-reveal-group>
+        <li class="pick"><a href="/web-design/yotummy/"><h3>YoTummy</h3><p>A marketplace for homemade food: the site, a seller portal, an admin panel and a phone app.</p></a></li>
+        <li class="pick"><a href="/web-design/new-door/"><h3>New Door Investments</h3><p>A land investment firm&rsquo;s site and tools, moved off Framer to Next.js.</p></a></li>
+        <li class="pick"><a href="/web-design/detail-theory/"><h3>Detail Theory</h3><p>A mobile car detailer&rsquo;s one-page site, written without a framework. Bookings go to a Google Calendar.</p></a></li>
+        <li class="pick"><a href="/web-design/swadesi-mangoes/"><h3>Swadesi Mangoes</h3><p>A mango shop&rsquo;s storefront in Next.js with Shopify behind it.</p></a></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 4. Projects -->
-  <section class="sec room room--flip t-dark t-walnut" id="projects" data-bar-section="projects" data-tone="dark" aria-labelledby="proj-h">
+  <section class="sec room room--flip t-light" id="projects" data-bar-section="projects" data-tone="light" aria-labelledby="proj-h">
     <div class="in room-in">
-      <div class="room-lead">
-        <span class="numeral" aria-hidden="true">02</span>
+      <div class="room-lead" data-reveal-group>
         <h2 id="proj-h">Projects</h2>
-        <p class="room-desc">Things I built to find out whether they would work: a home black box that survives an outage, a sensor that lasts weeks on one cell, a processor on an FPGA, and a rig that tests an amplifier in 90 seconds.</p>
-        <a class="enter" href="/projects/">Enter 02 Projects <span aria-hidden="true">&rarr;</span></a>
+        <p class="room-desc">Hardware and software projects.</p>
+        <a class="enter" href="/projects/">All projects <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="room-body">
-        <figure class="art art-proj">
-          <svg viewBox="0 0 560 380" width="560" height="380" aria-hidden="true" focusable="false">
-            <g fill="none" stroke="#D9AE4A" stroke-width="1.5">
-              <g stroke-dasharray="3 7" stroke-linecap="round" opacity=".8">
-                <path d="M70 310L180 220"/><path d="M180 220L400 200"/><path d="M180 220L300 310" opacity=".35"/><path d="M300 310L400 200" opacity=".35"/><path d="M400 200L500 300"/><path d="M300 310L500 300" opacity=".35"/>
-              </g>
-              <path d="M400 200V92" stroke-dasharray="3 7" stroke-linecap="round"/>
-              <path d="M338 66H292" />
-              <path d="M300 60l-8 6 8 6" stroke-linejoin="round"/>
-            </g>
-            <g class="nodes" fill="#35221A" stroke="#F6EEDB" stroke-width="2">
-              <circle cx="70" cy="310" r="17"/><circle cx="180" cy="220" r="17"/><circle cx="400" cy="200" r="19" stroke="#D9AE4A" stroke-width="3"/><circle cx="500" cy="300" r="17"/>
-              <circle cx="300" cy="310" r="17" stroke-dasharray="4 5" opacity=".5"/>
-            </g>
-            <g fill="#35221A" stroke="#D9AE4A" stroke-width="1.5">
-              <rect x="338" y="40" width="130" height="52" rx="4"/><rect x="170" y="40" width="122" height="52" rx="4"/>
-            </g>
-            <g fill="#F6EEDB" font-family="Instrument Sans,system-ui,sans-serif" font-size="24" font-weight="500">
-              <text x="403" y="73" text-anchor="middle">Cloud</text><text x="231" y="73" text-anchor="middle">Map</text>
-              <text x="70" y="352" text-anchor="middle">Homes</text>
-            </g>
-            <g class="packets" fill="#F3E7C8">
-              <circle cx="70" cy="310" r="5.5" style="--dx:110px;--dy:-90px;--d:0s"/>
-              <circle cx="180" cy="220" r="5.5" style="--dx:220px;--dy:-20px;--d:.9s"/>
-              <circle cx="400" cy="200" r="5.5" style="--dx:0px;--dy:-108px;--d:1.8s"/>
-              <circle cx="500" cy="300" r="5.5" style="--dx:-100px;--dy:-100px;--d:2.7s"/>
-            </g>
-          </svg>
-          <figcaption>A drawn sketch of the Safe Home idea. Boxes pass reports from home to home, and one with Internet uploads them. A box that goes offline (dashed) is routed around.</figcaption>
-        </figure>
-        <ol class="picks">
-          <li class="pick"><a href="/projects/safe-home/"><span class="big"><span data-count="288">288</span></span><span class="pick-t"><h3>Safe Home</h3><p>The HackUTD 2026 winner. 288 tests passing, and 385 of the team&rsquo;s 649 commits are mine.</p></span></a></li>
-          <li class="pick"><a href="/projects/sensor-node/"><span class="big">6 weeks</span><span class="pick-t"><h3>Low-power wireless sensor node</h3><p>Battery life went from 3 days to 6 weeks on one 18650 cell, by sleeping between reads.</p></span></a></li>
-          <li class="pick"><a href="/projects/bench-rig/"><span class="big">90 s</span><span class="pick-t"><h3>Automated bench test rig</h3><p>A 12-point amplifier test went from 45 minutes to 90 seconds, and it caught a 3 dB error.</p></span></a></li>
-          <li class="pick"><a href="/projects/fpga-risc/"><span class="big"><span data-count="50">50</span> MHz</span><span class="pick-t"><h3>8-bit RISC processor on FPGA</h3><p>A 5-stage pipeline in Verilog on a Xilinx Artix-7, with the slowest path cut by 22%.</p></span></a></li>
-        </ol>
-      </div>
+      <ol class="picks" data-reveal-group>
+        <li class="pick"><a href="/projects/safe-home/"><h3>Safe Home</h3><p>Home sensor boxes that keep reporting when Wi-Fi is down, and a map for response teams. Built at HackUTD 2026.</p></a></li>
+        <li class="pick"><a href="/projects/sensor-node/"><h3>Low-power wireless sensor node</h3><p>A battery-powered ESP32 board that sleeps between readings to run for weeks on one 18650 cell.</p></a></li>
+        <li class="pick"><a href="/projects/bench-rig/"><h3>Automated bench test rig</h3><p>A rig that runs an amplifier test that used to be done by hand.</p></a></li>
+        <li class="pick"><a href="/projects/fpga-risc/"><h3>8-bit RISC processor on FPGA</h3><p>A 5-stage pipeline written in Verilog for a Xilinx Artix-7.</p></a></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 5. Experience -->
-  <section class="sec room t-light" id="experience" data-bar-section="experience" data-tone="light" aria-labelledby="exp-h">
+  <section class="sec room t-dark t-ink" id="research" data-bar-section="research" data-tone="dark" aria-labelledby="res-h">
     <div class="in room-in">
-      <div class="room-lead">
-        <span class="numeral" aria-hidden="true">03</span>
-        <h2 id="exp-h">Experience</h2>
-        <p class="room-desc">Software and automation at Verizon, a 23-unit rental property, and a food bank. The common thread is taking something done by hand and making it run on its own.</p>
-        <a class="enter" href="/experience/">Enter 03 Experience <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <div class="room-body">
-        <figure class="art art-exp">
-          <svg viewBox="0 0 560 380" width="560" height="380" aria-hidden="true" focusable="false">
-            <defs><pattern id="e-dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.05" fill="#9C4A22"/></pattern></defs>
-            <g stroke="#17100A" stroke-opacity=".25"><path d="M40 40V330M140 40V330M240 40V330M340 40V330M440 40V330M540 40V330"/></g>
-            <path d="M40 330H540" stroke="#17100A" stroke-width="1.5"/>
-            <g fill="#17100A" font-family="Instrument Sans,system-ui,sans-serif" font-size="22">
-              <text x="40" y="360" text-anchor="middle">2022</text><text x="140" y="360" text-anchor="middle">2023</text><text x="240" y="360" text-anchor="middle">2024</text><text x="340" y="360" text-anchor="middle">2025</text><text x="440" y="360" text-anchor="middle">2026</text>
-            </g>
-            <g fill="#17100A" font-family="Instrument Sans,system-ui,sans-serif" font-size="24" font-weight="500">
-              <text x="40" y="66">Food bank</text><text x="40" y="170">Property manager</text><text x="40" y="274">Verizon</text>
-            </g>
-            <g class="bars" stroke="#17100A" stroke-width="1.5">
-              <rect class="bar b1" x="82" y="80" width="445" height="26" fill="url(#e-dots)"/>
-              <rect class="bar b2" x="332" y="184" width="175" height="26" fill="url(#e-dots)"/>
-              <rect class="bar b3" x="382" y="288" width="25" height="26" fill="#9C4A22"/>
-              <rect class="bar b4" x="482" y="288" width="25" height="26" fill="#9C4A22"/>
-            </g>
-            <path d="M527 40V330" stroke="#9C4A22" stroke-width="1.5" stroke-dasharray="3 5"/>
-          </svg>
-          <figcaption>Each bar is a stretch of time, to scale. The dashed line is today. Verizon was two summers.</figcaption>
-        </figure>
-        <ol class="picks">
-          <li class="pick"><a href="/experience/verizon/"><span class="big">$<span data-count="70">70</span>M</span><span class="pick-t"><h3>Verizon</h3><p>Network engineer intern, two summers. I built alone the tool behind a $70M-a-year revenue line, put backups on 200+ devices, and saved $480K a year by moving apps off VMware.</p></span></a></li>
-          <li class="pick"><a href="/experience/property-manager/"><span class="big"><span data-count="60">60</span>%</span><span class="pick-t"><h3>Property manager</h3><p>Raised a 23-unit property&rsquo;s rental income 60% in 4 months, kept 90% of tenants and collected $200K+ in rent.</p></span></a></li>
-          <li class="pick"><a href="/experience/food-bank/"><span class="big"><span data-count="400" data-suffix="+">400+</span></span><span class="pick-t"><h3>Food bank coordinator</h3><p>I lead the volunteers who pack food for 400+ families a month, and made packing 15% faster.</p></span></a></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Research -->
-  <section class="sec room room--flip t-dark t-ink" id="research" data-bar-section="research" data-tone="dark" aria-labelledby="res-h">
-    <div class="in room-in">
-      <div class="room-lead">
-        <span class="numeral" aria-hidden="true">04</span>
+      <div class="room-lead" data-reveal-group>
         <h2 id="res-h">Research</h2>
-        <p class="room-desc">Antennas and data. A 5.8 GHz direction finder with a Butler matrix at UT Dallas, a lab that tests trading strategies without fooling itself, and two models built on public and rental data.</p>
-        <a class="enter" href="/research/">Enter 04 Research <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <div class="room-body">
-        <figure class="art art-res">
-          <svg viewBox="0 0 560 380" width="560" height="380" aria-hidden="true" focusable="false">
-            <defs><pattern id="r-dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.1" fill="#D9AE4A"/></pattern></defs>
-            <g fill="none" stroke="#D9AE4A" stroke-opacity=".38">
-              <path d="M180 350A100 100 0 0 1 380 350"/><path d="M80 350A200 200 0 0 1 480 350" stroke-dasharray="3 6"/><path d="M-10 350A290 290 0 0 1 570 350"/>
-              <path d="M280 350V60M280 350L30 205M280 350L530 205M280 350L135 99M280 350L425 99" stroke-dasharray="2 7"/>
-            </g>
-            <path class="lobes" d="M280 350 L237.0 350.0 L236.7 348.5 L236.0 346.9 L234.8 345.2 L233.1 343.4 L231.1 341.4 L228.8 339.1 L226.2 336.6 L223.6 333.8 L221.0 330.8 L218.4 327.6 L216.2 324.2 L214.3 320.7 L212.9 317.3 L212.2 313.9 L212.2 310.9 L213.1 308.2 L214.9 306.1 L217.7 304.7 L221.4 304.2 L226.2 304.8 L231.9 306.7 L238.4 309.8 L245.6 314.4 L253.3 320.3 L261.3 327.7 L269.3 336.4 L277.2 346.2 L275.4 343.1 L268.7 331.9 L262.9 320.4 L258.3 309.3 L255.0 298.8 L253.1 289.7 L252.7 282.3 L253.5 277.2 L255.6 274.9 L258.7 275.8 L262.6 280.1 L266.8 288.0 L271.1 299.6 L275.1 314.8 L278.3 333.4 L279.7 345.0 L279.0 321.0 L280.0 295.0 L282.9 267.9 L287.7 240.3 L294.4 213.1 L302.9 187.0 L313.0 162.7 L324.4 140.9 L336.8 122.2 L349.7 107.1 L362.6 95.7 L375.3 88.3 L387.1 84.9 L397.8 85.5 L406.9 89.7 L414.3 97.4 L419.7 108.0 L423.0 121.2 L424.1 136.4 L423.1 153.1 L420.0 170.8 L415.1 189.0 L408.4 207.4 L400.4 225.4 L391.1 242.7 L380.9 259.2 L370.0 274.5 L358.8 288.5 L347.3 301.1 L335.9 312.3 L324.8 322.0 L314.1 330.3 L303.9 337.3 L294.3 343.0 L285.4 347.6 L282.7 348.9 L290.1 346.3 L296.6 344.6 L302.4 343.6 L307.4 343.2 L311.6 343.3 L315.2 343.8 L318.0 344.7 L320.2 345.8 L321.8 347.1 L322.7 348.5 L323.0 350.0 Z" fill="url(#r-dots)" stroke="#D9AE4A" stroke-width="1.6" stroke-linejoin="round"/>
-            <path d="M280 350L402.6 87.1" stroke="#F3E7C8" stroke-width="1.6"/>
-            <circle cx="402.6" cy="87.1" r="6" fill="#F3E7C8"/>
-            <g class="scan"><path d="M280 350V62" stroke="#D9AE4A" stroke-width="1.5" stroke-opacity=".9"/></g>
-            <g fill="#F3E7C8" font-family="Instrument Sans,system-ui,sans-serif" font-size="24" font-weight="500"><text x="418" y="82">25&deg;</text></g>
-            <path d="M0 350H560" stroke="#D9AE4A" stroke-width="1.5"/>
-          </svg>
-          <figcaption>The beam of a 4-element array steered to a beacon at 25 degrees, from the standard formula. A sketch, not measured data.</figcaption>
+        <p class="room-desc">Antennas, trading strategies and public data.</p>
+        <a class="enter" href="/research/">All research <span aria-hidden="true">&rarr;</span></a>
+        <figure class="figure res-array">
+          <div class="model-stage" data-model="patch-array" data-angle="scroll" data-zoom="1.25" data-poster="/shared/models/posters/patch-array.webp" aria-label="Four 5.8 GHz patch antennas on a board, with the beam they form. The beam swings as the page scrolls."></div>
         </figure>
-        <ol class="picks">
-          <li class="pick"><a href="/research/rf-direction-finder/"><span class="big">5.8 GHz</span><span class="pick-t"><h3>RF direction finder and Butler matrix</h3><p>An array that finds where a signal comes from, then steers its beam to it. 2x2 and 4x4 arrays compared. One of 3 on the team.</p></span></a></li>
-          <li class="pick"><a href="/research/parity/"><span class="big">0 of <span data-count="16">16</span></span><span class="pick-t"><h3>Parity</h3><p>Sixteen strategies tested against the S&amp;P 500, eleven tests each. None beat it. The catalog holds 72 algorithms from 36 data sources.</p></span></a></li>
-          <li class="pick"><a href="/research/dfw-rent-model/"><span class="big"><span data-count="6">6</span>%</span><span class="pick-t"><h3>DFW rental pricing model</h3><p>Learned from 1,200+ listings, predicts rent within 6% median error, and found 8 underpriced units worth $14K a year.</p></span></a></li>
-          <li class="pick"><a href="/research/spending-explorer/"><span class="big">&lt; 5 s</span><span class="pick-t"><h3>Public spending data explorer</h3><p>250K+ county spending rows cleaned and 40+ duplicate vendors merged. A search went from 20 minutes to under 5 seconds.</p></span></a></li>
-        </ol>
       </div>
+      <ol class="picks" data-reveal-group>
+        <li class="pick"><a href="/research/rf-direction-finder/"><h3>RF direction finder and Butler matrix</h3><p>A 5.8 GHz array design that finds where a signal comes from and steers its beam toward it. Simulated so far. One of three on the team.</p></a></li>
+        <li class="pick"><a href="/research/parity/"><h3>Parity</h3><p>A backtesting tool for trading strategies. 16 strategies tested, none passed all 11 tests.</p></a></li>
+        <li class="pick"><a href="/research/dfw-rent-model/"><h3>DFW rental pricing model</h3><p>A model trained on more than 1,200 listings that predicts rent.</p></a></li>
+        <li class="pick"><a href="/research/spending-explorer/"><h3>Public spending data explorer</h3><p>A search tool for county spending data.</p></a></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 7. Startup work -->
+  <section class="sec room room--flip t-light" id="experience" data-bar-section="experience" data-tone="light" aria-labelledby="exp-h">
+    <div class="in room-in">
+      <div class="room-lead" data-reveal-group>
+        <h2 id="exp-h">Experience</h2>
+        <p class="room-desc">Software and automation at Verizon, a rental property and a food bank.</p>
+        <a class="enter" href="/experience/">All experience <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <ol class="picks" data-reveal-group>
+        <li class="pick"><a href="/experience/verizon/"><h3>Verizon</h3><p>Network engineer intern for two summers, on software and automation.</p></a></li>
+        <li class="pick"><a href="/experience/property-manager/"><h3>Property manager</h3><p>Managed a 23-unit rental property.</p></a></li>
+        <li class="pick"><a href="/experience/food-bank/"><h3>Food bank coordinator</h3><p>I lead the volunteers who pack food for families each month.</p></a></li>
+      </ol>
+    </div>
+  </section>
+
   <section class="sec room t-dark t-saddle" id="startup-work" data-bar-section="startup-work" data-tone="dark" aria-labelledby="start-h">
     <div class="in room-in">
-      <div class="room-lead">
-        <span class="numeral" aria-hidden="true">05</span>
+      <div class="room-lead" data-reveal-group>
         <h2 id="start-h">Startup work</h2>
-        <p class="room-desc">I cofounded Argus, an app for convenience stores that started with AI cameras that spot theft. It ended in 2026. I also worked as an automation engineer at RION Solutions, the agency that is Argus&rsquo;s parent company.</p>
-        <a class="enter" href="/startup-work/">Enter 05 Startup work <span aria-hidden="true">&rarr;</span></a>
+        <p class="room-desc">I was lead engineer at Argus and left in 2026. I also worked as an automation engineer at RION Solutions.</p>
+        <a class="enter" href="/startup-work/">All startup work <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="room-body">
-        <figure class="art art-start">
-          <svg viewBox="0 0 560 380" width="560" height="380" aria-hidden="true" focusable="false">
-            <defs><pattern id="s-dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.1" fill="#D9AE4A"/></pattern></defs>
-            <g font-family="Instrument Sans,system-ui,sans-serif" font-size="24" fill="#F6EEDB">
-              <g class="row r1"><text x="0" y="30">Model accuracy, Argus</text><text x="560" y="30" text-anchor="end" font-weight="600">92%</text><path d="M0 48H560" stroke="#F6EEDB" stroke-opacity=".35"/><rect class="fill" x="0" y="40" width="515" height="16" fill="url(#s-dots)"/><rect class="cap" x="513" y="38" width="3" height="20" fill="#D9AE4A"/></g>
-              <g class="row r2"><text x="0" y="106">Faster onboarding, RION</text><text x="560" y="106" text-anchor="end" font-weight="600">70%</text><path d="M0 124H560" stroke="#F6EEDB" stroke-opacity=".35"/><rect class="fill" x="0" y="116" width="392" height="16" fill="url(#s-dots)"/><rect class="cap" x="390" y="114" width="3" height="20" fill="#D9AE4A"/></g>
-              <g class="row r3"><text x="0" y="182">On-time delivery, RION</text><text x="560" y="182" text-anchor="end" font-weight="600">95%</text><path d="M0 200H560" stroke="#F6EEDB" stroke-opacity=".35"/><rect class="fill" x="0" y="192" width="532" height="16" fill="url(#s-dots)"/><rect class="cap" x="530" y="190" width="3" height="20" fill="#D9AE4A"/></g>
-              <g class="row r4"><text x="0" y="258">Faster deploys, RION</text><text x="560" y="258" text-anchor="end" font-weight="600">40%</text><path d="M0 276H560" stroke="#F6EEDB" stroke-opacity=".35"/><rect class="fill" x="0" y="268" width="224" height="16" fill="url(#s-dots)"/><rect class="cap" x="222" y="266" width="3" height="20" fill="#D9AE4A"/></g>
-              <g class="row r5"><text x="0" y="334">Less theft and loss, Argus</text><text x="560" y="334" text-anchor="end" font-weight="600">15 to 25%</text><path d="M0 352H560" stroke="#F6EEDB" stroke-opacity=".35"/><rect class="fill" x="84" y="344" width="56" height="16" fill="#D9AE4A"/></g>
-            </g>
-          </svg>
-          <figcaption>Percent results from the Argus and RION pages, drawn to the same 0 to 100 scale.</figcaption>
-        </figure>
-        <ol class="picks">
-          <li class="pick"><a href="/startup-work/argus/"><span class="big"><span data-count="10" data-suffix="+">10+</span></span><span class="pick-t"><h3>Argus, ended 2026</h3><p>Cofounder and lead engineer. Ran in 10+ stores with 50+ camera feeds and 200+ AI calls a minute. Raised a first round at a $1M valuation.</p></span></a></li>
-          <li class="pick"><a href="/startup-work/argus-one/"><span class="big">1 score</span><span class="pick-t"><h3>Argus One</h3><p>The theft-detection AI. It combined person detection, body pose and visual signals into one risk score per person. About half the commits are mine.</p></span></a></li>
-          <li class="pick"><a href="/startup-work/rion/"><span class="big"><span data-count="70">70</span>%</span><span class="pick-t"><h3>RION Solutions</h3><p>Automated client intake end to end, so onboarding got 70% faster. 95% on-time across 8+ client deployments.</p></span></a></li>
-        </ol>
-      </div>
+      <ol class="picks" data-reveal-group>
+        <li class="pick"><a href="/startup-work/argus/"><h3>Argus</h3><p>Software for convenience stores, built heavily on computer vision. I left in 2026.</p></a></li>
+        <li class="pick"><a href="/startup-work/argus-one/"><h3>Argus One</h3><p>The theft-detection AI. It combines person detection, body pose and visual signals into a risk score per person.</p></a></li>
+        <li class="pick"><a href="/startup-work/rion/"><h3>RION Solutions</h3><p>Automation engineer. I automated client intake and onboarding.</p></a></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 8. Contact -->
   <section class="sec t-dark contact" id="contact" data-tone="dark" aria-labelledby="contact-h">
-    <div class="in contact-in">
+    <div class="in contact-in" data-reveal-group>
       <h2 id="contact-h">Contact</h2>
-      <p class="contact-lede">The best way to reach me is email. I read everything.</p>
       <a class="mail" href="mailto:ayanbasheer@gmail.com">ayanbasheer@gmail.com</a>
       <ul class="links">
-        <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a><span>abasheer-rion</span></li>
-        <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a><span>in/ayanbasheer</span></li>
-        <li><a href="https://useargus.co" rel="noopener">Argus</a><span>useargus.co</span></li>
+        <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
       </ul>
     </div>
   </section>
@@ -407,8 +231,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -416,6 +241,7 @@
   </div>
 </footer>
 
+<script type="module" src="/shared/models/auto.js"></script>
 <script type="module" src="/home/home.js"></script>
 </body>
 </html>

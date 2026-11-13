@@ -19,6 +19,10 @@
   Link: </shared/base.css>; rel=preload; as=style
   Link: </home/home.css>; rel=preload; as=style
 
+# The GitHub numbers are rewritten by a workflow now and then. Five minutes is fresh enough.
+/data/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
 /*.webp
   Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
 

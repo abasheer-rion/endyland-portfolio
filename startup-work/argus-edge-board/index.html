@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>In-store AI board | Ayan Basheer</title>
-<meta name="description" content="A small box for in-store AI devices, built around the NanoPi R76S. Part of Argus, which ended in 2026.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Argus in-store agent and box - Ayan Basheer</title>
+<meta name="description" content="The Argus streaming agent that reads store cameras and a NanoPi R76S box designed to run it without a back-office computer. The box was never built.">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-edge-board/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-edge-board/">
-<meta property="og:title" content="In-store AI board | Ayan Basheer">
-<meta property="og:description" content="A small box for in-store AI devices, built around the NanoPi R76S. Part of Argus, which ended in 2026.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Argus in-store agent and box - Ayan Basheer">
+<meta property="og:description" content="The Argus streaming agent that reads store cameras and a NanoPi R76S box designed to run it without a back-office computer. The box was never built.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Argus in-store agent and box - Ayan Basheer">
+<meta name="twitter:description" content="The Argus streaming agent that reads store cameras and a NanoPi R76S box designed to run it without a back-office computer. The box was never built.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -22,9 +37,11 @@
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
 <link rel="stylesheet" href="/startup-work/pages.css">
+<link rel="stylesheet" href="/shared/models/stage.css">
 <link rel="modulepreload" href="/startup-work/argus/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/startup-work/argus-edge-board/#webpage","url":"https://endyland.com/startup-work/argus-edge-board/","name":"Argus in-store agent and box - Ayan Basheer","description":"The Argus streaming agent that reads store cameras and a NanoPi R76S box designed to run it without a back-office computer. The box was never built.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/startup-work/argus-edge-board/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/startup-work/argus-edge-board/#main","name":"In-store agent and box","headline":"Argus in-store agent and box","description":"The Argus streaming agent that reads store cameras and a NanoPi R76S box designed to run it without a back-office computer. The box was never built.","url":"https://endyland.com/startup-work/argus-edge-board/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/startup-work/argus-edge-board/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Startup work","item":"https://endyland.com/startup-work/"},{"@type":"ListItem","position":3,"name":"In-store agent and box","item":"https://endyland.com/startup-work/argus-edge-board/"}]}]}</script>
 </head>
-<body class="proj-page proj-argus-edge-board">
+<body class="proj-page proj-argus-edge">
 <a class="skip" href="#main">Skip to content</a>
 <header class="bar" data-tone="dark">
   <div class="bar-in">
@@ -37,6 +54,7 @@
       <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -45,94 +63,69 @@
 </header>
 
 <main id="main" class="proj">
-  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>In-store AI board</span></li></ol></nav>
+  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>In-store agent and box</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
-    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
-    <h1>In-store AI board</h1>
-    <p class="proj-summary">A small box for in-store AI devices, built around the <span class="a-key">NanoPi R76S</span>.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Board design</dd></div><div><dt>Dates</dt><dd>2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>PCB design</li><li>NanoPi R76S</li><li>Linux arm64</li></ul></dd></div></dl>
-    <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
+    <h1>In-store agent and box</h1>
+    <p class="proj-summary">The Python agent that reads a store&#8217;s cameras, and a NanoPi R76S box designed to run it in stores with no back-office computer. The agent ran in stores. The box was tested in automated builds and never built.</p>
+    <p class="proj-facts">Most of the streaming agent, plus the board choice and the Linux arm64 packaging, 2026. I handed this work off when I left in 2026. Python, PySide6, Linux on arm64.</p>
     </div>
-    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Block drawing of the NanoPi R76S board: an RK3576 chip with 4 GB of RAM and 64 GB of eMMC, two 2.5 gigabit Ethernet ports and a 5 volt USB-C power input." fetchpriority="high" decoding="async"><figcaption>A drawing made for this site from the board&#8217;s stated parts. It is not a photo.</figcaption></figure>
   </header>
 
-  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#hw-h">The hardware</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
-
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">Some stores have no computer to run the agent.</h2>
+  <section class="proj-section" aria-labelledby="agent-h">
+    <h2 id="agent-h">The agent</h2>
     <div class="prose">
-      <p>The Argus streaming agent runs on a Windows computer the store already has. Some stores have no back-office computer at all, so there was nowhere to run it.</p>
+      <p>The agent opens each camera&#8217;s RTSP stream with OpenCV and FFmpeg, resizes the frames, encodes JPEG and sends the bytes over one WebSocket per camera to the engine. The live settings at both stores in August 2026 were 3 frames per second, 640 by 360 and JPEG quality 80. The agent does no detection. Every model runs in the cloud.</p>
+      <p>Its only command channel is a 30-second HTTPS heartbeat to the platform API. The reply carries the engine address and the frame rate and resolution for that store.</p>
+      <ul class="plain-list">
+        <li>Cameras are found over ONVIF, and Hikvision recorders are read through an adapter.</li>
+        <li>An adaptive-quality module classifies the store network and picks a configuration that works.</li>
+        <li>A watchdog restarts a stalled send, and the agent reconnects on its own.</li>
+        <li>Updates are signed. A build that fails three boots is replaced by the last good one.</li>
+        <li>Remote support uses a per-agent Ed25519 identity and challenge-response pairing. An operator can view a camera only with the store&#8217;s consent.</li>
+        <li>A Docker test course runs the real agent on impaired networks, such as a captive portal or blocked ports, and scores whether it recovers. It runs nightly in CI.</li>
+      </ul>
+      <p>The interface is PySide6, with a headless command-line mode. Builds are a PyInstaller executable for Windows, a DMG for macOS and a tarball for Linux arm64.</p>
     </div>
   </section>
-
-  <section class="proj-section" aria-labelledby="approach-h">
-    <h2 id="approach-h">A small Linux box on the store&#8217;s router.</h2>
+  <section class="proj-section" aria-labelledby="box-h">
+    <h2 id="box-h">The box</h2>
     <div class="prose">
-      <p>The answer was a small board that plugs into a spare port on the store&#8217;s router and runs the whole agent with no screen: cameras, recorder, till, uploads and updates. The AI detection still happens in the cloud, so the box itself stays small.</p>
-      <p>The pick was the FriendlyElec NanoPi R76S because nothing thumb-sized had two network ports and built-in storage. A $485 mini PC and an $810 edge box were ruled out on cost.</p>
+      <p>Some stores have no back-office computer to run the agent. The box is a small Linux machine on a spare router port that runs the agent with no screen. Detection stays in the cloud, so the box carries no accelerator.</p>
+      <p>The pick was the FriendlyElec NanoPi R76S, because nothing else that size had two network ports and built-in storage. A $485 mini PC and an $810 edge box were ruled out on cost.</p>
     </div>
+    <figure class="figure">
+      <div class="model-wrap"><div class="model-stage" data-model="edge-unit" data-explode="scroll" data-labels aria-label="A NanoPi R76S in a finned case wired to a bullet camera. The lid lifts as the page scrolls to show the RK3576 board, RAM, eMMC and Ethernet ports."></div></div>
+      <figcaption>A NanoPi R76S in its case. The case is drawn to fit the board.</figcaption>
+    </figure>
+    <dl class="kv"><dt>Board</dt><dd>FriendlyElec NanoPi R76S in its metal case. RK3576 chip, 4 GB RAM, 64 GB eMMC, two 2.5 gigabit ports.</dd><dt>Power</dt><dd>5 V, 3 A over USB-C. The network cable carries no power.</dd><dt>Cost</dt><dd>About $150 for the board, case and supply from one retailer.</dd><dt>To avoid</dt><dd>The 3 GB version has no built-in storage, and the bare-board versions come with no case or supply.</dd></dl>
   </section>
-
-  <section class="proj-section" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <ol class="a-steps">
-      <li><h3>Build</h3><p>Every agent build also makes an arm64 package for the box, and the build checks that the program really is arm64.</p></li>
-      <li><h3>Install</h3><p>Unpack the package and run one installer. It runs a self-test first and changes nothing if the test fails.</p></li>
-      <li><h3>Run</h3><p>The agent runs as a system service that restarts itself. Each box&#8217;s settings and state sit in one place.</p></li>
-      <li><h3>Update</h3><p>The box asks the server for an update built for arm64. A box is never given the Windows or x86 build. A release with no arm64 build means no update.</p></li>
-      <li><h3>Roll back</h3><p>Before every start a check runs. A new build that fails its self-test, or is started 3 times without staying up for 15 minutes, is swapped for the last good one and blocked for 24 hours.</p></li>
-    </ol>
-  </section>
-
-  <section class="proj-section" aria-labelledby="hw-h">
-    <h2 id="hw-h">The hardware</h2>
-    <div class="table-wrap a-table" tabindex="0" role="region" aria-label="Hardware, scrolls sideways on small screens">
-      <table>
-        <caption>What goes in one box</caption>
-        <tbody>
-          <tr><th scope="row">Board</th><td>FriendlyElec NanoPi R76S, 4 GB RAM and 64 GB eMMC, in its metal case. RK3576 chip, two 2.5 gigabit ports.</td></tr>
-          <tr><th scope="row">Power</th><td>5 V, 3 A USB-C supply. The network cable carries no power.</td></tr>
-          <tr><th scope="row">Cost</th><td>About $150 for the board, case and power supply from one retailer.</td></tr>
-          <tr><th scope="row">Avoid</th><td>The 3 GB version has no built-in storage. The bare-board versions come with no case or power supply.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="prose"><p><b>Where it stands.</b> This was tabled in 2026 before any box was bought, so it never ran on real hardware. Install, update and rollback were tested in automated builds only. A direct link to one kind of register was estimated and not built. What this page shows was designed, not a field result.</p></div>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list">
-      <li>Designed a custom circuit board around the NanoPi R76S for the in-store AI devices.</li>
-      <li>Compared the options and picked the board.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
+  <section class="proj-section" aria-labelledby="lifecycle-h">
+    <h2 id="lifecycle-h">Install, update and rollback</h2>
     <div class="prose">
-      <p>Hardware decisions are mostly about what you can buy and ship quickly. Power, ports and storage ruled out most options before performance mattered.</p>
-      <p>A box nobody can visit needs a way back from a bad update, which is why it rolls itself back to the last good build.</p>
+      <ol class="plain-list">
+        <li><b>Build.</b> Every agent build also makes an arm64 package, and the build checks that the program really is arm64.</li>
+        <li><b>Install.</b> One installer unpacks the package and runs a self-test first. If the test fails it changes nothing.</li>
+        <li><b>Run.</b> The agent runs as a system service that restarts itself. Each box keeps its settings and state in one place.</li>
+        <li><b>Update.</b> The box asks the server for an arm64 build. It is never given the Windows or x86 build, and a release with no arm64 build means no update.</li>
+        <li><b>Roll back.</b> Before every start a check runs. A build that fails its self-test, or starts 3 times without staying up for 15 minutes, is swapped for the last good one and blocked for 24 hours.</li>
+      </ol>
+      <p>The box was tabled on 29 September 2026 before any unit was bought. Install, update and rollback were tested in CI only. A direct link to one kind of register was estimated and not built.</p>
     </div>
   </section>
 
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li></ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
+  <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -140,6 +133,7 @@
   </div>
 </footer>
 
+<script type="module" src="/shared/models/auto.js"></script>
 <script type="module" src="/startup-work/argus/main.js"></script>
 </body>
 </html>

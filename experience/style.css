@@ -1,8 +1,8 @@
 /* Experience tab. Only this page loads this file. See docs/DESIGN.md.
-   A leather hero with an engraved gold halftone (scene.js), then three jobs set on paper in a wide, calm layout.
-   Text always sits on solid leather, paper or vellum. The halftone sits beside the title, never behind text.
+   A short leather band with a gold halftone (scene.js), a timeline of the three roles, then one entry per role on paper.
+   Text sits on solid leather or paper. The halftone sits beside the title, never behind text.
    Colour pairs (WCAG AA): paper on leather about 12:1, cream on leather about 9:1, ink on paper about 14:1,
-   brown #4A2E1A on paper about 9:1, rust #7E3A18 on paper about 6.5:1. Motion: transform and opacity only. */
+   brown #4A2E1A on paper about 9:1, rust #7E3A18 on paper about 6.5:1. Motion: transform, opacity and clip-path. */
 html{background:var(--bk-paper)}
 body.tab{margin:0;background:var(--bk-paper);color:var(--bk-ink);font-family:var(--bk-sans);font-size:var(--fs-body);line-height:var(--lh-body)}
 ::selection{background:var(--bk-brass);color:var(--bk-ink)}
@@ -11,12 +11,12 @@ main a{color:#7E3A18;text-underline-offset:3px}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;background:var(--bk-leather);color:var(--bk-paper);
-  padding:calc(var(--bar-h) + clamp(32px,9vh,112px)) var(--gut) clamp(44px,7vw,100px)}
-.hero-in{display:grid;gap:clamp(28px,4vw,64px);grid-template-columns:minmax(0,1fr);max-width:min(1480px,100%);margin:0 auto}
-@media (min-width:900px){.hero-in{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:center}}
+  padding:calc(var(--bar-h) + clamp(24px,6vh,72px)) var(--gut) clamp(40px,5vw,72px)}
+.hero-in{display:grid;gap:clamp(24px,4vw,64px);grid-template-columns:minmax(0,1fr);max-width:min(1480px,100%);margin:0 auto}
+@media (min-width:900px){.hero-in{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center}}
 .hero h1{margin:0 0 20px;font:400 var(--fs-h1)/.94 var(--bk-serif);letter-spacing:-.03em;font-variation-settings:"opsz" 72;text-wrap:balance}
-.lede{margin:0;max-width:34ch;font-size:var(--fs-lead);line-height:1.4;color:var(--bk-cream)}
-.hero-art{position:relative;aspect-ratio:4/3;max-height:min(56vh,520px);min-height:200px;width:100%;color:var(--bk-foil);
+.lede{margin:0;max-width:30em;font-size:var(--fs-lead);line-height:1.4;color:var(--bk-cream)}
+.hero-art{position:relative;aspect-ratio:16/9;max-height:300px;min-height:150px;width:100%;color:var(--bk-foil);
   background:var(--bk-stipple) 0 0/12px 12px;
   -webkit-mask-image:radial-gradient(ellipse 62% 62% at 62% 50%,#000,transparent);mask-image:radial-gradient(ellipse 62% 62% at 62% 50%,#000,transparent)}
 .scene{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .5s var(--bk-out);pointer-events:none}
@@ -26,61 +26,47 @@ main a{color:#7E3A18;text-underline-offset:3px}
 .hero-in>*:nth-child(2){animation-delay:60ms}
 @keyframes ex-rise{from{opacity:0;transform:translateY(12px)}}
 
-/* ---------- Numbers: a ledger row on vellum ---------- */
-.ledger{list-style:none;margin:clamp(28px,4vw,56px) auto 0;padding:0;width:var(--wrap);display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));border-top:2px solid var(--bk-ink)}
-.ledger li{padding:20px 22px 18px;background:var(--bk-vellum);box-shadow:-1px 0 0 rgba(23,16,10,.3),0 1px 0 rgba(23,16,10,.3)}
-.ledger b{display:block;font:500 clamp(36px,4.4vw,56px)/1 var(--bk-serif);font-variant-numeric:lining-nums tabular-nums;color:var(--bk-ink)}
-.ledger span{display:block;margin-top:12px;padding-top:8px;border-top:1px dotted #4A2E1A;font-size:var(--fs-small);line-height:1.4;color:#4A2E1A}
+/* ---------- Timeline: one row per role, bars sit on a 2022 to 2026 axis ---------- */
+.span{width:var(--wrap);margin:clamp(48px,7vw,96px) auto 0;padding:0}
+.span-axis,.span-rows li{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+@media (min-width:700px){.span-axis,.span-rows li{grid-template-columns:14rem minmax(0,1fr);gap:20px}}
+.span-axis ol{list-style:none;margin:0;padding:0 0 8px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-bottom:1px solid var(--bk-ink);
+  font-size:var(--fs-small);color:#4A2E1A;font-variant-numeric:lining-nums tabular-nums}
+.span-axis li{padding-left:6px;border-left:1px solid rgba(23,16,10,.3)}
+.span-axis>span{display:none}
+@media (min-width:700px){.span-axis>span{display:block}}
+.span-rows{list-style:none;margin:0;padding:0}
+.span-rows li{align-items:center;padding:14px 0;border-bottom:1px solid rgba(23,16,10,.2)}
+.span-name{font-size:var(--fs-body);font-weight:500}
+.span-track{position:relative;display:block;height:20px;
+  background:repeating-linear-gradient(90deg,rgba(23,16,10,.3) 0 1px,transparent 1px 20%) 0 0/100% 100%}
+.span-bar{position:absolute;top:2px;bottom:2px;left:var(--l);width:var(--w);background:var(--bk-saddle);transform-origin:0 50%}
+html.js:not(.mo-off) .span-bar{transform:scaleX(0);transition:transform .7s var(--bk-out) .15s}
+html.js:not(.mo-off) .span-rows.in .span-bar{transform:none}
+html.js:not(.mo-off) .span-rows li:nth-child(2) .span-bar{transition-delay:.18s}
+html.js:not(.mo-off) .span-rows li:nth-child(3) .span-bar{transition-delay:.21s}
 
-/* ---------- Jobs ---------- */
-.entries{width:var(--wrap);margin:0 auto;padding-top:clamp(24px,4vw,56px)}
-.entry{display:grid;gap:clamp(28px,4.5vw,80px);grid-template-columns:minmax(0,1fr);padding-block:clamp(44px,7vw,104px);
-  border-top:1px solid rgba(23,16,10,.34);content-visibility:auto;contain-intrinsic-size:auto 760px}
+/* ---------- Entries: dates in the left column, text in one reading column ---------- */
+.entries{width:var(--wrap);margin:0 auto;padding-top:clamp(24px,4vw,56px);padding-bottom:var(--section)}
+.entry{display:grid;gap:12px clamp(20px,4vw,64px);grid-template-columns:minmax(0,1fr);padding-block:clamp(40px,6vw,88px);border-top:1px solid rgba(23,16,10,.34)}
 .entry:first-child{border-top:0}
-@media (min-width:1000px){
-  .entry{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center}
-  .entry:nth-child(even){grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
-  .entry:nth-child(even) .entry-art{order:-1}
+@media (min-width:900px){
+  .entry{grid-template-columns:14rem minmax(0,var(--measure))}
+  .entry-dates{position:sticky;top:calc(var(--bar-h) + 24px);align-self:start}
 }
+.entry-dates{margin:0;font:400 var(--fs-h4)/1.4 var(--bk-sans);color:#4A2E1A;font-variant-numeric:lining-nums}
 .entry h2{margin:0 0 10px;font:400 var(--fs-h2)/1.05 var(--bk-serif);letter-spacing:-.02em;text-wrap:balance}
-.entry-role{margin:0;font-size:var(--fs-lead);line-height:1.35;font-family:var(--bk-serif);font-style:italic;color:#17100A}
-.entry-dates{margin:6px 0 clamp(18px,2.4vw,28px);font-size:var(--fs-small);color:#4A2E1A}
+.entry-role{margin:0 0 1em;font-size:var(--fs-lead);line-height:1.35;font-family:var(--bk-serif);font-style:italic;color:var(--bk-ink)}
 .entry-text p{margin:0 0 1.1em;max-width:var(--measure)}
-.facts{list-style:none;margin:clamp(20px,2.4vw,32px) 0;padding:0;max-width:var(--measure)}
-.facts li{display:grid;grid-template-columns:minmax(4.6ch,auto) 1fr;gap:4px 18px;align-items:baseline;padding:12px 0;border-top:1px solid rgba(23,16,10,.34)}
-.facts li:last-child{border-bottom:1px solid rgba(23,16,10,.34)}
-.facts b{font:500 clamp(26px,3vw,34px)/1 var(--bk-serif);font-variant-numeric:lining-nums tabular-nums;color:#9C4A22}
-.sub-links{list-style:none;margin:0 0 clamp(18px,2.4vw,28px);padding:0;display:grid;gap:0;max-width:var(--measure)}
+.sub-links{list-style:none;margin:0 0 1.4em;padding:0;display:grid;gap:0;max-width:var(--measure)}
 .sub-links a{display:flex;align-items:center;gap:12px;min-height:48px;font-weight:500}
-.sub-links a::before{content:"";width:10px;height:10px;border:2px solid #9C4A22;border-radius:50%;flex:none}
+.sub-links a::before{content:"";width:10px;height:10px;border:2px solid #9C4A22;border-radius:50%;flex:none;transition:background-color .15s var(--bk-out)}
+.sub-links a:hover::before{background:#9C4A22}
 .link-more{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;background:var(--bk-leather);color:var(--bk-paper);
   font:600 17px/1 var(--bk-sans);text-decoration:none;transition:transform .15s var(--bk-out),background-color .15s var(--bk-out)}
 main .link-more{color:var(--bk-paper)}
-.link-more::after{content:"";width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);flex:none}
+.link-more::after{content:"";width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);flex:none;transition:transform .15s var(--bk-out)}
 .link-more:hover{background:var(--bk-walnut)}
+.link-more:hover::after{transform:translateX(3px) rotate(45deg)}
 .link-more:active{transform:scale(.97)}
-.item-more{margin:0}
-
-/* The figure is a leather plate with a stipple shadow behind it. */
-.entry-art{position:relative;margin:0}
-.entry-art::before{content:"";position:absolute;inset:16px -16px 0 16px;color:var(--bk-saddle);pointer-events:none;
-  background:var(--bk-stipple) 0 0/6px 6px;-webkit-mask-image:linear-gradient(135deg,transparent 35%,#000);mask-image:linear-gradient(135deg,transparent 35%,#000)}
-.entry-art img{position:relative;display:block;width:100%;height:auto;border:1px solid var(--bk-ink);background:var(--bk-leather)}
-
-/* ---------- Education ---------- */
-.edu{width:var(--wrap);margin:0 auto;padding-bottom:var(--section)}
-.edu .surface{display:grid;gap:12px 48px;grid-template-columns:minmax(0,1fr)}
-@media (min-width:900px){.edu .surface{grid-template-columns:minmax(0,4fr) minmax(0,8fr);align-items:baseline}}
-.edu h2{margin:0;font:400 var(--fs-h3)/1.2 var(--bk-serif)}
-.edu p{margin:0 0 .6em;max-width:var(--measure)}
-
-/* ---------- Motion (html.ex-anim, set by main.js) ---------- */
-html.ex-anim .entry .entry-text>*,html.ex-anim .entry-art{opacity:0;transform:translateY(14px);
-  transition:opacity .3s var(--bk-out),transform .35s var(--bk-out);transition-delay:calc(var(--i,0) * 30ms)}
-html.ex-anim .entry.in .entry-text>*,html.ex-anim .entry.in .entry-art{opacity:1;transform:none}
-
-@media (max-width:640px){
-  .hero-art{aspect-ratio:16/9;min-height:160px}
-  .ledger li{padding:16px 16px 14px}
-}
+@media (max-width:640px){.hero-art{aspect-ratio:16/7;min-height:110px;max-height:130px}}

@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Research | Ayan Basheer</title>
-<meta name="description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a currency strategy test, a rent model and a spending data search.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Research - Ayan Basheer</title>
+<meta name="description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a trading strategy lab, a rent model and a spending data search.">
 <link rel="canonical" href="https://endyland.com/research/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/research/">
-<meta property="og:title" content="Research | Ayan Basheer">
-<meta property="og:description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a currency strategy test, a rent model and a spending data search.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Research - Ayan Basheer">
+<meta property="og:description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a trading strategy lab, a rent model and a spending data search.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og/research.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Research. RF, a trading strategy lab, a rent model and a spending data search. endyland logo on dark brown.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research - Ayan Basheer">
+<meta name="twitter:description" content="Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a trading strategy lab, a rent model and a spending data search.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og/research.png">
+<meta name="twitter:image:alt" content="Research. RF, a trading strategy lab, a rent model and a spending data search. endyland logo on dark brown.">
 <meta name="theme-color" content="#26180F">
 <meta name="color-scheme" content="light dark">
 <script src="/shared/nav.js"></script>
@@ -21,6 +36,7 @@
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/research/style.css">
 <link rel="modulepreload" href="/research/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://endyland.com/research/#webpage","url":"https://endyland.com/research/","name":"Research - Ayan Basheer","description":"Research by Ayan Basheer: an RF direction finder and beam steering at 5.8 GHz, a trading strategy lab, a rent model and a spending data search.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og/research.png","width":1200,"height":630},"about":{"@id":"https://endyland.com/#person"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://endyland.com/research/"}]}]}</script>
 </head>
 <body class="tab tab-research">
 <a class="skip" href="#main">Skip to content</a>
@@ -31,6 +47,7 @@
     <nav class="bar-nav" id="bar-nav" aria-label="Sections">
       <ul>
       <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="page">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -44,81 +61,59 @@
   <canvas id="scene" class="scene" aria-hidden="true"></canvas>
   <div class="intro-copy">
     <h1 id="page-h">Research</h1>
-    <p class="lede">Questions I am working out, with the numbers shown as they came in. Two are on radio and two are on data, and one of them is an honest no.</p>
-    <p class="jump"><a href="#rf-direction-finder">RF direction finder</a><a href="#parity">Parity</a><a href="#dfw-rent-model">DFW rents</a><a href="#spending-explorer">Spending search</a></p>
+    <p class="lede">Four projects: an antenna array design for finding and steering toward a 5.8 GHz signal, a test bench for trading strategies, a rent model, and a search tool for county spending.</p>
   </div>
 </section>
 
-<article class="work work--paper" id="rf-direction-finder" aria-labelledby="rf-direction-finder-h">
-  <div class="work-in">
-    <div class="work-text">
-      <h2 id="rf-direction-finder-h">RF direction finder and Butler matrix</h2>
-      <p class="work-role">UT Dallas RIDE. Sep 2026 to now. One of 3 on the team.</p>
-      <p>A 5.8 GHz antenna array that finds where a signal comes from, then steers its beam toward it. Includes a Butler matrix that steers the beam with fixed phase shifts, so no phase has to be measured.</p>
-      <dl class="work-facts">
-        <div><dt>4x4 array error</dt><dd>0.022 degrees at 20 dB</dd></div>
-        <div><dt>Versus the 2x2</dt><dd>4.5 times smaller</dd></div>
-        <div><dt>Steering loss</dt><dd>under 1.1 dB on average with 2-bit phase shifters</dd></div>
-      </dl>
-      <ul class="item-links">
-        <li><a class="link-more" href="/research/rf-direction-finder/">Read the write-up</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-      </ul>
+<div class="rows">
+<article class="row" id="rf-direction-finder" aria-labelledby="rf-direction-finder-h">
+  <div class="row-text">
+    <h2 id="rf-direction-finder-h">RF direction finder and Butler matrix</h2>
+    <p>A design for a 5.8 GHz antenna array that estimates the direction a signal arrives from and steers its beam to it. The first array has four antennas in a 2x2 grid and the larger one has sixteen in a 4x4 grid. It is a UT Dallas RIDE project with two other students, September 2026 to now. All results so far are simulated. In simulation the 4x4 version finds a source to 0.022 degrees at 20 dB signal to noise, 4.5 times closer than the 2x2.</p>
+    <p><a class="link-more" href="/research/rf-direction-finder/">Read the write-up</a></p>
+  </div>
+  <figure class="inst" data-reveal="rise">
+    <div class="polar-wrap"><canvas id="polar" class="polar" role="img" aria-label="Beam pattern of a four-element array. It follows the slider."></canvas></div>
+    <div class="steer">
+      <label for="steer">Steer angle</label>
+      <input type="range" id="steer" min="-60" max="60" step="1" value="20">
+      <output id="steer-out" for="steer">+20&#176;</output>
     </div>
-    <figure class="inst">
-      <div class="polar-wrap"><canvas id="polar" class="polar" aria-hidden="true"></canvas></div>
-      <div class="steer">
-        <label for="steer">Steer angle</label>
-        <input type="range" id="steer" min="-60" max="60" step="1" value="20" aria-describedby="steer-out">
-        <output id="steer-out" for="steer">+20&#176;</output>
-      </div>
-      <figcaption>Live beam plot. Four elements, half a wavelength apart. The beam follows a moving test signal. Drag the plot or use the slider to steer it yourself.</figcaption>
-    </figure>
+  </figure>
+</article>
+
+<article class="row row--flip" id="parity" aria-labelledby="parity-h">
+  <div class="row-text">
+    <h2 id="parity-h">Parity</h2>
+    <p>A test bench that runs trading strategies through 11 fixed tests and compares them with holding the S&amp;P 500. 16 strategies have been tested. None passed. The best Sharpe ratio is 0.75, against 0.54 for the market. I built the test engine and the web app on a small team, October 2026 to now.</p>
+    <p><a class="link-more" href="/research/parity/">Read the write-up</a></p>
+  </div>
+  <figure class="bars" id="tab-bars" role="img" aria-label="Sharpe ratio of the S&amp;P 500 (0.54) and the six best strategies (0.75, 0.69, 0.66, 0.61, 0.57, 0.57).">
+    <div class="bar-row mkt" style="--v:.54"><span>S&amp;P 500</span><i></i><b>0.54</b></div>
+    <div class="bar-row" style="--v:.75"><span>10-month trend</span><i></i><b>0.75</b></div>
+    <div class="bar-row" style="--v:.69"><span>Golden cross</span><i></i><b>0.69</b></div>
+    <div class="bar-row" style="--v:.66"><span>Volatility managed</span><i></i><b>0.66</b></div>
+    <div class="bar-row" style="--v:.61"><span>Turn of month</span><i></i><b>0.61</b></div>
+    <div class="bar-row" style="--v:.57"><span>Stocks plus currency trend</span><i></i><b>0.57</b></div>
+    <div class="bar-row" style="--v:.57"><span>Sell in May</span><i></i><b>0.57</b></div>
+  </figure>
+</article>
+
+<article class="row row--text" id="dfw-rent-model" aria-labelledby="dfw-rent-model-h">
+  <div class="row-text">
+    <h2 id="dfw-rent-model-h">DFW rental pricing model</h2>
+    <p>A model that predicts Dallas-Fort Worth rents from 1,200+ listings. The median error is 6%. It flagged 8 units asking far less than predicted, worth about $14K a year.</p>
+    <p><a class="link-more" href="/research/dfw-rent-model/">Read the write-up</a></p>
   </div>
 </article>
 
-<article class="work work--dark" id="parity" aria-labelledby="parity-h">
-  <div class="work-in work-in--flip">
-    <div class="work-text">
-      <h2 id="parity-h">Parity</h2>
-      <p class="work-role">Oct 2026 to now. Built the engine and the web app.</p>
-      <p>Can a trading program beat the S&amp;P 500? I built the lab to find out: 16 strategies, 11 tests each, results written down before the run. None has beaten it, and the page says so plainly.</p>
-      <dl class="work-facts">
-        <div><dt>Beat the S&amp;P 500</dt><dd>0 of 16</dd></div>
-        <div><dt>Best Sharpe ratio</dt><dd>0.75, against the market&#8217;s 0.54</dd></div>
-        <div><dt>Official runs</dt><dd>3, and all failed their plan</dd></div>
-      </dl>
-      <ul class="item-links">
-        <li><a class="link-more" href="/research/parity/">Read the write-up</a></li>
-        <li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li>
-      </ul>
-    </div>
-    <figure class="shot">
-      <img src="/research/parity/img/dashboard-home-720.webp" srcset="/research/parity/img/dashboard-home-720.webp 720w, /research/parity/img/dashboard-home.webp 1440w" sizes="(min-width:1000px) 52vw, 92vw" width="1440" height="900" alt="The Parity dashboard: a list of strategies with Sharpe ratios and a card reading 0 of 16 beat the S&amp;P 500." loading="lazy" decoding="async">
-      <figcaption>The dashboard, from my own copy of the app, Nov 11, 2026.</figcaption>
-    </figure>
+<article class="row row--text" id="spending-explorer" aria-labelledby="spending-explorer-h">
+  <div class="row-text">
+    <h2 id="spending-explorer-h">Public spending data explorer</h2>
+    <p>A search tool for county spending records. It cleans 250K+ rows and merges 40+ vendors that appear under several names. A search that took about 20 minutes by hand takes under 5 seconds.</p>
+    <p><a class="link-more" href="/research/spending-explorer/">Read the write-up</a></p>
   </div>
 </article>
-
-<div class="work work--paper work--data">
-  <article class="work-in work-row" id="dfw-rent-model" aria-labelledby="dfw-rent-model-h">
-    <figure class="shot"><img src="/research/dfw-rent-model/img/figure.svg" width="800" height="450" alt="Diagram: 1,200+ listings go into the model, which predicts rent within 6% and finds 8 underpriced units worth $14K a year." loading="lazy" decoding="async"></figure>
-    <div class="work-text">
-      <h2 id="dfw-rent-model-h">DFW rental pricing model</h2>
-      <p class="work-role">2026</p>
-      <p>A model that predicts Dallas-Fort Worth rents from 1,200+ listings. The median error is 6%, and it flagged 8 units asking far less than expected, worth about $14K a year.</p>
-      <ul class="item-links"><li><a class="link-more" href="/research/dfw-rent-model/">Read the write-up</a></li></ul>
-    </div>
-  </article>
-  <article class="work-in work-row work-row--flip" id="spending-explorer" aria-labelledby="spending-explorer-h">
-    <figure class="shot"><img src="/research/spending-explorer/img/figure.svg" width="800" height="450" alt="Diagram: 250K+ rows are cleaned and 40+ duplicate vendors merged, so a 20-minute search takes under 5 seconds." loading="lazy" decoding="async"></figure>
-    <div class="work-text">
-      <h2 id="spending-explorer-h">Public spending data explorer</h2>
-      <p class="work-role">2026</p>
-      <p>A search tool for county spending records. 250K+ rows cleaned and 40+ duplicate vendors merged, so a search that took 20 minutes by hand takes under 5 seconds.</p>
-      <ul class="item-links"><li><a class="link-more" href="/research/spending-explorer/">Read the write-up</a></li></ul>
-    </div>
-  </article>
 </div>
 </main>
 
@@ -126,8 +121,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

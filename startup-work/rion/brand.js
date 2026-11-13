@@ -5,6 +5,7 @@
 // - mounts the page's 2D canvas scene (<canvas class="proj-scene">), which pauses off screen and in a hidden tab
 import { initProject } from '../../shared/project.js';
 import { onVisible } from '../../shared/motion.js';
+import { initDiagrams } from '../diagram.js';
 import { mountScene } from '../../shared/scene-loader.js';
 
 const root = document.documentElement;
@@ -25,6 +26,7 @@ export function arrivalPoint() {
 
 export function initRion({ scene } = {}) {
   initProject();
+  initDiagrams();
   document.querySelectorAll('.a-steps, .a-parts, .a-time, .sub-list').forEach((list) => {
     [...list.children].forEach((li, i) => { li.classList.add('a-rv'); li.style.setProperty('--i', String(i)); });
   });

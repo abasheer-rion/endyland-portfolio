@@ -25,16 +25,10 @@ body.proj-page{background:#04070D}
 .proj h3{font-weight:500;letter-spacing:-.01em}
 .proj-summary{color:var(--r-grey);max-width:34ch}
 .proj-logo{max-height:44px}
-.proj-kicker{color:var(--p-link)}
-.proj .proj-stack li{background:transparent;color:#E6E9F0}
-.stat b{font-weight:400}
-.a-key{color:var(--p-link)}
 .proj-section{background:#04070D}
 .proj-hero{position:relative;isolation:isolate}
 .rion-stage{display:none}
 .proj-rion .rion-stage{display:block;position:relative;min-height:clamp(240px,34vw,420px)}
-.proj-rion .proj-hero{align-items:stretch}
-.proj-rion .proj-intro{padding:clamp(18px,3vw,36px);background:#04070D;border:1px solid var(--p-line);border-radius:var(--p-radius)}
-.a-shot img{background:#07090F}
-.a-fig img{background:#07090F}
+.proj-rion-sub .rion-stage{display:none}
+@media (max-width:999px){.proj-rion .rion-stage{min-height:240px}}
 .gallery a img{background:#07090F}

@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Carrier Trunk Provisioning Tool | Ayan Basheer</title>
+<title>Carrier Trunk Provisioning Tool - Ayan Basheer</title>
 <meta name="description" content="The record system and API behind a $70M-a-year revenue line, built alone at Verizon.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/experience/verizon-trunk-tool/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/experience/verizon-trunk-tool/">
-<meta property="og:title" content="Carrier Trunk Provisioning Tool | Ayan Basheer">
+<meta property="og:title" content="Carrier Trunk Provisioning Tool - Ayan Basheer">
 <meta property="og:description" content="The record system and API behind a $70M-a-year revenue line, built alone at Verizon.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Carrier Trunk Provisioning Tool - Ayan Basheer">
+<meta name="twitter:description" content="The record system and API behind a $70M-a-year revenue line, built alone at Verizon.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#EFE3C8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -21,6 +36,7 @@
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/experience/project-theme.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/experience/verizon-trunk-tool/#webpage","url":"https://endyland.com/experience/verizon-trunk-tool/","name":"Carrier Trunk Provisioning Tool - Ayan Basheer","description":"The record system and API behind a $70M-a-year revenue line, built alone at Verizon.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/experience/verizon-trunk-tool/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/experience/verizon-trunk-tool/#main","name":"Carrier Trunk Provisioning Tool","headline":"Carrier Trunk Provisioning Tool","description":"The record system and API behind a $70M-a-year revenue line, built alone at Verizon.","url":"https://endyland.com/experience/verizon-trunk-tool/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/experience/verizon-trunk-tool/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Experience","item":"https://endyland.com/experience/"},{"@type":"ListItem","position":3,"name":"Carrier Trunk Provisioning Tool","item":"https://endyland.com/experience/verizon-trunk-tool/"}]}]}</script>
 </head>
 <body class="proj-page proj-verizon-trunk-tool">
 <a class="skip" href="#main">Skip to content</a>
@@ -35,6 +51,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/" aria-current="true">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -48,58 +65,32 @@
   <header class="proj-hero">
     <div class="proj-intro">
     <h1>Carrier Trunk Provisioning Tool</h1>
-    <p class="proj-summary">The record system and API behind a $70M-a-year revenue line. I built it alone.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Sole developer</dd></div><div><dt>Dates</dt><dd>Verizon internship, 2025 and 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>REST APIs</li><li>CI/CD</li></ul></dd></div></dl>
-    <ul class="proj-links"><li class="proj-nolink">Internal tool. No public link.</li></ul>
+    <p class="proj-summary">The record system and API for carrier trunk provisioning, behind a revenue line of $70M a year.</p>
+    <p class="proj-facts">Only developer, Verizon internship, 2025 and 2026. Python, REST APIs and CI/CD.</p>
     </div>
-    <figure class="proj-hero-media"><div class="fig-stage"><img src="img/figure.svg" width="800" height="450" alt="Diagram: carrier trunks are recorded in one record system with an API, which backs a $70M-a-year revenue line." fetchpriority="high" decoding="async"></div><figcaption>Carrier trunks feed one record system with an API on top. That system backs a $70M-a-year revenue line.</figcaption></figure>
   </header>
 
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
+  <section class="proj-section" aria-labelledby="what-h" data-reveal-group>
+    <h2 id="what-h">What it does</h2>
     <p>A carrier trunk is a connection that carries voice traffic between a carrier&#8217;s network and another network. A revenue line worth $70M a year depends on those trunks being provisioned correctly.</p>
-    <p>That takes one place that holds the truth about every trunk, and a way for other systems to ask it questions and make changes.</p>
+    <p>The tool keeps one record for every trunk and has a REST API, so other systems can read and change those records. I wrote it in Python as the only developer.</p>
+    <figure class="figure"><ol class="flow" data-reveal-group><li>Carrier trunks</li><li>Record system</li><li>REST API</li><li>Other tools</li></ol></figure>
   </section>
-  <section class="proj-section" aria-labelledby="built-h">
-    <h2 id="built-h">What I built</h2>
-    <div class="split"><div>
-    <p>The Carrier Trunk Provisioning Tool is the record system for carrier trunk provisioning, with a REST API on top. I built it solo, from scratch, in Python.</p>
-    <p>It ships through a gated CI/CD pipeline. Every release runs 300+ automated tests first, and I took the manual deploy steps down to zero.</p>
-    </div>    <ul class="facts-list"><li><b>1</b><span>developer: me, from the records to the API</span></li><li><b>300+</b><span>automatic tests before every release</span></li><li><b>0</b><span>manual deploy steps left</span></li></ul>
-    </div>
-  </section>
-  <section class="proj-section" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <p>There are two paths to follow. The first is how a trunk becomes revenue. The second is how a change reaches production.</p>
-    <figure class="plate"><ol class="pipe"><li><h3>Carrier trunks</h3><p>The connections that carry voice traffic. Each one has a record.</p></li><li><h3>Record system</h3><p>One place that holds the record for every trunk. It is the system of record.</p></li><li><h3>REST API</h3><p>Written in Python. Other tools read and change records through the API.</p></li><li><span class="pipe-fig">$70M</span><h3>A year in revenue</h3><p>The revenue line that depends on trunk provisioning.</p></li></ol><figcaption>The tool in the middle is the part I built. Each arrow is a hand-off from one stage to the next.</figcaption></figure>
-    <figure class="plate"><ol class="pipe"><li><h3>A change</h3><p>A code change is ready to ship.</p></li><li><span class="pipe-fig">300+</span><h3>Automatic tests</h3><p>Run before every release, with no one clicking through steps.</p></li><li><h3>The gate</h3><p>A release goes out only when the tests pass.</p></li><li><span class="pipe-fig">0</span><h3>Manual deploy steps</h3><p>Deploying is automatic. I drove the manual steps to zero.</p></li></ol><figcaption>The release path. The gate is why a one-person tool can carry a $70M-a-year line.</figcaption></figure>
-  </section>
-  <section class="proj-section" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">Results</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">$70M</span><span aria-hidden="true" data-count="70" data-pre="$" data-post="M">$70M</span></b><span>a year in revenue it backs</span></li><li class="stat"><b>1</b><span>developer: me</span></li><li class="stat"><b><span class="visually-hidden">300+</span><span aria-hidden="true" data-count="300" data-post="+">300+</span></b><span>automatic tests before every release</span></li><li class="stat"><b>0</b><span>manual deploy steps left</span></li></ul>
-  </section>
-  <section class="proj-section" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list"><li>Built the Carrier Trunk Provisioning Tool on my own, from scratch, in Python.</li><li>Designed the record system and the REST API on top of it.</li><li>Built the release pipeline: gated CI/CD with 300+ automated tests before every release.</li><li>Took manual deploy steps to zero.</li></ul>
-  </section>
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <ul class="learn-list"><li>A system of record earns trust by being right every time. Tests before every release matter more than speed.</li><li>When one person owns a whole system, the pipeline is how you stay safe. It checks the work when nobody else is looking.</li></ul>
-  </section>
-  <section class="proj-section" aria-labelledby="related-h">
-    <h2 id="related-h">More from Verizon</h2>
-    <ul class="plain-list"><li><a href="/experience/verizon/">Part of Verizon</a></li><li><a href="/experience/verizon-backups/">Voice network device backups</a></li><li><a href="/experience/verizon-cloud-move/">Moving apps off VMware</a></li></ul>
+  <section class="proj-section" aria-labelledby="rel-h" data-reveal-group>
+    <h2 id="rel-h">Releases</h2>
+    <p>Releases go through a CI/CD pipeline that runs 300+ automated tests before anything ships. Deploys have no manual steps.</p>
   </section>
 
-  <p class="proj-back"><a class="back-link" href="/experience/verizon/">Back to Verizon</a><a class="back-link" href="/experience/">Back to Experience</a></p>
+  <p class="proj-back"><a class="back-link" href="/experience/verizon/">Back to Verizon</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

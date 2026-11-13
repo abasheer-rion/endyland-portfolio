@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Argus | Ayan Basheer</title>
-<meta name="description" content="Argus was an app for convenience stores and gas stations, starting with AI cameras that spot theft. I cofounded it and led engineering. It ended in 2026.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Argus - Ayan Basheer</title>
+<meta name="description" content="Camera-based theft alerts for convenience stores: staff get a short clip when behaviour looks like concealing merchandise. Ayan Basheer left in 2026.">
 <link rel="canonical" href="https://endyland.com/startup-work/argus/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/startup-work/argus/">
-<meta property="og:title" content="Argus | Ayan Basheer">
-<meta property="og:description" content="Argus was an app for convenience stores and gas stations, starting with AI cameras that spot theft. I cofounded it and led engineering. It ended in 2026.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Argus - Ayan Basheer">
+<meta property="og:description" content="Camera-based theft alerts for convenience stores: staff get a short clip when behaviour looks like concealing merchandise. Ayan Basheer left in 2026.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og/argus.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Argus. Computer vision for convenience store cameras. Ayan Basheer worked on it from 2025 to 2026. endyland logo on dark brown.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Argus - Ayan Basheer">
+<meta name="twitter:description" content="Camera-based theft alerts for convenience stores: staff get a short clip when behaviour looks like concealing merchandise. Ayan Basheer left in 2026.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og/argus.png">
+<meta name="twitter:image:alt" content="Argus. Computer vision for convenience store cameras. Ayan Basheer worked on it from 2025 to 2026. endyland logo on dark brown.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
 <link rel="stylesheet" href="/startup-work/pages.css">
 <link rel="modulepreload" href="/startup-work/argus/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/startup-work/argus/#webpage","url":"https://endyland.com/startup-work/argus/","name":"Argus - Ayan Basheer","description":"Camera-based theft alerts for convenience stores: staff get a short clip when behaviour looks like concealing merchandise. Ayan Basheer left in 2026.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og/argus.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/startup-work/argus/#main"}},{"@type":"WebPage","@id":"https://endyland.com/startup-work/argus/#main","name":"Argus","headline":"Argus","description":"Camera-based theft alerts for convenience stores: staff get a short clip when behaviour looks like concealing merchandise. Ayan Basheer left in 2026.","url":"https://endyland.com/startup-work/argus/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og/argus.png","mainEntityOfPage":{"@id":"https://endyland.com/startup-work/argus/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Startup work","item":"https://endyland.com/startup-work/"},{"@type":"ListItem","position":3,"name":"Argus","item":"https://endyland.com/startup-work/argus/"}]}]}</script>
 </head>
 <body class="proj-page proj-argus">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -49,131 +66,56 @@
 
   <header class="proj-hero">
     <div class="proj-intro">
-    <img class="proj-logo" src="img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
-    <p class="proj-kicker">Cofounder and lead engineer<span class="status-chip">Ended 2026</span></p>
+    <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
     <h1>Argus</h1>
-    <p class="proj-summary">One app to run a convenience store or gas station, starting with <span class="a-key">AI cameras that spot theft</span>.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Cofounded and led engineering. Owned product strategy, pricing and delivery.</dd></div><div><dt>Dates</dt><dd>2025 to 2026, ended 2026</dd></div><div><dt>Company</dt><dd>Argus AI (Argus Vision, Inc.), Plano, TX</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>EVA-CLIP</li><li>OpenCV</li><li>TensorFlow</li><li>FastAPI</li><li>AWS Lambda</li><li>Node and Express</li><li>Postgres</li><li>Clerk</li><li>Stripe</li><li>Next.js</li><li>Cloudflare Pages</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://useargus.co" rel="noopener">useargus.co</a></li><li><a href="https://docs.useargus.co" rel="noopener">Docs</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">Argus watches the cameras a convenience store already has and sends an alert, with a short clip, when a person&#8217;s behaviour over time looks like concealing merchandise.</p>
+    <p class="proj-facts">Lead engineer, 2025 to 2026. I handed off my work and left in 2026 to spend more time on school and electrical engineering. Argus continues under Rayan Sikkandar and the team.</p>
+    <ul class="proj-links"><li><a href="https://useargus.co" rel="noopener">useargus.co</a></li><li><a href="https://docs.useargus.co" rel="noopener">Docs</a></li></ul>
     </div>
-    <figure class="proj-hero-media a-shot"><img src="img/hero.webp" srcset="img/hero-720.webp 720w, img/hero.webp 1440w" sizes="(min-width:960px) 55vw, 100vw" width="1440" height="796" alt="The useargus.co home page in November 2026: Run your whole store from one place, with a product demo using sample data." fetchpriority="high" decoding="async"><figcaption>useargus.co, captured in November 2026. The demo uses sample data.</figcaption></figure>
   </header>
 
-  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it worked</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li><li><a href="#time-h">Timeline</a></li><li><a href="#end-h">How it ended</a></li></ul></nav>
-
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">Stores lose stock to shrink, and cameras only <span class="a-key">record it</span>.</h2>
+  <section class="proj-section" aria-labelledby="what-h">
+    <h2 id="what-h">What it does</h2>
     <div class="prose">
-      <p>Shrink is the stock a store loses to theft and loss. Convenience stores and gas stations feel it hardest because their margins are thin.</p>
-      <p>Most of these stores already have cameras. Cameras help after the fact. Nobody can watch every feed all day, so footage mostly gets looked at once something is already gone.</p>
-      <p>The store owner also runs on a pile of separate tools: a register system, a camera recorder, invoices on paper, stock counts in a notebook. Nothing puts those together, so nobody can see, for example, what was paid for against what left the building.</p>
+      <p>A store&#8217;s cameras and its register are separate systems. Argus puts them in one web portal with live camera tiles, alerts, register data, stock, invoices and staff tools. Alerts also go out by SMS.</p>
+      <p>The alerts come from a vision engine that scores behaviour. It does not see an item go into a bag, goods leave a shelf, concealment under clothing, gaze or people working together, so a person reviews the clip before anything happens.</p>
+      <p>While I was there Argus had a Demo Day, was accepted into NVIDIA Inception and the Cloudflare Startup Program, and was verified into POS systems.</p>
+      <p>On the engineering side I wrote most of the engine&#8217;s serving path, the streaming agent, the deployment scripts and the labelling and fine-tuning pipeline. The original detection, pose and classifier modules and the first labelling tool were written by other members of the team.</p>
     </div>
   </section>
-
-  <section class="proj-section" aria-labelledby="approach-h">
-    <h2 id="approach-h">Cameras in, <span class="a-key">one risk score</span> per person out.</h2>
-    <div class="prose"><p>We started with theft because it is the loss owners feel most, and because the cameras were already on the wall. Then we grew the product toward the whole store day: invoices, money, stock, staff and the register.</p></div>
-    <ol class="a-steps">
-      <li><h3>Watch the cameras</h3><p>A desktop app on a computer the store already has finds the camera recorder and sends its feeds to Argus. No new cameras, nothing to mount. Setup was meant to take under 5 minutes.</p></li>
-      <li><h3>Track people and pose</h3><p>The AI finds each person and follows how their body moves, together with the visual signals around them.</p></li>
-      <li><h3>One risk score</h3><p>Everything is combined into a single score for each person. Staff see one number and a short video clip, not a wall of video.</p></li>
-    </ol>
-    <div class="prose"><p>Around the AI we built the <a href="/startup-work/argus-dashboard/">store dashboard</a> where owners see alerts, stock, money and staff, an <a href="/startup-work/argus-edge-board/">in-store AI board</a> for stores with no back-office computer, and the <a href="/startup-work/argus-site/">marketing site</a>. The AI itself is <a href="/startup-work/argus-one/">Argus One</a>.</p></div>
-  </section>
-
-  <section class="proj-section" aria-labelledby="how-h">
-    <h2 id="how-h">How it worked, from camera to dashboard.</h2>
-    <div class="prose"><p>The streaming agent sends each camera feed to the AI service. The service runs person detection, pose tracking and the visual model, then combines them into the score. Results are saved to the database and, past a threshold, turned into an alert. The dashboard and the marketing site sit on top, with Clerk for sign-in and Stripe for billing.</p></div>
-    <figure class="a-diagram">
-      <div class="fig-scroll" tabindex="0" role="region" aria-label="Architecture drawing, scrolls sideways on small screens">
-      <svg viewBox="0 0 1000 400" role="img" aria-labelledby="diag-t diag-d" focusable="false">
-        <title id="diag-t">Argus architecture</title>
-        <desc id="diag-d">Store cameras feed a streaming agent. It sends video to a FastAPI and AWS Lambda service that runs YOLOv8 person detection, pose tracking, EVA-CLIP and the risk score. Results go to Postgres and to alerts. The dashboard shows them, with Clerk for sign-in and Stripe for billing.</desc>
-        <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#A31919"/></marker></defs>
-        <g class="dg-line" marker-end="url(#arr)"><path d="M150 200H186" marker-end="url(#arr)"/><path d="M340 200H376" marker-end="url(#arr)"/><path d="M650 150H686" marker-end="url(#arr)"/><path d="M650 270H686" marker-end="url(#arr)"/><path d="M820 115H840V180H856" marker-end="url(#arr)"/><path d="M820 305H840V220H856" marker-end="url(#arr)"/></g>
-        <g class="dg-dash"><path d="M900 240V280"/><path d="M950 240V320"/></g>
-        <rect class="dg-node" x="10" y="160" width="140" height="80" rx="4"/><text class="dg-t" x="80" y="196">Store</text><text class="dg-t" x="80" y="218">cameras</text>
-        <rect class="dg-node" x="190" y="160" width="150" height="80" rx="4"/><text class="dg-t" x="265" y="196">Streaming</text><text class="dg-t" x="265" y="218">agent</text>
-        <rect class="dg-big" x="380" y="50" width="270" height="300" rx="4"/><text class="dg-cap" x="515" y="78">FastAPI and AWS Lambda</text>
-        <rect class="dg-node" x="402" y="96" width="226" height="48" rx="3"/><text class="dg-t" x="515" y="126">YOLOv8 finds people</text>
-        <rect class="dg-node" x="402" y="158" width="226" height="48" rx="3"/><text class="dg-t" x="515" y="188">Pose tracking</text>
-        <rect class="dg-node" x="402" y="220" width="226" height="48" rx="3"/><text class="dg-t" x="515" y="250">EVA-CLIP visual signals</text>
-        <rect class="dg-dark" x="402" y="288" width="226" height="48" rx="3"/><text class="dg-w" x="515" y="318">One risk score per person</text>
-        <rect class="dg-node" x="690" y="80" width="130" height="70" rx="4"/><text class="dg-t" x="755" y="120">Postgres</text>
-        <rect class="dg-node" x="690" y="270" width="130" height="70" rx="4"/><text class="dg-t" x="755" y="310">Alerts</text>
-        <rect class="dg-dark" x="860" y="160" width="130" height="80" rx="4"/><text class="dg-w" x="925" y="196">Dashboard</text><text class="dg-w" x="925" y="218">and site</text>
-        <rect class="dg-soft" x="860" y="280" width="80" height="34" rx="3"/><text class="dg-t" x="900" y="303" style="font-size:14px">Clerk</text>
-        <rect class="dg-soft" x="912" y="324" width="80" height="34" rx="3"/><text class="dg-t" x="952" y="347" style="font-size:14px">Stripe</text>
-      </svg>
-      </div>
-      <figcaption>Drawn for this site from the project facts. Clerk handles sign-in and Stripe handles billing.</figcaption>
+  <section class="proj-section" aria-labelledby="architecture-h">
+    <h2 id="architecture-h">Architecture</h2>
+    <div class="prose">
+      <p>No model runs in the store. A Python agent on the store&#8217;s PC reads each camera over RTSP, resizes frames to 640 by 360, encodes JPEG at quality 80 and sends about 3 frames per second per camera over a WebSocket to a GPU server in the cloud.</p>
+      <p>The server finds and tracks people, estimates pose, builds a score per person over time and, when the score latches, cuts a clip and posts a signed webhook to the platform API.</p>
+    </div>
+    <figure class="figure dg-fig" data-reveal="rise">
+      <div class="dg-box" data-diagram><svg class="dg dg-wide" viewBox="0 0 1040 788" role="img" aria-labelledby="arch-t arch-d" focusable="false"><title id="arch-t">Argus architecture</title><desc id="arch-d">Frames go from store cameras through a streaming agent to a GPU engine that runs YOLOv8 detection, tracking, pose, a bag check, an evidence score and a concealment gate, then cuts a clip and posts a signed webhook to the platform API. The platform stores data in Postgres and R2 and shows alerts in the store portal. An offline loop labels stored clips and fine-tunes a model.</desc><defs><marker id="arch-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="270" height="626" rx="6"/><text class="dg-lt" x="16" y="30">In the store</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="16" y="48" width="238" height="58" rx="4"/><text class="dg-t" x="135" y="72" style="font-size:17px">Cameras and recorder</text><text class="dg-t dg-sub" x="135" y="93" style="font-size:15px">RTSP streams</text></g><g class="dg-n" data-n="0-1"><rect class="dg-node" x="16" y="120" width="238" height="58" rx="4"/><text class="dg-t" x="135" y="144" style="font-size:17px">Streaming agent</text><text class="dg-t dg-sub" x="135" y="165" style="font-size:15px">Python, on the store PC</text></g><g class="dg-n" data-n="0-2"><rect class="dg-node" x="16" y="192" width="238" height="58" rx="4"/><text class="dg-t" x="135" y="216" style="font-size:17px">Register journal</text><text class="dg-t dg-sub" x="135" y="237" style="font-size:15px">sent to the API</text></g><rect class="dg-lane" x="350" y="0" width="340" height="626" rx="6"/><text class="dg-lt" x="366" y="30">Cloud GPU engine</text><g class="dg-n dg-chain" data-n="1-0"><rect class="dg-node" x="366" y="48" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="72" style="font-size:17px">Intake</text><text class="dg-t dg-sub" x="520" y="93" style="font-size:15px">FastAPI, one WebSocket per camera</text></g><g class="dg-n dg-chain" data-n="1-1"><rect class="dg-node" x="366" y="120" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="144" style="font-size:17px">Detection</text><text class="dg-t dg-sub" x="520" y="165" style="font-size:15px">YOLOv8: people and bags</text></g><path class="dg-line" d="M520 106V120" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-2"><rect class="dg-node" x="366" y="192" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="216" style="font-size:17px">Tracking</text><text class="dg-t dg-sub" x="520" y="237" style="font-size:15px">IoU tracker per camera</text></g><path class="dg-line" d="M520 178V192" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-3"><rect class="dg-node" x="366" y="264" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="288" style="font-size:17px">Pose</text><text class="dg-t dg-sub" x="520" y="309" style="font-size:15px">YOLOv8n-pose, 17 keypoints</text></g><path class="dg-line" d="M520 250V264" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-4"><rect class="dg-node" x="366" y="336" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="360" style="font-size:17px">Bag check</text><text class="dg-t dg-sub" x="520" y="381" style="font-size:15px">CLIP ViT-B/32, bags only</text></g><path class="dg-line" d="M520 322V336" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-5"><rect class="dg-node" x="366" y="408" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="432" style="font-size:17px">Evidence score</text><text class="dg-t dg-sub" x="520" y="453" style="font-size:15px">per person, latches at 80</text></g><path class="dg-line" d="M520 394V408" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-6"><rect class="dg-node" x="366" y="480" width="308" height="58" rx="4"/><text class="dg-t" x="520" y="504" style="font-size:17px">Concealment gate</text><text class="dg-t dg-sub" x="520" y="525" style="font-size:15px">Moondream2, yes or no</text></g><path class="dg-line" d="M520 466V480" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-7"><rect class="dg-dark" x="366" y="552" width="308" height="58" rx="4"/><text class="dg-w" x="520" y="576" style="font-size:17px">Clip and alert</text><text class="dg-w dg-sub" x="520" y="597" style="font-size:15px">15 s pre-roll, signed webhook</text></g><path class="dg-line" d="M520 538V552" marker-end="url(#arch-ar)"/><rect class="dg-lane" x="770" y="0" width="270" height="626" rx="6"/><text class="dg-lt" x="786" y="30">Platform</text><g class="dg-n" data-n="2-0"><rect class="dg-dark" x="786" y="48" width="238" height="58" rx="4"/><text class="dg-w" x="905" y="72" style="font-size:17px">API</text><text class="dg-w dg-sub" x="905" y="93" style="font-size:15px">Node and Express on Render</text></g><g class="dg-n" data-n="2-1"><rect class="dg-node" x="786" y="120" width="238" height="58" rx="4"/><text class="dg-t" x="905" y="144" style="font-size:17px">Postgres</text><text class="dg-t dg-sub" x="905" y="165" style="font-size:15px">on Hetzner</text></g><g class="dg-n" data-n="2-2"><rect class="dg-node" x="786" y="192" width="238" height="58" rx="4"/><text class="dg-t" x="905" y="216" style="font-size:17px">Clip storage</text><text class="dg-t dg-sub" x="905" y="237" style="font-size:15px">Cloudflare R2</text></g><g class="dg-n" data-n="2-3"><rect class="dg-node" x="786" y="264" width="238" height="58" rx="4"/><text class="dg-t" x="905" y="288" style="font-size:17px">Store portal</text><text class="dg-t dg-sub" x="905" y="309" style="font-size:15px">Clerk sign-in, Stripe billing</text></g><g class="dg-n" data-n="2-4"><rect class="dg-node" x="786" y="336" width="238" height="58" rx="4"/><text class="dg-t" x="905" y="360" style="font-size:17px">Alerts</text><text class="dg-t dg-sub" x="905" y="381" style="font-size:15px">Socket.io and SMS</text></g><path class="dg-line" d="M238 149H310 V77 H366" marker-end="url(#arch-ar)"/><path class="dg-line" d="M658 581H730 V77 H786" marker-end="url(#arch-ar)"/><rect class="dg-lane" x="0" y="666" width="1040" height="122" rx="6"/><text class="dg-lt" x="16" y="696">Offline training loop</text><g class="dg-n" data-n="3-0"><rect class="dg-node" x="16" y="714" width="172" height="58" rx="4"/><text class="dg-t" x="102" y="738" style="font-size:17px">Stored clips</text><text class="dg-t dg-sub" x="102" y="759" style="font-size:15px">in R2</text></g><g class="dg-n" data-n="3-1"><rect class="dg-node" x="224" y="714" width="172" height="58" rx="4"/><text class="dg-t" x="310" y="738" style="font-size:17px">Labelling</text><text class="dg-t dg-sub" x="310" y="759" style="font-size:15px">hosted model, nightly</text></g><path class="dg-line" d="M190 743H224" marker-end="url(#arch-ar)"/><g class="dg-n" data-n="3-2"><rect class="dg-node" x="432" y="714" width="172" height="58" rx="4"/><text class="dg-t" x="518" y="738" style="font-size:17px">Label ledger</text><text class="dg-t dg-sub" x="518" y="759" style="font-size:15px">append-only Postgres</text></g><path class="dg-line" d="M398 743H432" marker-end="url(#arch-ar)"/><g class="dg-n" data-n="3-3"><rect class="dg-node" x="640" y="714" width="172" height="58" rx="4"/><text class="dg-t" x="726" y="738" style="font-size:17px">QLoRA fine-tune</text><text class="dg-t dg-sub" x="726" y="759" style="font-size:15px">Qwen3.5-9B, A100</text></g><path class="dg-line" d="M606 743H640" marker-end="url(#arch-ar)"/><g class="dg-n" data-n="3-4"><rect class="dg-node" x="848" y="714" width="172" height="58" rx="4"/><text class="dg-t" x="934" y="738" style="font-size:17px">Gates</text><text class="dg-t dg-sub" x="934" y="759" style="font-size:15px">five, fixed beforehand</text></g><path class="dg-line" d="M814 743H848" marker-end="url(#arch-ar)"/><circle class="dg-dot" r="8" cx="0" cy="0"/></svg><svg class="dg dg-narrow" viewBox="0 0 360 1794" role="img" aria-labelledby="arch-nt arch-nd" focusable="false"><title id="arch-nt">Argus architecture</title><desc id="arch-nd">Frames go from store cameras through a streaming agent to a GPU engine that runs YOLOv8 detection, tracking, pose, a bag check, an evidence score and a concealment gate, then cuts a clip and posts a signed webhook to the platform API. The platform stores data in Postgres and R2 and shows alerts in the store portal. An offline loop labels stored clips and fine-tunes a model.</desc><defs><marker id="arch-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="360" height="258" rx="6"/><text class="dg-lt" x="12" y="29">In the store</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="12" y="44" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="68" style="font-size:17px">Cameras and recorder</text><text class="dg-t dg-sub" x="180" y="89" style="font-size:15px">RTSP streams</text></g><g class="dg-n" data-n="0-1"><rect class="dg-node" x="12" y="116" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="140" style="font-size:17px">Streaming agent</text><text class="dg-t dg-sub" x="180" y="161" style="font-size:15px">Python, on the store PC</text></g><g class="dg-n" data-n="0-2"><rect class="dg-node" x="12" y="188" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="212" style="font-size:17px">Register journal</text><text class="dg-t dg-sub" x="180" y="233" style="font-size:15px">sent to the API</text></g><path class="dg-line" d="M180 260V294" marker-end="url(#arch-ar)"/><rect class="dg-lane" x="0" y="296" width="360" height="618" rx="6"/><text class="dg-lt" x="12" y="325">Cloud GPU engine</text><g class="dg-n dg-chain" data-n="1-0"><rect class="dg-node" x="12" y="340" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="364" style="font-size:17px">Intake</text><text class="dg-t dg-sub" x="180" y="385" style="font-size:15px">FastAPI, one WebSocket per camera</text></g><g class="dg-n dg-chain" data-n="1-1"><rect class="dg-node" x="12" y="412" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="436" style="font-size:17px">Detection</text><text class="dg-t dg-sub" x="180" y="457" style="font-size:15px">YOLOv8: people and bags</text></g><path class="dg-line" d="M180 398V412" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-2"><rect class="dg-node" x="12" y="484" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="508" style="font-size:17px">Tracking</text><text class="dg-t dg-sub" x="180" y="529" style="font-size:15px">IoU tracker per camera</text></g><path class="dg-line" d="M180 470V484" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-3"><rect class="dg-node" x="12" y="556" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="580" style="font-size:17px">Pose</text><text class="dg-t dg-sub" x="180" y="601" style="font-size:15px">YOLOv8n-pose, 17 keypoints</text></g><path class="dg-line" d="M180 542V556" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-4"><rect class="dg-node" x="12" y="628" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="652" style="font-size:17px">Bag check</text><text class="dg-t dg-sub" x="180" y="673" style="font-size:15px">CLIP ViT-B/32, bags only</text></g><path class="dg-line" d="M180 614V628" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-5"><rect class="dg-node" x="12" y="700" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="724" style="font-size:17px">Evidence score</text><text class="dg-t dg-sub" x="180" y="745" style="font-size:15px">per person, latches at 80</text></g><path class="dg-line" d="M180 686V700" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-6"><rect class="dg-node" x="12" y="772" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="796" style="font-size:17px">Concealment gate</text><text class="dg-t dg-sub" x="180" y="817" style="font-size:15px">Moondream2, yes or no</text></g><path class="dg-line" d="M180 758V772" marker-end="url(#arch-ar)"/><g class="dg-n dg-chain" data-n="1-7"><rect class="dg-dark" x="12" y="844" width="336" height="58" rx="4"/><text class="dg-w" x="180" y="868" style="font-size:17px">Clip and alert</text><text class="dg-w dg-sub" x="180" y="889" style="font-size:15px">15 s pre-roll, signed webhook</text></g><path class="dg-line" d="M180 830V844" marker-end="url(#arch-ar)"/><path class="dg-line" d="M180 916V950" marker-end="url(#arch-ar)"/><rect class="dg-lane" x="0" y="952" width="360" height="402" rx="6"/><text class="dg-lt" x="12" y="981">Platform</text><g class="dg-n" data-n="2-0"><rect class="dg-dark" x="12" y="996" width="336" height="58" rx="4"/><text class="dg-w" x="180" y="1020" style="font-size:17px">API</text><text class="dg-w dg-sub" x="180" y="1041" style="font-size:15px">Node and Express on Render</text></g><g class="dg-n" data-n="2-1"><rect class="dg-node" x="12" y="1068" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1092" style="font-size:17px">Postgres</text><text class="dg-t dg-sub" x="180" y="1113" style="font-size:15px">on Hetzner</text></g><g class="dg-n" data-n="2-2"><rect class="dg-node" x="12" y="1140" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1164" style="font-size:17px">Clip storage</text><text class="dg-t dg-sub" x="180" y="1185" style="font-size:15px">Cloudflare R2</text></g><g class="dg-n" data-n="2-3"><rect class="dg-node" x="12" y="1212" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1236" style="font-size:17px">Store portal</text><text class="dg-t dg-sub" x="180" y="1257" style="font-size:15px">Clerk sign-in, Stripe billing</text></g><g class="dg-n" data-n="2-4"><rect class="dg-node" x="12" y="1284" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1308" style="font-size:17px">Alerts</text><text class="dg-t dg-sub" x="180" y="1329" style="font-size:15px">Socket.io and SMS</text></g><path class="dg-line" d="M180 1356V1390" marker-end="url(#arch-ar)"/><rect class="dg-lane" x="0" y="1392" width="360" height="402" rx="6"/><text class="dg-lt" x="12" y="1421">Offline training loop</text><g class="dg-n" data-n="3-0"><rect class="dg-node" x="12" y="1436" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1460" style="font-size:17px">Stored clips</text><text class="dg-t dg-sub" x="180" y="1481" style="font-size:15px">in R2</text></g><g class="dg-n" data-n="3-1"><rect class="dg-node" x="12" y="1508" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1532" style="font-size:17px">Labelling</text><text class="dg-t dg-sub" x="180" y="1553" style="font-size:15px">hosted model, nightly</text></g><g class="dg-n" data-n="3-2"><rect class="dg-node" x="12" y="1580" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1604" style="font-size:17px">Label ledger</text><text class="dg-t dg-sub" x="180" y="1625" style="font-size:15px">append-only Postgres</text></g><g class="dg-n" data-n="3-3"><rect class="dg-node" x="12" y="1652" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1676" style="font-size:17px">QLoRA fine-tune</text><text class="dg-t dg-sub" x="180" y="1697" style="font-size:15px">Qwen3.5-9B, A100</text></g><g class="dg-n" data-n="3-4"><rect class="dg-node" x="12" y="1724" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="1748" style="font-size:17px">Gates</text><text class="dg-t dg-sub" x="180" y="1769" style="font-size:15px">five, fixed beforehand</text></g><circle class="dg-dot" r="8" cx="0" cy="0"/></svg></div>
+      
     </figure>
-    <ul class="a-parts">
-      <li><b>Streaming agent</b><span>Sends each store&#8217;s camera feeds to Argus.</span></li>
-      <li><b>FastAPI and AWS Lambda</b><span>The API and the AI calls, 200+ a minute.</span></li>
-      <li><b>YOLOv8 and EVA-CLIP</b><span>People and pose tracking, plus visual signals from the video.</span></li>
-      <li><b>Postgres</b><span>The database behind the app.</span></li>
-      <li><b>Next.js and Node</b><span>Next.js for the marketing site, Node and Express behind the dashboard.</span></li>
-      <li><b>Clerk and Stripe</b><span>Sign-in, and billing for stores.</span></li>
-    </ul>
-    <div class="prose"><p>The AI ran as its own service, apart from the business app. A heavy AI workload can then grow without touching the dashboard, and if the AI service falls over the dashboard stays up.</p></div>
-  </section>
-
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">What it reached</h2>
-    <ul class="stats"><li class="stat"><b>$1M</b><span>valuation on the first round</span></li><li class="stat"><b><span class="visually-hidden">10+</span><span aria-hidden="true" data-count="10" data-post="+">10+</span></b><span>stores, including enterprise clients</span></li><li class="stat"><b><span class="visually-hidden">50+</span><span aria-hidden="true" data-count="50" data-post="+">50+</span></b><span>camera feeds</span></li><li class="stat"><b><span class="visually-hidden">200+</span><span aria-hidden="true" data-count="200" data-post="+">200+</span></b><span>AI calls a minute</span></li><li class="stat"><b><span class="visually-hidden">92%</span><span aria-hidden="true" data-count="92" data-post="%">92%</span></b><span>model accuracy</span></li><li class="stat"><b>15 to 25%</b><span>less theft and loss</span></li></ul>
-    <p class="a-note">We raised a first round at a $1M valuation and got into a startup accelerator. Argus ran in 10+ stores, including enterprise clients, with 4 pilot clients.</p>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list">
-      <li>Cofounded Argus and led engineering.</li>
-      <li>Product strategy: deciding what to build first, starting with theft detection.</li>
-      <li>Pricing for stores.</li>
-      <li>Delivery: getting the product running in real stores.</li>
-      <li>Raised the first round at a $1M valuation and got us into an accelerator.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
     <div class="prose">
-      <p>Running a product from pricing to delivery: a model that scores well on a test set still has to survive a real store, a real recorder and a real manager who has a line at the register.</p>
-      <p>Being plain about what the AI cannot do. The Argus One notes list what it does not detect, such as an item actually going into a bag. Writing that down early kept the product honest with stores.</p>
-      <p>Building with a small team, where everyone shipped something real into a store.</p>
+      <h3>The store</h3>
+      <p>The agent is a PyInstaller build for Windows, with macOS and Linux arm64 builds. It finds cameras over ONVIF and reads Hikvision recorders through an adapter. Its only command channel is a 30-second HTTPS heartbeat, whose reply carries the engine address and the frame rate and resolution for that store. Updates are signed, and a build that fails three boots rolls back. The <a href="/startup-work/argus-edge-board/">agent and the store box</a> have their own page.</p>
+      <h3>The GPU engine</h3>
+      <p>The engine is Python on FastAPI and uvicorn, with an asyncio loop and a pool of inference processes. It ran on a rented RTX 4090 on RunPod until September 2026 and on AWS GPU instances behind Caddy after that. In August 2026 one 4090 held 20 camera streams from two stores. Models, scoring and the measurements are on the <a href="/startup-work/argus-one/">Argus One</a> page.</p>
+      <h3>The platform</h3>
+      <p>A Node and Express API on Render, with Socket.io, takes eight HMAC-verified webhook receivers for incidents, track metadata, model observations and entry counts. Postgres runs on Hetzner and is reached over Tailscale. The Argus schema holds 122 of its 366 tables. Clips, thumbnails, model weights and agent installers sit in six Cloudflare R2 buckets. The store portal signs people in with Clerk and bills through Stripe. An internal ops console on Cloudflare Pages, with a FastAPI service on Render, covers the camera fleet, incident grading and compute controls.</p>
+      <p>The agent also sends the register&#8217;s transaction journal to the API, which stores it in POS tables and adjusts stock. Verifone Commander was the first register adapter. A person standing at an active register is treated as a likely cashier.</p>
+      <h3>Training loop</h3>
+      <p>Stored clips are labelled each night by a hosted vision-language model and written to an append-only ledger. The labels train a Qwen3.5-9B adapter on a rented A100, and the result is scored against five gates fixed before training.</p>
+      <h3>Decisions</h3>
+      <ul class="plain-list">
+        <li>Inference stays in the cloud, so a store needs only a machine that captures and forwards video.</li>
+        <li>An alert comes from a score that builds over seconds, not from a single frame.</li>
+        <li>Every alert carries a 15-second clip from before the trigger, so a reviewer can judge it.</li>
+        <li>The engine&#8217;s live settings are one committed JSON file, with secrets referenced by name.</li>
+      </ul>
     </div>
   </section>
-
-  <section class="proj-section a-time-sec" aria-labelledby="time-h">
-    <h2 id="time-h">2025 to 2026</h2>
-    <ol class="a-time">
-      <li><time>Nov 2025</time><span>First code for the AI.</span></li>
-      <li><time>Jan 2026</time><span>Started the store dashboard.</span></li>
-      <li><time>Mar 2026</time><span>Built the first marketing site.</span></li>
-      <li><time>Apr 2026</time><span>Argus One, the theft-detection AI, took shape.</span></li>
-      <li><time>May 2026</time><span>Status page, ops console and audit logging.</span></li>
-      <li><time>Jun 2026</time><span>Docs site at docs.useargus.co.</span></li>
-      <li class="a-time-end"><time>2026</time><span>Argus ended.</span></li>
-    </ol>
-  </section>
-
-  <section class="proj-section" aria-labelledby="end-h">
-    <h2 id="end-h">Argus ended in 2026.</h2>
-    <div class="prose">
-      <p>The owner ended it in 2026. I am not going to guess at reasons here.</p>
-      <p>The public pieces are still up: <a href="https://useargus.co" rel="noopener">useargus.co</a>, the <a href="https://docs.useargus.co" rel="noopener">docs</a> and the <a href="https://status.useargus.co" rel="noopener">status page</a>.</p>
-    </div>
-  </section>
-
-  <section class="proj-section proj-subs" aria-labelledby="subs-h">
-    <h2 id="subs-h">Notable projects</h2>
-    <ul class="sub-list">
-      <li><a href="/startup-work/argus-dashboard/"><img src="/startup-work/argus-dashboard/img/thumb.webp" width="800" height="449" alt="" loading="lazy" decoding="async"><div><h3>Argus Dashboard</h3><p>One screen for running a store: loss prevention, stock, money and staff.</p></div></a></li>
-      <li><a href="/startup-work/argus-one/"><img src="/startup-work/argus-one/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div><h3>Argus One</h3><p>The theft-detection AI. It watched live store cameras, tracked body pose and gave each person one risk score.</p></div></a></li>
-      <li><a href="/startup-work/argus-edge-board/"><img src="/startup-work/argus-edge-board/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div><h3>In-store AI board</h3><p>A small box for stores with no back-office computer, built around the NanoPi R76S.</p></div></a></li>
-      <li><a href="/startup-work/argus-site/"><img src="/startup-work/argus-site/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div><h3>useargus.co</h3><p>The Argus marketing site, its docs and its status page.</p></div></a></li>
-    </ul>
+  <section class="proj-section" aria-labelledby="parts-h">
+    <h2 id="parts-h">Parts of Argus</h2>
+    <ul class="cards" data-reveal-group><li><a class="card-link" href="/startup-work/argus-one/"><img src="/startup-work/argus-one/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>Argus One</h3><p>The vision engine: models, scoring, training and measured results.</p></div></a></li><li><a class="card-link" href="/startup-work/argus-edge-board/"><img src="/startup-work/argus-edge-board/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>In-store agent and box</h3><p>The store agent, and a NanoPi R76S box that was designed and never built.</p></div></a></li><li><a class="card-link" href="/startup-work/argus-dashboard/"><img src="/startup-work/argus-dashboard/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>Argus Dashboard</h3><p>The store portal: six front ends on one API.</p></div></a></li><li><a class="card-link" href="/startup-work/argus-site/"><img src="/startup-work/argus-site/img/thumb.webp" width="800" height="450" alt="" loading="lazy" decoding="async"><div class="card-body"><h3>useargus.co</h3><p>The marketing site, the docs and the status page.</p></div></a></li></ul>
+    <div class="prose"><p>I also worked on the docs site, the status page, the ops console and audit logging.</p></div>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
@@ -183,8 +125,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

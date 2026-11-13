@@ -1,0 +1,27 @@
+/* Bench rig page. Only this page loads this file, after /projects/project-theme.css. */
+
+/* The race: two bars on one scale. By hand takes the whole bar; the script is 1/30 of it. */
+.race{display:grid;gap:14px;max-width:46em}
+.race-row{display:grid;grid-template-columns:5.6em minmax(0,1fr) 4.4em;align-items:center;gap:12px;font-size:var(--fs-body)}
+.race .track{height:30px;border:1px solid var(--p-ink);border-radius:2px;overflow:hidden}
+.race-fill{display:block;height:100%;width:100%;background:var(--p-ink);transform-origin:left center;transform:scaleX(0)}
+.race-after{background:var(--bk-brass)}
+.race-t{font-weight:600;font-variant-numeric:tabular-nums}
+.race-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:4px}
+.race-ctl p{margin:0;font-size:var(--fs-small);color:var(--p-mute);max-width:32em}
+.race-ctl button{min-height:46px;padding:0 20px;border-radius:3px;font:600 var(--fs-small)/1 var(--p-body);cursor:pointer;transition:transform .16s var(--bk-out),background .15s ease-out}
+.race-ctl button:active{transform:scale(.97)}
+@media (max-width:640px){.race-row{grid-template-columns:4.8em minmax(0,1fr) 3.6em;gap:8px}}
+
+/* Four steps. The one that is running is lit; during the sweep the twelve ticks fill in. */
+.steps{list-style:none;margin:2em 0 2.4em;padding:0;display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.steps li{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border:1px solid var(--p-ink);border-radius:3px;background:var(--p-surface);
+  transition:transform .2s var(--bk-out),background .2s ease-out,color .2s ease-out}
+.steps b{font-family:var(--p-display);font-size:var(--fs-h4);font-weight:600}
+.steps span{font-size:var(--fs-small);line-height:1.45}
+.steps li.on{background:var(--p-ink);color:var(--bk-paper);transform:translateY(-3px)}
+.ticks{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-top:auto;padding-top:8px}
+.ticks i{height:14px;border-radius:1px;background:rgba(23,16,10,.16);transform-origin:50% 100%;transition:background .15s ease-out,transform .15s var(--bk-out)}
+.steps li.on .ticks i{background:rgba(239,227,200,.25)}
+.steps li .ticks i.hit{background:var(--bk-foil);transform:scaleY(1.5)}

@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Web design | Ayan Basheer</title>
-<meta name="description" content="Sites and apps Ayan Basheer designed and built: endyland.com, YoTummy, RION Solutions and more.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Web design - Ayan Basheer</title>
+<meta name="description" content="Websites and apps built by Ayan Basheer: Safe Home, YoTummy, New Door Investments, Detail Theory, Swadesi Mangoes, RION Solutions and endyland.com.">
 <link rel="canonical" href="https://endyland.com/web-design/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/web-design/">
-<meta property="og:title" content="Web design | Ayan Basheer">
-<meta property="og:description" content="Sites and apps Ayan Basheer designed and built: endyland.com, YoTummy, RION Solutions and more.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Web design - Ayan Basheer">
+<meta property="og:description" content="Websites and apps built by Ayan Basheer: Safe Home, YoTummy, New Door Investments, Detail Theory, Swadesi Mangoes, RION Solutions and endyland.com.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og/web-design.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Web design. Sites and apps built by Ayan Basheer. endyland logo on dark brown.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web design - Ayan Basheer">
+<meta name="twitter:description" content="Websites and apps built by Ayan Basheer: Safe Home, YoTummy, New Door Investments, Detail Theory, Swadesi Mangoes, RION Solutions and endyland.com.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og/web-design.png">
+<meta name="twitter:image:alt" content="Web design. Sites and apps built by Ayan Basheer. endyland logo on dark brown.">
 <meta name="theme-color" content="#26180F">
 <meta name="color-scheme" content="dark light">
 <script src="/shared/nav.js"></script>
@@ -21,6 +36,7 @@
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/web-design/style.css">
 <link rel="modulepreload" href="/web-design/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://endyland.com/web-design/#webpage","url":"https://endyland.com/web-design/","name":"Web design - Ayan Basheer","description":"Websites and apps built by Ayan Basheer: Safe Home, YoTummy, New Door Investments, Detail Theory, Swadesi Mangoes, RION Solutions and endyland.com.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og/web-design.png","width":1200,"height":630},"about":{"@id":"https://endyland.com/#person"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Web design","item":"https://endyland.com/web-design/"}]}]}</script>
 </head>
 <body class="tab tab-web-design">
 <a class="skip" href="#main">Skip to content</a>
@@ -35,6 +51,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -43,116 +60,88 @@
 </header>
 
 <main id="main">
-<section class="intro" aria-labelledby="page-h">
-  <div class="intro-copy">
+<section class="intro" aria-labelledby="page-h" data-depth>
+  <div class="intro-copy" data-reveal-group>
     <h1 id="page-h">Web <em>design</em></h1>
-    <p class="lede">Sites and apps I designed and built, for clients and for myself.</p>
-    <p class="intro-sub">Six projects: a food marketplace with a phone app, a land investment firm, a car detailer, a mango shop, a software company and this site. Each one has its own page with the problem, how it works, the numbers and what I learned.</p>
+    <p class="lede">Sites and apps I have built, for clients and for myself.</p>
   </div>
-  <div class="stipple" aria-hidden="true"></div>
-</section>
-
-<section class="process" aria-labelledby="process-h">
-  <div class="process-in">
-    <h2 id="process-h">How I build a client site</h2>
-    <div class="prose">
-      <p>I start with the one thing a visitor has to do: order food, book a detail, ask about a property. Everything on the page either leads to that or gets cut.</p>
-      <p>Then I build the smallest version that does it. Detail Theory is one hand-written page and two small server handlers. New Door&#8217;s inventory site is one static file that reads a Google Sheet. Small things are easy to hand over and easy to fix.</p>
-      <p>Clients already have tools they trust, so I connect to them instead of replacing them. Bookings go to Google Calendar. Leads go to the CRM. Payments stay in Stripe and Shopify.</p>
-      <p>After launch I keep the repository, the deploys and the checks in order, so the next change is as easy as the first.</p>
-    </div>
-  </div>
+  <div class="stipple" data-depth-layer="2" aria-hidden="true"></div>
 </section>
 
 <div class="items" id="work">
+  <article class="work" id="safe-home" aria-labelledby="safe-home-h">
+    <a class="work-shot" href="/web-design/safe-home/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/safe-home/img/thumb.webp" width="800" height="450" alt="The Safe Home home page: the headline See trouble sooner and a preview of the command map." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
+      <h2 id="safe-home-h"><a href="/web-design/safe-home/">Safe Home</a></h2>
+      <p class="work-desc">The public site, simulation builder and operator screens for a home sensor system built at HackUTD 2026.</p>
+      <p class="work-facts">Design and front end, team of four. Plain JavaScript, MapLibre and Cloudflare Pages.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/safe-home/">See the project</a></li><li><a href="https://safehomemesh.us" rel="noopener">safehomemesh.us</a></li></ul>
+    </div>
+  </article>
   <article class="work" id="yotummy" aria-labelledby="yotummy-h">
-    <a class="work-shot" href="/web-design/yotummy/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/yotummy/img/thumb.webp" width="800" height="450" alt="The YoTummy home page: a food photo hero with a search box and category chips." loading="lazy" decoding="async"></a>
-    <div class="work-text">
+    <a class="work-shot" href="/web-design/yotummy/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/yotummy/img/thumb.webp" width="800" height="450" alt="The YoTummy home page: a food photo hero with a search box and category chips." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
       <h2 id="yotummy-h"><a href="/web-design/yotummy/">YoTummy</a></h2>
-      <p class="work-desc">A marketplace for homemade food from local cooks, with a website, seller portal, admin panel and phone app.</p>
-      <p class="work-detail">206 commits, all mine, and version 3.1.1 shipped to both app stores.</p>
-      <p class="work-role">Only developer</p>
-      <ul class="work-links"><li><a class="link-more" href="/web-design/yotummy/">See the project</a></li><li><a class="link-site" href="https://yotummy.com" rel="noopener">yotummy.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+      <p class="work-desc">A marketplace for homemade food, with a website, seller portal, admin panel and phone app.</p>
+      <p class="work-facts">Only developer. Angular, Ionic, PHP and MySQL.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/yotummy/">See the project</a></li><li><a href="https://yotummy.com" rel="noopener">yotummy.com</a></li></ul>
     </div>
   </article>
   <article class="work" id="new-door" aria-labelledby="new-door-h">
-    <a class="work-shot" href="/web-design/new-door/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/new-door/img/thumb.webp" width="800" height="450" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments and Services." loading="lazy" decoding="async"></a>
-    <div class="work-text">
+    <a class="work-shot" href="/web-design/new-door/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/new-door/img/thumb.webp" width="800" height="450" alt="The New Door home page: a glass building at twilight under the headline Discover High-Performance Real Estate Investments and Services." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
       <h2 id="new-door-h"><a href="/web-design/new-door/">New Door Investments</a></h2>
-      <p class="work-desc">Website and tools for a Texas land and real estate investment firm.</p>
-      <p class="work-detail">A live inventory page fed by a Google Sheet, a buyer form wired to their CRM, and a bulk email app that sends 25,000 emails a month for about $8.</p>
-      <p class="work-role">Developer. 68 of the 69 site commits.</p>
-      <ul class="work-links"><li><a class="link-more" href="/web-design/new-door/">See the project</a></li><li><a class="link-site" href="https://newdoorinvestments.net" rel="noopener">newdoorinvestments.net</a></li><li><a class="link-site" href="https://inventory.newdoorinvestments.net" rel="noopener">Inventory site</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+      <p class="work-desc">A website and inventory page for a Texas land and real estate investment firm.</p>
+      <p class="work-facts">Main developer. Next.js, Google Sheets and GoHighLevel.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/new-door/">See the project</a></li><li><a href="https://newdoorinvestments.net" rel="noopener">newdoorinvestments.net</a></li></ul>
     </div>
   </article>
   <article class="work" id="detail-theory" aria-labelledby="detail-theory-h">
-    <a class="work-shot" href="/web-design/detail-theory/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/detail-theory/img/thumb.webp" width="800" height="450" alt="The Detail Theory home page: a glossy blue car under the headline We Come To You." loading="lazy" decoding="async"></a>
-    <div class="work-text">
+    <a class="work-shot" href="/web-design/detail-theory/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/detail-theory/img/thumb.webp" width="800" height="450" alt="The Detail Theory home page: a glossy blue car under the headline We Come To You." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
       <h2 id="detail-theory-h"><a href="/web-design/detail-theory/">Detail Theory</a></h2>
-      <p class="work-desc">Website and online booking for a premium mobile car detailer in Dallas-Fort Worth.</p>
-      <p class="work-detail">One hand-written page with a booking form that lands in the business calendar and a live 5.0 Google rating.</p>
-      <p class="work-role">Developer. About two thirds of the commits.</p>
-      <ul class="work-links"><li><a class="link-more" href="/web-design/detail-theory/">See the project</a></li><li><a class="link-site" href="https://detail-theory.com" rel="noopener">detail-theory.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+      <p class="work-desc">A one-page website with online booking for a mobile car detailer in Dallas-Fort Worth.</p>
+      <p class="work-facts">One of two developers. Plain HTML, CSS and JavaScript.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/detail-theory/">See the project</a></li><li><a href="https://detail-theory.com" rel="noopener">detail-theory.com</a></li></ul>
     </div>
   </article>
   <article class="work" id="swadesi-mangoes" aria-labelledby="swadesi-mangoes-h">
-    <a class="work-shot" href="/web-design/swadesi-mangoes/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/swadesi-mangoes/img/thumb.webp" width="800" height="450" alt="The Swadesi Mangoes store: a logo, an orange menu, a green banner and a photo of mangoes." loading="lazy" decoding="async"></a>
-    <div class="work-text">
+    <a class="work-shot" href="/web-design/swadesi-mangoes/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/swadesi-mangoes/img/thumb.webp" width="800" height="450" alt="The current Swadesi Mangoes store: a logo, an orange menu, a green banner and a photo of mangoes." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
       <h2 id="swadesi-mangoes-h"><a href="/web-design/swadesi-mangoes/">Swadesi Mangoes</a></h2>
-      <p class="work-desc">A mango shop’s storefront, rebuilt in Next.js with Shopify behind it.</p>
-      <p class="work-detail">A custom storefront and cart drawer on top of Shopify, with checkout left to Shopify.</p>
-      <p class="work-role">Developer. 22 of the 24 commits.</p>
-      <ul class="work-links"><li><a class="link-more" href="/web-design/swadesi-mangoes/">See the project</a></li><li><a class="link-site" href="https://swadesimangoes.com" rel="noopener">swadesimangoes.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+      <p class="work-desc">A storefront for a seasonal mango importer, built in Next.js on top of Shopify. Not live.</p>
+      <p class="work-facts">Main developer. Next.js, Tailwind and Shopify.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/swadesi-mangoes/">See the project</a></li><li><a href="https://swadesimangoes.com" rel="noopener">swadesimangoes.com</a></li></ul>
     </div>
   </article>
   <article class="work" id="rion-website" aria-labelledby="rion-website-h">
-    <a class="work-shot" href="/web-design/rion-website/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="The RION Solutions home page: a dark starfield with a red glow behind the headline." loading="lazy" decoding="async"></a>
-    <div class="work-text">
+    <a class="work-shot" href="/web-design/rion-website/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/rion-website/img/thumb.webp" width="800" height="450" alt="The RION Solutions home page: a dark starfield with a red glow behind the headline." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
       <h2 id="rion-website-h"><a href="/web-design/rion-website/">RION Solutions website</a></h2>
-      <p class="work-desc">A rebuild of the RION Solutions website in Next.js.</p>
-      <p class="work-detail">The Framer site rebuilt with Next.js, Tailwind and Framer Motion.</p>
-      <p class="work-role">Developer. 14 of the 18 commits.</p>
-      <ul class="work-links"><li><a class="link-more" href="/web-design/rion-website/">See the project</a></li><li><a class="link-site" href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+      <p class="work-desc">A rebuild of the company website in Next.js. The live site still runs the Framer version.</p>
+      <p class="work-facts">Main developer. Next.js, Tailwind and Framer Motion.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/rion-website/">See the project</a></li><li><a href="https://rionsolution.com" rel="noopener">rionsolution.com</a></li></ul>
     </div>
   </article>
   <article class="work" id="endyland" aria-labelledby="endyland-h">
-    <a class="work-shot" href="/web-design/endyland/" tabindex="-1" aria-hidden="true"><img class="work-img" src="/web-design/endyland/img/thumb.webp" width="800" height="450" alt="The Web design page of this site: a brown page with the title Web design in large serif type and a gold dotted corner." loading="lazy" decoding="async"></a>
-    <div class="work-text">
+    <a class="work-shot" href="/web-design/endyland/" tabindex="-1" aria-hidden="true"><img class="work-img" data-scrub="drift" src="/web-design/endyland/img/thumb.webp" width="800" height="450" alt="The Web design page of this site: a brown page with the title Web design in large serif type." loading="lazy" decoding="async"></a>
+    <div class="work-text" data-reveal-group>
       <h2 id="endyland-h"><a href="/web-design/endyland/">endyland.com</a></h2>
-      <p class="work-desc">This portfolio. A home page and five tabs, each with its own look, and a live 3D antenna beam.</p>
-      <p class="work-detail">No build step, a strict security policy, and automatic checks before every deploy.</p>
-      <p class="work-role">Design and code</p>
-      <ul class="work-links"><li><a class="link-more" href="/web-design/endyland/">See the project</a></li><li><a class="link-site" href="https://endyland.com" rel="noopener">endyland.com</a></li><li><a class="link-code" href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li></ul>
+      <p class="work-desc">This site: a home page, six section pages and a page for each project.</p>
+      <p class="work-facts">Plain HTML, CSS and JavaScript on Cloudflare Pages.</p>
+      <ul class="work-links"><li><a class="link-more" href="/web-design/endyland/">See the project</a></li><li><a href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li></ul>
     </div>
   </article>
 </div>
-
-<section class="compare" aria-labelledby="compare-h">
-  <div class="compare-in">
-    <h2 id="compare-h">The six at a glance</h2>
-    <div class="table-wrap" tabindex="0" role="region" aria-label="Projects compared. Scrolls sideways on small screens.">
-      <table>
-        <thead><tr><th scope="col">Project</th><th scope="col">Built with</th><th scope="col">Connected to</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">YoTummy</th><td>Angular, Ionic, PHP, MySQL</td><td>Stripe, Mapbox, both app stores</td></tr>
-          <tr><th scope="row">New Door Investments</th><td>Next.js, one static page</td><td>Google Sheets, GoHighLevel, Amazon SES</td></tr>
-          <tr><th scope="row">Detail Theory</th><td>Plain HTML, CSS and JavaScript</td><td>Google Calendar, Google Places</td></tr>
-          <tr><th scope="row">Swadesi Mangoes</th><td>Next.js, Tailwind</td><td>Shopify</td></tr>
-          <tr><th scope="row">RION Solutions</th><td>Next.js, Tailwind, Framer Motion</td><td>Hosted separately</td></tr>
-          <tr><th scope="row">endyland.com</th><td>Plain HTML, CSS and JavaScript, three.js</td><td>Cloudflare Pages, GitHub Actions</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

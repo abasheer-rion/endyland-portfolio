@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bulk email app on Amazon SES | Ayan Basheer</title>
+<title>Bulk email app on Amazon SES - Ayan Basheer</title>
 <meta name="description" content="A desktop app that sends New Door bulk email through Amazon SES: CSV upload, attachments, pause and resume. About $8 a month for 25,000 emails.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/projects/ses-mailer/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/projects/ses-mailer/">
-<meta property="og:title" content="Bulk email app on Amazon SES | Ayan Basheer">
+<meta property="og:title" content="Bulk email app on Amazon SES - Ayan Basheer">
 <meta property="og:description" content="A desktop app that sends New Door bulk email through Amazon SES: CSV upload, attachments, pause and resume. About $8 a month for 25,000 emails.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bulk email app on Amazon SES - Ayan Basheer">
+<meta name="twitter:description" content="A desktop app that sends New Door bulk email through Amazon SES: CSV upload, attachments, pause and resume. About $8 a month for 25,000 emails.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#EFE3C8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -21,7 +36,9 @@
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
+<link rel="stylesheet" href="/projects/ses-mailer/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/projects/ses-mailer/#webpage","url":"https://endyland.com/projects/ses-mailer/","name":"Bulk email app on Amazon SES - Ayan Basheer","description":"A desktop app that sends New Door bulk email through Amazon SES: CSV upload, attachments, pause and resume. About $8 a month for 25,000 emails.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/projects/ses-mailer/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/projects/ses-mailer/#main","name":"Bulk email app on Amazon SES","headline":"Bulk email app on Amazon SES","description":"A desktop app that sends New Door bulk email through Amazon SES: CSV upload, attachments, pause and resume. About $8 a month for 25,000 emails.","url":"https://endyland.com/projects/ses-mailer/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/projects/ses-mailer/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://endyland.com/projects/"},{"@type":"ListItem","position":3,"name":"Bulk email app on Amazon SES","item":"https://endyland.com/projects/ses-mailer/"}]}]}</script>
 </head>
 <body class="proj-page proj-ses-mailer">
 <a class="skip" href="#main">Skip to content</a>
@@ -36,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/" aria-current="true">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -47,96 +65,61 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/projects/">Projects</a></li><li><span>Bulk email app on Amazon SES</span></li></ol></nav>
 
   <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">Desktop app</p>
-    <h1>Bulk email app on Amazon SES</h1>
-    <p class="proj-summary">A desktop app that sends the New Door team&#8217;s bulk email through Amazon SES.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>Dec 2025 to Sep 2026</dd></div><div><dt>Built for</dt><dd>New Door Investments</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Electron</li><li>Docker</li><li>Amazon SES</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <div class="proj-intro" data-reveal="rise">
+      <h1>Bulk email app on Amazon SES</h1>
+      <p class="proj-summary">A desktop app that lets the New Door team write, queue and watch bulk email sent through Amazon SES.</p>
+      <p class="proj-facts">Built for New Door Investments, December 2025 to September 2026. Electron, Docker and Amazon SES. The repository is private.</p>
     </div>
-    <figure class="proj-hero-media"><div class="frame"><picture><source media="(max-width:640px)" srcset="img/app-m.webp" width="390" height="844"><img src="img/app.webp" width="1440" height="900" alt="The app's main screen. A compose form with sender, subject and a rich-text body on the left. On the right a Send Status panel shows 1412 sent, 3 failed, 57 percent complete, and three phases, one complete, one sending and one queued." fetchpriority="high" decoding="async"></picture></div><figcaption>The real app on my machine, with made-up data: example.com addresses and a stand-in for the sending service. No real mail was sent. The app carries the RION Bulk Sender name.</figcaption></figure>
+    <figure class="proj-hero-media"><div class="shot" data-reveal="unmask"><picture><source media="(max-width:640px)" srcset="img/app-m.webp" width="390" height="844"><img src="img/app.webp" width="1440" height="900" alt="The app's main screen. A compose form with sender, subject and a rich-text body on the left. On the right a Send Status panel shows 1412 sent, 3 failed, 57 percent complete, and three phases, one complete, one sending and one queued." fetchpriority="high" decoding="async"></picture></div><figcaption>The app with made-up example.com addresses. No real mail was sent.</figcaption></figure>
   </header>
 
-  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">In numbers</h2>
-    <div class="sec-body">
-      <ul class="stats"><li class="stat"><b><span class="visually-hidden">25,000</span><span aria-hidden="true" data-count="25000" data-comma="1">25,000</span></b><span>emails a month</span></li><li class="stat"><b>About $8</b><span>a month to send them</span></li><li class="stat"><b><span class="visually-hidden">145</span><span aria-hidden="true" data-count="145">145</span></b><span>commits</span></li><li class="stat"><b><span class="visually-hidden">1,000</span><span aria-hidden="true" data-count="1000" data-comma="1">1,000</span></b><span>recipients in each phase</span></li></ul>
-    </div>
+  <section class="proj-section" id="what" aria-labelledby="what-h">
+    <h2 id="what-h">What it does</h2>
+    <p>The New Door team sends the same email to thousands of people. Amazon SES sends at that volume for little money, but it has no screen for writing a campaign, loading a list or watching a send. The app gives someone who is not a developer a screen for those three jobs. The team sends about 25,000 emails a month with it, for about $8 a month.</p>
+    <p>It is an Electron desktop app. A small local server is bundled inside it and talks to SES, so credentials stay on the machine and nothing needs hosting. The window carries the RION Bulk Sender name, because the work was delivered through RION. A setup wizard connects to SES with SMTP credentials or AWS access keys, and then one screen covers the whole job.</p>
+    <ul class="plain-list">
+      <li><strong>Write.</strong> A rich-text editor for the body, a sender chosen from the verified addresses, an optional reply-to address and attachments.</li>
+      <li><strong>Load.</strong> Drop in a CSV. The app checks every address and removes duplicates and invalid ones before anything is queued.</li>
+      <li><strong>Send.</strong> The list is cut into phases of 1,000 recipients. Each phase can be watched and stopped on its own.</li>
+      <li><strong>Control.</strong> Pause, resume, stop one phase or stop everything. The history keeps every past send, and results export as a CSV.</li>
+    </ul>
   </section>
-  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="sec-body">
-      <p>The New Door team sends the same email to thousands of people. Amazon SES is a low-cost way to send at that volume, but it is only an engine. It has no screen for writing a campaign, loading a list or watching a send.</p>
-      <p>The job was to put a friendly app in front of SES, so someone who is not a developer can send 25,000 emails a month for about $8.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">The approach</h2>
-    <div class="sec-body">
-      <p>I built a desktop app with Electron. It bundles a small local server that talks to SES, so credentials stay on the machine and nothing needs hosting. The app opens with a setup wizard that connects to SES with either SMTP credentials or AWS access keys, then shows one screen for the whole job.</p>
-      <ul>
-        <li><strong>Write.</strong> A rich-text editor for the body, a sender chosen from the verified addresses, an optional reply-to, and attachments.</li>
-        <li><strong>Load.</strong> Drop in a CSV. The app checks every address and drops duplicates and invalid ones before anything is queued.</li>
-        <li><strong>Send.</strong> The list is cut into phases of 1,000 recipients. Each phase can be watched, and stopped on its own.</li>
-        <li><strong>Control.</strong> Pause, resume, stop one phase or stop everything. The history keeps every past send, and the results export as a CSV.</li>
+
+  <section class="proj-section" id="send" aria-labelledby="send-h">
+    <h2 id="send-h">A send, phase by phase</h2>
+    <p>The compose form is on the left and Send Status is on the right. Send Status shows how many messages have gone out, how many failed, a progress bar and the state of each phase. The panel below runs a 2,500-recipient send at the app&#8217;s rate of about 14 messages a second, with made-up numbers.</p>
+    <div class="sendsim" data-sim aria-label="Replica of the Send Status panel with made-up numbers">
+      <div class="ss-head"><span class="ss-count"><b data-sent>0</b> of 2,500 sent</span><span class="ss-pct" data-pct>0%</span></div>
+      <div class="ss-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-bar><i data-fill></i></div>
+      <ul class="ss-phases">
+        <li data-phase="0"><span>Phase 1, 1,000 recipients</span><b data-state>Queued</b></li>
+        <li data-phase="1"><span>Phase 2, 1,000 recipients</span><b data-state>Queued</b></li>
+        <li data-phase="2"><span>Phase 3, 500 recipients</span><b data-state>Queued</b></li>
       </ul>
+      <div class="ss-ctl"><button type="button" class="btn-main" data-pause>Pause</button><button type="button" class="btn-quiet" data-restart>Start over</button></div>
+    </div>
+    <div class="fig-pair">
+      <figure class="figure"><div class="shot"><img src="img/csv.webp" width="808" height="810" alt="The Recipients panel after loading a CSV. It shows 2,500 recipients and 3 phases, then a preview table of the first 10 addresses, all at example.com, and a note that 2,490 more follow." loading="lazy" decoding="async"></div><figcaption>After a CSV loads, the app reports the recipients that remain after cleaning, the number of phases and a preview of the first ten rows.</figcaption></figure>
+      <figure class="figure"><div class="shot"><img src="img/send.webp" width="360" height="617" alt="The Send Status panel. 1412 sent, 3 failed, a progress bar at 57 percent, Phase 1 complete, Phase 2 sending with a Stop button, Phase 3 queued, and Pause, Stop All and Export buttons." loading="lazy" decoding="async"></div><figcaption>The real Send Status panel with phase 2 running and phase 3 waiting.</figcaption></figure>
     </div>
   </section>
-  <section class="proj-section story" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="sec-body">
-      <p>The screen is built around the one thing people want to know: how far along is the send. The compose form is on the left. On the right, Send Status shows how many have gone out, how many failed, a progress bar and each phase.</p>
-      <div class="fig-pair">
-        <figure class="fig"><div class="frame"><img src="img/csv.webp" width="808" height="810" alt="The Recipients panel after loading a CSV. It shows 2,500 recipients and 3 phases, then a preview table of the first 10 addresses, all at example.com, and a note that 2,490 more follow." loading="lazy" decoding="async"></div><figcaption>Loading a CSV. The app reports the recipients left after cleaning and how many phases that makes, then previews the first ten. Every address is made up.</figcaption></figure>
-        <figure class="fig fig-phone"><div class="frame"><img src="img/send.webp" width="360" height="617" alt="The Send Status panel. 1412 sent, 3 failed, a progress bar at 57 percent, Phase 1 complete, Phase 2 sending with a Stop button, Phase 3 queued, and Pause, Stop All and Export buttons." loading="lazy" decoding="async"></div><figcaption>A send in progress. Phase 2 is running while phase 3 waits.</figcaption></figure>
-      </div>
-      <h3>Staying inside the limits</h3>
-      <p>SES allows a fixed number of messages per second. The app sends about 14 a second, with a short pause after each message, and reuses a few connections. That stays under the cap without anyone thinking about it. Phases make a long send easier to watch and to stop part-way.</p>
-      <h3>Surviving a restart</h3>
-      <p>The queue is saved to disk a moment after every change, so a send that is interrupted is still on record when the app opens again. The local server picks a free port starting at 3001 and shuts down with the app.</p>
-    </div>
+
+  <section class="proj-section" id="limits" aria-labelledby="limits-h">
+    <h2 id="limits-h">Rate limits and restarts</h2>
+    <p>SES allows a fixed number of messages per second. The app sends about 14 a second, with a short pause after each message, and reuses a few connections, which keeps it under the SES rate limit. Phases make a long send easier to watch and to stop part-way.</p>
+    <p>The queue is saved to disk a moment after every change, so an interrupted send is still on record when the app opens again. The local server picks a free port starting at 3001 and shuts down with the app.</p>
   </section>
-  <section class="proj-section story" id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="sec-body">
-      <div class="table-wrap" tabindex="0" role="group" aria-label="Results table">
-      <table class="facts">
-        <caption>What the app does for the team</caption>
-        <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Volume</th><td>About 25,000 emails a month</td></tr>
-          <tr><th scope="row">Cost</th><td>About $8 a month to send them</td></tr>
-          <tr><th scope="row">Send rate</th><td>About 14 a second</td></tr>
-          <tr><th scope="row">Batches</th><td>Phases of 1,000, each one stoppable</td></tr>
-          <tr><th scope="row">Built over</th><td>Dec 2025 to Sep 2026, 145 commits</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p>It was built for the New Door team. The repo is private, so there is no link, and the screenshots above use made-up data only.</p>
-    </div>
+
+  <section class="proj-section" id="changes" aria-labelledby="changes-h">
+    <h2 id="changes-h">Changes after the first release</h2>
+    <p>Pause and resume came first. Stop all and stop one phase were added later, each with a confirmation before it runs.</p>
+    <p>Signing out left the old server running on its port, and the next launch could not connect. The fix ends that process on sign-out and offers a restart in the setup wizard if the server does not answer.</p>
+    <p>I wrote a test plan for those three changes (sign-out, stop controls and the wizard restart). Each has a short list of steps to repeat on the next build. The repository has 188 commits.</p>
   </section>
-  <section class="proj-section story" id="did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <div class="sec-body">
-      <ul class="did-list">
-        <li>Built a desktop bulk email app that sends through Amazon SES.</li>
-        <li>Upload a CSV, add attachments, and pause or resume a send.</li>
-        <li>About $8 a month for 25,000 emails.</li>
-        <li>Wrote a test plan for three changes: a sign-out fix, stop controls for a send, and a restart button in the setup wizard.</li>
-      </ul>
-    </div>
-  </section>
-  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="sec-body">
-      <p>A tool people trust has a stop button. Pause and resume were there first. Stop all and stop one phase were added later, with a confirmation before either runs.</p>
-      <p>Clean up when you quit. Signing out left the old server running on its port, and the next launch could not connect. The fix was to end that process on sign-out, and to offer a restart in the setup wizard if the server will not answer.</p>
-      <p>Write the test plan before the release. Each of those changes has a short list of steps to repeat, so the next build can be checked the same way.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="sec-body"><ul class="plain-list"><li><a href="/web-design/new-door/">New Door Investments</a>, who it was built for.</li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a>, the other tool built for New Door.</li></ul></div>
+
+  <section class="proj-section last" id="related" aria-labelledby="related-h">
+    <h2 id="related-h">More from New Door</h2>
+    <ul class="plain-list"><li><a href="/web-design/new-door/">New Door Investments</a>, the company this was built for</li><li><a href="/projects/gohighlevel-mcp/">Claude for GoHighLevel</a></li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
@@ -146,8 +129,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

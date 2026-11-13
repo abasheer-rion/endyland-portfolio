@@ -14,11 +14,12 @@ root.classList.add('rs-js', 'rs-anim');
 mountScene({ canvas: $('#scene'), load: () => import('./scene.js'), webgl: false, dprCap: 1.5, lowDprCap: 1 });
 mountScene({ canvas: $('#polar'), load: () => import('./polar.js'), webgl: false, dprCap: 1.5, lowDprCap: 1 });
 
-// Each project section rises in once when it scrolls into view.
-document.querySelectorAll('.work').forEach((w) => {
-  w.querySelectorAll('.work-text>*,.shot,.inst').forEach((el, i) => el.style.setProperty('--i', i));
-});
-onVisible('.work', (el) => el.classList.add('is-in'), { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+// Each row rises in once when it scrolls into view. The Sharpe bars grow 30ms apart.
+document.querySelectorAll('.bar-row').forEach((r, i) => r.style.setProperty('--n', i));
+onVisible('.row', (el) => {
+  el.classList.add('is-in');
+  el.querySelectorAll('[data-reveal],.bars').forEach((x) => x.classList.add('is-in'));
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
 // The steer slider and its readout follow the shared state.
 const slider = $('#steer'), out = $('#steer-out');

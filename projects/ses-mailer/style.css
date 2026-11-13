@@ -1,0 +1,20 @@
+/* ses-mailer page. Only this page loads this file, after /projects/project-theme.css. */
+.fig-pair{display:grid;gap:clamp(20px,3vw,40px);grid-template-columns:minmax(0,1fr);align-items:start;margin-top:clamp(28px,4vw,56px)}
+.fig-pair .figure{margin:0}
+@media (min-width:900px){.fig-pair{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}}
+
+/* Replica of the Send Status panel. A solid surface; the bar fills with a transform. */
+.sendsim{max-width:34em;margin:clamp(20px,3vw,36px) 0 0;padding:clamp(18px,2.4vw,28px);background:var(--p-surface);border:1px solid var(--p-line);border-radius:6px}
+.ss-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:12px;font-size:var(--fs-body);font-variant-numeric:tabular-nums}
+.ss-count b{font:600 1.9em var(--p-display);margin-right:.2em}
+.ss-pct{font-weight:600}
+.ss-bar{height:14px;border:1.5px solid var(--p-ink);border-radius:3px;overflow:hidden;background:var(--fig-bg)}
+.ss-bar i{display:block;height:100%;background:var(--bk-brass);transform-origin:left center;transform:scaleX(0)}
+.ss-phases{list-style:none;margin:18px 0 0;padding:0}
+.ss-phases li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid var(--p-line);font-size:var(--fs-body)}
+.ss-phases b{font-weight:600;color:var(--p-mute);transition:color .2s ease-out}
+.ss-phases li[data-on="1"] b{color:var(--p-link)}
+.ss-phases li[data-done="1"] b{color:var(--p-ink)}
+.ss-ctl{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:16px}
+.ss-ctl button{min-height:46px;padding:0 20px;border-radius:3px;font:600 var(--fs-small)/1 var(--p-body);cursor:pointer;transition:transform .16s var(--bk-out),background .15s ease-out}
+.ss-ctl button:active{transform:scale(.97)}

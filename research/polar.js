@@ -40,7 +40,7 @@ export function start(ctx) {
       g.beginPath(); g.moveTo(cx, cy); g.lineTo(x, y); g.stroke();
     }
     g.fillStyle = C.text;
-    g.font = `${Math.round(14 * dpr)}px ui-monospace, Menlo, monospace`;
+    g.font = `${Math.round(16 * dpr)}px ui-monospace, Menlo, monospace`;
     g.textAlign = 'center'; g.textBaseline = 'middle';
     for (let a = -90; a <= 90; a += 30) {
       const [x, y] = toXY(a, R + 14 * dpr);
@@ -80,9 +80,9 @@ export function start(ctx) {
 
   function readout() {
     const f = (v) => `${v >= 0 ? '+' : '-'}${Math.abs(v).toFixed(1).padStart(4, '0')}`;
-    g.font = `${Math.round(14 * dpr)}px ui-monospace, Menlo, monospace`;
+    g.font = `${Math.round(16 * dpr)}px ui-monospace, Menlo, monospace`;
     g.textAlign = 'left'; g.textBaseline = 'top';
-    const x = 10 * dpr, y = 8 * dpr, lh = 16 * dpr;
+    const x = 10 * dpr, y = 8 * dpr, lh = 19 * dpr;
     g.fillStyle = C.rust; g.fillText(`STEER ${f(state.steer)}`, x, y);
     g.fillStyle = C.text; g.fillText(`SIG   ${f(state.source)}`, x, y + lh);
     g.textAlign = 'right';
@@ -99,7 +99,7 @@ export function start(ctx) {
     markers(t);
     // Clear the readout corners each frame so text stays crisp over the trails.
     g.fillStyle = C.bg;
-    g.fillRect(0, 0, 150 * dpr, 42 * dpr); g.fillRect(W * dpr - 90 * dpr, 0, 90 * dpr, 42 * dpr);
+    g.fillRect(0, 0, 170 * dpr, 50 * dpr); g.fillRect(W * dpr - 100 * dpr, 0, 100 * dpr, 50 * dpr);
     readout();
   }
 

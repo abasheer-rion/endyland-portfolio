@@ -21,6 +21,7 @@ Legal pages: `/privacy/` and `/terms/` are written, linked from every footer and
 | `/projects/` | `projects/` | Tab 04, individual projects |
 | `/experience/` | `experience/` | Tab 05, jobs and roles |
 | `/<tab>/<slug>/` | `<tab>/<slug>/` | One page per project. The full list is `docs/projects.json`. |
+| `/code/` | `code/`, `data/github.json` | GitHub activity: the year as a dot plate, totals, languages, public repos. Linked from home, not a tab. See `code-page.md`. |
 | `/privacy/`, `/terms/` | `privacy/`, `terms/` | Legal pages, linked from every footer |
 | any other | `404.html` | Not found |
 
@@ -36,7 +37,8 @@ its theme and its images is `docs/projects.json`.
 
 Owner rules:
 - Big numbers, client logos, client photos and screenshots are OK to show.
-- Never name teammates, cofounders or collaborators. Say "a 3-person team" or "a small team".
+- Argus: say Ayan stepped away and handed off his work in 2026. Never say Argus ended or shut down. Reason on record: more time for school and electrical engineering.
+- Name teammates only where the owner's own public posts do (the Safe Home team, who Argus continues under). Elsewhere say "a 3-person team" or "a small team".
 - One personal project is off the site everywhere (pages, redirects, sitemap). `check-site.sh` fails if its name appears.
 - The Butler matrix and the RF direction finder are one project.
 - Public repo: link it ("Code on GitHub"). Only `endyland-portfolio` is public. Every other repo shows the
@@ -47,8 +49,9 @@ Owner rules:
 - YoTummy (`yotummy`, branded). https://yotummy.com
 - New Door Investments (`new-door`, branded). https://newdoorinvestments.net and the inventory site.
 - Detail Theory (`detail-theory`, branded). The "gloss detailing company". https://detail-theory.com
-- Swadesi Mangoes (`swadesi-mangoes`, branded from a screenshot). https://swadesimangoes.com (not confirmed it runs his build; the caption says so).
+- Swadesi Mangoes (`swadesi-mangoes`, branded from a screenshot). https://swadesimangoes.com (not confirmed it runs his build).
 - RION Solutions website (`rion-website`, RION brand). Also listed under RION.
+- Safe Home (`safe-home`, branded). The public site and its UI. The hardware and architecture are on `/projects/safe-home/`.
 - endyland.com (`endyland`, tab style). Public repo.
 
 ### Research (`/research/`)
@@ -58,7 +61,7 @@ Owner rules:
 - Public spending data explorer (`spending-explorer`). Resume only, diagram figure.
 
 ### Startup work (`/startup-work/`)
-- Argus (`argus`, branded, ended in 2026), with sub-projects: Argus Dashboard (`argus-dashboard`, the app's dark theme), Argus One
+- Argus (`argus`, branded; Ayan left in 2026, the company continues), with sub-projects: Argus Dashboard (`argus-dashboard`, the app's dark theme), Argus One
   (`argus-one`, includes the model tuning and the streaming agent), In-store AI board (`argus-edge-board`), useargus.co
   (`argus-site`). Smaller pieces (docs site, status page, ops console, audit logging) are listed on the Argus page.
 - RION Solutions (`rion`, branded), with sub-projects: NEXUS Command Center (`nexus-command-center`), County records API
@@ -68,7 +71,7 @@ Owner rules:
 ### Individual projects (`/projects/`)
 - 8-bit RISC processor on FPGA (`fpga-risc`), Low-power wireless sensor node (`sensor-node`), Automated bench test rig
   (`bench-rig`): resume projects, drawn figures.
-- Safe Home (`safe-home`): the project that won HackUTD 2026.
+- Safe Home (`safe-home`): HackUTD 2026, his first hackathon. Two awards, including 3rd place in the State Farm track.
 - Claude for GoHighLevel (`gohighlevel-mcp`) and the bulk email app on Amazon SES (`ses-mailer`): built for New Door.
 - endyland hosting and status page (`endyland-infra`). The status page link is off the site for now because the live
   status page lists the off-site project. The screenshot is cropped to the portfolio card.
@@ -81,7 +84,7 @@ Owner rules:
 - Food bank coordinator, IAA and IACC (`food-bank`).
 - Education and memberships are a small sheet on the tab page.
 
-Left out on purpose: the movie site, p-stream, userscript, backend, the Valentine fork, the off-site project above.
+Left out on purpose: private projects, forks and anything unfinished.
 
 Profile links on every page: GitHub https://github.com/abasheer-rion,
 LinkedIn https://www.linkedin.com/in/ayanbasheer.
@@ -105,7 +108,7 @@ professional, not a first-shot AI template. The shared chrome is the same on eve
   Escape or outside click closes). Home can mark long-scroll sections with `data-bar-section="web-design"` to move the
   resting indicator. A tab page marks its link `aria-current="page"`, a project page its parent tab
   `aria-current="true"`, home none. Without JS the links are a plain row (two rows on phones). Without
-  `backdrop-filter`, or with `prefers-reduced-transparency`, or in forced colors, the glass is a solid colour. The brand link is a small brass dot and the word `endyland`.
+  `backdrop-filter`, or with `prefers-reduced-transparency`, or in forced colors, the glass is a solid colour. The brand link is the logo mark (an E whose arms end in three dots, see `docs/brand.md`) and the word `endyland`; `nav.js` draws the mark inline, and without JS it comes from `shared/brand/logo-mono.svg` as a CSS mask.
 - **Room for the bar.** The bar floats over the page. `--bar-h` (80px, 68px on phones) is the height pages leave at
   the top. `.proj` and `404.html` use it for their top padding and `html` uses it for `scroll-padding-top`. A tab page
   or home with a full-bleed hero should add `padding-top: var(--bar-h)` to the content (not the canvas).
@@ -125,9 +128,9 @@ professional, not a first-shot AI template. The shared chrome is the same on eve
   backgrounds for any element. Set `background-size` 4px to 8px, layer two sizes offset for a hand-engraved look, and fade
   with `mask-image`. Decoration only.
 - **Readability (hard requirement).** Fluid layout: `--gut` clamp(18px,4.5vw,72px), `--wrap` (screen minus both
-  gutters, max 1480px; `.wrap`), full-bleed sections allowed. Prose column `--measure` 68ch (`--measure-wide` 75ch;
-  `.prose`). Body `--fs-body` 17px on phones to 20px on desktop, line-height 1.6; scale `--fs-lead --fs-small
-  --fs-h1 --fs-h2 --fs-h3`; nothing under 14px. Section rhythm `--section`. Text never sits on
+  gutters, max 1480px; `.wrap`), full-bleed sections allowed. Prose column `--measure` 34em, about 70 to 74 characters (`--measure-wide` 36em;
+  `.prose`). Body `--fs-body` 17px on phones to 19px on desktop, line-height 1.6; scale `--fs-lead --fs-small
+  --fs-h1 --fs-h2 --fs-h3 --fs-h4`; `--fs-small` is 16 to 17px and `--fs-meta` (14 to 15px) is for dates only. Section rhythm `--section`. Text never sits on
   busy dots or a canvas: use a solid reading surface (`.surface`, `.surface--dark`) or keep the stipple away from the
   text. Contrast AA at least, aim 7:1 for body. No fixed element may cover text. Phones keep 18px side padding.
   Tables go in `.table-wrap` (scrolls sideways, `tabindex="0"`) or use `table.restack` with `data-label` on cells.
@@ -211,6 +214,40 @@ links and back links. Page builders add art and motion only.
   Projects with no photo use a diagram drawn for this site (`img/figure.svg`) that shows only the stated facts.
 - A page may add a scene: `<canvas class="proj-scene" aria-hidden="true">` plus `mountScene` with a `scene.js` in its folder.
 - Tab pages list every project as a card linking to its page (link class `link-more`, "See the project").
+
+## Writing and declutter rules (standing)
+
+Pages describe things objectively: what it is, what it does, how it is built, what was measured. The aim is a page
+that reads as plain, checked fact.
+
+- **Body copy.** No hype, no adjectives doing the work of facts, no rhetorical questions, no "not X, but Y", no closing
+  moral, no lists of three for rhythm. State only what a source supports (repo, git history, live site, the owner's
+  own posts). If unsure, leave it out.
+- **Cut small explainer text.** No footnotes, fine-print captions that explain the page, "how to read this" notes,
+  or commentary about the site or the write-up. If a fact matters, say it once in the body at normal size.
+- **Cut decoration that stands in for content.** No eyebrow label over every block, no kicker and tagline pairs, no
+  badges on everything, no 01/02/03 numbering, no stat tiles with a tiny caption. Keep a figure caption only when it
+  discloses something the reader needs (a drawn model is not a photo, the demo data is fictional).
+- **Fewer, larger, calmer elements.** Body text 17 to 19px (`--fs-body`), line length about 70 characters
+  (`--measure` 34em), small text 16 to 17px (`--fs-small`), dates only at `--fs-meta`. Clear heading hierarchy.
+  A page is easy to read first and decorative second.
+- **People and employers.** Never put secrets, customer names, store names, tenant data or private repo names on the site.
+- **Sources.** Dates, counts and roles come from the repos and posts, not from memory. When a number cannot be traced,
+  remove it and put it on the owner confirm list.
+
+## 3D model stages (standing)
+
+The model kit is documented in `models.md`. Rules for using it on a page:
+
+- Use a model only where the thing it shows is the subject of the page or section. Put it beside the text, never behind
+  text. The page must still read without it.
+- Mount with `<div class="model-stage" data-model="..." aria-label="...">` plus `/shared/models/stage.css` and
+  `/shared/models/auto.js`. Say in the `aria-label` what the picture shows.
+- A model drawn from parts lists or typical layouts is not a photo. Say so in one short caption where it matters.
+- Keep a poster image (`posters/<model>.webp`) for each model. It shows when WebGL 2 is missing or fails.
+- Three.js loads only when a stage is near the viewport. Do not import it from page code on pages without a stage.
+- Phones and touch screens cap the pixel ratio at 1.5. Every stage stops drawing off screen and in hidden tabs.
+- A new model needs an entry in `stage.js`, the test page and a poster. Steps are in `models.md`.
 
 ## Rules for every tab
 

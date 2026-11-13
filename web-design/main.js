@@ -1,8 +1,2 @@
-// web-design tab. Work rows rise in as they scroll into view. Nothing else runs here, and the page reads the same without it.
-import { onVisible } from '../shared/motion.js';
-
-const rows = [...document.querySelectorAll('.work')];
-if ('IntersectionObserver' in window && rows.length) {
-  document.documentElement.classList.add('wd-anim');
-  onVisible(rows, (el) => el.classList.add('in'), { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
-}
+// web-design tab. Reveals and the scroll drift on the screenshots are attributes in the markup (shared/motion.js and base.css).
+// Nothing else runs here, and the page reads the same without it.

@@ -1,12 +1,20 @@
 // RF direction finder page. Only this page loads this file.
-// Shared parts (what I did reveal, count-up, gallery lightbox, back links) come from /shared/project.js.
-// One plain 2D canvas, the "find, then steer" instrument, loads after first paint through the shared loader.
+// The hero 3D model is mounted by /shared/models/auto.js; the slider sets its beam angle with a model:set event.
+// The "find, then steer" instrument is one plain 2D canvas, loaded after first paint through the shared loader.
 // It pauses when off screen or when the tab is hidden, and caps its pixel ratio at 1.5 (1 on phones).
 import { initProject } from '../../shared/project.js';
 import { mountScene } from '../../shared/scene-loader.js';
-import { onVisible } from '../../shared/motion.js';
 
 initProject();
+
+const stage = document.querySelector('.model-stage');
+const beam = document.getElementById('beam'), beamOut = document.getElementById('beam-out');
+beam.addEventListener('input', () => {
+  const v = +beam.value;
+  beamOut.textContent = `${v > 0 ? '+' : ''}${v}°`;
+  beam.setAttribute('aria-valuetext', `${v} degrees`);
+  stage.dispatchEvent(new CustomEvent('model:set', { detail: { name: 'angle', value: v } }));
+});
 
 const buttons = [...document.querySelectorAll('.rf-modes button')];
 const press = (btn) => buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
@@ -26,8 +34,3 @@ document.addEventListener('rf-mode', () => { press(buttons[0]); want = { mode: '
 
 mountScene({ canvas: document.getElementById('rf-inst'), load: () => import('./instrument.js'), webgl: false, dprCap: 1.5, lowDprCap: 1 })
   .then((h) => { inst = h; apply(); });
-
-document.querySelectorAll('.steps').forEach((ol) => {
-  [...ol.children].forEach((li, i) => li.style.setProperty('--i', i));
-  onVisible([ol], () => ol.classList.add('in'), { threshold: 0.15 });
-});

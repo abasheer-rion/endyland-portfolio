@@ -1,0 +1,36 @@
+/* 8-bit RISC page. Only this page loads this file, after /projects/project-theme.css. */
+
+/* The board model in the hero. */
+.proj-hero-media .model-stage{aspect-ratio:2/1;max-height:min(60vh,520px);width:100%}
+.proj-hero-media figcaption{margin-top:8px}
+
+/* Stage cards: five across on wide screens, one stack on phones. The stage a clock cycle has reached lights up. */
+.pipe-stages{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.pipe-stages{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.pipe-stages li{position:relative;display:flex;flex-direction:column;gap:6px;padding:14px 16px 12px;border:1px solid var(--p-ink);border-radius:3px;background:var(--p-surface);
+  transition:transform .2s var(--bk-out),background .2s ease-out,border-color .2s ease-out,color .2s ease-out}
+.pipe-stages b{font-weight:600;font-size:var(--fs-h4);font-family:var(--p-display)}
+.pipe-stages span{font-size:var(--fs-small);line-height:1.45}
+.pipe-stages em{margin-top:auto;padding-top:6px;font-style:normal;font-weight:600;color:var(--p-link);min-height:1.5em;opacity:0;transform:translateY(4px);transition:opacity .2s ease-out,transform .2s var(--bk-out)}
+.pipe-stages li.on{background:var(--p-ink);color:var(--bk-paper);border-color:var(--p-ink);transform:translateY(-3px)}
+.pipe-stages li.on em{opacity:1;transform:none;color:var(--bk-foil)}
+
+.pipe-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:0 0 6px}
+.pipe-ctl button{min-height:46px;padding:0 20px;border-radius:3px;font:600 var(--fs-small)/1 var(--p-body);cursor:pointer;transition:transform .16s var(--bk-out),background .15s ease-out}
+.pipe-ctl button:active{transform:scale(.97)}
+.pipe-cycle{margin:0 0 0 6px;font-size:var(--fs-body);font-variant-numeric:tabular-nums}
+.pipe-cycle b{font-weight:600}
+
+/* The timing grid: rows are instructions, columns are clock cycles. */
+.pipe-grid{border-collapse:separate;border-spacing:4px;width:100%;min-width:0;table-layout:fixed}
+.proj .pipe-grid th,.proj .pipe-grid td{border:0}
+.proj .pipe-grid thead th{border-bottom:1px solid var(--p-line)}
+.pipe-grid th{padding:6px 0;text-align:center;font-weight:600;font-size:var(--fs-small);color:var(--p-mute);transition:color .2s ease-out}
+.pipe-grid th[scope=row]{text-align:left;width:5.2em;color:var(--p-ink);white-space:nowrap;vertical-align:middle}
+.pipe-grid th.on{color:var(--p-link)}
+.pipe-grid td{height:52px;padding:0;text-align:center;font:600 var(--fs-body)/52px var(--p-body);border-radius:2px;background:transparent;color:transparent;
+  transition:background .2s ease-out,color .2s ease-out,transform .2s var(--bk-out)}
+.pipe-grid td.used{background:rgba(23,16,10,.07);color:var(--p-mute)}
+.pipe-grid td.on{background:var(--p-ink);color:var(--bk-foil);transform:scale(1.04)}
+.pipe-grid td.past{background:rgba(184,135,46,.28);color:var(--p-ink)}
+@media (max-width:640px){.pipe-grid{border-spacing:2px}.pipe-grid th[scope=row],.pipe-grid thead th:first-child{width:4.6em}.pipe-grid td{height:44px;line-height:44px}}

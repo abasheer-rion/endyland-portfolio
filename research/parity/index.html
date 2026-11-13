@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Parity | Ayan Basheer</title>
-<meta name="description" content="Can a trading program beat the S&amp;P 500? I built the lab to find out: 16 strategies, 11 tests each, results written down before the run. None has beaten it.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Parity - Ayan Basheer</title>
+<meta name="description" content="A lab that tests 16 trading strategies against the S&amp;P 500, 11 tests each, with results written down before each run. None has passed.">
 <link rel="canonical" href="https://endyland.com/research/parity/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/research/parity/">
-<meta property="og:title" content="Parity | Ayan Basheer">
-<meta property="og:description" content="Can a trading program beat the S&amp;P 500? I built the lab to find out: 16 strategies, 11 tests each, results written down before the run. None has beaten it.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Parity - Ayan Basheer">
+<meta property="og:description" content="A lab that tests 16 trading strategies against the S&amp;P 500, 11 tests each, with results written down before each run. None has passed.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og/parity.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Parity. A lab that tests trading strategies against the S&amp;P 500. endyland logo on dark brown.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Parity - Ayan Basheer">
+<meta name="twitter:description" content="A lab that tests 16 trading strategies against the S&amp;P 500, 11 tests each, with results written down before each run. None has passed.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og/parity.png">
+<meta name="twitter:image:alt" content="Parity. A lab that tests trading strategies against the S&amp;P 500. endyland logo on dark brown.">
 <meta name="theme-color" content="#17100A">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/research/project-theme.css">
 <link rel="stylesheet" href="/research/parity/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/research/parity/#webpage","url":"https://endyland.com/research/parity/","name":"Parity - Ayan Basheer","description":"A lab that tests 16 trading strategies against the S&P 500, 11 tests each, with results written down before each run. None has passed.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og/parity.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/research/parity/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/research/parity/#main","name":"Parity","headline":"Parity","description":"A lab that tests 16 trading strategies against the S&P 500, 11 tests each, with results written down before each run. None has passed.","url":"https://endyland.com/research/parity/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og/parity.png","mainEntityOfPage":{"@id":"https://endyland.com/research/parity/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://endyland.com/research/"},{"@type":"ListItem","position":3,"name":"Parity","item":"https://endyland.com/research/parity/"}]}]}</script>
 </head>
 <body class="proj-page proj-parity">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,6 +49,7 @@
     <nav class="bar-nav" id="bar-nav" aria-label="Sections">
       <ul>
       <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="true">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -41,163 +58,135 @@
 </header>
 
 <main id="main" class="proj">
-  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Parity</span></li></ol></nav>
+<nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>Parity</span></li></ol></nav>
 
-  <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">Research project</p>
-    <h1>Parity</h1>
-    <p class="proj-summary">Can a trading program beat the S&amp;P 500? We built the lab to find out. Sixteen strategies later, none has. We report that plainly.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Built the test engine and web app. 75 of 78 commits on the main line, on a small team.</dd></div><div><dt>Dates</dt><dd>Oct 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>TypeScript</li><li>Supabase</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
-    </div>
-    <figure class="proj-hero-media"><img src="img/dashboard-home.webp" srcset="img/dashboard-home-720.webp 720w, img/dashboard-home.webp 1440w" sizes="(min-width:960px) 55vw, 92vw" width="1440" height="900" alt="The Parity dashboard home: a list of strategies with their Sharpe ratios, a card reading 0 of 16 beat the S&amp;P 500, and the gauntlet totals of 57 passed and 116 failed." fetchpriority="high" decoding="async"><figcaption>The dashboard home today. 0 of 16 strategies beat the S&amp;P 500, with 188 trials counted. Screenshot of my own app, taken on Nov 11, 2026.</figcaption></figure>
-  </header>
-  <p class="pa-verdict lede" aria-label="Result so far"><b>0 of 16</b> strategies beat the S&amp;P 500. Best Sharpe 0.75 against the market&#8217;s 0.54, and still not enough.</p>
+<header class="proj-hero">
+<div class="proj-intro">
+<h1>Parity</h1>
+<p class="proj-summary">A test bench that runs trading strategies through 11 fixed tests and compares each one with holding the S&amp;P 500. 16 strategies have been tested. None passed.</p>
+<p class="proj-facts">I built the test engine and the web app, October 2026 to now, on a small team. Python, TypeScript and Supabase.</p>
+</div>
+<figure class="proj-hero-media sfig">
+<div class="sbars" id="sbars" style="--m:73.79%;--z:20.00%" role="img" aria-label="Sharpe ratio of 16 strategies and the S&amp;P 500 over 1999 to 2026. The S&amp;P 500 scores 0.54. Six stock rules score 0.57 to 0.75. Every currency and commodity strategy scores below 0.42.">
+<div class="sb stk" style="--l:20.00%;--w:75.45%;--n:0"><span>Stocks, 10-month trend</span><div class="sb-track"><i></i></div><b>0.75</b></div>
+<div class="sb stk" style="--l:20.00%;--w:68.98%;--n:1"><span>Stocks, golden cross</span><div class="sb-track"><i></i></div><b>0.69</b></div>
+<div class="sb stk" style="--l:20.00%;--w:65.56%;--n:2"><span>Stocks, volatility managed</span><div class="sb-track"><i></i></div><b>0.66</b></div>
+<div class="sb stk" style="--l:20.00%;--w:61.13%;--n:3"><span>Stocks, turn of month</span><div class="sb-track"><i></i></div><b>0.61</b></div>
+<div class="sb stk" style="--l:20.00%;--w:56.97%;--n:4"><span>Stocks plus currency trend</span><div class="sb-track"><i></i></div><b>0.57</b></div>
+<div class="sb stk" style="--l:20.00%;--w:56.56%;--n:5"><span>Stocks, sell in May</span><div class="sb-track"><i></i></div><b>0.57</b></div>
+<div class="sb mkt" style="--l:20.00%;--w:53.79%;--n:6"><span>S&amp;P 500, buy and hold</span><div class="sb-track"><i></i></div><b>0.54</b></div>
+<div class="sb oth" style="--l:20.00%;--w:41.00%;--n:7"><span>Currency carry</span><div class="sb-track"><i></i></div><b>0.41</b></div>
+<div class="sb oth" style="--l:20.00%;--w:34.98%;--n:8"><span>Currency carry, trend and value</span><div class="sb-track"><i></i></div><b>0.35</b></div>
+<div class="sb oth" style="--l:20.00%;--w:25.51%;--n:9"><span>Dollar carry</span><div class="sb-track"><i></i></div><b>0.26</b></div>
+<div class="sb oth" style="--l:20.00%;--w:14.35%;--n:10"><span>Currency trend, 12 months</span><div class="sb-track"><i></i></div><b>0.14</b></div>
+<div class="sb oth" style="--l:20.00%;--w:12.89%;--n:11"><span>Currency moving-average cross</span><div class="sb-track"><i></i></div><b>0.13</b></div>
+<div class="sb oth" style="--l:20.00%;--w:5.45%;--n:12"><span>Oil gap</span><div class="sb-track"><i></i></div><b>0.05</b></div>
+<div class="sb oth" style="--l:20.00%;--w:1.27%;--n:13"><span>Currency value</span><div class="sb-track"><i></i></div><b>0.01</b></div>
+<div class="sb oth neg" style="--l:14.65%;--w:5.35%;--n:14"><span>Currency momentum</span><div class="sb-track"><i></i></div><b>-0.05</b></div>
+<div class="sb oth neg" style="--l:12.73%;--w:7.27%;--n:15"><span>Currency RSI reversion</span><div class="sb-track"><i></i></div><b>-0.07</b></div>
+<div class="sb oth neg" style="--l:8.96%;--w:11.04%;--n:16"><span>Oil and gas trend</span><div class="sb-track"><i></i></div><b>-0.11</b></div>
+</div>
+<figcaption>Sharpe ratio of each strategy, 1999 to 2026, from the third official run. The S&amp;P 500 scores 0.54.</figcaption>
+</figure>
+</header>
 
-  <section class="proj-section " aria-labelledby="q-h">
-    <h2 id="q-h">The question</h2>
-    <p class="lede">Could a computer program that trades currencies earn more than just buying the 500 biggest US companies and waiting?</p>
-    <p>Most people who try this fool themselves. They test many ideas, keep the one that looks best, and call it a discovery. Parity is built so that cannot happen quietly. It is a proof of concept, not a product.</p>
-    <p>The question started narrow: a currency strategy, perhaps informed by commodity prices and macro news. The first three strategies all failed, so we widened it. Every idea we try, including stock rules, goes through the same tests, and every idea we try is counted.</p>
-  </section>
+<section class="proj-section" aria-labelledby="q-h">
+<h2 id="q-h">What it tests</h2>
+<p>Testing many strategies and keeping the best one overstates results. Parity counts every trial, 188 so far, and applies a deflated Sharpe threshold that rises with the count.</p>
+<p>The project started with one question: could a currency strategy, perhaps informed by commodity prices and macro news, beat the S&amp;P 500 after costs and risk? The first three strategies failed, so the scope widened. Every idea, including stock rules, now goes through the same tests.</p>
+<h3>Pipeline</h3>
+<ul class="plain-list">
+<li><b>Scrapers</b> pull free daily data: 9 currencies, 10 interest rates, oil, gas, copper, the S&amp;P 500 and the VIX.</li>
+<li><b>Strategies</b> are one file each and turn data into target weights.</li>
+<li><b>One backtester</b> replays history for every strategy the same way. It charges trading costs, credits interest and can scale to the market&#8217;s own risk while paying for borrowing.</li>
+<li><b>The gauntlet</b> scores the results.</li>
+<li><b>A nightly job</b> runs everything and posts to a private dashboard.</li>
+</ul>
+<p>The catalog holds 72 algorithms and 36 data sources, each with a written report.</p>
+</section>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-<ul class="stats"><li class="stat"><b>75 of 78</b><span>commits on the main line are mine</span></li><li class="stat"><b>16</b><span>strategies tested</span></li><li class="stat"><b>11</b><span>tests every strategy faces</span></li><li class="stat"><b>188</b><span>trials counted, so luck cannot pass for skill</span></li><li class="stat"><b>72</b><span>algorithms in the catalog</span></li><li class="stat"><b>36</b><span>data sources</span></li></ul>
-  </section>
+<section class="proj-section" aria-labelledby="gauntlet-h">
+<h2 id="gauntlet-h">The gauntlet</h2>
+<p>Every strategy runs all 11 tests every time. The bars were fixed before any results were seen. Group A has six tests of whether the strategy beats the market, and all six must pass. Group B has five tests of whether the effect is real or luck.</p>
+<div class="grid-wrap"><table class="pgrid" id="pgrid"><thead><tr><th scope="col"><span class="visually-hidden">Strategy</span></th><th scope="col" class="a">A1</th><th scope="col" class="a">A2</th><th scope="col" class="a">A3</th><th scope="col" class="a">A4</th><th scope="col" class="a">A5</th><th scope="col" class="a">A6</th><th scope="col" class="b">B1</th><th scope="col" class="b">B2</th><th scope="col" class="b">B3</th><th scope="col" class="b">B4</th><th scope="col" class="b">B5</th></tr></thead><tbody>
+<tr><th scope="row">Stocks, 10-month trend<small>7 of 11</small></th><td class="g p" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 pass</span></td><td class="g p" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 pass</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g p" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 pass</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g p" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 pass</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Stocks, golden cross<small>7 of 11</small></th><td class="g p" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 pass</span></td><td class="g p" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 pass</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g p" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 pass</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g p" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 pass</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Stocks, volatility managed<small>8 of 11</small></th><td class="g p" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 pass</span></td><td class="g p" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 pass</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g p" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 pass</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g p" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 pass</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g p" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 pass</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Stocks, turn of month<small>6 of 11</small></th><td class="g p" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 pass</span></td><td class="g p" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 pass</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g p" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 pass</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Stocks plus currency trend<small>6 of 11</small></th><td class="g p" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 pass</span></td><td class="g p" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 pass</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g p" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 pass</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g p" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 pass</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Stocks, sell in May<small>5 of 11</small></th><td class="g p" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 pass</span></td><td class="g p" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 pass</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g p" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 pass</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Currency carry<small>3 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Currency carry, trend and value<small>4 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g p" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 pass</span></td><td class="g p" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 pass</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g p" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 pass</span></td></tr>
+<tr><th scope="row">Dollar carry<small>2 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Currency trend, 12 months<small>3 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g p" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 pass</span></td></tr>
+<tr><th scope="row">Currency moving-average cross<small>3 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g p" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 pass</span></td><td class="g p" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 pass</span></td></tr>
+<tr><th scope="row">Oil gap<small>1 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g p" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 pass</span></td><td class="g f" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 fail</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Currency value<small>0 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g f" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 fail</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Currency momentum<small>1 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g f" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 fail</span></td><td class="g p" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 pass</span></td></tr>
+<tr><th scope="row">Currency RSI reversion<small>0 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g f" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 fail</span></td><td class="g f" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 fail</span></td></tr>
+<tr><th scope="row">Oil and gas trend<small>1 of 11</small></th><td class="g f" style="--c:0"><span class="g-m"></span><span class="visually-hidden">A1 fail</span></td><td class="g f" style="--c:1"><span class="g-m"></span><span class="visually-hidden">A2 fail</span></td><td class="g f" style="--c:2"><span class="g-m"></span><span class="visually-hidden">A3 fail</span></td><td class="g f" style="--c:3"><span class="g-m"></span><span class="visually-hidden">A4 fail</span></td><td class="g f" style="--c:4"><span class="g-m"></span><span class="visually-hidden">A5 fail</span></td><td class="g f" style="--c:5"><span class="g-m"></span><span class="visually-hidden">A6 fail</span></td><td class="g f" style="--c:6"><span class="g-m"></span><span class="visually-hidden">B1 fail</span></td><td class="g f" style="--c:7"><span class="g-m"></span><span class="visually-hidden">B2 fail</span></td><td class="g f" style="--c:8"><span class="g-m"></span><span class="visually-hidden">B3 fail</span></td><td class="g f" style="--c:9"><span class="g-m"></span><span class="visually-hidden">B4 fail</span></td><td class="g p" style="--c:10"><span class="g-m"></span><span class="visually-hidden">B5 pass</span></td></tr>
+</tbody></table></div>
+<p class="grid-note">Filled squares passed. Third official run, 1999 to 2026. 57 of 176 tests passed.</p>
+<div class="pa-gates">
+<div><h3>A. Beats the S&amp;P 500</h3><ul class="plain-list">
+<li><b>A1</b> Sharpe ratio above the market&#8217;s.</li>
+<li><b>A2</b> More yearly return than the market at the market&#8217;s own volatility, with borrowing paid for.</li>
+<li><b>A3</b> Deflated Sharpe of 0.95 or more, which allows for the number of ideas tried.</li>
+<li><b>A4</b> Still above the market with trading costs doubled.</li>
+<li><b>A5</b> Above the market in 1999 to 2008, 2009 to 2019 and 2020 on, separately.</li>
+<li><b>A6</b> Above the market over the last five years.</li></ul></div>
+<div><h3>B. Is the effect real</h3><ul class="plain-list">
+<li><b>B1</b> The 95% range of Sharpe over 1,000 resampled histories is above zero.</li>
+<li><b>B2</b> Beats 95% of 500 copies with the same bets placed on random dates.</li>
+<li><b>B3</b> At least 75% of nearby parameter settings have a positive Sharpe.</li>
+<li><b>B4</b> Sharpe stays above zero without its best year.</li>
+<li><b>B5</b> Zero or positive on average in the S&amp;P 500&#8217;s worst 5% of months.</li></ul></div>
+</div>
+</section>
 
-  <section class="proj-section " aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="fig fig-wide"><img src="img/pipeline.svg" width="760" height="250" alt="Left to right: scrapers, strategy files, one backtester, the gauntlet of eleven tests, and a nightly job that posts to a private dashboard." loading="lazy" decoding="async" style="width:100%;height:auto;background:#F6EEDB;border:1px solid #B8872E;padding:8px"><p class="rs-note">One path from raw data to a verdict. Official results come only from the ledger.</p></div>
-    <ol class="steps">
-      <li><b>Scrapers</b><span>Pull free daily data: 9 currencies, 10 interest rates, oil, gas, copper, the S&amp;P 500 and the VIX.</span></li>
-      <li><b>Strategies</b><span>One file each. A strategy turns data into how much to hold of what. Any can be removed at any time.</span></li>
-      <li><b>One backtester</b><span>Replays history for every strategy the same way. It charges trading costs, credits interest, and can scale to the market&#8217;s own risk, paying for any borrowing.</span></li>
-      <li><b>The gauntlet</b><span>Eleven fixed tests. Six ask if it beats the market. Five ask if it is real or luck.</span></li>
-      <li><b>Nightly job</b><span>Runs everything every night and posts results to a private dashboard.</span></li>
-      <li><b>The ledger</b><span>Official results only count if the plan was written down first. More below.</span></li>
-    </ol>
-  </section>
+<section class="proj-section" aria-labelledby="results-h">
+<h2 id="results-h">Results</h2>
+<p>The third official run put all 16 strategies through the gauntlet over 1999 to 2026. Six stock rules score above the market, from 0.57 to 0.75. All six pass A1, A2 and A4 and fail A3 and A5. Every currency and commodity strategy scores below 0.42.</p>
+<figure class="fig fig-narrow" data-reveal="rise"><img src="img/growth.svg" width="560" height="380" alt="Growth of one dollar from 1999 to 2026: the S&amp;P 500 ends near 11 dollars, the volatility-managed stock rule near 20 dollars, currency carry near 1.50 dollars." loading="lazy" decoding="async"><figcaption>What one dollar becomes. The volatility-managed stock rule ends highest and passes 8 of 11 tests.</figcaption></figure>
+<h3>Currency carry</h3>
+<p>Holding high-interest currencies earns a small amount fairly reliably. It scores 0.41, far below stocks, and it loses when stocks crash.</p>
+<h3>Currency trend</h3>
+<p>Following currency trends worked mostly from 2000 to 2008. Over the last five years it made nothing.</p>
+<h3>Oil gap</h3>
+<p>The idea that two oil-linked currencies catch up with oil shows no reliable effect as built.</p>
+</section>
 
-  <section class="proj-section " aria-labelledby="gauntlet-h">
-    <h2 id="gauntlet-h">The gauntlet</h2>
-    <p class="lede">Eleven gates. Every strategy runs all of them, every time. The bars were fixed before we saw any results, so we cannot bend them.</p>
-    <div class="table-wrap" tabindex="0" role="region" aria-label="Gauntlet results for the first three strategies">
-    <table class="pa-gaunt">
-      <caption>The first three strategies, official run RUN-000001. A gates: does it beat the market. B gates: is it real.</caption>
-      <thead><tr><th scope="col">Strategy</th><th scope="col">A1</th><th scope="col">A2</th><th scope="col">A3</th><th scope="col">A4</th><th scope="col">A5</th><th scope="col">A6</th><th scope="col">B1</th><th scope="col">B2</th><th scope="col">B3</th><th scope="col">B4</th><th scope="col">B5</th><th scope="col">Passed</th></tr></thead>
-      <tbody><tr><th scope="row">Currency carry<small>Buys high-interest currencies, sells low-interest ones</small></th><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="ok">Pass</td><td class="no">Fail</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="no">Fail</td><td><b>3</b> of 11</td></tr><tr><th scope="row">Currency trend<small>Follows what each currency did over the past year</small></th><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="ok">Pass</td><td><b>3</b> of 11</td></tr><tr><th scope="row">Oil gap<small>Bets two oil-linked currencies catch up with oil</small></th><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="no">Fail</td><td class="ok">Pass</td><td class="no">Fail</td><td class="no">Fail</td><td><b>1</b> of 11</td></tr></tbody>
-    </table>
-    </div>
-    <div class="pa-gates">
-      <div><h3>A. Does it beat the S&amp;P 500? All six must pass.</h3><ul class="plain-list">
-        <li><b>A1 Better return for the risk.</b> Does it earn more per unit of bumpiness than the S&amp;P 500?</li>
-        <li><b>A2 More money at the same risk.</b> Turned up to the market&#8217;s own bumpiness, with borrowing paid for, does it earn more?</li>
-        <li><b>A3 Not just the luckiest try.</b> Still good after allowing for how many ideas we tried (deflated Sharpe of 0.95 or more)?</li>
-        <li><b>A4 Survives double costs.</b> Does it still win if trading costs twice what we guessed?</li>
-        <li><b>A5 Wins in every era.</b> 2000 to 2008, 2009 to 2019 and 2020 on, separately.</li>
-        <li><b>A6 Wins lately.</b> Does it beat the market over the last five years alone?</li></ul></div>
-      <div><h3>B. Is there anything real here?</h3><ul class="plain-list">
-        <li><b>B1 Clearly above zero.</b> On 1,000 reshuffles of real history, does it still make money?</li>
-        <li><b>B2 Timing matters.</b> Same bets on random dates: does it do much worse?</li>
-        <li><b>B3 Not one lucky setting.</b> Nudge its settings. Does it still make money?</li>
-        <li><b>B4 Not one lucky year.</b> Delete its best year. Still positive?</li>
-        <li><b>B5 Safe when stocks crash.</b> Does it hold up in the stock market&#8217;s worst months?</li></ul></div>
-    </div>
-  </section>
+<section class="proj-section" aria-labelledby="ledger-h">
+<h2 id="ledger-h">Official runs</h2>
+<p>An official result counts only if the plan was written down before the run. The plan lists the strategies, their settings and the bar to pass. The run then executes on a clean machine with frozen code and fingerprinted data, and the result goes into a tamper-evident ledger. Result tables in the docs are generated from the ledger.</p>
+<p>There have been 3 official runs, and all failed their plan. The first, in 2000 to 2026 with costs, tested three strategies. Carry scored 0.39 and passed 3 of 11 tests, currency trend 0.17 and 3 of 11, the oil gap 0.06 and 1 of 11, against 0.50 for the S&amp;P 500 on those dates. After the weekly oil idea failed, a monthly version looked better. That was seen only after looking, so a strict rule was written first: pass at least 4 of the 5 reality tests. It passed 2, and the idea was retired.</p>
+</section>
 
-  <section class="proj-section " aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <p class="lede">Return for the risk taken (Sharpe ratio), against holding the S&amp;P 500. Higher is better.</p>
-    <p>The third official run, RUN-000003, put all 16 strategies through the gauntlet over 1999 to 2026. The market scores 0.54. Four stock rules score higher, from 0.66 to 0.75, but none passes all six beat-the-market tests once the number of ideas tried is counted. Every currency and commodity strategy scores below 0.42. In total 57 gates passed and 116 failed.</p>
-    <div class="fig-pair">
-      <figure class="fig"><img src="img/sharpe.svg" width="760" height="732" alt="Horizontal bars of the Sharpe ratio of the 16 strategies against the S&amp;P 500 at 0.54." loading="lazy" decoding="async"><figcaption>Sharpe ratio of every strategy, official run RUN-000003. The best stock rule, a 10-month trend rule, scores 0.75.</figcaption></figure><figure class="fig"><img src="img/growth.svg" width="760" height="420" alt="Growth of one dollar from 1999 to 2026: the market ends near 11 dollars, the best-testing stock rule near 20 dollars, currency carry near 1.50." loading="lazy" decoding="async"><figcaption>What a dollar becomes. The stock rule that cuts back when markets get wild ends highest, and still passes only 8 of 11 tests.</figcaption></figure>
-    </div>
-    <p>The first official run, RUN-000001 (2000 to 2026, costs included), tested three strategies. Carry scored 0.39 and passed 3 of 11 tests, trend 0.17 and 3 of 11, the oil gap 0.06 and 1 of 11. The S&amp;P 500 scored 0.50 on those dates.</p>
-  </section>
+<section class="proj-section" aria-labelledby="app-h">
+<h2 id="app-h">The dashboard</h2>
+<p>The web app is private and sign-in only. It has the strategy table, the algorithm catalog, the ledger, a lab and a glossary. No real money is traded, and nothing here is investment advice.</p>
+<figure class="fig" data-reveal="rise"><a class="lb" href="img/dashboard.webp" data-w="1440" data-h="900"><img src="img/dashboard-720.webp" srcset="img/dashboard-720.webp 720w, img/dashboard.webp 1440w" sizes="(min-width:1000px) 900px, 92vw" width="1440" height="900" alt="The strategies table: 16 strategies with CAGR, Sharpe, max drawdown, deflated Sharpe and gauntlet score." loading="lazy" decoding="async"></a><figcaption>The strategies table, sorted by Sharpe, with the benchmark in the first row.</figcaption></figure>
+</section>
 
-  <section class="proj-section " aria-labelledby="found-h">
-    <h2 id="found-h">What we found</h2>
-    <ul class="findings">
-      <li><b>Nothing beats the market</b>All sixteen fail the &#8220;beat the S&amp;P 500&#8221; bar once we count how many ideas we tried.</li>
-      <li><b>Carry looks real, but small</b>Holding high-interest currencies earns a little, fairly reliably. Far less than stocks, and it loses when stocks crash.</li>
-      <li><b>Trend faded after 2009</b>Following currency trends worked mostly from 2000 to 2008. Over the last five years it made nothing.</li>
-      <li><b>The oil idea shows nothing</b>It was our favorite. As built, it has no reliable effect.</li>
-    </ul>
-  </section>
+<section class="proj-section" aria-labelledby="next-h">
+<h2 id="next-h">Open questions</h2>
+<ul class="plain-list">
+<li>Does holding stocks and adding currency trend on top beat stocks alone?</li>
+<li>Do surprise economic and energy news move currencies in a predictable direction?</li>
+<li>Does the dollar weaken on days the Fed announces a decision?</li>
+</ul>
+</section>
 
-  <section class="proj-section " aria-labelledby="ledger-h">
-    <h2 id="ledger-h">Official runs, written down first</h2>
-    <p class="lede">A result only counts if the plan came before it.</p>
-    <ol class="steps">
-      <li><b>Register</b><span>Write the strategies, the settings and the bar to pass. Nothing is run yet.</span></li>
-      <li><b>Run</b><span>Run it on a clean machine with frozen code and fingerprinted data.</span></li>
-      <li><b>Ledger</b><span>The result goes in a tamper-evident log. Result tables in our docs are generated from it and cannot be edited by hand.</span></li>
-    </ol>
-    <div class="note"><p><b>3 official runs. All failed their plan.</b> One example: after the weekly oil idea failed, a monthly version looked better. We found that only after looking, so we wrote a strict rule first: pass at least 4 of the 5 &#8220;is it real&#8221; tests. It passed 2. We retired the idea.</p></div>
-  </section>
-
-  <section class="proj-section " aria-labelledby="neg-h">
-    <h2 id="neg-h">A negative result, reported honestly</h2>
-    <p class="lede">&#8220;It does not work&#8221; is a real answer. Most trading claims never show theirs.</p>
-    <ul class="plain-list">
-      <li>Every failed run stays in the record. Nothing is quietly dropped.</li>
-      <li>We count every idea we tried, so luck cannot pass for skill.</li>
-      <li>The tests have known weaknesses, and we list them in our docs.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section proj-gallery" aria-labelledby="app-h">
-    <h2 id="app-h">The dashboard</h2>
-    <p>The web app is private and sign-in only. It has the strategy table, a catalog of algorithms, the ledger, a lab, and a plain-words glossary. These screenshots are from my own copy running with the project&#8217;s data.</p>
-    <ul class="gallery">
-      <li><figure><a class="lb" href="img/dashboard.webp" data-w="1440" data-h="900"><img src="img/dashboard-720.webp" srcset="img/dashboard-720.webp 720w, img/dashboard.webp 1440w" sizes="(min-width:960px) 45vw, 92vw" width="1440" height="900" alt="The strategies table: 16 strategies with CAGR, Sharpe, max drawdown, deflated Sharpe and gauntlet score." loading="lazy" decoding="async"></a><figcaption>Strategies, sorted by Sharpe. The benchmark is the first row.<span class="credit">Screenshot of my own app.</span></figcaption></figure></li>
-      <li><figure><a class="lb" href="img/dashboard-phone.webp" data-w="390" data-h="844"><img src="img/dashboard-phone.webp" width="390" height="844" alt="The Parity dashboard on a phone." loading="lazy" decoding="async" style="max-width:300px"></a><figcaption>The same app on a phone.<span class="credit">Screenshot of my own app.</span></figcaption></figure></li>
-    </ul>
-  </section>
-
-  <section class="proj-section " aria-labelledby="next-h">
-    <h2 id="next-h">Next leads</h2>
-    <ul class="plain-list">
-      <li>Hold stocks and add currency trend on top. Does the mix beat stocks alone?</li>
-      <li>Do surprise economic and energy news move currencies in a predictable direction?</li>
-      <li>Does the dollar weaken on days the Fed announces a decision?</li>
-    </ul>
-    <p>Each one is written down as an open question with its bar. None is a result yet.</p>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Built the test engine: scrapers, one backtester with costs and carry, and the eleven-test gauntlet.</li>
-      <li>Built the web app: a private dashboard with the catalog, ledger, lab and a plain-words glossary.</li>
-      <li>Set up the nightly job and the pre-registered ledger.</li>
-      <li>Tested 16 strategies against simply holding the S&amp;P 500. None beat it.</li>
-      <li>Built a catalog of 72 algorithms and 36 data sources, each with a report.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section " aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <ul class="findings">
-      <li><b>The bar has to exist before the result</b>Writing the plan first is what makes a failure believable. Every Sharpe in the tests is measured above the T-bill, a fix we made after an audit of our own method.</li>
-      <li><b>Counting tries changes the answer</b>Four stock rules beat the market on raw Sharpe. After allowing for 188 trials none passes all six gates.</li>
-      <li><b>A small real effect is still a finding</b>Carry passes some &#8220;is it real&#8221; tests while failing every &#8220;beats stocks&#8221; test. That is useful as a part of a mix, not on its own.</li>
-    </ul>
-  </section>
-
-  <p class="note"><b>Not investment advice.</b> No real money is traded. This is research, and its answer so far is no.</p>
-
-  <p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
+<p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

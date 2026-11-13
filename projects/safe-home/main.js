@@ -1,47 +1,70 @@
 // Safe Home project page. Only this page loads this file.
-// Shared parts (what I did reveal, count-up, back links) come from /shared/project.js.
-// The mesh scene (scene.js, plain 2D canvas, light on phones) shows encrypted packets hopping house to house to the
-// one house with Internet. The buttons under it do what clicking a house does, so the story works by keyboard too.
-import { initProject } from '../../shared/project.js';
-import { mountScene } from '../../shared/scene-loader.js';
-import { onVisible } from '../../shared/motion.js';
-import { bus } from './bus.js';
+// - setupPage() (projects/page.js): entrances, back links.
+// - The box model opens as the "The box" section scrolls through the screen.
+// - The mesh model: buttons and a live count tied to its offline/online state (events from shared/models/mesh.js).
+import { setupPage, sectionProgress, whenModelReady } from '../page.js';
+import { tweenNumber } from '../../shared/motion.js';
 
-initProject();
+setupPage();
 
-// Scroll reveals for steps, numbers, timeline and limits.
-const rv = [...document.querySelectorAll('.rv')];
-rv.forEach((el, i) => el.style.setProperty('--d', `${(i % 4) * 90}ms`));
-onVisible(rv, (el) => el.classList.add('in'), { threshold: 0.15 });
-const tl = document.querySelector('.tl');
-if (tl) onVisible([tl], () => tl.classList.add('drawn'), { threshold: 0.2 });
+// Exploded view follows the scroll position of the section.
+const hw = document.querySelector('#hardware');
+const box = hw?.querySelector('.model-stage');
+let boxP = 0;
+sectionProgress(hw, (p) => { boxP = p; box?.__stage?.set('explode', p); }, { from: 0.2, span: 0.4 });
+if (box) box.addEventListener('model:ready', () => box.__stage.set('explode', boxP), { once: true });
+
+// Architecture diagram: the step on screen marks its parts in the diagram, and the packets pause when it is off screen.
+const flow = document.querySelector('#flow');
+const steps = [...document.querySelectorAll('#trace li')];
+const marked = [...document.querySelectorAll('#flow .arch [data-id]')];
+function mark(i) {
+  const hit = new Set((steps[i]?.dataset.hit || '').split(' ').filter(Boolean));
+  steps.forEach((s, k) => s.classList.toggle('is-on', k === i));
+  for (const el of marked) el.classList.toggle('hot', el.dataset.id.split(' ').some((t) => hit.has(t)));
+}
+if (flow && steps.length) {
+  const io = new IntersectionObserver((es) => {
+    for (const e of es) if (e.isIntersecting) mark(steps.indexOf(e.target));
+  }, { rootMargin: '-42% 0px -48% 0px' });
+  steps.forEach((s) => io.observe(s));
+  const svgs = [...flow.querySelectorAll('svg.arch')];
+  const vis = new IntersectionObserver((es) => {
+    for (const e of es) { if (e.isIntersecting) e.target.unpauseAnimations?.(); else e.target.pauseAnimations?.(); }
+  });
+  svgs.forEach((sv) => vis.observe(sv));
+}
 
 // Mesh controls.
-const status = document.querySelector('[data-status]');
-const nDel = document.querySelector('[data-delivered]');
-const nOff = document.querySelector('[data-offline]');
+const meshEl = document.querySelector('#mesh .model-stage');
+const ctl = document.querySelector('#mesh .model-ctl');
+const state = document.querySelector('#mesh [data-state]');
 const cut = document.querySelector('[data-cut]');
 const reset = document.querySelector('[data-reset]');
-let offline = 0;
-bus.onStats = (s) => {
-  if (nDel) nDel.textContent = String(s.delivered);
-  if (nOff) nOff.textContent = String(s.offline);
-  offline = s.offline;
-  if (reset) reset.disabled = s.offline === 0;
-};
-if (reset) reset.disabled = true;
-cut?.addEventListener('click', () => {
-  const ok = bus.knock && bus.knock();
-  if (status) status.textContent = ok ? `${offline} ${offline === 1 ? 'house is' : 'houses are'} offline. Reports are finding another way.` : 'Too few houses left to cut.';
-});
-reset?.addEventListener('click', () => {
-  if (bus.reset) bus.reset();
-  if (status) status.textContent = 'All houses are back online.';
-});
+const nOff = document.querySelector('[data-off]');
+const nRep = document.querySelector('[data-rep]');
+const TOTAL = 8;
+let offlineIds = [];
 
-mountScene({
-  canvas: document.querySelector('.mesh-canvas'),
-  load: () => import('./scene.js'),
-  webgl: false,
-  dprCap: 1.5, lowDprCap: 1,
-});
+function show(d) {
+  if (!d) return;
+  offlineIds = d.offline.slice();
+  tweenNumber(nOff, d.offline.length);
+  tweenNumber(nRep, d.reachable);
+  if (reset) reset.disabled = d.offline.length === 0;
+  if (cut) cut.disabled = d.offline.length >= TOTAL - 2;
+}
+if (meshEl) {
+  whenModelReady(meshEl, (stage) => {
+    if (meshEl.classList.contains('is-static')) return;
+    ctl.hidden = false; state.hidden = false;
+    show(stage.model.setOffline([]));
+    meshEl.addEventListener('model:change', (e) => show(e.detail));
+    cut.addEventListener('click', () => {
+      const free = [...Array(TOTAL).keys()].filter((i) => !offlineIds.includes(i));
+      if (free.length <= 2) return;
+      show(stage.model.setOffline([...offlineIds, free[(offlineIds.length * 3) % free.length]]));
+    });
+    reset.addEventListener('click', () => show(stage.model.setOffline([])));
+  });
+}

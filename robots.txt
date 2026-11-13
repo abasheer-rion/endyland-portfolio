@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /shared/models/_gallery.html
 
 Sitemap: https://endyland.com/sitemap.xml

@@ -8,10 +8,14 @@
 //    "deeper" / "up": from a tab into one of its project pages, between them, or back up. The new page,
 //    with its own theme, is inked in as a circle from where you clicked.
 // 3. Remembers where you clicked (sessionStorage), so the circle starts there.
-// 4. Runs the top bar (end of this file): condense, hide on scroll down, progress, tint, indicator, phone menu.
+// 4. Shared element: the picture on the card you clicked grows into the hero picture of the project page, and
+//    shrinks back into its card on the way up (class "vt-hero" on both ends, CSS in base.css).
+// 5. Loads shared/motion.js when the page uses data-reveal, data-reveal-group or data-depth.
+// 6. Runs the top bar (end of this file): condense, hide on scroll down, scroll speed, progress, tint, indicator,
+//    phone menu, and the Code link.
 (function () {
   document.documentElement.classList.add('js');
-  var order = ['', 'web-design', 'research', 'startup-work', 'projects', 'experience'];
+  var order = ['', 'web-design', 'research', 'startup-work', 'projects', 'experience', 'code'];
   // Where a URL sits: { tab: index in order, depth: 0 for a tab page, 1 for a project page }.
   function where(u) {
     try {
@@ -41,6 +45,38 @@
   }
   function wipe(t) { return t === 'deeper' || t === 'up'; }
 
+  // Which way a shared picture travels: 'in' (a card on home, a tab or a sibling page into a project page),
+  // 'out' (a project page back to its tab or home), or '' (no shared picture).
+  function sharedDir(fromUrl, toUrl) {
+    var a = where(fromUrl), b = where(toUrl);
+    if (!a || !b) return '';
+    if (b.depth > 0 && (a.depth === 0 || a.tab === b.tab)) return 'in';
+    if (a.depth > 0 && b.depth === 0 && (b.tab === a.tab || b.tab === 0)) return 'out';
+    return '';
+  }
+  // Shared element. One element at a time carries the name.
+  function clearHero() {
+    var old = document.querySelectorAll('.vt-hero');
+    for (var i = 0; i < old.length; i++) old[i].classList.remove('vt-hero');
+  }
+  function nameHero(el) { clearHero(); if (el) el.classList.add('vt-hero'); return !!el; }
+  function pageHero() { return document.querySelector('[data-vt="hero"]') || document.querySelector('.proj-hero-media img'); }
+  // The picture that stands for a link: inside it, or inside the card around it.
+  function cardPicture(a) {
+    if (!a) return null;
+    var box = a.querySelector('[data-vt="card"], img') ? a : (a.closest('[data-vt-card], li, article') || a);
+    return box.querySelector('[data-vt="card"]') || box.querySelector('img');
+  }
+  function linkTo(url) {
+    var path;
+    try { path = new URL(url, location.href).pathname.replace(/index\.html$/, ''); } catch (e) { return null; }
+    var as = document.querySelectorAll('main a[href]');
+    for (var i = 0; i < as.length; i++) {
+      if (as[i].pathname.replace(/index\.html$/, '') === path && cardPicture(as[i])) return as[i];
+    }
+    return null;
+  }
+
   // Remember the click point as a share of the screen. Keyboard clicks use the link's center.
   addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
@@ -48,6 +84,9 @@
     var x = e.clientX, y = e.clientY;
     if (!e.detail) { var r = a.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2; }
     try { sessionStorage.setItem(KEY, JSON.stringify([x / innerWidth, y / innerHeight])); } catch (err) { /* storage off */ }
+    // Going into a project page: name the card's picture now, before the browser takes its picture of this page.
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button || a.target === '_blank') return;
+    if (a.origin === location.origin && sharedDir(location.href, a.href) === 'in' && !a.closest('.bar, .site-footer')) nameHero(cardPicture(a));
   }, true);
 
   // Old page: name <main> just before the browser takes its picture, for tab-to-tab moves only.
@@ -56,16 +95,28 @@
     var t = '';
     try { if (e.activation) t = typeFor(location.href, e.activation.entry.url); } catch (err) { /* older browsers */ }
     if (!wipe(t)) root.classList.add('vt');
+    var sd = '';
+    try { if (e.activation) sd = sharedDir(location.href, e.activation.entry.url); } catch (err) { /* older browsers */ }
+    if (sd === 'out') nameHero(pageHero());
+    else if (sd !== 'in') clearHero();
+    e.viewTransition.finished.then(clearHero, clearHero);
     done(e.viewTransition);
   });
   // Coming back from the back/forward cache: drop the name the old page was left with.
-  addEventListener('pageshow', function (e) { if (e.persisted) off(); });
+  addEventListener('pageshow', function (e) { if (e.persisted) { off(); clearHero(); } });
   addEventListener('pagereveal', function (e) {
     if (!e.viewTransition) { off(); return; }
     var t = '';
     if (window.navigation && navigation.activation && navigation.activation.from && navigation.activation.entry) {
       t = typeFor(navigation.activation.from.url, navigation.activation.entry.url);
     }
+    // New page: the hero picture (going in) or the card we came from (going out) takes the shared name.
+    try {
+      var from = navigation.activation.from.url, sd = sharedDir(from, navigation.activation.entry.url);
+      if (sd === 'in') nameHero(pageHero());
+      else if (sd === 'out') nameHero(cardPicture(linkTo(from)));
+      e.viewTransition.finished.then(clearHero, clearHero);
+    } catch (err) { /* no shared element, the page turn still runs */ }
     if (wipe(t)) {
       var pt = null;
       try { pt = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (err) { /* storage off */ }
@@ -84,6 +135,17 @@
     try { e.viewTransition.types.add(t); } catch (err) { /* older browsers */ }
   });
 
+  // ---------- Motion ----------
+  // Pages mark elements with data-reveal, data-reveal-group or data-depth (see base.css). The code is a module,
+  // loaded only where it is used. If it never arrives, "mo-off" shows everything in its final state.
+  function initMotion() {
+    if (!document.querySelector('[data-reveal],[data-reveal-group],[data-depth]')) return;
+    var failsafe = setTimeout(function () { root.classList.add('mo-off'); }, 3000);
+    import('/shared/motion.js').then(function (m) { clearTimeout(failsafe); m.initMotion(); },
+      function () { clearTimeout(failsafe); root.classList.add('mo-off'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMotion); else initMotion();
+
   // ---------- Top bar ----------
   // Everything here is polish. Without it the bar is a plain row of links.
   function initBar() {
@@ -92,9 +154,33 @@
     var nav = bar.querySelector('.bar-nav');
     var ind = bar.querySelector('.bar-ind');
     var btn = bar.querySelector('.bar-menu');
+    // Code link: added here until every page carries it in its own markup.
+    var list = nav && nav.querySelector('ul');
+    if (list && !list.querySelector('a[href="/code/"]')) {
+      var li = document.createElement('li'), ca = document.createElement('a');
+      ca.href = '/code/'; ca.textContent = 'Code';
+      if (/^\/code(\/|$)/.test(location.pathname)) ca.setAttribute('aria-current', 'page');
+      li.appendChild(ca); list.appendChild(li);
+    }
     var links = nav ? Array.prototype.slice.call(nav.querySelectorAll('a')) : [];
     var phone = matchMedia('(max-width: 760px)');
     var open = false, resting = null, last = scrollY, ticking = false, lastTone = 0;
+    var vY = scrollY, vT = 0, vNow = 0, vIdle;
+
+    // Brand mark: the two-colour logo (shared/brand/logo.svg) drawn inline so it follows the bar's tint.
+    var brand = bar.querySelector('.bar-brand');
+    if (brand && !brand.querySelector('svg')) {
+      var NS = 'http://www.w3.org/2000/svg', mk = document.createElementNS(NS, 'svg');
+      mk.setAttribute('class', 'bar-mark'); mk.setAttribute('viewBox', '0 0 64 64');
+      mk.setAttribute('aria-hidden', 'true'); mk.setAttribute('focusable', 'false');
+      var arm = document.createElementNS(NS, 'path');
+      arm.setAttribute('d', 'M36 12H12V52H20M12 32H28'); mk.appendChild(arm);
+      [[52, 12], [44, 32], [36, 52]].forEach(function (c) {
+        var dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('cx', c[0]); dot.setAttribute('cy', c[1]); dot.setAttribute('r', 6); mk.appendChild(dot);
+      });
+      brand.insertBefore(mk, brand.firstChild); brand.classList.add('has-mark');
+    }
 
     // Sliding indicator: moves with transform only (translateX + scaleX).
     function mark(a) {
@@ -187,6 +273,19 @@
       bar.style.setProperty('--prog', h > 0 ? Math.min(1, Math.max(0, scrollY / h)).toFixed(4) : 0);
     }
 
+    // Scroll speed, 0 to 1 in quarter steps (so the style changes a few times, not every frame). Above about
+    // 1.2px per millisecond the pill tightens and the progress line thickens; it relaxes when scrolling stops.
+    function setSpeed(v) { if (v !== vNow) { vNow = v; bar.style.setProperty('--bar-v', String(v)); } }
+    function speed(y) {
+      var now = performance.now(), dt = now - vT;
+      if (vT && dt > 0 && dt < 120) {
+        var v = Math.abs(y - vY) / dt;
+        setSpeed(Math.round(Math.min(1, Math.max(0, (v - 1.2) / 3.2)) * 4) / 4);
+      }
+      vY = y; vT = now;
+      clearTimeout(vIdle); vIdle = setTimeout(function () { setSpeed(0); }, 140);
+    }
+
     function update() {
       ticking = false;
       var y = Math.max(0, scrollY), dy = y - last;
@@ -194,6 +293,7 @@
       if (y <= 24 || dy < -4) bar.classList.remove('is-hidden');
       else if (dy > 4 && y > 140 && !open && !bar.contains(document.activeElement)) bar.classList.add('is-hidden');
       if (Math.abs(dy) > 4) last = y;
+      speed(y);
       progress();
       if (!toneIO || !under.size) { var now = Date.now(); if (now - lastTone > 200) { lastTone = now; tone(); } }
     }

@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>County records API and client intake | Ayan Basheer</title>
-<meta name="description" content="One API in front of 3 county record systems, and client intake that runs on its own.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>County records API and client intake - Ayan Basheer</title>
+<meta name="description" content="One cached API in front of three county record systems, and client intake that runs from a single entry. Built by Ayan Basheer at RION Solutions.">
 <link rel="canonical" href="https://endyland.com/startup-work/rion-county-api/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/startup-work/rion-county-api/">
-<meta property="og:title" content="County records API and client intake | Ayan Basheer">
-<meta property="og:description" content="One API in front of 3 county record systems, and client intake that runs on its own.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="County records API and client intake - Ayan Basheer">
+<meta property="og:description" content="One cached API in front of three county record systems, and client intake that runs from a single entry. Built by Ayan Basheer at RION Solutions.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="County records API and client intake - Ayan Basheer">
+<meta name="twitter:description" content="One cached API in front of three county record systems, and client intake that runs from a single entry. Built by Ayan Basheer at RION Solutions.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#04070D">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -22,9 +37,10 @@
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
 <link rel="stylesheet" href="/startup-work/pages.css">
-<link rel="modulepreload" href="/startup-work/rion/brand.js">
+<link rel="modulepreload" href="/startup-work/rion-county-api/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/startup-work/rion-county-api/#webpage","url":"https://endyland.com/startup-work/rion-county-api/","name":"County records API and client intake - Ayan Basheer","description":"One cached API in front of three county record systems, and client intake that runs from a single entry. Built by Ayan Basheer at RION Solutions.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/startup-work/rion-county-api/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/startup-work/rion-county-api/#main","name":"County records API and client intake","headline":"County records API and client intake","description":"One cached API in front of three county record systems, and client intake that runs from a single entry. Built by Ayan Basheer at RION Solutions.","url":"https://endyland.com/startup-work/rion-county-api/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/startup-work/rion-county-api/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Startup work","item":"https://endyland.com/startup-work/"},{"@type":"ListItem","position":3,"name":"County records API and client intake","item":"https://endyland.com/startup-work/rion-county-api/"}]}]}</script>
 </head>
-<body class="proj-page proj-rion-county-api">
+<body class="proj-page proj-rion-sub">
 <a class="skip" href="#main">Skip to content</a>
 <header class="bar" data-tone="dark">
   <div class="bar-in">
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -45,91 +62,41 @@
 </header>
 
 <main id="main" class="proj">
-  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>County records API and client intake</span></li></ol></nav>
+  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/rion/">RION Solutions</a></li><li><span>County records API</span></li></ol></nav>
 
   <header class="proj-hero">
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo" decoding="async">
-    <p class="proj-kicker">RION sub-project</p>
     <h1>County records API and client intake</h1>
-    <p class="proj-summary">One API in front of 3 county record systems, and client intake that runs on its own.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Automation engineer</dd></div><div><dt>Dates</dt><dd>Sep 2025 to Jun 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>Flask</li><li>AWS Lambda</li><li>REST</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">One cached API in front of three county record systems, and client intake that runs from a single entry.</p>
+    <p class="proj-facts">Automation engineer, September 2025 to June 2026. Python, Flask and AWS Lambda.</p>
     </div>
-    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Diagram: property, owner and records systems sit behind one API with a cache, serving 1K+ lookups a day." fetchpriority="high" decoding="async"><figcaption>How the pieces fit.</figcaption></figure>
   </header>
 
-  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
-
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">Three county systems and a lot of typing.</h2>
-    <div class="prose"><p>Property, owner and records information each live in their own county system. Anyone who needed a full picture had to ask three places and put the answers together by hand.</p><p>Client intake had the same shape: the same details typed into more than one place, which is where duplicate entries come from.</p></div>
+  <section class="proj-section" aria-labelledby="lookups-h">
+    <h2 id="lookups-h">Lookups</h2>
+    <div class="prose">
+      <p>Property, owner and records information each live in their own county system. A full picture used to mean asking three places and combining the answers by hand. The API reads all three, caches answers so a repeat lookup does not call a county system again, and handles 1K+ lookups a day.</p>
+    </div>
+    <figure class="figure dg-fig" data-reveal="rise"><div class="dg-box" data-diagram><svg class="dg dg-wide" viewBox="0 0 1040 266" role="img" aria-labelledby="ct-t ct-d" focusable="false"><title id="ct-t">How a county lookup works</title><desc id="ct-d">Property, owner and records systems sit behind one API with a cache. Callers ask the API, which serves cached answers and reads the county systems when needed.</desc><defs><marker id="ct-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="260" height="266" rx="6"/><text class="dg-lt" x="16" y="30">County systems</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="16" y="48" width="228" height="58" rx="4"/><text class="dg-t" x="130" y="83" style="font-size:17px">Property system</text></g><g class="dg-n" data-n="0-1"><rect class="dg-node" x="16" y="120" width="228" height="58" rx="4"/><text class="dg-t" x="130" y="155" style="font-size:17px">Owner system</text></g><g class="dg-n" data-n="0-2"><rect class="dg-node" x="16" y="192" width="228" height="58" rx="4"/><text class="dg-t" x="130" y="227" style="font-size:17px">Records system</text></g><rect class="dg-lane" x="370" y="0" width="300" height="266" rx="6"/><text class="dg-lt" x="386" y="30">One API</text><g class="dg-n" data-n="1-0"><rect class="dg-dark" x="386" y="48" width="268" height="58" rx="4"/><text class="dg-w" x="520" y="72" style="font-size:17px">API</text><text class="dg-w dg-sub" x="520" y="93" style="font-size:15px">with a cache</text></g><rect class="dg-lane" x="780" y="0" width="260" height="266" rx="6"/><text class="dg-lt" x="796" y="30">Callers</text><g class="dg-n" data-n="2-0"><rect class="dg-node" x="796" y="48" width="228" height="58" rx="4"/><text class="dg-t" x="910" y="72" style="font-size:17px">Callers</text><text class="dg-t dg-sub" x="910" y="93" style="font-size:15px">ask one place</text></g><path class="dg-line" d="M244 77H386" marker-end="url(#ct-ar)"/><path class="dg-line" d="M654 77H796" marker-end="url(#ct-ar)"/><circle class="dg-dot" r="8" cx="0" cy="0"/></svg><svg class="dg dg-narrow" viewBox="0 0 360 562" role="img" aria-labelledby="ct-nt ct-nd" focusable="false"><title id="ct-nt">How a county lookup works</title><desc id="ct-nd">Property, owner and records systems sit behind one API with a cache. Callers ask the API, which serves cached answers and reads the county systems when needed.</desc><defs><marker id="ct-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="360" height="258" rx="6"/><text class="dg-lt" x="12" y="29">County systems</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="12" y="44" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="79" style="font-size:17px">Property system</text></g><g class="dg-n" data-n="0-1"><rect class="dg-node" x="12" y="116" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="151" style="font-size:17px">Owner system</text></g><g class="dg-n" data-n="0-2"><rect class="dg-node" x="12" y="188" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="223" style="font-size:17px">Records system</text></g><path class="dg-line" d="M180 260V294" marker-end="url(#ct-ar)"/><rect class="dg-lane" x="0" y="296" width="360" height="114" rx="6"/><text class="dg-lt" x="12" y="325">One API</text><g class="dg-n" data-n="1-0"><rect class="dg-dark" x="12" y="340" width="336" height="58" rx="4"/><text class="dg-w" x="180" y="364" style="font-size:17px">API</text><text class="dg-w dg-sub" x="180" y="385" style="font-size:15px">with a cache</text></g><path class="dg-line" d="M180 412V446" marker-end="url(#ct-ar)"/><rect class="dg-lane" x="0" y="448" width="360" height="114" rx="6"/><text class="dg-lt" x="12" y="477">Callers</text><g class="dg-n" data-n="2-0"><rect class="dg-node" x="12" y="492" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="516" style="font-size:17px">Callers</text><text class="dg-t dg-sub" x="180" y="537" style="font-size:15px">ask one place</text></g><circle class="dg-dot" r="8" cx="0" cy="0"/></svg></div></figure>
+  </section>
+  <section class="proj-section" aria-labelledby="intake-h">
+    <h2 id="intake-h">Client intake</h2>
+    <div class="prose">
+      <p>Client intake meant typing the same details into more than one system, which produced duplicate entries. Intake now runs from one entry. Onboarding got 70% faster and duplicates stopped.</p>
+    </div>
   </section>
 
-  <section class="proj-section" aria-labelledby="approach-h">
-    <h2 id="approach-h">One API in front, a cache behind it, intake on autopilot.</h2>
-    <div class="prose"><p>I put all 3 county systems behind one API, so a caller asks one place, not three. The API caches answers, so a repeat lookup does not hit the county system again. It handles 1K+ lookups a day.</p><p>I also automated client intake end to end. A client is entered once and the rest runs on its own. Onboarding got 70% faster and duplicate entries stopped.</p></div>
-  </section>
-
-  <section class="proj-section" aria-labelledby="how-h">
-    <h2 id="how-h">How a lookup works</h2>
-    <ol class="a-steps">
-      <li><h3>Three systems</h3><p>Property, owner and records each live in their own county system. Each one is read on its own.</p></li>
-      <li><h3>One API in front</h3><p>I put all 3 behind one API. Callers ask one place, not three.</p></li>
-      <li><h3>A cache for repeats</h3><p>The API caches answers. It handles 1K+ lookups a day.</p></li>
-      <li><h3>Intake on its own</h3><p>Intake runs end to end without hand entry. Onboarding got 70% faster and duplicate entries stopped.</p></li>
-    </ol>
-    <figure class="a-diagram">
-      <div class="fig-scroll" tabindex="0" role="region" aria-label="Lookup drawing, scrolls sideways on small screens">
-      <svg viewBox="0 0 1000 340" role="img" aria-labelledby="ct-t ct-d" focusable="false">
-        <title id="ct-t">How a county lookup works</title>
-        <desc id="ct-d">Property, owner and records systems each sit behind one API with a cache. Callers ask the API. It serves cached answers and reads the county systems only when needed. It handles over a thousand lookups a day.</desc>
-        <defs><marker id="ct-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
-<path class="dg-line" d="M250 70H370" marker-end="url(#ct-ar)"/><path class="dg-line" d="M250 170H370" marker-end="url(#ct-ar)"/><path class="dg-line" d="M250 270H370" marker-end="url(#ct-ar)"/><path class="dg-line" d="M630 170H750" marker-end="url(#ct-ar)"/><rect class="dg-node" x="20" y="40" width="230" height="60" rx="6"/><text class="dg-t" x="135.0" y="76.0">Property system</text><rect class="dg-node" x="20" y="140" width="230" height="60" rx="6"/><text class="dg-t" x="135.0" y="176.0">Owner system</text><rect class="dg-node" x="20" y="240" width="230" height="60" rx="6"/><text class="dg-t" x="135.0" y="276.0">Records system</text><rect class="dg-dark" x="370" y="80" width="260" height="180" rx="6"/><text class="dg-w" x="500.0" y="166.0">One API</text><text class="dg-s" x="500.0" y="188.0" style="fill:#fff">with a cache</text><rect class="dg-node" x="750" y="130" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="166.0">Callers</text><text class="dg-s" x="865.0" y="188.0">ask one place, not three</text><text class="dg-s" x="865" y="240">1K+ lookups a day</text>
-      </svg>
-      </div>
-      <figcaption>Drawn for this site from the numbers on this page.</figcaption>
-    </figure>
-    <figure class="a-diagram">
-      <div class="fig-scroll" tabindex="0" role="region" aria-label="Intake drawing, scrolls sideways on small screens">
-      <svg viewBox="0 0 1000 200" role="img" aria-labelledby="in-t in-d" focusable="false">
-        <title id="in-t">How client intake runs</title>
-        <desc id="in-d">A new client is entered once. Intake runs on its own through the steps, with no hand entry, so there are no duplicate records. Onboarding is 70 percent faster.</desc>
-        <defs><marker id="in-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
-<path class="dg-line" d="M250 100H370" marker-end="url(#in-ar)"/><path class="dg-line" d="M630 100H750" marker-end="url(#in-ar)"/><rect class="dg-node" x="20" y="60" width="230" height="80" rx="6"/><text class="dg-t" x="135.0" y="96.0">New client</text><text class="dg-s" x="135.0" y="118.0">entered once</text><rect class="dg-dark" x="370" y="60" width="260" height="80" rx="6"/><text class="dg-w" x="500.0" y="96.0">Intake runs on its own</text><text class="dg-s" x="500.0" y="118.0" style="fill:#fff">no hand entry</text><rect class="dg-node" x="750" y="60" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="96.0">Onboarded</text><text class="dg-s" x="865.0" y="118.0">no duplicates</text><text class="dg-s" x="500" y="170">70% faster onboarding</text>
-      </svg>
-      </div>
-      <figcaption>Drawn for this site from the numbers on this page.</figcaption>
-    </figure>
-  </section>
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>3</b><span>county systems behind one API</span></li><li class="stat"><b>1K+</b><span>lookups a day, cached</span></li><li class="stat"><b><span class="visually-hidden">70%</span><span aria-hidden="true" data-count="70" data-post="%">70%</span></b><span>faster onboarding</span></li></ul>
-  </section>
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list"><li>Put 3 county record systems (property, owner and records) behind one API.</li><li>Added caching for 1K+ lookups a day.</li><li>Automated client intake end to end. Onboarding got 70% faster and duplicate entries stopped.</li></ul>
-  </section>
-
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="prose"><p>One clean interface hides messy systems. Callers never needed to know there were three of them.</p><p>A cache is the cheapest speed-up when the same questions repeat.</p></div>
-  </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/rion/">Part of RION Solutions</a></li></ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/startup-work/rion/">Back to RION Solutions</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
+  <p class="proj-back"><a class="back-link" href="/startup-work/rion/">Back to RION Solutions</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

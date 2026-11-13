@@ -1,0 +1,55 @@
+name: Refresh GitHub stats
+
+# Rewrites data/github.json for the /code/ page once a day, commits it only when it changed,
+# then starts "Check and deploy" (a push made with the built-in token does not start other workflows).
+on:
+  schedule:
+    - cron: "17 9 * * *" # 09:17 UTC, about 3 or 4 in the morning in Dallas
+  workflow_dispatch:
+    inputs:
+      allow_public:
+        description: "Overwrite numbers made with the owner token using public data only"
+        type: boolean
+        default: false
+
+permissions: {}
+
+concurrency:
+  group: github-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    # Main only. Never on a push, so its own commit cannot start it again.
+    if: github.ref == 'refs/heads/main' && github.event_name != 'push' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # commit data/github.json
+      actions: write # start the deploy workflow
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Fetch
+        env:
+          # Optional. The owner's read-only token, so private work is counted. Names of private repos are never written.
+          GH_STATS_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          ALLOW_PUBLIC_DOWNGRADE: ${{ inputs.allow_public && '1' || '0' }}
+        run: node .github/scripts/fetch-github.mjs
+
+      - name: Commit and deploy if it changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/github.json && [ -z "$(git status --porcelain -- data/github.json)" ]; then
+            echo "No change."
+            exit 0
+          fi
+          .github/scripts/check-site.sh
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/github.json
+          git commit -m "data: refresh GitHub stats"
+          git push origin HEAD:main
+          gh workflow run deploy.yml --ref main

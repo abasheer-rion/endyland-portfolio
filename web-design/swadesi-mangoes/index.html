@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Swadesi Mangoes | Ayan Basheer</title>
-<meta name="description" content="A mango shop storefront, rebuilt in Next.js with Shopify behind it.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Swadesi Mangoes - Ayan Basheer</title>
+<meta name="description" content="A storefront for a seasonal mango importer, rebuilt in Next.js with Shopify behind it. The rebuild is not live.">
 <link rel="canonical" href="https://endyland.com/web-design/swadesi-mangoes/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/web-design/swadesi-mangoes/">
-<meta property="og:title" content="Swadesi Mangoes | Ayan Basheer">
-<meta property="og:description" content="A mango shop storefront, rebuilt in Next.js with Shopify behind it.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Swadesi Mangoes - Ayan Basheer">
+<meta property="og:description" content="A storefront for a seasonal mango importer, rebuilt in Next.js with Shopify behind it. The rebuild is not live.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Swadesi Mangoes - Ayan Basheer">
+<meta name="twitter:description" content="A storefront for a seasonal mango importer, rebuilt in Next.js with Shopify behind it. The rebuild is not live.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#FFFCF3">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/web-design/case.css">
 <link rel="stylesheet" href="/web-design/swadesi-mangoes/style.css">
 <link rel="modulepreload" href="/web-design/swadesi-mangoes/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/web-design/swadesi-mangoes/#webpage","url":"https://endyland.com/web-design/swadesi-mangoes/","name":"Swadesi Mangoes - Ayan Basheer","description":"A storefront for a seasonal mango importer, rebuilt in Next.js with Shopify behind it. The rebuild is not live.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/web-design/swadesi-mangoes/#main"}},{"@type":"CreativeWork","@id":"https://endyland.com/web-design/swadesi-mangoes/#main","name":"Swadesi Mangoes","description":"A storefront for a seasonal mango importer, rebuilt in Next.js with Shopify behind it. The rebuild is not live.","url":"https://endyland.com/web-design/swadesi-mangoes/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/web-design/swadesi-mangoes/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Web design","item":"https://endyland.com/web-design/"},{"@type":"ListItem","position":3,"name":"Swadesi Mangoes","item":"https://endyland.com/web-design/swadesi-mangoes/"}]}]}</script>
 </head>
 <body class="proj-page proj-swadesi-mangoes">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -48,93 +65,55 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>Swadesi Mangoes</span></li></ol></nav>
 
   <header class="cs-hero">
-    <div class="proj-intro">
-    <img class="proj-logo" src="img/logo.webp" width="420" height="70" alt="Swadesi Mangoes logo" decoding="async">
-    <p class="proj-kicker">Client storefront</p>
+    <div data-reveal-group>
     <h1>Swadesi Mangoes</h1>
-    <p class="proj-summary">A mango shop&#8217;s storefront, rebuilt in Next.js with Shopify behind it.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. 22 of the 24 commits.</dd></div><div><dt>Dates</dt><dd>Apr to Oct 2026</dd></div><div><dt>Client</dt><dd>Swadesi Mangoes</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Next.js</li><li>Shopify</li><li>Tailwind</li><li>Framer Motion</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://swadesimangoes.com" rel="noopener">swadesimangoes.com</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">A storefront for a seasonal mango importer, rebuilt in Next.js with Shopify behind it. The rebuild is not live.</p>
+    <p class="proj-facts">Main developer, April 2026. Next.js, Tailwind, Framer Motion and the Shopify Storefront API.</p>
+    <ul class="proj-links"><li><a href="https://swadesimangoes.com" rel="noopener">swadesimangoes.com</a></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The Swadesi Mangoes store today: a logo, an orange menu, a green announcement bar and a photo of green and yellow mangoes with a green panel reading Largest Importer of Indian Mangoes to the US." fetchpriority="high" decoding="async"><figcaption>The live store, captured 11 November 2026. It may not be running my rebuild yet.</figcaption></figure>
+    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The current Swadesi Mangoes store, which runs a Shopify theme: a logo, an orange menu, a green announcement bar and a photo of green and yellow mangoes." fetchpriority="high" decoding="async"></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h" class="visually-hidden">The numbers</h2>
-    <ul class="stats"><li class="stat"><b>22 of 24</b><span>commits are mine</span></li><li class="stat"><b><span class="visually-hidden">14</span><span aria-hidden="true" data-count="14">14</span></b><span>mango varieties in the 2026 season</span></li><li class="stat"><b><span class="visually-hidden">8</span><span aria-hidden="true" data-count="8">8</span></b><span>pages on the store I started from</span></li></ul>
-  </section>
-
-  <section class="proj-section case-sec " id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="case-body">
-<p class="lead">A seasonal business whose shop window is open a few months a year.</p>
-<p>Swadesi Mangoes imports Indian mangoes and ships to every US state. The store ran on a stock Shopify theme with 8 pages: home, buy mangoes, history, journey, disclaimer, know us, wholesale and contact. It sold 14 varieties in the 2026 season, and most were sold out at any given time. Sold-out items, a perishable-goods policy and a wholesale channel all needed to be clear to a visitor in seconds.</p>
+  <section class="proj-section cs-sec" id="what" aria-labelledby="what-h">
+    <h2 id="what-h" data-reveal="rise">What it is</h2>
+    <div class="cs-body" data-reveal-group>
+<p>Swadesi Mangoes imports Indian mangoes and ships them across the US. It sells for a few months each year, so sold-out items, a perishable-goods policy and a wholesale channel all have to be clear to a visitor quickly.</p>
+<p>The live store runs a Shopify theme with eight pages: home, buy mangoes, history, journey, disclaimer, know us, wholesale and contact. The screenshots on this page show that store. My version replaces the pages visitors see and leaves the catalog, cart and checkout in Shopify.</p>
     </div>
   </section>
-  <section class="proj-section case-sec " id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">Approach</h2>
-    <div class="case-body">
-<p>Keep Shopify for what it does well, which is the catalog, cart and checkout, and rebuild everything the visitor sees.</p>
-<ul>
-<li><b>A Next.js storefront</b> that reads products from Shopify's Storefront API and refreshes them every 60 seconds.</li>
-<li><b>Pages for the story,</b> not just the catalog: a journey page from farm to table, an about page, wholesale and contact forms.</li>
-<li><b>A cart drawer and a sticky add-to-cart bar,</b> so buying never takes a page load.</li>
-<li><b>A season switch</b> and an urgency banner, so the store can say when orders are open.</li>
-</ul>
+  <section class="proj-section cs-sec" id="how" aria-labelledby="how-h">
+    <h2 id="how-h" data-reveal="rise">How it fits together</h2>
+    <div class="cs-body" data-reveal-group>
+<figure><ol class="flow" style="--cols:3" aria-label="How the storefront and Shopify connect" data-reveal-group><li><b>Next.js storefront</b><span>Pages, cart drawer and forms.</span></li><li><b>Shopify Storefront API</b><span>Products and the cart, read every 60 seconds.</span></li><li><b>Shopify checkout</b><span>Payment and the order stay in Shopify.</span></li></ol></figure>
+<p>The cart is created through Shopify, and the Checkout button hands the shopper to Shopify&#8217;s own checkout. Payment details never reach the custom site, and the owner keeps managing orders where they already do.</p>
     </div>
   </section>
-  <section class="proj-section case-sec " id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How it fits together</h2>
-    <div class="case-body">
-<figure><ol class="flow" style="--cols:3" aria-label="How the storefront and Shopify connect"><li><b>Next.js storefront</b><span>What people see: pages, cart drawer, forms</span></li><li><b>Shopify Storefront API</b><span>Products and the cart, read every 60 seconds</span></li><li><b>Shopify checkout</b><span>Payment and the order stay in Shopify</span></li></ol></figure><p>The cart is created through Shopify, and the Checkout button hands the shopper to Shopify's own checkout. That means payment details never touch the custom site, and the owner keeps managing orders where they already do.</p>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="case-body">
-<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col">What</th><th scope="col">Number</th></tr></thead><tbody><tr><td>Commits that are mine</td><td>22 of 24</td></tr><tr><td>Varieties in the 2026 season</td><td>14</td></tr><tr><td>Pages on the store I started from</td><td>8</td></tr><tr><td>Build</td><td>Next.js and Tailwind, with Shopify behind it</td></tr></tbody></table></div><p>The live store in the screens below is the one running today. It still looks like the Shopify theme, so my rebuild may not be live there yet.</p>
-    </div>
-  </section>
-  <section class="proj-section case-sec " id="owned" aria-labelledby="owned-h">
-    <h2 id="owned-h">What I owned</h2>
-    <div class="case-body">
+  <section class="proj-section cs-sec" id="did" aria-labelledby="did-h">
+    <h2 id="did-h" data-reveal="rise">What I did</h2>
+    <div class="cs-body" data-reveal-group>
 <ul class="did-list">
-<li>Rebuilt the storefront in Next.js, with Shopify behind it.</li>
-<li>Built the cart drawer, product pages, wholesale and contact forms, and the policy pages.</li>
-<li>Connected products and the cart to the Shopify Storefront API.</li>
+<li>Rebuilt the storefront in Next.js and connected products and the cart to the Shopify Storefront API.</li>
+<li>Built a cart drawer, a sticky add-to-cart bar and product pages.</li>
+<li>Added journey, about, wholesale and contact pages, and the policy pages.</li>
+<li>Added a season switch and a banner that says when orders are open.</li>
 </ul>
     </div>
   </section>
-  <section class="proj-section case-sec " id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="case-body">
-<ul>
-<li>Leave checkout to the platform that already handles payments and tax. Rebuild the part where the brand shows.</li>
-<li>For a seasonal shop, the empty state matters as much as the full one. Sold-out and off-season pages need design too.</li>
-</ul>
+  <section class="proj-section cs-sec" id="screens" aria-labelledby="screens-h">
+    <h2 id="screens-h" data-reveal="rise">The current store</h2>
+    <div class="cs-body" data-reveal-group>
+<div class="shots"><figure data-reveal="unmask"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The varieties section of the current store: four mango varieties marked Sold out, each with a price." loading="lazy" decoding="async"></a></figure><figure class="phone" data-reveal="unmask"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The current Swadesi Mangoes store on a phone." loading="lazy" decoding="async"></a></figure></div>
     </div>
   </section>
-  <section class="proj-section case-sec " id="screens" aria-labelledby="screens-h">
-    <h2 id="screens-h">Screens</h2>
-    <div class="case-body">
-<div class="shots"><figure class="wide"><a class="lb" href="img/section.webp" data-w="1440" data-h="900"><img src="img/section.webp" width="1440" height="900" alt="The Swadesi Mangoes variety grid today: four mango varieties marked Sold out, each with a price." loading="lazy" decoding="async"></a><figcaption>The Varieties section on the live store.</figcaption></figure><figure class="phone"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The Swadesi Mangoes store on a phone today." loading="lazy" decoding="async"></a><figcaption>The live store on a 390 pixel wide phone.</figcaption></figure></div>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="case-body"><ul class="plain-list"><li><a href="/startup-work/rion/">Delivered through RION Solutions</a></li></ul></div>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/web-design/">Back to Web design</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

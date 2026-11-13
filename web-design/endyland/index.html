@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>endyland.com | Ayan Basheer</title>
-<meta name="description" content="This portfolio: a home page with a live antenna beam, five tabs and a page for every project, built in plain HTML, CSS and JavaScript with no build step.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>endyland.com - Ayan Basheer</title>
+<meta name="description" content="The code and design of endyland.com: plain HTML, CSS and JavaScript on Cloudflare Pages, with a check script on every push.">
 <link rel="canonical" href="https://endyland.com/web-design/endyland/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/web-design/endyland/">
-<meta property="og:title" content="endyland.com | Ayan Basheer">
-<meta property="og:description" content="This portfolio: a home page with a live antenna beam, five tabs and a page for every project, built in plain HTML, CSS and JavaScript with no build step.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="endyland.com - Ayan Basheer">
+<meta property="og:description" content="The code and design of endyland.com: plain HTML, CSS and JavaScript on Cloudflare Pages, with a check script on every push.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="endyland.com - Ayan Basheer">
+<meta name="twitter:description" content="The code and design of endyland.com: plain HTML, CSS and JavaScript on Cloudflare Pages, with a check script on every push.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#EFE3C8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -22,8 +37,10 @@
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/web-design/project-theme.css">
 <link rel="stylesheet" href="/web-design/case.css">
+<link rel="stylesheet" href="/shared/models/stage.css">
 <link rel="stylesheet" href="/web-design/endyland/style.css">
 <link rel="modulepreload" href="/web-design/endyland/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/web-design/endyland/#webpage","url":"https://endyland.com/web-design/endyland/","name":"endyland.com - Ayan Basheer","description":"The code and design of endyland.com: plain HTML, CSS and JavaScript on Cloudflare Pages, with a check script on every push.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/web-design/endyland/#main"}},{"@type":"CreativeWork","@id":"https://endyland.com/web-design/endyland/#main","name":"endyland.com","description":"The code and design of endyland.com: plain HTML, CSS and JavaScript on Cloudflare Pages, with a check script on every push.","url":"https://endyland.com/web-design/endyland/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/web-design/endyland/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Web design","item":"https://endyland.com/web-design/"},{"@type":"ListItem","position":3,"name":"endyland.com","item":"https://endyland.com/web-design/endyland/"}]}]}</script>
 </head>
 <body class="proj-page proj-endyland">
 <a class="skip" href="#main">Skip to content</a>
@@ -38,6 +55,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -49,109 +67,51 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/web-design/">Web design</a></li><li><span>endyland.com</span></li></ol></nav>
 
   <header class="cs-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">This site</p>
+    <div data-reveal-group>
     <h1>endyland<span class="ed-dot">.com</span></h1>
-    <p class="proj-summary">This portfolio. A home page and five tabs, each with its own look, and a live 3D antenna beam.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Design and code</dd></div><div><dt>Dates</dt><dd>Oct 2026 to now</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>three.js</li><li>Cloudflare Pages</li><li>GitHub Actions</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://endyland.com" rel="noopener">endyland.com</a></li><li><a href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li></ul>
+    <p class="proj-summary">This portfolio: a home page, six section pages and a page for each project, in plain HTML, CSS and JavaScript.</p>
+    <p class="proj-facts">Design and code, October 2026 to now. Hosted on Cloudflare Pages. three.js for the 3D parts.</p>
+    <ul class="proj-links"><li><a href="https://github.com/abasheer-rion/endyland-portfolio" rel="noopener">Code on GitHub</a></li></ul>
     </div>
-    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The Web design page of this site: a brown page with the title Web design in large serif type, a gold dotted corner and the floating top bar." fetchpriority="high" decoding="async"><figcaption>The Web design tab of this site, captured 11 November 2026 from the current build.</figcaption></figure>
+    <figure class="proj-hero-media"><img src="img/hero.webp" width="1440" height="900" alt="The Web design page of this site: a brown page with the title Web design in large serif type and a gold dotted corner." fetchpriority="high" decoding="async"></figure>
   </header>
 
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h" class="visually-hidden">The numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">5</span><span aria-hidden="true" data-count="5">5</span></b><span>tabs, each with its own art and motion</span></li><li class="stat"><b><span class="visually-hidden">31</span><span aria-hidden="true" data-count="31">31</span></b><span>project pages, one for every project</span></li><li class="stat"><b>0</b><span>build steps. The files are the site</span></li><li class="stat"><b><span class="visually-hidden">36</span><span aria-hidden="true" data-count="36">36</span></b><span>antenna elements in the home page beam</span></li></ul>
-  </section>
-
-  <section class="proj-section case-sec" id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="case-body">
-<p class="lead">One long page made every project look the same size, and nothing on it showed how I build.</p>
-<p>My work covers web design, research, two startups, hackathon and class projects, and jobs. The first version of this site put all of it on one scroll.</p>
-<p>I wanted a site that sorts the work into rooms, gives every project room to explain itself, and is itself an example of how I build: small, fast, safe and easy to hand over.</p>
+  <section class="proj-section cs-sec" id="built" aria-labelledby="built-h">
+    <h2 id="built-h" data-reveal="rise">How it is built</h2>
+    <div class="cs-body" data-reveal-group>
+<p>There is no build step. The files in the repository are served as they are. The top bar, footer, type scale and project layout live in a few shared files, and each section and each branded project page adds its own look on top.</p>
+<p>The security policy allows scripts only from this site and no inline scripts. A check script runs on every push and fails on a broken local link, an inline script, an image without a size, a photo over 200 KB or a loosened security policy. A push to the main branch deploys to Cloudflare Pages. A pull request only runs the checks.</p>
+<figure><ol class="flow" style="--cols:4" aria-label="From a change to the live site" data-reveal-group><li><b>Edit the files</b><span>Plain HTML, CSS and JavaScript.</span></li><li><b>Push to GitHub</b><span>A pull request only runs the checks.</span></li><li><b>Checks run</b><span>Links, inline scripts, image sizes and the security policy.</span></li><li><b>Cloudflare Pages</b><span>A push to main deploys.</span></li></ol></figure>
     </div>
   </section>
-
-  <section class="proj-section case-sec" id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">Approach</h2>
-    <div class="case-body">
-<ol>
-<li><b>Five tabs and a page per project.</b> Web design, Research, Startup work, Projects and Experience, with 31 project pages behind them. Old links such as <code>/#argus</code> still land in the right place.</li>
-<li><b>No build step.</b> Plain HTML, CSS and JavaScript. What is in the folder is what is served, so there is nothing to compile, and nothing to break between a change and the deploy.</li>
-<li><b>One shared frame.</b> The top bar, footer, type scale and project layout live in a few shared files. Each tab and each branded project adds only its own look on top.</li>
-<li><b>Safe by default.</b> A strict security policy with no inline scripts, and a check script that runs before every deploy.</li>
-</ol>
+  <section class="proj-section cs-sec" id="three" aria-labelledby="three-h">
+    <h2 id="three-h" data-reveal="rise">3D models</h2>
+    <div class="cs-body" data-reveal-group>
+<p>The 3D parts are drawn with three.js, vendored in the repository so the site makes no request to another host. Each model is one JavaScript file. The model below is the four-element 5.8 GHz patch antenna array from the research page. Dragging turns it, and the beam sweeps from side to side.</p>
+<figure><div class="model-stage" data-model="patch-array" data-angle="auto" data-poster="/shared/models/posters/patch-array.webp" aria-label="Four 5.8 GHz patch antennas on a board, with the beam they form. The beam sweeps from side to side. Drag to turn the model."></div></figure>
     </div>
   </section>
-
-  <section class="proj-section case-sec" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="case-body">
-<h3>From a change to the live site</h3>
-<figure><ol class="flow" style="--cols:4"><li><b>Edit the files</b><span>Plain HTML, CSS and JavaScript.</span></li><li><b>Push to GitHub</b><span>A pull request only runs the checks.</span></li><li><b>Checks run</b><span>Broken links, inline scripts, image sizes, security policy and more.</span></li><li><b>Cloudflare Pages</b><span>A push to the main branch deploys automatically.</span></li></ol></figure>
-<p>The check script reads every page. It fails on a broken local link, a script written inline, a missing image size, a photo over 200 KB, a loosened security policy or an em dash. Pull requests never deploy.</p>
-<h3>The home page beam</h3>
-<p>The home page draws a 6 by 6 array of antenna elements as dots. A shader computes the beam on the GPU and steers it toward your pointer. The plot below is the same math for one row of six elements: the strength in each direction is the sum of the six waves, each delayed to point the beam where you want it.</p>
-<figure><img src="img/figure.svg" width="800" height="470" alt="A half-circle plot of antenna strength by angle for six elements half a wavelength apart. One long lobe points 20 degrees to the right of straight ahead. Small side lobes sit near the array." loading="lazy" decoding="async"><figcaption>Beam of one row of the array, steered 20 degrees. The shape is the real array factor, drawn for this site.</figcaption></figure>
-<p>Pages that draw on a canvas pause when they scroll off screen or the tab is hidden. They use a lower pixel ratio and fewer dots on phones. If the browser has no WebGL 2, the canvas is hidden and a plain CSS background takes its place. All text is real HTML, so nothing depends on the canvas.</p>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec" id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="case-body">
-<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr><th scope="col">What</th><th scope="col">Number</th></tr></thead><tbody><tr><td>Tabs</td><td>5, plus the home page</td></tr><tr><td>Project pages</td><td>31</td></tr><tr><td>Build steps</td><td>0</td></tr><tr><td>Largest allowed photo</td><td>200 KB, WebP, checked on every push</td></tr><tr><td>Script sources allowed</td><td>This site, plus Cloudflare analytics</td></tr><tr><td>Inline scripts allowed</td><td>None</td></tr></tbody></table></div>
-<p>The code is public on GitHub, so every claim here can be checked in the repository.</p>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec" id="owned" aria-labelledby="owned-h">
-    <h2 id="owned-h">What I owned</h2>
-    <div class="case-body">
+  <section class="proj-section cs-sec" id="did" aria-labelledby="did-h">
+    <h2 id="did-h" data-reveal="rise">What I did</h2>
+    <div class="cs-body" data-reveal-group>
 <ul class="did-list">
 <li>Designed and built the whole site in plain HTML, CSS and JavaScript.</li>
-<li>Wrote the home page beam in three.js, including the shader that steers it.</li>
-<li>Gave every tab its own look, and let each branded project page wear its client's colors and fonts.</li>
-<li>Built the shared top bar, the footer and the project page layout.</li>
-<li>Wrote the check script and set up the automatic deploy to Cloudflare Pages.</li>
-<li>Kept a strict security policy: no inline scripts and no outside script hosts.</li>
+<li>Gave each section its own look, and let each branded project page use its client&#8217;s colors and fonts.</li>
+<li>Built the shared top bar, footer and project layout.</li>
+<li>Built the 3D model viewer and the models on the home and project pages.</li>
+<li>Wrote the check script and the deploy workflow.</li>
 </ul>
     </div>
   </section>
-
-  <section class="proj-section case-sec" id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="case-body">
-<ul>
-<li>A shared frame lets dozens of pages look different without drifting apart. When the top bar changed, it changed once.</li>
-<li>A check script is cheaper than remembering. Most mistakes it catches are small ones, like a missing image size, and they are the ones people forget.</li>
-<li>Decoration needs a budget. Canvases that pause off screen and run lighter on phones keep a page smooth, and real HTML keeps it readable.</li>
-</ul>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec" id="screens" aria-labelledby="screens-h">
-    <h2 id="screens-h">Screens</h2>
-    <div class="case-body">
-<div class="shots"><figure class="phone"><a class="lb" href="img/phone.webp" data-w="780" data-h="1688"><img src="img/phone.webp" width="780" height="1688" alt="The Web design page of this site on a phone: the floating top bar, the large title and the first lines of text." loading="lazy" decoding="async"></a><figcaption>The same page on a 390 pixel wide phone.</figcaption></figure></div>
-    </div>
-  </section>
-
-  <section class="proj-section case-sec proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="case-body"><ul class="plain-list"><li><a href="/projects/endyland-infra/">The hosting behind it</a></li></ul></div>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/web-design/">Back to Web design</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -160,5 +120,6 @@
 </footer>
 
 <script type="module" src="/web-design/endyland/main.js"></script>
+<script type="module" src="/shared/models/auto.js"></script>
 </body>
 </html>

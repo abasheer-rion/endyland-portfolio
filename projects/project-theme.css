@@ -1,120 +1,149 @@
-/* Projects tab: the look of its project pages. Loaded after /shared/project.css. See docs/DESIGN.md.
-   Paper ground, ink-brown text, serif headings, quiet sans body, hairline rules. Figures are real screenshots
-   or diagrams drawn for this site. Long write-ups use a wide two-column layout (heading left, text right) on big
-   screens and one column on phones. Text always sits on the flat paper colour, never on dots.
+/* Projects: the look of every project page. Loaded after /shared/project.css.
+   Paper ground, ink-brown text, serif headings, one reading column. Text is about 70 characters wide (--measure),
+   pictures, tables and diagrams use the full content width. Text never sits on dots or on a picture.
    Pairs: ink on paper 14:1, mute (saddle) on paper 8:1, link (#7E3517) on paper 6.8:1, paper on leather 11:1. */
-:root{--p-link:#7E3517;--focus:#9C4A22;--badge-fg:#5A3A22;--badge-border:#5A3A22;--fig-bg:#F6EEDB}
+:root{--p-link:#7E3517;--focus:#9C4A22;--p-max:1320px;--fig-bg:#F6EEDB}
 
-/* ---------- Page and hero ---------- */
-.proj h1{font-size:clamp(2.5rem,1.2rem + 4.4vw,5.25rem);font-weight:420;line-height:1;letter-spacing:-.03em}
-.proj h2{font-weight:450;font-size:clamp(1.8rem,1.2rem + 2vw,3rem)}
-.proj h3{font-weight:500;font-family:var(--p-display)}
+/* ---------- Hero ---------- */
+.proj h1{max-width:15ch;font-size:clamp(2.6rem,1.3rem + 5vw,5.5rem);font-weight:420;line-height:1;letter-spacing:-.03em}
+.proj h2{font-weight:450;font-size:clamp(2rem,1.3rem + 2.4vw,3.25rem);max-width:22ch}
+.proj h3{font-weight:500}
 .proj-crumbs{border-bottom:1px solid var(--p-line)}
 .proj-crumbs a{text-decoration:none}
 .proj-crumbs a:hover{text-decoration:underline}
-.proj-hero{position:relative;gap:clamp(28px,4vw,72px);padding:clamp(20px,3vw,48px) 0 clamp(40px,5vw,72px)}
-@media (min-width:1000px){.proj-hero{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center}}
-/* A stippled engraving fades in behind the picture only. No text sits on it. */
-@media (min-width:1000px){
-  .proj-hero::before{content:"";position:absolute;z-index:-1;right:calc(var(--gut) * -1);top:0;bottom:0;width:62%;color:var(--bk-brass);
-    background:var(--bk-stipple);background-size:7px 7px;opacity:.5;pointer-events:none;
-    -webkit-mask-image:radial-gradient(ellipse 70% 80% at 75% 45%,#000 0,transparent 72%);mask-image:radial-gradient(ellipse 70% 80% at 75% 45%,#000 0,transparent 72%)}
-}
-.proj-kicker{font-size:var(--fs-body);color:var(--p-mute);font-weight:500}
-.proj-summary{max-width:42ch;font-size:var(--fs-lead);line-height:1.4}
-.proj-meta dt{font-size:var(--fs-small)}
-.proj-links a{border-radius:3px}
-.proj-links a:hover{filter:brightness(1.12)}
+.proj-hero{gap:clamp(24px,3.4vw,48px);padding:clamp(24px,4vw,56px) 0 clamp(48px,6vw,88px)}
+.proj-summary{max-width:30em}
+.proj-facts{max-width:36em}
 .proj-links .alt-link{background:transparent;color:var(--p-link);padding:0 4px;text-decoration:underline;text-underline-offset:4px}
 .proj-links .alt-link::after{display:none}
-.proj-stack li{background:var(--p-surface);border-color:var(--p-line)}
-
-/* Pictures: a thin edge and a soft shadow. No photo corners or stamped frames. */
-.frame,.proj-hero-media .frame{display:block;margin:0;border:1px solid var(--p-line);border-radius:6px;overflow:hidden;background:var(--fig-bg);
-  box-shadow:0 1px 0 rgba(23,16,10,.06),0 26px 44px -30px rgba(23,16,10,.5)}
-.frame img{display:block;width:100%;height:auto;border:0;padding:0;border-radius:0;box-shadow:none;background:var(--fig-bg)}
 .proj-hero-media{margin:0}
-.proj-hero-media figcaption{max-width:60ch}
-.proj figcaption{font-size:1rem;line-height:1.55;color:var(--p-mute)}
-.proj figcaption a{color:var(--p-link)}
+.proj-hero-media .shot{box-shadow:0 1px 0 rgba(23,16,10,.06),0 26px 44px -30px rgba(23,16,10,.5)}
 
-/* ---------- Long-form sections ---------- */
-.proj-section{padding:clamp(48px,6vw,104px) 0}
-.story{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(18px,2.4vw,28px) 0;contain-intrinsic-size:auto 900px}
-.story>h2{margin:0;max-width:16ch}
-@media (min-width:1100px){
-  .story{grid-template-columns:minmax(0,3fr) minmax(0,9fr);column-gap:clamp(40px,5vw,104px);align-items:start}
-  .story>h2{position:sticky;top:calc(var(--bar-h) + 24px);margin:0}
+/* A picture or screenshot: hairline edge, nothing else. */
+.shot{display:block;margin:0;border:1px solid var(--p-line);border-radius:6px;overflow:hidden;background:var(--fig-bg)}
+.shot img{display:block;width:100%;height:auto;border:0;border-radius:0;background:var(--fig-bg)}
+
+/* ---------- Sections ---------- */
+.proj-section{padding:clamp(56px,8vw,120px) 0}
+.proj-section>h2{margin-bottom:clamp(20px,2.4vw,32px)}
+.proj-section>p,.split-text>p{max-width:var(--measure);margin:0 0 1.15em}
+.proj-section>h3,.split-text>h3{margin:1.8em 0 .45em;max-width:26ch;font-size:var(--fs-h4);font-family:var(--p-body);font-weight:600;line-height:1.3}
+.proj-section>h3:first-of-type,.split-text>h3:first-child{margin-top:0}
+.proj-section ul.plain-list,.split-text ul.plain-list,.proj-section ol.plain-list{max-width:var(--measure);margin:0 0 1.3em;padding-left:1.25em}
+.plain-list li{margin:0}
+.plain-list li::marker{color:var(--bk-brass)}
+.proj code{font:500 .94em var(--p-mono);padding:.08em .35em;border-radius:3px;background:rgba(23,16,10,.07)}
+.proj strong{font-weight:600}
+
+/* A text column with a figure beside it. The figure stays in view while the text scrolls past (wide screens), or
+   sits pinned under the top bar on phones. Its model reads the section's scroll position (projects/page.js). */
+.split{display:grid;gap:clamp(20px,4vw,72px);grid-template-columns:minmax(0,1fr)}
+.split-text{min-width:0}
+.split-fig{margin:0;min-width:0;align-self:start;order:-1;position:sticky;top:calc(var(--bar-h) + 4px);z-index:3;padding:6px 0 10px;background:var(--p-bg)}
+.split-fig .model-stage{aspect-ratio:auto;height:clamp(200px,30vh,300px)}
+.split-fig .model-stage.wide{height:clamp(190px,27vh,250px)}
+@media (min-width:1000px){
+  .split{grid-template-columns:minmax(0,31em) minmax(0,1fr)}
+  .split-fig{order:0;top:calc(var(--bar-h) + 24px);padding:0;background:none}
+  .split-fig .model-stage{height:clamp(420px,66vh,640px)}
+  .split-fig .model-stage.wide{aspect-ratio:4/3;height:auto}
 }
-.sec-body{min-width:0}
-.sec-body>p,.sec-body>ul:not(.stats),.sec-body>ol,.sec-body>dl,.sec-body>.note{max-width:var(--measure)}
-.sec-body>p{margin:0 0 1.15em}
-.sec-body>h3{margin:1.9em 0 .5em;max-width:30ch}
-.sec-body>h3:first-child{margin-top:0}
-.sec-body ul,.sec-body ol{padding-left:1.25em;margin:0 0 1.2em}
-.sec-body li{margin:0 0 .55em}
-.sec-body li::marker{color:var(--bk-brass)}
-.sec-body strong{font-weight:600}
-.sec-body code,.proj code{font:500 .86em var(--p-mono);padding:.08em .35em;border-radius:3px;background:rgba(23,16,10,.07)}
-.note{margin:1.6em 0;padding:4px 0 4px 20px;border-left:3px solid var(--bk-brass)}
-.note p{margin:0 0 .6em}
-.note p:last-child{margin:0}
+.model-stage{margin:0}
+.model-cap{margin:8px 0 0;max-width:var(--measure);font-size:var(--fs-small);line-height:1.5}
+.model-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:10px 0 0}
+.model-ctl[hidden]{display:none}
+.model-ctl button{min-height:46px;padding:0 20px;border-radius:3px;font:600 var(--fs-small)/1 var(--p-body);cursor:pointer;
+  transition:transform .16s var(--bk-out),background .15s ease-out}
+.model-ctl button:active:not(:disabled){transform:scale(.97)}
+.btn-main{background:var(--p-accent-bg);color:var(--p-on-accent);border:0}
+.btn-main:hover{filter:brightness(1.12)}
+.btn-quiet{background:transparent;color:var(--p-ink);border:1.5px solid var(--p-ink)}
+.btn-quiet:hover:not(:disabled){background:var(--p-surface)}
+.btn-quiet:disabled{opacity:.5;cursor:default}
+.model-state{margin:10px 0 0;font-size:var(--fs-body);font-variant-numeric:tabular-nums}
+.model-state b{font-weight:600}
 
-/* Figures. Diagrams scroll sideways on phones instead of shrinking the text. */
-.fig{margin:clamp(24px,3vw,44px) 0}
-.sec-body>.fig:first-child{margin-top:0}
-.fig .frame img{width:100%}
-.fig figcaption{max-width:var(--measure);margin-top:12px}
-.fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px}
-.fig-scroll:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-.fig-scroll .frame{min-width:0}
-@media (max-width:760px){.fig-scroll .frame{min-width:700px}}
-.fig-pair{display:grid;gap:clamp(20px,3vw,36px);grid-template-columns:minmax(0,1fr)}
-@media (min-width:900px){.fig-pair{grid-template-columns:minmax(0,7fr) minmax(0,3fr);align-items:start}}
-.fig-pair .fig{margin:0}
-.fig-phone .frame{max-width:340px}
+/* Pictures, tables and diagrams use the full width. */
+.proj .figure{margin:clamp(24px,3.4vw,48px) 0}
+.proj-section>.figure:first-child{margin-top:0}
+.proj .figure>.shot,.proj .figure>img{width:100%}
+.figure figcaption{margin-top:12px}
+.table-wrap{margin:1.2em 0 1.6em;max-width:100%}
+.facts{border-collapse:collapse;font-size:var(--fs-body);width:100%;min-width:520px}
+.facts th,.facts td{padding:12px 20px 12px 0;text-align:left;vertical-align:top;border-bottom:1px solid var(--p-line)}
+.facts thead th{border-bottom:2px solid var(--p-ink);font-weight:600}
+.facts tbody th{font-weight:600;width:24%}
+.facts td:last-child{padding-right:0}
+@media (max-width:640px){
+  .facts{min-width:0}
+  .facts.restack tr{padding:.8em 0;border-bottom:1px solid var(--p-line)}
+  .facts.restack th,.facts.restack td{padding:.15em 0;border:0;width:100%}
+  .facts.restack td::before{font-size:var(--fs-small);color:var(--p-mute)}
+}
+.proj .table-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 
-/* Code and sample output on a solid dark surface. */
+/* Code on a solid dark surface. */
 .code{margin:1.4em 0;padding:18px 22px;overflow-x:auto;border-radius:6px;background:var(--bk-leather);color:var(--bk-paper);
-  font:500 15px/1.65 var(--p-mono);tab-size:2;max-width:min(100%,92ch)}
+  font:500 15px/1.65 var(--p-mono);tab-size:2;max-width:min(100%,60em)}
 .code:focus-visible{outline:3px solid var(--bk-foil)}
 .code .k{color:var(--bk-foil)}
 .code .m{color:var(--bk-cream)}
 
-/* Fact table: plain rules, scrolls on phones. */
-.proj .table-wrap{margin:1.4em 0;max-width:100%}
-.facts{border-collapse:collapse;font-size:var(--fs-body);width:100%;min-width:520px}
-.facts caption{text-align:left;padding:0 0 10px;color:var(--p-mute);font-size:1rem}
-.facts th,.facts td{padding:12px 16px 12px 0;text-align:left;vertical-align:top;border-bottom:1px solid var(--p-line)}
-.facts thead th{border-bottom:2px solid var(--p-ink);font-weight:600}
-.facts tbody th{font-weight:600;width:34%}
-
-/* Ledger numbers: a little tighter than the shared default so five fit on a line. */
-.stats{margin-bottom:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
-.stat b{font-size:clamp(1.9rem,1.3rem + 1.6vw,3rem);white-space:nowrap}
-@media (min-width:760px){.stat.wide{grid-column:span 2}}
-@media (max-width:759px){.stat b{white-space:normal}}
-.stat>span:last-child{font-size:var(--fs-small)}
-
-/* What I did: the shared list, plain brass dashes. */
-.did-list{max-width:var(--measure)}
-.did-list li{padding-left:34px}
-
-.plain-list li::marker{color:var(--bk-brass)}
 .proj-back{border-top:1px solid var(--p-line)}
+.proj-section.last{padding-bottom:clamp(32px,4vw,56px)}
+@media (max-width:640px){.proj-section{padding:48px 0}.code{padding:16px;font-size:15px}.model-ctl{flex-wrap:nowrap;gap:8px;margin-top:6px}.model-ctl button{padding:0 12px;white-space:nowrap}.model-state{margin-top:6px}}
 
-/* A figure eases in as it scrolls into view where the browser supports scroll timelines. */
-@supports (animation-timeline:view()){
-  .fig,.note{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+/* ---------- Shared motion pieces ---------- */
+/* A bar that grows when it scrolls in. Set --w on it (a percentage). */
+.bar-grow{display:block;height:100%;width:var(--w,50%);transform-origin:left center;transform:scaleX(0);transition:transform 1.1s var(--bk-out)}
+.in .bar-grow,.bar-grow.in{transform:none}
+
+/* A flow diagram: columns of boxes joined by a line with a travelling dot. --cols sets the number of columns on wide
+   screens (default 5). Under 1100px it is one stack. Text inside is 16px or larger. */
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0;grid-template-columns:minmax(0,1fr)}
+.flow-col{position:relative;display:grid;gap:12px;align-content:start;padding:0 0 44px;margin:0}
+.flow-col:last-child{padding-bottom:0}
+.flow-h{margin:0 0 2px;font-weight:600;font-size:var(--fs-body)}
+.node{padding:14px 16px;border:1px solid var(--p-ink);border-radius:3px;background:var(--p-surface);transition:transform .2s var(--bk-out)}
+.node b{display:block;font-weight:600;line-height:1.3}
+.node span{display:block;margin-top:4px;font-size:var(--fs-small);line-height:1.45}
+.flow-link{margin:0;font-size:var(--fs-small);color:var(--p-mute)}
+/* The line between columns, with a dot that travels along it. Transform and opacity only. */
+.flow-col+.flow-col::before{content:"";position:absolute;left:18px;top:-38px;height:32px;width:1px;background:var(--bk-brass)}
+.flow-col+.flow-col::after{content:"";position:absolute;left:14px;top:-38px;width:9px;height:9px;border-radius:50%;background:var(--bk-brass);
+  animation:flowdown 2.6s var(--bk-out) infinite;animation-delay:calc(var(--i,0) * 320ms)}
+@keyframes flowdown{0%{transform:translateY(0);opacity:0}15%{opacity:1}70%{opacity:1}100%{transform:translateY(28px);opacity:0}}
+@media (min-width:1100px){
+  .flow{grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));column-gap:46px}
+  .flow-col{padding-bottom:0}
+  .flow-col+.flow-col::before{left:-36px;top:18px;height:1px;width:26px}
+  .flow-col+.flow-col::after{left:-36px;top:14px;animation-name:flowright}
+  @keyframes flowright{0%{transform:translateX(0);opacity:0}15%{opacity:1}70%{opacity:1}100%{transform:translateX(22px);opacity:0}}
 }
-@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@media (max-width:640px){.proj-section{padding:44px 0}.code{padding:16px 16px;font-size:14px}}
+@media (hover:hover){.node:hover{transform:translateY(-2px)}}
 
+
+/* Two or three bars on one scale. Each .bar-grow scales in from the left when its .bars block scrolls in. */
+.bars{display:grid;gap:14px;max-width:44em}
+.bar-row{display:grid;grid-template-columns:var(--lab,5.2em) minmax(0,1fr) var(--val,3em);align-items:center;gap:12px;font-size:var(--fs-body)}
+.bar-row .track{height:30px;border:1px solid var(--p-ink);border-radius:2px;overflow:hidden}
+.bar-row .bar-grow{height:100%;background:var(--p-ink)}
+.bar-row .bar-after{background:var(--bk-brass);transition-delay:.25s}
+.bar-row b{font-weight:600;font-variant-numeric:tabular-nums}
+.bars-cap{margin:2px 0 0;font-size:var(--fs-small);color:var(--p-mute)}
+
+/* Sleep schematic, race and step strips live in each page's own style.css. */
 /* "Every tool" list opens like a drawer. */
 .tools-all{margin:1.2em 0 1.6em}
-.tools-all summary{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--p-ink);border-radius:3px;cursor:pointer;font-weight:600;list-style:none;transition:background .15s ease-out}
+.tools-all summary{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border:1px solid var(--p-ink);border-radius:3px;cursor:pointer;font-weight:600;list-style:none;transition:background .15s ease-out,transform .15s ease-out}
 .tools-all summary::-webkit-details-marker{display:none}
 .tools-all summary:hover{background:var(--p-surface)}
 .tools-all summary:active{transform:scale(.97)}
 .tools-all[open] summary{margin-bottom:.8em}
 .tools-all code{white-space:nowrap}
+
+/* Link lists: a 44px tap target on phones. */
+.plain-list li>a{display:inline-block;padding:.4em 0}
+
+/* Phones: a long bar label sits above its bar so the bar keeps its length. */
+@media (max-width:640px){.bars[style*="--lab:12"] .bar-row{grid-template-columns:minmax(0,1fr) var(--val);row-gap:4px}.bars[style*="--lab:12"] .bar-row>span{grid-column:1/-1}}

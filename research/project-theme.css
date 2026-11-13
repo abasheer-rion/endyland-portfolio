@@ -1,89 +1,57 @@
 /* Research project pages: the lab, on leather. Loaded after /shared/project.css by the four pages in /research/<slug>/.
-   Brown and brass, printed-book look. Every block of text sits on a solid colour, never on a canvas or dots.
+   Brown and brass, printed-book look. Text always sits on a solid colour.
    Contrast: paper on ink about 15:1, cream on leather about 11:1, foil on ink about 9:1, ink on vellum about 15:1. */
 :root{
   --p-bg:#17100A; --p-surface:#26180F; --p-ink:#EFE3C8; --p-mute:#D9CBAA;
   --p-accent:#D9AE4A; --p-accent-bg:#D9AE4A; --p-on-accent:#17100A; --p-link:#D9AE4A; --p-line:rgba(184,135,46,.5);
   --p-display:"Newsreader","Iowan Old Style",Georgia,serif; --p-display-weight:500;
   --p-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
-  --focus:#D9AE4A; --badge-fg:#D9CBAA; --badge-border:#B8872E;
-  --wk:#35221A;
+  --focus:#D9AE4A; --wk:#35221A;
 }
 html{color-scheme:dark}
 ::selection{background:#D9AE4A;color:#17100A}
 .proj h1{font-size:clamp(2.6rem,1.4rem + 4.6vw,5.4rem);line-height:1;letter-spacing:-.025em}
-.proj h2{max-width:28ch}
-.proj-kicker{font-size:1.0625rem;color:var(--p-mute)}
+.proj h2{max-width:24ch}
 .proj-section>p,.proj-section>ul:not([class]),.proj-section>ol:not([class]){font-size:var(--fs-body)}
-.proj-summary{max-width:52ch}
-.proj-hero-media img{background:#F6EEDB;border-color:#B8872E;padding:8px;box-shadow:none}
-.proj-stack li{background:var(--wk);color:var(--p-ink)}
+.proj-summary{max-width:32em}
+.proj-hero-media img{background:#F6EEDB;border-color:#B8872E}
 .proj-links a{color:#17100A}
-
-/* Lead sentence under a heading. */
-.proj .lede,.proj-section>p.lede{max-width:var(--measure);font:400 var(--fs-lead)/1.4 var(--p-display);color:var(--p-ink);margin:0 0 1em}
+.proj-facts{color:var(--p-mute)}
 
 /* Two columns on wide screens: reading column left, figure right. */
 .split{display:grid;gap:clamp(24px,4vw,64px);grid-template-columns:minmax(0,1fr);align-items:start}
-@media (min-width:1100px){.split{grid-template-columns:minmax(0,var(--measure)) minmax(0,1fr)}.split.flip{grid-template-columns:minmax(0,1fr) minmax(0,var(--measure))}.split.flip>.fig{order:-1}}
+@media (min-width:1100px){.split{grid-template-columns:minmax(0,var(--measure)) minmax(0,1fr)}}
 .split>div>p:first-child{margin-top:0}
-.split p,.split ul,.split ol{max-width:var(--measure)}
+.split p{max-width:var(--measure)}
 
-/* Figures sit on paper, like a printed plate. Caption in plain words under it. */
+/* Figures: a vellum sheet with a brass hairline, caption under it in plain words. */
 .fig{margin:0 0 var(--space-3);min-width:0}
-.fig>img,.fig>svg,.fig>.fig-body{width:100%;height:auto;background:#F6EEDB;border:1px solid #B8872E;border-radius:2px;padding:clamp(6px,1vw,12px)}
+.fig>img,.fig>svg,.fig>.fig-body{width:100%;height:auto;background:#F6EEDB;border:1px solid #B8872E;border-radius:2px;display:block}
 .fig>figcaption,.proj .fig>figcaption{margin-top:12px;max-width:var(--measure);font-size:var(--fs-small);line-height:1.55;color:var(--p-mute)}
-.fig-wide{max-width:1100px}
-.fig-pair{display:grid;gap:var(--space-3);grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));align-items:start}
+.fig-pair{display:grid;gap:var(--space-3);grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));align-items:start}
 
-/* A numbered walk-through. Large serif numerals, one step per row. */
-.steps{list-style:none;margin:0 0 var(--space-3);padding:0;counter-reset:s;display:grid;gap:0;max-width:calc(var(--measure) + 120px)}
-.steps li{counter-increment:s;display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:0 14px;padding:18px 0;border-top:1px solid var(--p-line)}
-.steps li:last-child{border-bottom:1px solid var(--p-line)}
-.steps li::before{content:counter(s);font:500 2.2rem/1 var(--p-display);color:var(--p-accent);font-variant-numeric:lining-nums}
-.steps li::before{grid-row:1 / span 2}
-.steps b,.steps span{grid-column:2}
-.steps b{display:block;font:500 var(--fs-h3)/1.25 var(--p-display);margin-bottom:4px}
-.steps span{display:block;color:var(--p-ink)}
-html.pj-anim .steps li{opacity:0;transform:translateY(8px);transition:opacity .25s ease-out,transform .25s var(--bk-out);transition-delay:calc(var(--i,0) * 30ms)}
-html.pj-anim .steps.in li{opacity:1;transform:none}
+/* Sub-headings inside a section: plain h3 and a paragraph. */
+.proj-section h3{margin-top:1.6em}
+.proj-section h3+p{margin-top:0}
+.proj-section p{max-width:var(--measure)}
 
-/* Facts as a definition list: term on the left, value on the right. */
-.facts{margin:0 0 var(--space-3);max-width:calc(var(--measure) + 120px);border-top:2px solid var(--p-ink)}
-.facts div{display:grid;grid-template-columns:minmax(9rem,14rem) minmax(0,1fr);gap:4px 20px;padding:12px 0;border-bottom:1px solid var(--p-line)}
-.facts dt{color:var(--p-mute)}
-.facts dd{margin:0;font-variant-numeric:lining-nums tabular-nums}
-@media (max-width:560px){.facts div{grid-template-columns:1fr}}
-
-/* A callout is a solid panel with a brass edge. */
-.note{margin:var(--space-3) 0;padding:clamp(16px,2.4vw,28px) clamp(18px,2.6vw,32px);max-width:calc(var(--measure) + 40px);background:var(--p-surface);border:1px solid var(--p-line);border-left:4px solid #B8872E}
-.note>:first-child{margin-top:0}.note>:last-child{margin-bottom:0}
-.note h3{font-size:var(--fs-h3);margin:0 0 .4em}
-
-/* Plain ruled list for results: each line a finding. */
-.findings{list-style:none;margin:0 0 var(--space-3);padding:0;max-width:calc(var(--measure) + 120px)}
-.findings li{padding:16px 0;border-top:1px solid var(--p-line)}
-.findings li:last-child{border-bottom:1px solid var(--p-line)}
-.findings b{display:block;font:500 var(--fs-h3)/1.25 var(--p-display);margin-bottom:4px;color:var(--p-ink)}
-
-/* Tables. */
-.proj table{font-size:1rem}
-.proj th{color:var(--p-ink);background:var(--p-surface);position:sticky;top:0}
+/* Tables: body size, hairline rows. */
+.proj table{font-size:var(--fs-body)}
+.proj th{color:var(--p-ink);background:var(--p-surface)}
 .proj caption{caption-side:top;text-align:left;padding:0 0 10px;color:var(--p-mute);font-size:var(--fs-small)}
 .proj .table-wrap{border:1px solid var(--p-line);background:var(--p-bg)}
+.proj td,.proj th{padding:12px 14px;text-align:left}
+.proj td.num,.proj th.num{text-align:right;font-variant-numeric:lining-nums tabular-nums}
 
 /* Buttons on instruments. Solid, flat, press .97. */
-.rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid #B8872E;border-radius:2px;background:var(--wk);color:var(--p-ink);font:500 1rem/1 var(--p-body);cursor:pointer;transition:background-color .15s ease-out,transform .15s ease-out}
+.rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid #B8872E;border-radius:2px;background:var(--wk);color:var(--p-ink);font:500 1.0625rem/1 var(--p-body);cursor:pointer;transition:background-color .15s ease-out,transform .15s ease-out}
 .rs-btn:hover{background:#5A3A22}
 .rs-btn:active{transform:scale(.97)}
 .rs-btn[aria-pressed="true"]{background:#D9AE4A;color:#17100A;border-color:#D9AE4A}
-.rs-note{margin:12px 0 0;max-width:var(--measure);font-size:var(--fs-small);color:var(--p-mute)}
 
-/* Gallery plates are on paper already. */
-.gallery a{background:#F6EEDB;border-color:#B8872E;box-shadow:none}
-.gallery .on-dark a{background:#17100A}
-
-/* What I did and the learned list read as plain rules. */
-.did-list li::before{background:var(--p-accent);box-shadow:0 3px 0 var(--p-accent)}
-
-@media (max-width:640px){.proj{padding-inline:18px}.steps li{grid-template-columns:2.4rem minmax(0,1fr)}}
+@media (max-width:640px){.proj{padding-inline:18px}}
+.proj tbody th{border-bottom:1px solid var(--p-line);font-weight:600;background:transparent}
+.proj-hero--text{padding-bottom:clamp(24px,4vw,56px)}
+.proj-hero--text .proj-summary{margin-bottom:16px}
+.proj-hero--text{gap:0}
+.proj-section ul+p,.proj-section ol+p{margin-top:1.1em}

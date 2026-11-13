@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>8-bit RISC processor on FPGA | Ayan Basheer</title>
-<meta name="description" content="An 8-bit processor I designed in Verilog and ran on an FPGA: five pipeline stages, 16 instructions, 50 MHz, 40+ tests.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>8-bit RISC processor on FPGA - Ayan Basheer</title>
+<meta name="description" content="An 8-bit processor with a five-stage pipeline and 16 instructions, written in Verilog and run at 50 MHz on a Xilinx Artix-7.">
 <link rel="canonical" href="https://endyland.com/projects/fpga-risc/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/projects/fpga-risc/">
-<meta property="og:title" content="8-bit RISC processor on FPGA | Ayan Basheer">
-<meta property="og:description" content="An 8-bit processor I designed in Verilog and ran on an FPGA: five pipeline stages, 16 instructions, 50 MHz, 40+ tests.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="8-bit RISC processor on FPGA - Ayan Basheer">
+<meta property="og:description" content="An 8-bit processor with a five-stage pipeline and 16 instructions, written in Verilog and run at 50 MHz on a Xilinx Artix-7.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="8-bit RISC processor on FPGA - Ayan Basheer">
+<meta name="twitter:description" content="An 8-bit processor with a five-stage pipeline and 16 instructions, written in Verilog and run at 50 MHz on a Xilinx Artix-7.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#EFE3C8">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -21,7 +36,9 @@
 <link rel="stylesheet" href="/shared/base.css">
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/projects/project-theme.css">
-<link rel="modulepreload" href="/shared/project.js">
+<link rel="stylesheet" href="/shared/models/stage.css">
+<link rel="stylesheet" href="/projects/fpga-risc/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/projects/fpga-risc/#webpage","url":"https://endyland.com/projects/fpga-risc/","name":"8-bit RISC processor on FPGA - Ayan Basheer","description":"An 8-bit processor with a five-stage pipeline and 16 instructions, written in Verilog and run at 50 MHz on a Xilinx Artix-7.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/projects/fpga-risc/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/projects/fpga-risc/#main","name":"8-bit RISC processor on FPGA","headline":"8-bit RISC processor on FPGA","description":"An 8-bit processor with a five-stage pipeline and 16 instructions, written in Verilog and run at 50 MHz on a Xilinx Artix-7.","url":"https://endyland.com/projects/fpga-risc/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/projects/fpga-risc/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://endyland.com/projects/"},{"@type":"ListItem","position":3,"name":"8-bit RISC processor on FPGA","item":"https://endyland.com/projects/fpga-risc/"}]}]}</script>
 </head>
 <body class="proj-page proj-fpga-risc">
 <a class="skip" href="#main">Skip to content</a>
@@ -36,6 +53,7 @@
       <li><a href="/startup-work/">Startup work</a></li>
       <li><a href="/projects/" aria-current="true">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -47,102 +65,59 @@
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/projects/">Projects</a></li><li><span>8-bit RISC processor on FPGA</span></li></ol></nav>
 
   <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">Hardware</p>
-    <h1>8-bit RISC processor on FPGA</h1>
-    <p class="proj-summary">An 8-bit processor I designed in Verilog and ran on an FPGA.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Verilog</li><li>Vivado</li><li>Xilinx Artix-7</li></ul></dd></div></dl>
-    <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
+    <div class="proj-intro" data-reveal="rise">
+      <h1>8-bit RISC processor on FPGA</h1>
+      <p class="proj-summary">An 8-bit processor with a five-stage pipeline and 16 instructions, written in Verilog and run at 50 MHz on a Xilinx Artix-7.</p>
+      <p class="proj-facts">2026. Verilog and Vivado.</p>
     </div>
-    <figure class="proj-hero-media"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/datapath.svg" width="1000" height="540" alt="Block diagram of the processor. Five stages from left to right: fetch, decode, execute, memory and write back, with thin pipeline registers between them. Write back feeds the register file." fetchpriority="high" decoding="async"></div></div><figcaption>The datapath, as a diagram drawn for this site. It shows the standard five-stage layout, not a photo of the board.</figcaption></figure>
+    <figure class="proj-hero-media">
+      <div class="model-stage wide-stage" data-model="fpga-board" aria-label="A 3D model of a generic Artix-7 development board with the FPGA, switches, buttons, LEDs, a four-digit display and header pins. Drag to turn it."></div>
+      <figcaption>A generic Artix-7 development board, drawn as a model. It is not a photo of my board.</figcaption>
+    </figure>
   </header>
 
-  <section class="proj-section story" id="numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">In numbers</h2>
-    <div class="sec-body">
-      <ul class="stats"><li class="stat"><b>5</b><span>pipeline stages</span></li><li class="stat"><b><span class="visually-hidden">16</span><span aria-hidden="true" data-count="16">16</span></b><span>instructions</span></li><li class="stat"><b><span class="visually-hidden">50 MHz</span><span aria-hidden="true" data-count="50" data-post=" MHz">50 MHz</span></b><span>on a Xilinx Artix-7</span></li><li class="stat"><b><span class="visually-hidden">22%</span><span aria-hidden="true" data-count="22" data-post="%">22%</span></b><span>shorter slowest path</span></li><li class="stat"><b><span class="visually-hidden">40+</span><span aria-hidden="true" data-count="40" data-post="+">40+</span></b><span>tests</span></li></ul>
-    </div>
-  </section>
-  <section class="proj-section story" id="problem" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <div class="sec-body">
-      <p>A processor does the same four things over and over. It fetches an instruction, works out what the instruction asks for, does the work, and keeps the result. If a design finishes all four before it starts the next instruction, most of the chip sits idle most of the time, and the clock can only run as fast as that whole chain allows.</p>
-      <p>The project was to build one from nothing: an 8-bit processor in Verilog, with a small instruction set, that runs on a real FPGA and not only in a simulator. The target was a Xilinx Artix-7 at 50 MHz.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="approach" aria-labelledby="approach-h">
-    <h2 id="approach-h">The approach</h2>
-    <div class="sec-body">
-      <p>I split the work into five stages and put a register between each pair, so five instructions can be in flight at once. That is a pipeline. The processor has 16 instructions and an 8-bit datapath, written in Verilog and built with Vivado.</p>
-      <ul>
-        <li><strong>Fetch</strong> reads the next instruction from memory and moves the program counter on.</li>
-        <li><strong>Decode</strong> turns the instruction into control signals and reads the registers it names.</li>
-        <li><strong>Execute</strong> does the arithmetic or logic in the 8-bit ALU.</li>
-        <li><strong>Memory</strong> reads or writes data memory when the instruction needs it.</li>
-        <li><strong>Write back</strong> puts the result in the register file.</li>
-      </ul>
-      <p>The stage names are the standard ones for this kind of design. The next section shows how the stages overlap.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="sec-body">
-      <p>The datapath is the diagram at the top of the page. Each box is a block of logic, and each thin bar is a pipeline register. Solid arrows carry data, dashed arrows carry control signals, and the brown line is the result going back to the register file. On every tick of the 50 MHz clock, every register takes in what the stage before it produced, so each instruction moves one stage to the right.</p>
-      <p>The timing grid shows why this is worth the trouble. Instruction 1 needs five cycles from start to finish. Instruction 2 starts one cycle later, instruction 3 one after that, and so on. Once the pipeline is full, one instruction finishes on every clock tick.</p>
-      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/pipeline.svg" width="1000" height="440" alt="Grid of clock cycles 1 to 8. Each of four instructions passes through fetch, decode, execute, memory and write back, starting one cycle after the one before." loading="lazy" decoding="async"></div></div><figcaption>Four instructions moving through the five stages. F is fetch, D decode, E execute, M memory, W write back.</figcaption></figure>
-      <p>In the best case that is one instruction per cycle, which is 50 million a second at 50 MHz. Real programs do not always reach it. An instruction can need a result that an earlier one has not written yet, and a pipelined design has to deal with that. That is the kind of thing a long list of tests exists to catch.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="timing" aria-labelledby="timing-h">
-    <h2 id="timing-h">Timing: the slowest path</h2>
-    <div class="sec-body">
-      <p>The clock can only be as fast as the slowest stretch of logic between two registers. Everything else waits for it. I cut that path by 22%.</p>
-      <figure class="fig"><div class="fig-scroll" tabindex="0" role="group" aria-label="Diagram, scrolls sideways on small screens"><div class="frame"><img src="img/path.svg" width="1000" height="330" alt="Two bars. Before the change the slowest path is 100. After it is 78, which is 22 percent shorter." loading="lazy" decoding="async"></div></div><figcaption>The slowest path before and after, as a share of the old length. The finished design ran at 50 MHz on the Artix-7.</figcaption></figure>
-      <p>The Verilog is synthesised and placed by Vivado, which reports the slowest paths. That report is the guide: change the logic, run the tools again, and see whether the worst path moved.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="results" aria-labelledby="results-h">
-    <h2 id="results-h">Results</h2>
-    <div class="sec-body">
-      <div class="table-wrap" tabindex="0" role="group" aria-label="Results table">
-      <table class="facts">
-        <caption>What the finished design reached</caption>
-        <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Word size</th><td>8 bits</td></tr>
-          <tr><th scope="row">Pipeline</th><td>5 stages</td></tr>
-          <tr><th scope="row">Instruction set</th><td>16 instructions</td></tr>
-          <tr><th scope="row">Clock</th><td>50 MHz on a Xilinx Artix-7 (a 20 ns period)</td></tr>
-          <tr><th scope="row">Slowest path</th><td>22% shorter than before</td></tr>
-          <tr><th scope="row">Checking</th><td>40+ tests</td></tr>
-        </tbody>
-      </table>
+  <section class="proj-section" id="design" aria-labelledby="design-h">
+    <h2 id="design-h">Five stages</h2>
+    <p>A processor fetches an instruction, decodes it, executes it, reads or writes memory if the instruction needs that, and writes the result back. In this design each of those is a stage, with a register between each pair of stages. Five instructions can be in flight at once. That arrangement is a pipeline.</p>
+    <p>The datapath is 8 bits wide and the instruction set has 16 instructions. The design is written in Verilog and built with Vivado.</p>
+    <div class="figure pipe" id="pipe" data-pipe>
+      <ol class="pipe-stages">
+        <li data-stage="0"><b>Fetch</b><span>Reads the next instruction from instruction memory and advances the program counter.</span><em data-now>&nbsp;</em></li>
+        <li data-stage="1"><b>Decode</b><span>Turns the instruction into control signals and reads the registers it names.</span><em data-now>&nbsp;</em></li>
+        <li data-stage="2"><b>Execute</b><span>Does the arithmetic or logic in the 8-bit ALU.</span><em data-now>&nbsp;</em></li>
+        <li data-stage="3"><b>Memory</b><span>Reads or writes data memory when the instruction needs it.</span><em data-now>&nbsp;</em></li>
+        <li data-stage="4"><b>Write back</b><span>Selects the result and writes it to the register file.</span><em data-now>&nbsp;</em></li>
+      </ol>
+      <div class="pipe-ctl">
+        <button type="button" class="btn-main" data-play aria-pressed="true">Pause</button>
+        <button type="button" class="btn-quiet" data-step>Step one clock</button>
+        <p class="pipe-cycle" role="status" aria-live="off">Clock cycle <b data-cycle>1</b></p>
       </div>
-      <p>There is no public repo or demo for this one, so the diagrams on this page are the picture of it.</p>
+      <div class="table-wrap" tabindex="0" role="group" aria-label="Four instructions moving through the five stages, one clock cycle at a time">
+        <table class="pipe-grid">
+          <thead><tr><th scope="col">Cycle</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th></tr></thead>
+          <tbody data-grid></tbody>
+        </table>
+      </div>
+    </div>
+    <p>Every pipeline register loads on the same clock edge, so on each tick every instruction moves one stage on. Instruction 1 takes five cycles. Instruction 2 starts one cycle after it, instruction 3 one cycle after that. From cycle 5 on, one instruction finishes on every tick, which at 50 MHz is up to 50 million instructions a second.</p>
+  </section>
+
+  <section class="proj-section" id="timing" aria-labelledby="timing-h">
+    <h2 id="timing-h">The slowest path</h2>
+    <p>The clock cannot run faster than the slowest stretch of logic between two registers. The target on the Artix-7 was 50 MHz, a 20 ns period. I used Vivado&#8217;s timing report to find the slowest path, changed that logic and ran the tools again. The slowest path ended up 22% shorter than before.</p>
+    <div class="figure bars" data-reveal="rise" role="img" aria-label="Two bars. The slowest path before the change is 100. After the change it is 78, which is 22 percent shorter.">
+      <div class="bar-row"><span>Before</span><div class="track"><i class="bar-grow" style="--w:100%"></i></div><b>100</b></div>
+      <div class="bar-row"><span>After</span><div class="track"><i class="bar-grow bar-after" style="--w:78%"></i></div><b>78</b></div>
+      <p class="bars-cap">Slowest path as a share of its old length.</p>
     </div>
   </section>
-  <section class="proj-section story" id="did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <div class="sec-body">
-      <ul class="did-list">
-        <li>Designed an 8-bit processor in Verilog with a 5-stage pipeline and 16 instructions.</li>
-        <li>Ran it at 50 MHz on a Xilinx Artix-7.</li>
-        <li>Cut the slowest path by 22%.</li>
-        <li>Checked it with 40+ tests.</li>
-      </ul>
-    </div>
-  </section>
-  <section class="proj-section story" id="learned" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="sec-body">
-      <p>Speed is set by the worst case, not the average. One slow path held the whole clock back, so shortening that one path was worth more than polishing fast ones.</p>
-      <p>A pipeline trades simple instructions for tricky interactions between them. Tests are how you find those, so the 40+ tests were part of the design, not a step at the end.</p>
-      <p>Running on a real FPGA is different from a clean simulation. Timing reports from the tools are the truth about what will run at 50 MHz.</p>
-    </div>
-  </section>
-  <section class="proj-section story" id="related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <div class="sec-body"><ul class="plain-list"><li><a href="/projects/sensor-node/">Low-power wireless sensor node</a>, the other hardware project.</li><li><a href="/projects/bench-rig/">Automated bench test rig</a>, lab instruments driven by Python.</li></ul></div>
+
+  <section class="proj-section last" id="checking" aria-labelledby="checking-h">
+    <h2 id="checking-h">Checking</h2>
+    <p>The design was checked with more than 40 tests, and it ran on the FPGA board, not only in a simulator.</p>
+    <h3>More projects</h3>
+    <ul class="plain-list"><li><a href="/projects/sensor-node/">Low-power wireless sensor node</a></li><li><a href="/projects/bench-rig/">Automated bench test rig</a></li></ul>
   </section>
 
   <p class="proj-back"><a class="back-link" href="/projects/">Back to Projects</a></p>
@@ -152,8 +127,9 @@
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -162,5 +138,6 @@
 </footer>
 
 <script type="module" src="/projects/fpga-risc/main.js"></script>
+<script type="module" src="/shared/models/auto.js"></script>
 </body>
 </html>

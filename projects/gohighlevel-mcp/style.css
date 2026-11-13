@@ -1,0 +1,9 @@
+/* GoHighLevel page. Only this page loads this file, after /projects/project-theme.css. */
+.node{transition:transform .2s var(--bk-out),background .2s ease-out,color .2s ease-out}
+.node.on{background:var(--p-ink);color:var(--bk-paper);transform:translateY(-3px)}
+.req-line{margin:18px 0 0;min-height:3.2em;max-width:44em;font-size:var(--fs-lead);line-height:1.4;font-family:var(--p-display)}
+.req-ctl{margin-top:10px}
+.req-ctl button{min-height:46px;padding:0 20px;border-radius:3px;font:600 var(--fs-small)/1 var(--p-body);cursor:pointer;transition:transform .16s var(--bk-out),background .15s ease-out}
+.req-ctl button:active{transform:scale(.97)}
+.req-line.swap{animation:req-in .35s var(--bk-out)}
+@keyframes req-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}

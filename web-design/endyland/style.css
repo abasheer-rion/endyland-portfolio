@@ -1,6 +1,3 @@
 /* endyland.com project page. Unbranded, so it wears the book: paper, ink brown, rust. Layout is /shared/project.css and /web-design/case.css. */
 .ed-dot{color:var(--p-accent)}
-.cs-hero h1{font-size:clamp(2.2rem,.9rem + 4.2vw,4.4rem);white-space:nowrap}
-.case-body code{font-family:var(--p-mono);font-size:.9em;background:var(--p-surface);padding:1px 6px;border:1px solid var(--p-line)}
-.case-body figure img[src$=".svg"]{width:100%;height:auto;border:1px solid var(--p-line);border-radius:var(--p-radius)}
-.case-body>figure>img{max-width:760px}
+.cs-hero h1{white-space:nowrap;font-size:clamp(2.2rem,.9rem + 6.4vw,6.25rem)}

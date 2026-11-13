@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DFW rental pricing model | Ayan Basheer</title>
+<title>DFW rental pricing model - Ayan Basheer</title>
 <meta name="description" content="A model that predicts Dallas-Fort Worth rents from 1,200+ listings, with a 6% median error, and flags 8 underpriced units worth about $14K a year.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://endyland.com/research/dfw-rent-model/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/research/dfw-rent-model/">
-<meta property="og:title" content="DFW rental pricing model | Ayan Basheer">
+<meta property="og:title" content="DFW rental pricing model - Ayan Basheer">
 <meta property="og:description" content="A model that predicts Dallas-Fort Worth rents from 1,200+ listings, with a 6% median error, and flags 8 underpriced units worth about $14K a year.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DFW rental pricing model - Ayan Basheer">
+<meta name="twitter:description" content="A model that predicts Dallas-Fort Worth rents from 1,200+ listings, with a 6% median error, and flags 8 underpriced units worth about $14K a year.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#17100A">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/research/project-theme.css">
 <link rel="stylesheet" href="/research/dfw-rent-model/style.css">
 <link rel="modulepreload" href="/shared/project.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/research/dfw-rent-model/#webpage","url":"https://endyland.com/research/dfw-rent-model/","name":"DFW rental pricing model - Ayan Basheer","description":"A model that predicts Dallas-Fort Worth rents from 1,200+ listings, with a 6% median error, and flags 8 underpriced units worth about $14K a year.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/research/dfw-rent-model/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/research/dfw-rent-model/#main","name":"DFW rental pricing model","headline":"DFW rental pricing model","description":"A model that predicts Dallas-Fort Worth rents from 1,200+ listings, with a 6% median error, and flags 8 underpriced units worth about $14K a year.","url":"https://endyland.com/research/dfw-rent-model/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/research/dfw-rent-model/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://endyland.com/research/"},{"@type":"ListItem","position":3,"name":"DFW rental pricing model","item":"https://endyland.com/research/dfw-rent-model/"}]}]}</script>
 </head>
 <body class="proj-page proj-dfw">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,6 +49,7 @@
     <nav class="bar-nav" id="bar-nav" aria-label="Sections">
       <ul>
       <li><a href="/web-design/">Web design</a></li><li><a href="/research/" aria-current="true">Research</a></li><li><a href="/startup-work/">Startup work</a></li><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -41,83 +58,30 @@
 </header>
 
 <main id="main" class="proj">
-  <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>DFW rental pricing model</span></li></ol></nav>
+<nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/research/">Research</a></li><li><span>DFW rental pricing model</span></li></ol></nav>
 
-  <header class="proj-hero">
-    <div class="proj-intro">
-    <p class="proj-kicker">Data project</p>
-    <h1>DFW rental pricing model</h1>
-    <p class="proj-summary">A model that predicts Dallas-Fort Worth rents, then checks each asking rent against it to find units priced well below what they should be.</p>
-    <dl class="proj-meta"><div><dt>Dates</dt><dd>2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>pandas</li><li>PostgreSQL</li></ul></dd></div></dl>
-    <ul class="proj-links"><li class="proj-nolink">No public link.</li></ul>
-    </div>
-    <figure class="proj-hero-media"><img src="img/figure.svg" width="800" height="450" alt="Diagram: 1,200+ listings go into the model, which predicts rent within 6% and finds 8 underpriced units worth $14K a year." fetchpriority="high" decoding="async"><figcaption>How it works, drawn from the numbers below.<span class="credit">Diagram drawn for this site.</span></figcaption></figure>
-  </header>
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-<ul class="stats"><li class="stat"><b>1,200+</b><span>listings it learned from</span></li><li class="stat"><b>6%</b><span>median error on rent</span></li><li class="stat"><b>8</b><span>underpriced units found</span></li><li class="stat"><b>$14K</b><span>a year those units were missing</span></li></ul>
-  </section>
+<header class="proj-hero proj-hero--text">
+<h1>DFW rental pricing model</h1>
+<p class="proj-summary">A model that predicts Dallas-Fort Worth rents from 1,200+ listings. The median error is 6%. It flagged 8 units asking far less than predicted, worth about $14K a year.</p>
+<p class="proj-facts">2026. Python, pandas and PostgreSQL.</p>
+</header>
 
-  <section class="proj-section " aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <p class="lede">Is this apartment priced right?</p>
-    <p>Rents across Dallas-Fort Worth vary a lot, and an asking rent is only one person&#8217;s guess at what a unit is worth. A listing priced too low leaves money on the table. A listing priced too high sits empty. Checking one unit by eye is easy. Checking a whole market is not.</p>
-    <p>The goal was a yardstick that works across the metro: predict what a unit should rent for from its listing, then see which asking rents sit far from the prediction.</p>
-  </section>
+<section class="proj-section" aria-labelledby="how-h">
+<h2 id="how-h">How it works</h2>
+<p>The listings are stored in PostgreSQL and prepared with pandas. The model estimates a rent for each listing, and each asking rent is compared with its estimate. Units asking far less than the estimate are flagged for a closer look.</p>
+<p>A median error of 6% means half the predictions land within 6% of the actual rent. The other half are further off, so a single prediction is a rough guide. An asking rent is also not a signed lease.</p>
+</section>
 
-  <section class="proj-section " aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <ol class="steps">
-      <li><b>Collect</b><span>1,200+ listings across Dallas-Fort Worth, kept in PostgreSQL and prepared with pandas.</span></li>
-      <li><b>Predict</b><span>The model learns from the listings and estimates a rent for each one. Its median error is 6%.</span></li>
-      <li><b>Compare</b><span>Each asking rent is checked against the model&#8217;s estimate.</span></li>
-      <li><b>Flag</b><span>Units that ask far less than expected are flagged. There were 8, worth about $14K a year in missed rent.</span></li>
-    </ol>
-  </section>
-
-  <section class="proj-section " aria-labelledby="read-h">
-    <h2 id="read-h">Reading the numbers</h2>
-    <div class="split">
-      <div>
-        <p><b>6% median error</b> means half of the predictions land within 6% of the real rent. Type a rent to see what that band is in dollars.</p>
-        <form class="dfw-calc">
-          <label for="dfw-rent">Asking rent per month, in dollars</label>
-          <input id="dfw-rent" type="number" inputmode="numeric" min="300" max="20000" step="10" value="1800">
-          <p class="dfw-out" id="dfw-out" aria-live="polite">Within 6% of $1,800 is $1,692 to $1,908.</p>
-        </form>
-        <p><b>8 flagged</b> out of 1,200+ is under 1 percent of listings. Spread evenly, $14K a year is about $1,750 a unit a year, or roughly $146 a month. That is simple division of the two stated numbers, not a measured per-unit figure.</p>
-        <div class="note"><h3>What it does not say</h3><p>A median error leaves half the predictions further off than 6%. A flag is a lead to check, not a verdict. An asking rent is also not a signed lease.</p></div>
-      </div>
-      <figure class="fig"><img src="img/flagged.svg" width="760" height="190" alt="A strip of 1,200 slots with 8 marked." loading="lazy" decoding="async"><figcaption>8 of 1,200+ listings were flagged. The marked dots are placed for drawing only, not by position in the data.</figcaption></figure>
-    </div>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I did</h2>
-    <ul class="did-list">
-      <li>Trained it on 1,200+ listings.</li>
-      <li>It predicts rent within 6% (median error).</li>
-      <li>It found 8 underpriced units worth $14K a year.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section " aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <ul class="findings">
-      <li><b>Report the typical error, then its limits</b>A 6% median is a fair summary and a bad promise for any single unit. The page says both.</li>
-      <li><b>A flag is only as good as the yardstick</b>Underpriced means far below the model&#8217;s estimate, so every flag is a question about the model first and the landlord second.</li>
-    </ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
+<p class="proj-back"><a class="back-link" href="/research/">Back to Research</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

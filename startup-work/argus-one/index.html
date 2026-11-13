@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Argus One | Ayan Basheer</title>
-<meta name="description" content="The theft-detection AI. It watched live store cameras, tracked body pose and gave each person one risk score. Part of Argus, which ended in 2026.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Argus One - Ayan Basheer</title>
+<meta name="description" content="The vision engine behind Argus: YOLOv8 detection, tracking and pose on a cloud GPU, a per-person evidence score, clips, signed webhooks, a QLoRA fine-tune.">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-one/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-one/">
-<meta property="og:title" content="Argus One | Ayan Basheer">
-<meta property="og:description" content="The theft-detection AI. It watched live store cameras, tracked body pose and gave each person one risk score. Part of Argus, which ended in 2026.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Argus One - Ayan Basheer">
+<meta property="og:description" content="The vision engine behind Argus: YOLOv8 detection, tracking and pose on a cloud GPU, a per-person evidence score, clips, signed webhooks, a QLoRA fine-tune.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Argus One - Ayan Basheer">
+<meta name="twitter:description" content="The vision engine behind Argus: YOLOv8 detection, tracking and pose on a cloud GPU, a per-person evidence score, clips, signed webhooks, a QLoRA fine-tune.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <script src="/shared/nav.js"></script>
@@ -22,7 +37,9 @@
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
 <link rel="stylesheet" href="/startup-work/pages.css">
+<link rel="stylesheet" href="/shared/models/stage.css">
 <link rel="modulepreload" href="/startup-work/argus/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/startup-work/argus-one/#webpage","url":"https://endyland.com/startup-work/argus-one/","name":"Argus One - Ayan Basheer","description":"The vision engine behind Argus: YOLOv8 detection, tracking and pose on a cloud GPU, a per-person evidence score, clips, signed webhooks, a QLoRA fine-tune.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/startup-work/argus-one/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/startup-work/argus-one/#main","name":"Argus One","headline":"Argus One","description":"The vision engine behind Argus: YOLOv8 detection, tracking and pose on a cloud GPU, a per-person evidence score, clips, signed webhooks, a QLoRA fine-tune.","url":"https://endyland.com/startup-work/argus-one/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/startup-work/argus-one/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Startup work","item":"https://endyland.com/startup-work/"},{"@type":"ListItem","position":3,"name":"Argus One","item":"https://endyland.com/startup-work/argus-one/"}]}]}</script>
 </head>
 <body class="proj-page proj-argus-one">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +54,7 @@
       <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -47,108 +65,111 @@
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>Argus One</span></li></ol></nav>
 
-  <header class="proj-hero">
+  <header class="proj-hero has-model">
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
-    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
     <h1>Argus One</h1>
-    <p class="proj-summary">The theft-detection AI. It watched live store cameras, tracked body pose and gave each person <span class="a-key">one risk score</span>.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>About half the commits, plus tests, docs, streaming and deployment.</dd></div><div><dt>Dates</dt><dd>Apr 2026 to 2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>EVA-CLIP</li><li>FastAPI</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">The vision engine behind Argus. It reads store camera frames on a cloud GPU, tracks each person, estimates pose and builds a score over time that decides when to raise an alert.</p>
+    <p class="proj-facts">Engine, streaming agent and deployment, March to October 2026. I handed this work off when I left in 2026. Python, PyTorch, Ultralytics YOLOv8, FastAPI and OpenCV.</p>
     </div>
-    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Diagram: a camera frame goes through YOLOv8 person detection, pose estimation and EVA-CLIP into one risk score from 0 to 100, weighted 40 percent classification, 25 pose, 15 time in one spot, 15 hand near body and 5 concealment." fetchpriority="high" decoding="async"><figcaption>How one score is built. Drawn for this site from the project&#8217;s own notes.</figcaption></figure>
+    <figure class="proj-hero-media figure">
+      <div class="model-wrap"><div class="model-stage" data-model="pose" data-pose="auto" aria-label="A 17-keypoint figure with bones moving between standing, reaching, crouching and hand to torso."></div></div>
+      <figcaption>Four hand-made poses on a 17-keypoint figure. Not recorded data.</figcaption>
+    </figure>
   </header>
 
-  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#limits-h">What it cannot see</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
-
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">A wall of video is not an alert.</h2>
+  <section class="proj-section" aria-labelledby="models-h">
+    <h2 id="models-h">Per-frame models</h2>
     <div class="prose">
-      <p>A store with many cameras produces more video than anyone can watch. A person at the counter cannot also study a screen of grey squares. Theft is usually found afterward, when someone scrolls through footage to see what happened.</p>
-      <p>We needed something that watches every feed, picks out the few moments that look wrong, and tells staff early with one clear number.</p>
+      <p>Frames arrive at about 3 per second per camera at 640 by 360. The engine runs inference on every second or third frame and redraws the last result on the others for the live view. Each inferred frame goes through these stages.</p>
     </div>
-  </section>
-
-  <section class="proj-section" aria-labelledby="approach-h">
-    <h2 id="approach-h">Read the body, not just the picture.</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Models that run on each inferred frame"><table class="spec restack"><thead><tr><th scope="col">Stage</th><th scope="col">Model</th><th scope="col">Settings and output</th></tr></thead><tbody><tr><th scope="row" data-label="Stage">Detection</th><td data-label="Model">YOLOv8 from Ultralytics, COCO-pretrained, small size on the live engines</td><td data-label="Settings and output">Whole frame at confidence 0.25, input 640. Classes used: person, backpack and handbag. Frames from different cameras are batched.</td></tr><tr><th scope="row" data-label="Stage">Tracking</th><td data-label="Model">In-house greedy IoU tracker, one per camera</td><td data-label="Settings and output">Re-associates a track within a 12-second window. It is not ByteTrack or DeepSORT.</td></tr><tr><th scope="row" data-label="Stage">Pose</th><td data-label="Model">YOLOv8n-pose</td><td data-label="Settings and output">Run once per person crop, minimum crop 32 px. Output is 17 COCO keypoints.</td></tr><tr><th scope="row" data-label="Stage">Bag type</th><td data-label="Model">OpenCLIP ViT-B/32, zero-shot</td><td data-label="Settings and output">Runs only when a bag is detected. Separates a store basket or bag from a personal bag so that bag interaction is not falsely flagged. Threshold 0.55.</td></tr><tr><th scope="row" data-label="Stage">Concealment check</th><td data-label="Model">Moondream2, a small vision-language model in fp16</td><td data-label="Settings and output">One fixed yes or no question on selected frames. Its answer can veto an alert. A read takes 300 to 650 ms.</td></tr></tbody></table></div>
     <div class="prose">
-      <p>Argus One splits the job. One model finds the people. A second tracks how each body moves, using 17 points on the body. A third reads what the scene looks like. Then a small fusion step weighs five signals into a single score from 0 to 100 for each person.</p>
-      <p>Signals include a hand moving toward the torso, reaching for a high shelf, crouching, staying in one spot for a long time, and quick hand movement. A score of 75 or more raises an alert. Repeat alerts are held back for 30 seconds so staff are not spammed.</p>
+      <p>The detector and pose weights are the COCO-pretrained Ultralytics releases. They were not fine-tuned on store footage.</p>
+      <h3>Once per alert</h3>
+      <p>After an alert latches, a heavier pass runs on the trigger frame: YOLO detection at confidence 0.5, pose on padded crops, a YOLOv8 classifier trained on the public UCF-Crime dataset for shoplifting versus normal, and EVA02-CLIP-L/14 with a 224 by 224 input and a 1024-number embedding.</p>
+      <h3>Re-identification</h3>
+      <p>Re-identification joins one person across cameras and short gaps. Argus serves an in-house ResNet-18 encoder with 512-number embeddings. In October 2026 a bake-off compared it with four open encoders on 9,216 labelled pairs, 7,129 of the same person and 2,087 of different people, from 1,377 clips and 22 cameras.</p>
     </div>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Re-identification bake-off results"><table class="spec restack"><thead><tr><th scope="col">Encoder</th><th scope="col">AUC</th><th scope="col">Same-person pairs kept at 2% false merges</th><th scope="col">ms per crop (Mac)</th></tr></thead><tbody><tr><th scope="row" data-label="Encoder">OSNet-AIN x1.0 (MSMT17)</th><td data-label="AUC">0.975</td><td data-label="Same-person pairs kept at 2% false merges">0.791</td><td data-label="ms per crop (Mac)">11.3</td></tr><tr><th scope="row" data-label="Encoder">CLIP-ReID ViT-B/16</th><td data-label="AUC">0.970</td><td data-label="Same-person pairs kept at 2% false merges">0.784</td><td data-label="ms per crop (Mac)">150.8 (CPU)</td></tr><tr><th scope="row" data-label="Encoder">In-house ResNet-18 (in use)</th><td data-label="AUC">0.977</td><td data-label="Same-person pairs kept at 2% false merges">0.776</td><td data-label="ms per crop (Mac)">2.4</td></tr><tr><th scope="row" data-label="Encoder">OSNet x1.0 (MSMT17)</th><td data-label="AUC">0.968</td><td data-label="Same-person pairs kept at 2% false merges">0.772</td><td data-label="ms per crop (Mac)">11.2</td></tr><tr><th scope="row" data-label="Encoder">OSNet x0.25 (fallback)</th><td data-label="AUC">0.931</td><td data-label="Same-person pairs kept at 2% false merges">0.554</td><td data-label="ms per crop (Mac)">2.3</td></tr></tbody></table></div>
+    <div class="prose"><p>No candidate beat the in-house encoder by the margin set before the test, 10 points, so nothing was swapped.</p></div>
   </section>
-
-  <section class="proj-section" aria-labelledby="how-h">
-    <h2 id="how-h">How one score gets built</h2>
-    <div class="table-wrap a-table" tabindex="0" role="region" aria-label="Models in the pipeline, scrolls sideways on small screens">
-      <table>
-        <caption>The models in the pipeline</caption>
-        <thead><tr><th scope="col">Model</th><th scope="col">Job</th><th scope="col">Output</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">YOLOv8n</th><td>Finds people and bags</td><td>Boxes and classes</td></tr>
-          <tr><th scope="row">YOLOv8x-Pose</th><td>Tracks body pose</td><td>17 keypoints per person</td></tr>
-          <tr><th scope="row">EVA02-CLIP-L-14</th><td>Reads the visual scene</td><td>A 1024-number description</td></tr>
-          <tr><th scope="row">YOLO classifier</th><td>Shoplifting or normal</td><td>One label</td></tr>
-          <tr><th scope="row">LightGBM</th><td>Fuses the signals</td><td>A risk probability</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="a-pair">
-      <div class="prose">
-        <p>Pose gives 22 numbers per person, such as hand-to-torso distance, elbow angle, body height and hand speed. Speed uses a 10-frame window so a quick grab shows up as a spike.</p>
-        <p>The weights that make the final score are classification 40%, pose risk 25%, time in one spot 15%, hand near body 15% and concealment 5%.</p>
-        <p>When the score crosses the threshold an alert goes out as a signed message to the business app, which shows it on the dashboard.</p>
-      </div>
-      <div class="table-wrap a-table" tabindex="0" role="region" aria-label="Signal weights">
-        <table><caption>Signal weights</caption><thead><tr><th scope="col">Signal</th><th scope="col">Weight</th></tr></thead><tbody><tr><th scope="row">Classification</th><td>40%</td></tr><tr><th scope="row">Pose risk</th><td>25%</td></tr><tr><th scope="row">Time in one spot</th><td>15%</td></tr><tr><th scope="row">Hand near body</th><td>15%</td></tr><tr><th scope="row">Concealment</th><td>5%</td></tr></tbody></table>
-      </div>
-    </div>
-  </section>
-
-  <section class="proj-section" aria-labelledby="limits-h">
-    <h2 id="limits-h">What it cannot see</h2>
+  <section class="proj-section" aria-labelledby="alert-h">
+    <h2 id="alert-h">From detections to an alert</h2>
     <div class="prose">
-      <p>The project notes are direct about this. Argus One does not detect an item actually going into a bag, goods disappearing from a shelf, concealment under clothing, eye gaze, or groups working together. It scores behavior that often goes with theft. It does not prove theft.</p>
-      <p>That is why the output is a score that points a person at a clip, and why a human decides what happens next.</p>
+      <p>Pose gives 22 features per person, including hand-to-torso distance, elbow angle, torso angle, body height ratio and hand speed over a 10-frame window.</p>
+      <p>Two scores are computed. The frame score runs from 0 to 100 and is a weighted sum of seven signals: hand near pockets or waistband, pose, time in one spot, concealment, bag interaction, object change and hand movement. It is shown on the operator tile and triggers nothing.</p>
+      <p>The evidence score is kept per tracked person. It adds up behaviour over seconds, decays with a 25-second half-life and follows an ordered sequence of scan, reach, conceal and depart. The alert latches at 80 and needs a chained concealment gesture. This is the only trigger for an incident, and the Moondream2 check can veto the crossing.</p>
+      <h3>Clip and webhook</h3>
+      <p>On a latch the engine takes 15 seconds before and 1.5 seconds after the trigger from an in-memory ring buffer of the original JPEG frames, encodes an MP4, uploads it to Cloudflare R2 and posts an HMAC-SHA256-signed webhook to the platform API, with 3 retries. The pre-roll is 15 seconds so a reviewer can judge the clip.</p>
     </div>
   </section>
-
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b>1</b><span>risk score per person</span></li><li class="stat"><b>5</b><span>signals weighted into it</span></li><li class="stat"><b><span class="visually-hidden">92%</span><span aria-hidden="true" data-count="92" data-post="%">92%</span></b><span>model accuracy</span></li><li class="stat"><b>About half</b><span>of the commits are mine</span></li></ul>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list">
-      <li>Combined person detection, body pose and visual signals into one risk score per person.</li>
-      <li>Wrote about half the commits, plus the tests, docs, the streaming link and deployment.</li>
-      <li>Fine-tuned a vision model on store camera clips to cut false alarms.</li>
-      <li>Built the streaming agent: a desktop app that sends a store&#8217;s camera feeds to Argus.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
+  <section class="proj-section" aria-labelledby="runtime-h">
+    <h2 id="runtime-h">Inference runtime</h2>
     <div class="prose">
-      <p>Several small signals beat one clever model. Splitting the job made each piece easy to test and easy to explain to a store owner.</p>
-      <p>Writing down what a model cannot do is part of shipping it.</p>
+      <p>PyTorch and Ultralytics run in-process in the FastAPI server in half precision. TensorRT and ONNX are not used for the main models. A rented RTX 4090 on RunPod served until September 2026, then AWS GPU instances. On 17 August 2026 one 4090 held 20 of its 24 camera slots.</p>
+      <h3>Batching detection</h3>
+      <p>Frames from different cameras are grouped into a batch of up to 8 with a 10 ms wait. Over 338 frames before and 338 after, average inference time fell from 74.5 ms to 46.3 ms, a factor of 1.61, and dropped frames fell from 5.5% to 1.0%.</p>
+    </div>
+    <figure class="bars" data-reveal="rise">
+      <div><p class="bars-t">Average inference time per frame</p>
+        <div class="bar old"><i class="bar-fill" style="--v:100"></i><span><b>74.5 ms</b> one frame at a time</span></div>
+        <div class="bar bar-new"><i class="bar-fill" style="--v:62"></i><span><b>46.3 ms</b> batched</span></div></div>
+      <div><p class="bars-t">Frames dropped</p>
+        <div class="bar old"><i class="bar-fill" style="--v:100"></i><span><b>5.5%</b> one frame at a time</span></div>
+        <div class="bar bar-new"><i class="bar-fill" style="--v:18"></i><span><b>1.0%</b> batched</span></div></div>
+    </figure>
+    <div class="prose">
+      <h3>Pose is not batched</h3>
+      <p>Batching person crops of different sizes shifted keypoints by up to 43 px and changed the person count in 2 of 18 test cases, so pose stays at one crop at a time, about 7.9 ms each. Whole-frame pose was faster, 8.23 ms for one frame and 2.32 ms per frame at batch 16, but it missed 2 of 18 people, and keypoints decide alerts, so it was not adopted.</p>
+      <h3>The limit was Python</h3>
+      <p>Under load the engine dropped about 2.5 frames per second while the GPU sat at 9% compute. Sixteen inference threads shared one Python interpreter lock, and the resident models held 24.0 of 24.6 GB of VRAM. The fix was separate inference processes. The live configuration runs 2 processes with 8 workers.</p>
+    </div>
+  </section>
+  <section class="proj-section" aria-labelledby="labels-h">
+    <h2 id="labels-h">Labels and training data</h2>
+    <div class="prose">
+      <p>Labels come from four places, and every label records which model or person produced it.</p>
+      <ul class="plain-list">
+        <li><b>Manual tool.</b> A Streamlit app from November 2025 recorded theft yes or no, a risk score, eight behaviour flags and timeline markers.</li>
+        <li><b>Auto-labeller.</b> From July 2026 a script pulls a stored incident clip, extracts 4 to 8 evenly spaced frames at most 768 px wide and asks a hosted vision-language model for a structured verdict: theft, benign or inconclusive, with a confidence, a one-line reason and a few visual attributes. The prompt withholds the system&#8217;s own risk score so the label stays independent.</li>
+        <li><b>Human grading.</b> From 7 August 2026 operators graded incidents in the ops console: 164 verdicts from 3 graders in the first two days.</li>
+        <li><b>Activity labels.</b> 552 clips were sorted into 11 activity classes, such as staff behind the counter (139 clips) and paying at the till (126), by one hosted model. Its agreement with three other models ranged from 0.32 to 0.70.</li>
+      </ul>
+      <p>The labels sit in an append-only Postgres table, so agreement between labellers is a single GROUP BY query. On 8 August 2026 it held 905 labels. Every one was a false positive or uncertain, and none was a confirmed theft.</p>
+    </div>
+  </section>
+  <section class="proj-section" aria-labelledby="finetune-h">
+    <h2 id="finetune-h">Fine-tuning a student model</h2>
+    <div class="prose">
+      <p>The aim was a small model, running on rented hardware, that returns the same clip verdicts as the hosted labeller.</p>
+    </div>
+    <dl class="kv"><dt>Base model</dt><dd>Qwen3.5-9B, a vision-language model</dd><dt>Method</dt><dd>QLoRA with ms-swift, PEFT and bitsandbytes. 4-bit NF4 weights, bfloat16 compute</dd><dt>LoRA</dt><dd>Rank 16, alpha 32, dropout 0.05, on all linear layers of the language model. The vision tower and aligner are frozen</dd><dt>Optimiser</dt><dd>AdamW, learning rate 1e-4, cosine schedule, 5% warmup, weight decay 0.1</dd><dt>Batch</dt><dd>1 per device with gradient accumulation 16, maximum length 8192, seed 42</dd><dt>Hardware</dt><dd>A rented A100</dd><dt>Samples</dt><dd>A system prompt, 4 to 8 frames and the teacher&#8217;s JSON as the target</dd><dt>Split</dt><dd>A clip goes to eval when sha256(id) mod 100 is below 15, fixed before any output was seen</dd></dl>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Fine-tuning results"><table class="spec restack"><thead><tr><th scope="col"></th><th scope="col">Run 1, 28 August 2026</th><th scope="col">Run 2, 31 August 2026</th></tr></thead><tbody><tr><th scope="row" data-label="">Teacher labels</th><td data-label="Run 1, 28 August 2026">Claude Sonnet</td><td data-label="Run 2, 31 August 2026">Gemini 2.5 Flash</td></tr><tr><th scope="row" data-label="">Clips</th><td data-label="Run 1, 28 August 2026">545 train, 81 eval</td><td data-label="Run 2, 31 August 2026">4,060 train, 698 clean eval</td></tr><tr><th scope="row" data-label="">Epochs</th><td data-label="Run 1, 28 August 2026">3</td><td data-label="Run 2, 31 August 2026">2</td></tr><tr><th scope="row" data-label="">Valid JSON, untuned to tuned</th><td data-label="Run 1, 28 August 2026">0% to 100%</td><td data-label="Run 2, 31 August 2026">to 100%</td></tr><tr><th scope="row" data-label="">Agreement with teacher</th><td data-label="Run 1, 28 August 2026">0.60 on decided clips</td><td data-label="Run 2, 31 August 2026">0.9925</td></tr><tr><th scope="row" data-label="">Inconclusive rate, student and teacher</th><td data-label="Run 1, 28 August 2026">69% and 57%</td><td data-label="Run 2, 31 August 2026">1.0% and 4.3%</td></tr><tr><th scope="row" data-label="">Gates</th><td data-label="Run 1, 28 August 2026">Failed 2 of 3 that could run</td><td data-label="Run 2, 31 August 2026">Not passed on theft recall</td></tr></tbody></table></div>
+    <div class="prose">
+      <p>The first run exposed a leak. Agreement with the teacher was 0.76 on clips recorded with the on-screen overlay and 0.36 on clean clips, so the student was reading the system&#8217;s burned-in captions. After that, training and gating used clean clips only.</p>
+      <p>The second run&#8217;s 0.9925 agreement does not show skill on theft. The eval set is 99.85% benign, so always answering benign scores 0.9985, which is higher. The tuned model never output theft across 920 clips, and its recall on the single theft clip in the eval set was 0. The corpus had 17 theft-labelled clips in training and 1 in the clean eval set, out of 6,987 manifest rows.</p>
+      <p>The fine-tune taught the model the output format and matched the teacher on benign clips. It could not be validated on theft because the stores had almost no confirmed theft clips.</p>
+      <p>Around the loop: five gates fixed before training, two of which refuse to pass on thin evidence; a committed eval-split lock holding 698 ids and hashes but no pixels; a rule and a test that the student never trains on its own labels; nightly labelling and retrain workflows in GitHub Actions; and a ledger of model generations.</p>
+    </div>
+  </section>
+  <section class="proj-section" aria-labelledby="unmeasured-h">
+    <h2 id="unmeasured-h">What was not measured</h2>
+    <div class="prose">
+      <p>The repo records no end-to-end alert latency and no precision or recall for the detector on store footage. Recall could not be measured because the label ledger held no confirmed thefts.</p>
     </div>
   </section>
 
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li><li><a href="/startup-work/argus-dashboard/">Where the alerts show up</a></li></ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
+  <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -156,6 +177,7 @@
   </div>
 </footer>
 
+<script type="module" src="/shared/models/auto.js"></script>
 <script type="module" src="/startup-work/argus/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+/* Sensor node page. Only this page loads this file, after /projects/project-theme.css. */
+
+/* The sleep and wake schematic: a low floor with a tall thin burst every 60 seconds and a head that sweeps across.
+   Transform and opacity only. */
+.sleepline{max-width:60em;padding:8px 0 0}
+.sl-track{position:relative;height:clamp(120px,18vw,190px);border-bottom:1px solid var(--p-ink);overflow:hidden}
+.sl-floor{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--p-ink)}
+.sl-burst{position:absolute;left:var(--at);bottom:0;width:clamp(5px,.9vw,10px);height:92%;background:var(--bk-brass);transform-origin:50% 100%;
+  opacity:.35;animation:sl-pulse 9s linear infinite;animation-delay:calc(var(--at) * 0.09 - .2s)}
+.sl-head{position:absolute;inset:0;border-right:2px solid var(--p-link);transform:translateX(-100%);animation:sl-sweep 9s linear infinite}
+@keyframes sl-sweep{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+@keyframes sl-pulse{0%,3%{transform:scaleX(2);opacity:1}10%,100%{transform:none;opacity:.35}}
+.sl-ticks{display:flex;justify-content:space-between;padding-top:8px;font-size:var(--fs-small);color:var(--p-mute);font-variant-numeric:tabular-nums}

@@ -5,9 +5,8 @@
 //
 // What it does:
 // - Reveal: lines in .did-list are inked in left to right, one after another (30ms apart), as they scroll into
-//   view. Ledger entries in .stats fade up the same way. Any element with data-wipe gets the same ink-wipe.
-// - Count-up: numbers marked [data-count] count up once when they scroll into view. The HTML always
-//   holds the final value, and screen readers read a hidden copy of it.
+//   view. Any element with data-wipe gets the same ink-wipe. New pages use data-reveal (motion.js) instead.
+// - Numbers stay as written. The old count-up from zero is retired (setupCounts does nothing).
 // - Gallery lightbox: links in .gallery (a.lb) open their full image in a <dialog>. Arrow keys move,
 //   Escape closes, focus goes back to the link. Without JS the link just opens the image.
 // - Back links: a.back-link goes back in history when the visitor came straight from that page, so the
@@ -26,7 +25,7 @@ export function initProject({ reveal = true, counts = true, gallery = true, back
 }
 
 // ---------- What I did ----------
-export function setupReveal(selector = '.did-list, .stats') {
+export function setupReveal(selector = '.did-list') {
   for (const list of document.querySelectorAll(selector)) {
     const items = [...list.children];
     items.forEach((li, i) => li.style.setProperty('--i', String(i)));
@@ -36,34 +35,11 @@ export function setupReveal(selector = '.did-list, .stats') {
   onVisible(document.querySelectorAll('[data-wipe]'), (el) => el.classList.add('in'), { threshold: 0.1 });
 }
 
-// ---------- Count-up ----------
-// Markup: <b><span class="visually-hidden">$480K</span><span aria-hidden="true" data-count="480" data-pre="$" data-post="K">$480K</span></b>
-export function setupCounts(selector = '[data-count]') {
-  const els = [...document.querySelectorAll(selector)];
-  if (!els.length) return;
-  onVisible(els, (el) => {
-    const end = parseFloat(el.dataset.count);
-    if (!Number.isFinite(end)) return;
-    const final = el.textContent;
-    const dec = (el.dataset.count.split('.')[1] || '').length;
-    const pre = el.dataset.pre || '', post = el.dataset.post || '';
-    const comma = el.dataset.comma === '1';
-    const dur = 1100, t0 = performance.now();
-    const fmt = (v) => {
-      let s = v.toFixed(dec);
-      if (comma) s = Number(s).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
-      return pre + s + post;
-    };
-    const step = (now) => {
-      const k = Math.min(1, (now - t0) / dur);
-      const e = 1 - Math.pow(1 - k, 3);
-      el.textContent = k >= 1 ? final : fmt(end * e);
-      if (k < 1) requestAnimationFrame(step);
-    };
-    el.textContent = fmt(0);
-    requestAnimationFrame(step);
-  }, { threshold: 0.4 });
-}
+// ---------- Count-up (retired) ----------
+// Numbers used to run up from zero, which showed a false figure for a moment. They now stay as written.
+// Kept as an export so existing pages keep working. For a value that changes while the page is open,
+// use tweenNumber from motion.js.
+export function setupCounts() {}
 
 // ---------- Gallery lightbox ----------
 export function setupGallery(selector = 'a.lb') {

@@ -1,11 +1,9 @@
 // Parity project page. Only this page loads this file.
-// Shared parts (reveal, count-up, gallery lightbox, back links) come from /shared/project.js.
-// No canvases here: the page is text, tables and figures.
+// Shared parts (reveal, gallery lightbox, back links) come from /shared/project.js.
+// The Sharpe bars and the gauntlet squares play once when they scroll into view.
 import { initProject } from '../../shared/project.js';
 import { onVisible } from '../../shared/motion.js';
 
 initProject();
-document.querySelectorAll('.steps').forEach((ol) => {
-  [...ol.children].forEach((li, i) => li.style.setProperty('--i', i));
-  onVisible([ol], () => ol.classList.add('in'), { threshold: 0.15 });
-});
+document.querySelectorAll('.sb').forEach((r, i) => r.style.setProperty('--n', i));
+onVisible('#sbars,#pgrid', (el) => el.classList.add('in'), { threshold: 0.25 });

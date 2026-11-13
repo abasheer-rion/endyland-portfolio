@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Argus Dashboard | Ayan Basheer</title>
-<meta name="description" content="One screen for running a store: loss prevention, stock, money and staff. Part of Argus, which ended in 2026.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Argus Dashboard - Ayan Basheer</title>
+<meta name="description" content="The Argus store portal: sales, stock, staff, cameras and alerts on one screen, over one API. Ayan Basheer wrote about 70% of the commits.">
 <link rel="canonical" href="https://endyland.com/startup-work/argus-dashboard/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/startup-work/argus-dashboard/">
-<meta property="og:title" content="Argus Dashboard | Ayan Basheer">
-<meta property="og:description" content="One screen for running a store: loss prevention, stock, money and staff. Part of Argus, which ended in 2026.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Argus Dashboard - Ayan Basheer">
+<meta property="og:description" content="The Argus store portal: sales, stock, staff, cameras and alerts on one screen, over one API. Ayan Basheer wrote about 70% of the commits.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Argus Dashboard - Ayan Basheer">
+<meta name="twitter:description" content="The Argus store portal: sales, stock, staff, cameras and alerts on one screen, over one API. Ayan Basheer wrote about 70% of the commits.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#171717">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -23,6 +38,7 @@
 <link rel="stylesheet" href="/startup-work/argus/brand.css">
 <link rel="stylesheet" href="/startup-work/pages.css">
 <link rel="modulepreload" href="/startup-work/argus/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/startup-work/argus-dashboard/#webpage","url":"https://endyland.com/startup-work/argus-dashboard/","name":"Argus Dashboard - Ayan Basheer","description":"The Argus store portal: sales, stock, staff, cameras and alerts on one screen, over one API. Ayan Basheer wrote about 70% of the commits.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/startup-work/argus-dashboard/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/startup-work/argus-dashboard/#main","name":"Argus Dashboard","headline":"Argus Dashboard","description":"The Argus store portal: sales, stock, staff, cameras and alerts on one screen, over one API. Ayan Basheer wrote about 70% of the commits.","url":"https://endyland.com/startup-work/argus-dashboard/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/startup-work/argus-dashboard/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Startup work","item":"https://endyland.com/startup-work/"},{"@type":"ListItem","position":3,"name":"Argus Dashboard","item":"https://endyland.com/startup-work/argus-dashboard/"}]}]}</script>
 </head>
 <body class="proj-page proj-argus-dashboard">
 <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -47,103 +64,43 @@
 <main id="main" class="proj">
   <nav class="proj-crumbs" aria-label="Breadcrumb"><ol><li><a class="back-link" href="/startup-work/">Startup work</a></li><li><a href="/startup-work/argus/">Argus</a></li><li><span>Argus Dashboard</span></li></ol></nav>
 
-  <header class="proj-hero" id="overview">
+  <header class="proj-hero">
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/argus/img/logo.webp" width="404" height="112" alt="Argus logo" decoding="async">
-    <p class="proj-kicker">Argus sub-project<span class="status-chip">Ended 2026</span></p>
     <h1>Argus Dashboard</h1>
-    <p class="proj-summary">One screen for running a store: loss prevention, stock, money and staff.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Developer. About 70% of the code.</dd></div><div><dt>Dates</dt><dd>Jan 2026 to 2026, ended 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>JavaScript</li><li>Node and Express</li><li>Postgres on Hetzner</li><li>Clerk</li><li>Stripe</li><li>Cloudflare Pages</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><a href="https://portal.rionsolution.com" rel="noopener">Store portal</a></li><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">The Argus store portal. Sales, transactions, staff on shift, stock, alerts and cameras on one screen, on top of one API.</p>
+    <p class="proj-facts">Developer, about 70% of the commits, from December 2025 until I left in 2026. JavaScript, Node and Express, Postgres, Clerk, Stripe and Cloudflare Pages.</p>
+    <ul class="proj-links"><li><a href="https://dashboard.useargus.co" rel="noopener">Store portal</a></li></ul>
     </div>
-    <figure class="proj-hero-media a-shot"><img src="img/dashboard.webp" width="990" height="680" alt="The Argus dashboard demo: Good morning, Maria, with sales today, transactions, alerts, sales by hour, who is on shift and low stock." fetchpriority="high" decoding="async"><figcaption>The dashboard demo on useargus.co, captured in November 2026. Sample data.</figcaption></figure>
+    <figure class="proj-hero-media a-fig dark"><img src="img/dashboard.webp" width="990" height="680" alt="The Argus dashboard demo: Good morning, Maria, with sales today, transactions, alerts, sales by hour, who is on shift and low stock." fetchpriority="high" decoding="async"><figcaption>The dashboard demo on useargus.co, with sample data.</figcaption></figure>
   </header>
 
-  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
-
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">A store owner should not need six apps.</h2>
+  <section class="proj-section" aria-labelledby="nexus-h">
+    <h2 id="nexus-h">From NEXUS to Argus</h2>
     <div class="prose">
-      <p>A store runs on cameras, a register, invoices, stock, money and staff. Each lives in a different tool. The owner stitches the picture together by hand, usually at the end of a long day.</p>
-      <p>RION already had a client portal called NEXUS, built as several separate apps. It was not one screen a store manager could glance at.</p>
+      <p>RION already had a client portal called NEXUS, built as several separate apps. I turned it into one store screen and renamed it Argus. Underneath it keeps six pieces: a store portal, an admin app, a phone app, an ops app, a status page and bulk email.</p>
+      <p>The demo screen shows sales today and by hour, transactions, who is on shift, what is running low and alerts with a dollar amount next to each. Later work added camera monitoring, links to the register (POS) and to QuickBooks, invoice emails, faster pages and alerts. The payments side of NEXUS is on the <a href="/startup-work/nexus-command-center/">NEXUS Command Center</a> page.</p>
     </div>
+    <figure class="a-fig dark narrow" data-reveal="rise"><img src="img/setup.webp" width="368" height="424" alt="The setup step of the dashboard: Your cameras are live, with six camera tiles marked live." loading="lazy" decoding="async"></figure>
   </section>
-
-  <section class="proj-section" aria-labelledby="approach-h">
-    <h2 id="approach-h">Turn a multi-app portal into one store screen.</h2>
-    <div class="a-split">
-      <div class="prose">
-        <p>I turned the portal into one screen and renamed it Argus. It kept the same pieces underneath: a store portal, an admin app, a phone app, an ops app, a status page and bulk email.</p>
-        <p>On top of that I built what a store actually looks at. The demo shows sales today and by hour, transactions, who is on shift, what is running low, and alerts with a dollar amount next to each one.</p>
-        <p>Later work added camera monitoring, links to the register (POS) and to QuickBooks, invoice emails, faster pages and alerts.</p>
-      </div>
-      <figure class="a-fig"><img src="img/setup.webp" width="368" height="424" alt="The setup step of the dashboard: Your cameras are live, with six camera tiles marked live." loading="lazy" decoding="async"><figcaption>The last setup step: every camera comes online and shows as live. From the demo on useargus.co, November 2026.</figcaption></figure>
-    </div>
-  </section>
-
-  <section class="proj-section" aria-labelledby="how-h">
-    <h2 id="how-h">How it works</h2>
-    <div class="prose"><p>Every front end talks to one Node and Express API. The API keeps its data in Postgres, signs people in with Clerk and handles billing with Stripe. The AI service sends its alerts to the API as signed messages, so the dashboard can show them with the camera and the store they came from.</p></div>
-    <figure class="a-diagram">
-      <div class="fig-scroll" tabindex="0" role="region" aria-label="Dashboard architecture drawing, scrolls sideways on small screens">
-      <svg viewBox="0 0 1000 380" role="img" aria-labelledby="dd-t dd-d" focusable="false">
-        <title id="dd-t">How the dashboard fits together</title>
-        <desc id="dd-d">Six front ends, the store portal, admin, phone app, ops app, status page and bulk email, all talk to one Node and Express API. The API stores data in Postgres, signs people in with Clerk and bills with Stripe. The Argus AI service sends signed alerts into the API.</desc>
-        <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FCA5A5"/></marker></defs>
-        <g class="dg-line" style="stroke:#FCA5A5"><path d="M270 72H320M270 126H320M270 180H320M270 234H320M270 288H320M270 342H320"/><path d="M320 72V342"/><path d="M320 190H370" marker-end="url(#ar2)"/><path d="M630 150H730" marker-end="url(#ar2)"/><path d="M630 230H730" marker-end="url(#ar2)"/><path d="M500 80V130" marker-end="url(#ar2)"/></g>
-        <g style="fill:none;stroke:#C9C9C3;stroke-width:1.5">
-          <rect x="20" y="50" width="250" height="44" rx="4"/><rect x="20" y="104" width="250" height="44" rx="4"/><rect x="20" y="158" width="250" height="44" rx="4"/><rect x="20" y="212" width="250" height="44" rx="4"/><rect x="20" y="266" width="250" height="44" rx="4"/><rect x="20" y="320" width="250" height="44" rx="4"/>
-        </g>
-        <g style="font-size:16px;fill:#F5F5F2;text-anchor:middle"><text x="145" y="78">Store portal</text><text x="145" y="132">Admin</text><text x="145" y="186">Phone app</text><text x="145" y="240">Ops app</text><text x="145" y="294">Status page</text><text x="145" y="348">Bulk email</text></g>
-        <rect x="370" y="130" width="260" height="120" rx="6" style="fill:#DC2626"/><text x="500" y="182" style="font-size:20px;fill:#fff;text-anchor:middle">Node and Express API</text><text x="500" y="210" style="font-size:14px;fill:#fff;text-anchor:middle">one backend for every app</text>
-        <rect x="730" y="120" width="230" height="60" rx="4" style="fill:#222;stroke:#C9C9C3;stroke-width:1.5"/><text x="845" y="157" style="font-size:17px;fill:#F5F5F2;text-anchor:middle">Postgres</text>
-        <rect x="730" y="200" width="230" height="60" rx="4" style="fill:#222;stroke:#C9C9C3;stroke-width:1.5"/><text x="845" y="237" style="font-size:17px;fill:#F5F5F2;text-anchor:middle">Clerk sign-in, Stripe billing</text>
-        <rect x="390" y="22" width="220" height="56" rx="4" style="fill:#222;stroke:#C9C9C3;stroke-width:1.5"/><text x="500" y="56" style="font-size:16px;fill:#F5F5F2;text-anchor:middle">Argus AI service</text>
-              </svg>
-      </div>
-      <figcaption>Drawn for this site. The AI service posts signed alerts to the API. Everything a store sees comes from that one API.</figcaption>
-    </figure>
-    <div class="prose"><p>One backend for six apps means a fix or a new field shows up everywhere at once.</p></div>
-  </section>
-
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">About 70%</span><span aria-hidden="true" data-count="70" data-pre="About " data-post="%">About 70%</span></b><span>of the code is mine</span></li><li class="stat"><b>6</b><span>apps in one: store portal, admin, phone, ops, status, email</span></li></ul>
-    <p class="a-note">A small team wrote the rest of the code.</p>
-  </section>
-
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list">
-      <li>Wrote about 70% of the code. A small team wrote the rest.</li>
-      <li>Turned a multi-app client portal, RION NEXUS, into one store screen and renamed it Argus.</li>
-      <li>It included a store portal, admin, phone app, ops app, status page and bulk email.</li>
-      <li>Later work: camera monitoring, register (POS) and QuickBooks links, invoice emails, faster pages and alerts.</li>
-    </ul>
-  </section>
-
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
+  <section class="proj-section" aria-labelledby="architecture-h">
+    <h2 id="architecture-h">Architecture</h2>
     <div class="prose">
-      <p>A store dashboard has to answer one question first: is the store okay right now? Everything else sits behind that.</p>
-      <p>Putting several apps behind one API is cheaper to maintain than it looks, as long as each app keeps a clear job.</p>
+      <p>Every front end talks to one Node and Express API. The API keeps its data in Postgres on Hetzner, signs people in with Clerk and bills through Stripe. The Argus engine sends alerts to the API as HMAC-signed webhooks. The API stores the incident and pushes a Socket.io notification to the portal.</p>
     </div>
+    <figure class="figure dg-fig" data-reveal="rise"><div class="dg-box" data-diagram><svg class="dg dg-wide" viewBox="0 0 1040 482" role="img" aria-labelledby="dash-t dash-d" focusable="false"><title id="dash-t">How the dashboard fits together</title><desc id="dash-d">Six front ends talk to one Node and Express API. The API stores data in Postgres, signs people in with Clerk and bills with Stripe. The Argus engine posts signed alerts to the API.</desc><defs><marker id="dash-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="250" height="482" rx="6"/><text class="dg-lt" x="16" y="30">Front ends</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="16" y="48" width="218" height="58" rx="4"/><text class="dg-t" x="125" y="83" style="font-size:17px">Store portal</text></g><g class="dg-n" data-n="0-1"><rect class="dg-node" x="16" y="120" width="218" height="58" rx="4"/><text class="dg-t" x="125" y="155" style="font-size:17px">Admin</text></g><g class="dg-n" data-n="0-2"><rect class="dg-node" x="16" y="192" width="218" height="58" rx="4"/><text class="dg-t" x="125" y="227" style="font-size:17px">Phone app</text></g><g class="dg-n" data-n="0-3"><rect class="dg-node" x="16" y="264" width="218" height="58" rx="4"/><text class="dg-t" x="125" y="299" style="font-size:17px">Ops app</text></g><g class="dg-n" data-n="0-4"><rect class="dg-node" x="16" y="336" width="218" height="58" rx="4"/><text class="dg-t" x="125" y="371" style="font-size:17px">Status page</text></g><g class="dg-n" data-n="0-5"><rect class="dg-node" x="16" y="408" width="218" height="58" rx="4"/><text class="dg-t" x="125" y="443" style="font-size:17px">Bulk email</text></g><rect class="dg-lane" x="370" y="0" width="300" height="482" rx="6"/><text class="dg-lt" x="386" y="30">API</text><g class="dg-n" data-n="1-0"><rect class="dg-dark" x="386" y="48" width="268" height="58" rx="4"/><text class="dg-w" x="520" y="72" style="font-size:17px">Node and Express</text><text class="dg-w dg-sub" x="520" y="93" style="font-size:15px">one backend for every app</text></g><g class="dg-n" data-n="1-1"><rect class="dg-node" x="386" y="120" width="268" height="58" rx="4"/><text class="dg-t" x="520" y="144" style="font-size:17px">Argus engine</text><text class="dg-t dg-sub" x="520" y="165" style="font-size:15px">posts signed alerts</text></g><rect class="dg-lane" x="790" y="0" width="250" height="482" rx="6"/><text class="dg-lt" x="806" y="30">Services</text><g class="dg-n" data-n="2-0"><rect class="dg-node" x="806" y="48" width="218" height="58" rx="4"/><text class="dg-t" x="915" y="72" style="font-size:17px">Postgres</text><text class="dg-t dg-sub" x="915" y="93" style="font-size:15px">on Hetzner</text></g><g class="dg-n" data-n="2-1"><rect class="dg-node" x="806" y="120" width="218" height="58" rx="4"/><text class="dg-t" x="915" y="144" style="font-size:17px">Clerk</text><text class="dg-t dg-sub" x="915" y="165" style="font-size:15px">sign-in</text></g><g class="dg-n" data-n="2-2"><rect class="dg-node" x="806" y="192" width="218" height="58" rx="4"/><text class="dg-t" x="915" y="216" style="font-size:17px">Stripe</text><text class="dg-t dg-sub" x="915" y="237" style="font-size:15px">billing</text></g><path class="dg-line" d="M234 77H386" marker-end="url(#dash-ar)"/><path class="dg-line" d="M654 77H806" marker-end="url(#dash-ar)"/><circle class="dg-dot" r="8" cx="0" cy="0"/></svg><svg class="dg dg-narrow" viewBox="0 0 360 994" role="img" aria-labelledby="dash-nt dash-nd" focusable="false"><title id="dash-nt">How the dashboard fits together</title><desc id="dash-nd">Six front ends talk to one Node and Express API. The API stores data in Postgres, signs people in with Clerk and bills with Stripe. The Argus engine posts signed alerts to the API.</desc><defs><marker id="dash-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="360" height="474" rx="6"/><text class="dg-lt" x="12" y="29">Front ends</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="12" y="44" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="79" style="font-size:17px">Store portal</text></g><g class="dg-n" data-n="0-1"><rect class="dg-node" x="12" y="116" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="151" style="font-size:17px">Admin</text></g><g class="dg-n" data-n="0-2"><rect class="dg-node" x="12" y="188" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="223" style="font-size:17px">Phone app</text></g><g class="dg-n" data-n="0-3"><rect class="dg-node" x="12" y="260" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="295" style="font-size:17px">Ops app</text></g><g class="dg-n" data-n="0-4"><rect class="dg-node" x="12" y="332" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="367" style="font-size:17px">Status page</text></g><g class="dg-n" data-n="0-5"><rect class="dg-node" x="12" y="404" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="439" style="font-size:17px">Bulk email</text></g><path class="dg-line" d="M180 476V510" marker-end="url(#dash-ar)"/><rect class="dg-lane" x="0" y="512" width="360" height="186" rx="6"/><text class="dg-lt" x="12" y="541">API</text><g class="dg-n" data-n="1-0"><rect class="dg-dark" x="12" y="556" width="336" height="58" rx="4"/><text class="dg-w" x="180" y="580" style="font-size:17px">Node and Express</text><text class="dg-w dg-sub" x="180" y="601" style="font-size:15px">one backend for every app</text></g><g class="dg-n" data-n="1-1"><rect class="dg-node" x="12" y="628" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="652" style="font-size:17px">Argus engine</text><text class="dg-t dg-sub" x="180" y="673" style="font-size:15px">posts signed alerts</text></g><path class="dg-line" d="M180 700V734" marker-end="url(#dash-ar)"/><rect class="dg-lane" x="0" y="736" width="360" height="258" rx="6"/><text class="dg-lt" x="12" y="765">Services</text><g class="dg-n" data-n="2-0"><rect class="dg-node" x="12" y="780" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="804" style="font-size:17px">Postgres</text><text class="dg-t dg-sub" x="180" y="825" style="font-size:15px">on Hetzner</text></g><g class="dg-n" data-n="2-1"><rect class="dg-node" x="12" y="852" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="876" style="font-size:17px">Clerk</text><text class="dg-t dg-sub" x="180" y="897" style="font-size:15px">sign-in</text></g><g class="dg-n" data-n="2-2"><rect class="dg-node" x="12" y="924" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="948" style="font-size:17px">Stripe</text><text class="dg-t dg-sub" x="180" y="969" style="font-size:15px">billing</text></g><circle class="dg-dot" r="8" cx="0" cy="0"/></svg></div><figcaption>Six front ends share one API.</figcaption></figure>
   </section>
 
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/argus/">Part of Argus</a></li><li><a href="/startup-work/rion/">Built on RION NEXUS, from RION Solutions</a></li></ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
+  <p class="proj-back"><a class="back-link" href="/startup-work/argus/">Back to Argus</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

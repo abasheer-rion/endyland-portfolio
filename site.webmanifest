@@ -1,0 +1,16 @@
+{
+  "name": "Ayan Basheer",
+  "short_name": "endyland",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#26180F",
+  "theme_color": "#26180F",
+  "icons": [
+    { "src": "/shared/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/shared/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/shared/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/shared/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

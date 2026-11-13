@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NEXUS Command Center | Ayan Basheer</title>
-<meta name="description" content="An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>NEXUS Command Center - Ayan Basheer</title>
+<meta name="description" content="An admin dashboard for RION Solutions Stripe payments and the Node and Postgres server behind it. Ayan Basheer wrote the server.">
 <link rel="canonical" href="https://endyland.com/startup-work/nexus-command-center/">
-<meta property="og:type" content="website">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ayan Basheer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/shared/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="endyland">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://endyland.com/startup-work/nexus-command-center/">
-<meta property="og:title" content="NEXUS Command Center | Ayan Basheer">
-<meta property="og:description" content="An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="NEXUS Command Center - Ayan Basheer">
+<meta property="og:description" content="An admin dashboard for RION Solutions Stripe payments and the Node and Postgres server behind it. Ayan Basheer wrote the server.">
+<meta property="og:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NEXUS Command Center - Ayan Basheer">
+<meta name="twitter:description" content="An admin dashboard for RION Solutions Stripe payments and the Node and Postgres server behind it. Ayan Basheer wrote the server.">
+<meta name="twitter:image" content="https://endyland.com/shared/brand/og-default.png">
+<meta name="twitter:image:alt" content="Ayan Basheer. Electrical engineering, RF, hardware and software.">
 <meta name="theme-color" content="#04070D">
 <meta name="color-scheme" content="dark">
 <script src="/shared/nav.js"></script>
@@ -22,9 +37,10 @@
 <link rel="stylesheet" href="/shared/project.css">
 <link rel="stylesheet" href="/startup-work/rion/brand.css">
 <link rel="stylesheet" href="/startup-work/pages.css">
-<link rel="modulepreload" href="/startup-work/rion/brand.js">
+<link rel="modulepreload" href="/startup-work/nexus-command-center/main.js">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://endyland.com/startup-work/nexus-command-center/#webpage","url":"https://endyland.com/startup-work/nexus-command-center/","name":"NEXUS Command Center - Ayan Basheer","description":"An admin dashboard for RION Solutions Stripe payments and the Node and Postgres server behind it. Ayan Basheer wrote the server.","inLanguage":"en","isPartOf":{"@id":"https://endyland.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://endyland.com/shared/brand/og-default.png","width":1200,"height":630},"mainEntity":{"@id":"https://endyland.com/startup-work/nexus-command-center/#main"}},{"@type":"TechArticle","@id":"https://endyland.com/startup-work/nexus-command-center/#main","name":"NEXUS Command Center","headline":"NEXUS Command Center","description":"An admin dashboard for RION Solutions Stripe payments and the Node and Postgres server behind it. Ayan Basheer wrote the server.","url":"https://endyland.com/startup-work/nexus-command-center/","inLanguage":"en","author":{"@id":"https://endyland.com/#person"},"image":"https://endyland.com/shared/brand/og-default.png","mainEntityOfPage":{"@id":"https://endyland.com/startup-work/nexus-command-center/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://endyland.com/"},{"@type":"ListItem","position":2,"name":"Startup work","item":"https://endyland.com/startup-work/"},{"@type":"ListItem","position":3,"name":"NEXUS Command Center","item":"https://endyland.com/startup-work/nexus-command-center/"}]}]}</script>
 </head>
-<body class="proj-page proj-nexus-command-center">
+<body class="proj-page proj-rion-sub">
 <a class="skip" href="#main">Skip to content</a>
 <header class="bar" data-tone="dark">
   <div class="bar-in">
@@ -37,6 +53,7 @@
       <li><a href="/startup-work/" aria-current="true">Startup work</a></li>
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/experience/">Experience</a></li>
+      <li><a href="/code/">Code</a></li>
       </ul>
       <span class="bar-ind" aria-hidden="true"></span>
     </nav>
@@ -50,74 +67,31 @@
   <header class="proj-hero">
     <div class="proj-intro">
     <img class="proj-logo" src="/startup-work/rion/img/logo.webp" width="520" height="144" alt="RION logo" decoding="async">
-    <p class="proj-kicker">RION sub-project</p>
     <h1>NEXUS Command Center</h1>
-    <p class="proj-summary">An admin dashboard for RION&#8217;s Stripe payments, and the server behind it.</p>
-    <dl class="proj-meta"><div><dt>Role</dt><dd>Wrote the server. All 147 of its commits are mine.</dd></div><div><dt>Dates</dt><dd>Dec 2025 to Feb 2026</dd></div><div class="meta-stack"><dt>Stack</dt><dd><ul class="proj-stack"><li>Node</li><li>Express</li><li>Postgres</li><li>Stripe</li></ul></dd></div></dl>
-    <ul class="proj-links"><li><span class="badge-private"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>Private repo</span></li></ul>
+    <p class="proj-summary">An admin dashboard for RION&#8217;s Stripe payments, and the Node server behind it.</p>
+    <p class="proj-facts">I wrote the server. December 2025 to February 2026. Node, Express, Postgres and Stripe.</p>
     </div>
-    <figure class="proj-hero-media a-shot"><img src="img/figure.svg" width="800" height="450" alt="Diagram: Stripe payments flow into a Node and Postgres server, which feeds the admin dashboard." fetchpriority="high" decoding="async"><figcaption>How the pieces fit. Both live links are offline now.</figcaption></figure>
   </header>
-
-  <nav class="a-toc" aria-label="On this page"><ul><li><a href="#problem-h">Problem</a></li><li><a href="#approach-h">Approach</a></li><li><a href="#how-h">How it works</a></li><li><a href="#numbers-h">Results</a></li><li><a href="#did-h">What I owned</a></li><li><a href="#learned-h">What I learned</a></li></ul></nav>
-
-  <section class="proj-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">Payments needed to reach the team&#8217;s records.</h2>
-    <div class="prose"><p>RION takes payments through Stripe. Each payment has to land somewhere the team can see it, search it and trust it. Without that, someone checks Stripe by hand and copies numbers across.</p><p>NEXUS is RION&#8217;s multi-tenant client portal: an admin dashboard for staff, a client portal, and a backend that serves both. The Command Center is the payments side of it.</p></div>
-  </section>
-
-  <section class="proj-section" aria-labelledby="approach-h">
-    <h2 id="approach-h">One server in the middle.</h2>
-    <div class="prose"><p>I wrote the server. It takes payments from Stripe, stores them in Postgres, and serves them to an admin dashboard so RION&#8217;s team sees the same record the payment system has.</p><p>The dashboard has 94 commits. The server has 147, and all of them are mine.</p></div>
-  </section>
 
   <section class="proj-section" aria-labelledby="how-h">
     <h2 id="how-h">How it works</h2>
-    <ol class="a-steps">
-      <li><h3>Payments come in</h3><p>RION takes payments through Stripe. Each one has to reach the team&#8217;s records.</p></li>
-      <li><h3>The server keeps them</h3><p>A Node and Express server stores them in Postgres.</p></li>
-      <li><h3>The team sees them</h3><p>The admin dashboard shows the payments to the RION team.</p></li>
-    </ol>
-    <figure class="a-diagram">
-      <div class="fig-scroll" tabindex="0" role="region" aria-label="Payment flow drawing, scrolls sideways on small screens">
-      <svg viewBox="0 0 1000 300" role="img" aria-labelledby="nx-t nx-d" focusable="false">
-        <title id="nx-t">How payments reach the team</title>
-        <desc id="nx-d">Stripe payments flow into a Node and Express server that stores them in Postgres. The admin dashboard reads from the server and shows the payments to the RION team.</desc>
-        <defs><marker id="nx-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1L10 5L0 9z" fill="#FF8A8A"/></marker></defs>
-<path class="dg-line" d="M250 130H370" marker-end="url(#nx-ar)"/><path class="dg-line" d="M630 130H750" marker-end="url(#nx-ar)"/><path class="dg-line" d="M500 170V220" marker-end="url(#nx-ar)"/><rect class="dg-node" x="20" y="90" width="230" height="80" rx="6"/><text class="dg-t" x="135.0" y="126.0">Stripe</text><text class="dg-s" x="135.0" y="148.0">payments</text><rect class="dg-dark" x="370" y="90" width="260" height="80" rx="6"/><text class="dg-w" x="500.0" y="126.0">Server</text><text class="dg-s" x="500.0" y="148.0" style="fill:#fff">Node and Express</text><rect class="dg-node" x="750" y="90" width="230" height="80" rx="6"/><text class="dg-t" x="865.0" y="126.0">Admin dashboard</text><text class="dg-s" x="865.0" y="148.0">for the RION team</text><rect class="dg-node" x="370" y="220" width="260" height="60" rx="6"/><text class="dg-t" x="500.0" y="256.0">Postgres</text><text class="dg-s" x="500" y="60">147 commits, all mine</text><text class="dg-s" x="865" y="60">94 commits</text>
-      </svg>
-      </div>
-      <figcaption>Drawn for this site. The live links for this project are offline now.</figcaption>
-    </figure>
-  </section>
-  <section class="proj-section proj-numbers" aria-labelledby="numbers-h">
-    <h2 id="numbers-h">By the numbers</h2>
-    <ul class="stats"><li class="stat"><b><span class="visually-hidden">147</span><span aria-hidden="true" data-count="147">147</span></b><span>server commits, all mine</span></li><li class="stat"><b><span class="visually-hidden">94</span><span aria-hidden="true" data-count="94">94</span></b><span>dashboard commits</span></li></ul>
-  </section>
-  <section class="proj-section proj-did" aria-labelledby="did-h">
-    <h2 id="did-h">What I owned</h2>
-    <ul class="did-list"><li>Wrote the server behind an admin dashboard for RION&#8217;s Stripe payments system.</li><li>All 147 server commits are mine. The dashboard itself has 94 commits.</li></ul>
+    <div class="prose">
+      <p>NEXUS is RION&#8217;s multi-tenant client portal: an admin dashboard for staff, a client portal and a backend that serves both. The Command Center is the payments side. The server takes payments from Stripe, stores them in Postgres and serves them to the dashboard, so the team sees the record the payment system has.</p>
+      <p>The portal later became the <a href="/startup-work/argus-dashboard/">Argus Dashboard</a>.</p>
+    </div>
+    <figure class="figure dg-fig" data-reveal="rise"><div class="dg-box" data-diagram><svg class="dg dg-wide" viewBox="0 0 1040 194" role="img" aria-labelledby="nx-t nx-d" focusable="false"><title id="nx-t">How a payment reaches the team</title><desc id="nx-d">Stripe payments go to a Node and Express server that stores them in Postgres. The admin dashboard reads from the server.</desc><defs><marker id="nx-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="260" height="194" rx="6"/><text class="dg-lt" x="16" y="30">Payments</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="16" y="48" width="228" height="58" rx="4"/><text class="dg-t" x="130" y="72" style="font-size:17px">Stripe</text><text class="dg-t dg-sub" x="130" y="93" style="font-size:15px">payment events</text></g><rect class="dg-lane" x="370" y="0" width="300" height="194" rx="6"/><text class="dg-lt" x="386" y="30">Server</text><g class="dg-n" data-n="1-0"><rect class="dg-dark" x="386" y="48" width="268" height="58" rx="4"/><text class="dg-w" x="520" y="72" style="font-size:17px">Node and Express</text><text class="dg-w dg-sub" x="520" y="93" style="font-size:15px">server</text></g><g class="dg-n" data-n="1-1"><rect class="dg-node" x="386" y="120" width="268" height="58" rx="4"/><text class="dg-t" x="520" y="144" style="font-size:17px">Postgres</text><text class="dg-t dg-sub" x="520" y="165" style="font-size:15px">stored records</text></g><rect class="dg-lane" x="780" y="0" width="260" height="194" rx="6"/><text class="dg-lt" x="796" y="30">Team</text><g class="dg-n" data-n="2-0"><rect class="dg-node" x="796" y="48" width="228" height="58" rx="4"/><text class="dg-t" x="910" y="72" style="font-size:17px">Admin dashboard</text><text class="dg-t dg-sub" x="910" y="93" style="font-size:15px">the RION team</text></g><path class="dg-line" d="M244 77H386" marker-end="url(#nx-ar)"/><path class="dg-line" d="M654 77H796" marker-end="url(#nx-ar)"/><circle class="dg-dot" r="8" cx="0" cy="0"/></svg><svg class="dg dg-narrow" viewBox="0 0 360 490" role="img" aria-labelledby="nx-nt nx-nd" focusable="false"><title id="nx-nt">How a payment reaches the team</title><desc id="nx-nd">Stripe payments go to a Node and Express server that stores them in Postgres. The admin dashboard reads from the server.</desc><defs><marker id="nx-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L10 5L0 9z" fill="var(--d-red)"/></marker></defs><rect class="dg-lane" x="0" y="0" width="360" height="114" rx="6"/><text class="dg-lt" x="12" y="29">Payments</text><g class="dg-n" data-n="0-0"><rect class="dg-node" x="12" y="44" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="68" style="font-size:17px">Stripe</text><text class="dg-t dg-sub" x="180" y="89" style="font-size:15px">payment events</text></g><path class="dg-line" d="M180 116V150" marker-end="url(#nx-ar)"/><rect class="dg-lane" x="0" y="152" width="360" height="186" rx="6"/><text class="dg-lt" x="12" y="181">Server</text><g class="dg-n" data-n="1-0"><rect class="dg-dark" x="12" y="196" width="336" height="58" rx="4"/><text class="dg-w" x="180" y="220" style="font-size:17px">Node and Express</text><text class="dg-w dg-sub" x="180" y="241" style="font-size:15px">server</text></g><g class="dg-n" data-n="1-1"><rect class="dg-node" x="12" y="268" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="292" style="font-size:17px">Postgres</text><text class="dg-t dg-sub" x="180" y="313" style="font-size:15px">stored records</text></g><path class="dg-line" d="M180 340V374" marker-end="url(#nx-ar)"/><rect class="dg-lane" x="0" y="376" width="360" height="114" rx="6"/><text class="dg-lt" x="12" y="405">Team</text><g class="dg-n" data-n="2-0"><rect class="dg-node" x="12" y="420" width="336" height="58" rx="4"/><text class="dg-t" x="180" y="444" style="font-size:17px">Admin dashboard</text><text class="dg-t dg-sub" x="180" y="465" style="font-size:15px">the RION team</text></g><circle class="dg-dot" r="8" cx="0" cy="0"/></svg></div></figure>
   </section>
 
-  <section class="proj-section" aria-labelledby="learned-h">
-    <h2 id="learned-h">What I learned</h2>
-    <div class="prose"><p>A payments system is mostly about records that agree. When the server is the single place payments are stored, every screen tells the same story.</p><p>Counting commits is a blunt measure, but it is an honest one for who wrote what.</p></div>
-  </section>
-
-  <section class="proj-section proj-related" aria-labelledby="related-h">
-    <h2 id="related-h">Related</h2>
-    <ul class="plain-list"><li><a href="/startup-work/rion/">Part of RION Solutions</a></li><li><a href="/startup-work/argus-dashboard/">NEXUS became the Argus Dashboard</a></li></ul>
-  </section>
-
-  <p class="proj-back"><a class="back-link" href="/startup-work/rion/">Back to RION Solutions</a><a class="back-link" href="/startup-work/">Back to Startup work</a></p>
+  <p class="proj-back"><a class="back-link" href="/startup-work/rion/">Back to RION Solutions</a></p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-in">
     <p class="footer-copy">&copy; 2026 Ayan Basheer</p>
     <ul>
-      <li><a href="https://github.com/abasheer-rion" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/abasheer-rion" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ayanbasheer" rel="me noopener">LinkedIn</a></li>
+      <li><a href="/code/">Code</a></li>
       <li><a href="/#contact">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>

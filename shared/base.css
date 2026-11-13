@@ -30,17 +30,23 @@
      --wrap is the content width: the screen minus both gutters, capped at 1480px. Full-bleed sections ignore it. */
   --gut:clamp(18px,4.5vw,72px);
   --wrap:min(100% - 2 * var(--gut),1480px);
-  --measure:68ch;        /* prose column. Never wider than --measure-wide. */
-  --measure-wide:75ch;
-  --section:clamp(64px,9vw,140px);   /* vertical rhythm between big sections */
+  /* Prose column, in em so it counts real characters whatever the font: 34em of Instrument Sans is about
+     68 to 70 characters a line (68ch used to render about 90, because ch is the width of a wide "0"). */
+  --measure:34em;
+  --measure-wide:36em;
+  --section:clamp(80px,11vw,176px);   /* vertical rhythm between big sections */
   --space-1:8px; --space-2:16px; --space-3:clamp(20px,2.4vw,32px); --space-4:clamp(32px,4vw,56px);
-  /* Type scale. Body runs 17px on phones to 20px on desktop, line-height 1.6. Nothing goes under 14px. */
-  --fs-body:clamp(1.0625rem,.96rem + .33vw,1.25rem);
-  --fs-lead:clamp(1.25rem,1.05rem + .9vw,1.75rem);
-  --fs-small:clamp(.875rem,.85rem + .1vw,.9375rem);
+  /* Type scale. Body runs 17px on phones to 19px on desktop, line-height 1.6.
+     --fs-small (16 to 17px) is for captions, table notes and the footer. --fs-meta (14 to 15px) is the floor,
+     for true metadata only: a date, a file size. Nothing else goes under 16px. */
+  --fs-body:clamp(1.0625rem,.98rem + .25vw,1.1875rem);
+  --fs-lead:clamp(1.3125rem,1.1rem + .9vw,1.75rem);
+  --fs-small:clamp(1rem,.97rem + .12vw,1.0625rem);
+  --fs-meta:clamp(.875rem,.85rem + .1vw,.9375rem);
   --fs-h1:clamp(2.75rem,1.4rem + 5.6vw,6.5rem);
-  --fs-h2:clamp(2rem,1.3rem + 2.6vw,3.5rem);
-  --fs-h3:clamp(1.3rem,1.1rem + .9vw,1.8rem);
+  --fs-h2:clamp(2.125rem,1.35rem + 2.9vw,3.75rem);
+  --fs-h3:clamp(1.4rem,1.2rem + .8vw,1.875rem);
+  --fs-h4:clamp(1.125rem,1.05rem + .3vw,1.3125rem);
   --lh-body:1.6;
   /* The top bar. --bar-h is how much room a page leaves at the top so the bar never covers its first line. */
   --bar-top:10px;
@@ -98,7 +104,7 @@ a{color:inherit}
   max-width:100%;height:56px;padding:0 10px 0 22px;border:1px solid var(--bar-line);border-radius:999px;color:var(--bar-fg);
   box-shadow:0 12px 32px -16px rgba(23,16,10,.6);transform-origin:50% 0;
   transition:transform .25s var(--bk-out)}
-.bar.is-condensed .bar-in{transform:scale(.94)}
+.bar.is-condensed .bar-in{transform:scale(calc(.94 - .035 * var(--bar-v,0)))}
 .bar-in::before,.bar-in::after{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;pointer-events:none}
 .bar-in::before{background:var(--bar-bg);box-shadow:inset 0 1px 0 var(--bar-hi);
   -webkit-backdrop-filter:blur(12px) saturate(1.5);backdrop-filter:blur(12px) saturate(1.5)}
@@ -108,7 +114,20 @@ a{color:inherit}
 
 .bar-brand{display:inline-flex;align-items:center;gap:9px;min-height:44px;margin-right:4px;color:inherit;text-decoration:none;
   font:italic 500 20px/1 var(--bk-serif);font-optical-sizing:auto;letter-spacing:.005em;white-space:nowrap}
-.bar-brand::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--bar-ind)}
+/* Brand mark: an E whose three arms end in dots (see docs/brand.md). nav.js puts the two-colour SVG in the link;
+   without JS the same shape is drawn in one colour from logo-mono.svg. Hover sends the dots outward, 30ms apart. */
+.bar-brand::before{content:"";flex:none;width:24px;height:24px;background:currentColor;
+  -webkit-mask:url(/shared/brand/logo-mono.svg) center/contain no-repeat;mask:url(/shared/brand/logo-mono.svg) center/contain no-repeat}
+.bar-brand.has-mark::before{content:none}
+.bar-mark{flex:none;width:24px;height:24px;overflow:visible}
+.bar-mark path{fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.bar-mark circle{fill:var(--bar-ind);transition:transform .2s var(--bk-out)}
+.bar-mark circle:nth-of-type(2){transition-delay:.03s}
+.bar-mark circle:nth-of-type(3){transition-delay:.06s}
+.bar-brand:focus-visible .bar-mark circle{transform:translateX(4px)}
+@media (hover:hover){.bar-brand:hover .bar-mark circle{transform:translateX(4px)}}
+.bar-brand{transition:transform .16s var(--bk-out)}
+.bar-brand:active{transform:scale(.97)}
 
 .bar-nav{position:relative}
 .bar-nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:2px}
@@ -128,6 +147,8 @@ a{color:inherit}
 .bar-brand:focus-visible{outline-offset:4px}
 
 .bar-progress{position:absolute;left:28px;right:28px;bottom:0;height:2px;border-radius:2px;background:var(--bar-track);overflow:hidden;pointer-events:none}
+/* Fast scrolling: the pill tightens a little and the progress line thickens (nav.js sets --bar-v, 0 to 1). */
+.bar-progress{transform:scaleY(calc(1 + 1.5 * var(--bar-v,0)));transform-origin:50% 100%;transition:transform .25s var(--bk-out)}
 .bar-progress i{display:block;height:100%;background:var(--bar-ind);transform:scaleX(var(--prog,0));transform-origin:0 50%}
 @supports (animation-timeline:scroll()){
   .bar-progress i{transform:scaleX(0);animation:bar-prog linear both;animation-timeline:scroll(root)}
@@ -183,37 +204,98 @@ a{color:inherit}
 @media (forced-colors:active){.bar-in{border-color:CanvasText}.bar-in::before,.bar-in::after{background:Canvas}}
 
 /* ---------- Readability base ----------
-   Wide, calm pages. .wrap is the fluid content width, .prose is a 68ch reading column, .surface is a solid
-   reading surface for text that would otherwise sit over a canvas or stipple. Text never sits on busy dots. */
+   Wide, calm pages. .wrap is the fluid content width, .prose is the reading column (about 68 characters),
+   .section is one block of a page with the shared vertical rhythm, .figure is a picture with an optional caption.
+   Nothing is boxed in: .surface is a flat tint with no border, kept for text that would otherwise sit over a
+   canvas or stipple. */
 .wrap{width:var(--wrap);margin-inline:auto}
 .wrap--bleed{width:100%;margin-inline:0;padding-inline:var(--gut)}
 .section{padding-block:var(--section)}
+.section--tight{padding-block:calc(var(--section) / 2)}
+.section>:where(h2):first-child{margin-top:0}
 .stack>*+*{margin-top:var(--space-3)}
 .prose{max-width:var(--measure);font-size:var(--fs-body);line-height:var(--lh-body);text-wrap:pretty}
 .prose--wide{max-width:var(--measure-wide)}
-.prose :where(p,ul,ol,dl,blockquote,figure,table){margin:0 0 1.1em}
-.prose :where(h2){margin:2.2em 0 .6em;font-family:var(--bk-serif);font-weight:500;font-size:var(--fs-h2);line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
-.prose :where(h3){margin:1.8em 0 .5em;font-family:var(--bk-serif);font-weight:500;font-size:var(--fs-h3);line-height:1.25;text-wrap:balance}
+.prose :where(p,ul,ol,dl,blockquote,figure,table){margin:0 0 1.15em}
+.prose :where(h2){margin:2.4em 0 .55em;font-family:var(--bk-serif);font-weight:500;font-size:var(--fs-h2);line-height:1.08;letter-spacing:-.018em;text-wrap:balance}
+.prose :where(h3){margin:2em 0 .5em;font-family:var(--bk-serif);font-weight:500;font-size:var(--fs-h3);line-height:1.22;text-wrap:balance}
 .prose :where(h2,h3):first-child{margin-top:0}
-.prose :where(li){margin-bottom:.4em}
+.prose :where(li){margin-bottom:.45em}
 .prose :where(a){text-underline-offset:3px}
-.lead{font-size:var(--fs-lead);line-height:1.45;max-width:var(--measure)}
-.small{font-size:var(--fs-small);line-height:1.5}
-.surface{background:var(--bk-vellum);color:var(--bk-ink);border:1px solid rgba(23,16,10,.28);border-radius:2px;padding:clamp(20px,3.2vw,48px);
-  box-shadow:3px 3px 0 -1px var(--bk-vellum),3px 3px 0 rgba(23,16,10,.28)}
-.surface--dark{background:var(--bk-leather);color:var(--bk-paper);border-color:rgba(184,135,46,.55);box-shadow:none}
-.surface--plain{box-shadow:none}
-/* Tables scroll sideways inside .table-wrap (give it tabindex="0" and a label), or restack on phones with .restack. */
+/* Type scale classes, for headings and text outside .prose. */
+.t-h1,.t-h2,.t-h3,.t-h4{margin:0;font-family:var(--bk-serif);font-weight:500;font-optical-sizing:auto;text-wrap:balance}
+.t-h1{font-size:var(--fs-h1);line-height:.96;letter-spacing:-.025em}
+.t-h2{font-size:var(--fs-h2);line-height:1.08;letter-spacing:-.018em}
+.t-h3{font-size:var(--fs-h3);line-height:1.22}
+.t-h4{font-size:var(--fs-h4);line-height:1.3;font-family:var(--bk-sans);font-weight:600}
+.t-body{font-size:var(--fs-body);line-height:var(--lh-body);max-width:var(--measure)}
+.lead,.t-lead{font-size:var(--fs-lead);line-height:1.42;max-width:32em;text-wrap:pretty}
+.small,.t-small{font-size:var(--fs-small);line-height:1.55}
+.t-meta{font-size:var(--fs-meta);line-height:1.5}
+/* A picture, drawing, canvas or 3D model. No frame: the picture sits plain. A caption is optional and says
+   what the picture shows, at reading size. */
+.figure{margin:0}
+.figure>:where(img,svg,canvas,video,picture){width:100%;height:auto}
+.figure--wide{width:var(--wrap);max-width:none}
+.figure :where(figcaption),.caption{margin-top:14px;max-width:var(--measure);font-size:var(--fs-small);line-height:1.55}
+/* A 3D model goes in <div class="model-stage" data-model="..."> inside a .figure. Its styles and script are
+   shared/models/stage.css and shared/models/auto.js (docs/models.md), not this file. */
+.surface{background:var(--bk-vellum);color:var(--bk-ink);border-radius:2px;padding:clamp(20px,3.2vw,48px)}
+.surface--dark{background:var(--bk-leather);color:var(--bk-paper)}
+.surface--plain{background:none;padding:0}
+/* Tables are body text. They scroll sideways inside .table-wrap (give it tabindex="0" and a label), or restack on
+   phones with .restack and data-label on each cell. */
 .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .table-wrap:focus-visible{outline-offset:-3px}
-table{border-collapse:collapse;max-width:100%;font-size:var(--fs-small)}
-:where(th,td){padding:.6em .9em;text-align:left;vertical-align:top}
+table{border-collapse:collapse;max-width:100%;font-size:var(--fs-body);line-height:1.5}
+:where(th,td){padding:.7em 1em .7em 0;text-align:left;vertical-align:top}
 @media (max-width:640px){
   table.restack,table.restack tbody,table.restack tr,table.restack td,table.restack th{display:block;width:100%}
   table.restack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  table.restack tr{padding:.6em 0;border-bottom:1px solid currentColor}
-  table.restack td::before{content:attr(data-label);display:block;font-variant-caps:all-small-caps;letter-spacing:.1em;opacity:.8}
+  table.restack tr{padding:.7em 0;border-bottom:1px solid currentColor}
+  table.restack td{padding:.15em 0;border:0}
+  table.restack td::before{content:attr(data-label);display:block;font-weight:600}
 }
+
+/* ---------- Motion vocabulary ----------
+   Attributes any page can put on an element. shared/motion.js runs them (nav.js loads it when a page uses one).
+   The hidden start state only applies once nav.js has added class "js", and nav.js adds "mo-off" if motion.js
+   never arrives, so content cannot stay hidden. Only transform, opacity and clip-path change.
+     data-reveal="rise | wipe | wipe-up | unmask"  one-shot entrance when the element scrolls in (ease-out)
+     data-reveal-group                              on a parent: its children enter 30ms apart
+     data-scrub="wipe | rise | unmask | drift"      tied to scroll position (CSS scroll timeline, no JS per frame)
+     data-depth                                     pointer-reactive depth; children with data-depth-layer="1|2|3" shift
+     data-depth="tilt"                              the element itself leans a few degrees toward the pointer */
+html.js:not(.mo-off) [data-reveal]{opacity:0;transition:opacity .3s ease-out,transform .5s var(--bk-out),clip-path .6s var(--bk-out);
+  transition-delay:calc(var(--i,0) * 30ms)}
+html.js:not(.mo-off) [data-reveal="rise"],html.js:not(.mo-off) [data-reveal=""]{transform:translateY(18px)}
+html.js:not(.mo-off) [data-reveal="wipe"]{clip-path:inset(0 calc(100% - 1px) 0 0)}
+html.js:not(.mo-off) [data-reveal="wipe-up"]{clip-path:inset(calc(100% - 1px) 0 0 0);transform:translateY(12px)}
+html.js:not(.mo-off) [data-reveal="unmask"]{clip-path:inset(8% 8% 8% 8%);transform:scale(1.04)}
+html.js:not(.mo-off) [data-reveal].in{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+html.js:not(.mo-off) [data-reveal-group]>*{opacity:0;transform:translateY(18px);transition:opacity .3s ease-out,transform .5s var(--bk-out);
+  transition-delay:calc(var(--i,0) * 30ms)}
+html.js:not(.mo-off) [data-reveal-group].in>*{opacity:1;transform:none}
+html.js:not(.mo-off) [data-reveal].in.done{clip-path:none;transition:none}
+@supports (animation-timeline:view()){
+  [data-scrub]{animation:linear both;animation-timeline:view();animation-range:entry 0% cover 32%}
+  [data-scrub="wipe"]{animation-name:sc-wipe}
+  [data-scrub="rise"]{animation-name:sc-rise}
+  [data-scrub="unmask"]{animation-name:sc-unmask}
+  [data-scrub="drift"]{animation-name:sc-drift;animation-range:cover 0% cover 100%}
+  @keyframes sc-wipe{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}
+  @keyframes sc-rise{from{transform:translateY(36px);opacity:0}to{transform:none;opacity:1}}
+  @keyframes sc-unmask{from{clip-path:inset(14% 10% 14% 10%);transform:scale(1.06)}to{clip-path:inset(0 0 0 0);transform:none}}
+  @keyframes sc-drift{from{transform:translateY(var(--drift,28px))}to{transform:translateY(calc(var(--drift,28px) * -1))}}
+}
+[data-depth]{--dx:0;--dy:0}
+[data-depth] [data-depth-layer]{transform:translate3d(calc(var(--dx) * var(--dz,8px)),calc(var(--dy) * var(--dz,8px)),0)}
+[data-depth] [data-depth-layer="1"]{--dz:5px}
+[data-depth] [data-depth-layer="2"]{--dz:11px}
+[data-depth] [data-depth-layer="3"]{--dz:20px}
+[data-depth] [data-depth-layer="-1"]{--dz:-6px}
+[data-depth="tilt"]{transform:perspective(1400px) rotateX(calc(var(--dy) * -2.2deg)) rotateY(calc(var(--dx) * 2.8deg));transform-style:preserve-3d}
+[data-depth].is-live,[data-depth].is-live [data-depth-layer]{will-change:transform}
 
 /* ---------- Footer ----------
    A plain leather band: copyright on the left, five links on the right (GitHub, LinkedIn, Contact, Privacy, Terms). */
@@ -229,12 +311,10 @@ table{border-collapse:collapse;max-width:100%;font-size:var(--fs-small)}
 .site-footer a:focus-visible{outline:2px solid var(--bk-foil);outline-offset:2px}
 @media (max-width:560px){.site-footer li a{padding:0 8px 0 0;margin-right:8px}.footer-in{align-items:flex-start}}
 
-/* ---------- Private repo badge ----------
-   A small outlined label, square corners. Colour follows the page. */
-.badge-private{display:inline-flex;align-items:center;gap:6px;padding:3px 9px 3px 7px;border-radius:2px;
-  font:500 14px/1.4 var(--bk-sans);letter-spacing:.02em;white-space:nowrap;
-  background:var(--badge-bg);color:var(--badge-fg);border:1px solid var(--badge-border)}
-.badge-private svg{width:12px;height:12px;flex:none}
+/* ---------- Private repo note (retired as a badge) ----------
+   Was an outlined pill with a lock. Now plain text at reading size until the markup is removed. */
+.badge-private{font:inherit;color:inherit}
+.badge-private svg{display:none}
 
 /* ---------- Page turn ----------
    Same-site navigations use the View Transitions API, no JS needed. The top bar stays put.
@@ -268,6 +348,13 @@ html:active-view-transition-type(up)::view-transition-new(root){animation:vt-was
   from{clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%))}
   to{clip-path:circle(150vmax at var(--vt-x,50%) var(--vt-y,50%))}
 }
+/* Shared element: the picture you clicked on a card grows into the hero picture of its page, and shrinks back on
+   the way up. nav.js adds class vt-hero to both ends for the length of the transition. Mark the card picture
+   data-vt="card" and the page picture data-vt="hero" (defaults: the first img in the link, .proj-hero-media img). */
+.vt-hero{view-transition-name:hero}
+::view-transition-group(hero){animation-duration:.38s;animation-timing-function:var(--bk-out);z-index:2}
+::view-transition-old(hero),::view-transition-new(hero){height:100%;width:100%;object-fit:cover;overflow:clip}
+::view-transition-group(bar){z-index:3}
 @supports not (view-transition-name:none){
   main{animation:page-in .25s var(--bk-out) both}
   @keyframes page-in{from{opacity:0;transform:translateX(24px)}}

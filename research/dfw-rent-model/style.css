@@ -1,5 +1,1 @@
 /* DFW rental pricing model page. Only this page loads this file. Shared lab look: /research/project-theme.css. */
-.dfw-calc{margin:0 0 var(--space-3);padding:clamp(16px,2.4vw,24px);max-width:calc(var(--measure) + 40px);background:var(--p-surface);border:1px solid var(--p-line)}
-.dfw-calc label{display:block;margin-bottom:8px;color:var(--p-mute)}
-.dfw-calc input{width:100%;max-width:14rem;min-height:48px;padding:0 12px;border:1px solid #B8872E;border-radius:2px;background:#17100A;color:var(--p-ink);font:500 1.25rem var(--p-body);font-variant-numeric:tabular-nums}
-.dfw-out{margin:12px 0 0!important;font:500 var(--fs-h3)/1.3 var(--p-display);color:var(--p-accent)}

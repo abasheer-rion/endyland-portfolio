@@ -76,10 +76,23 @@ done
 
 # 1c. No inline scripts. The CSP blocks them, so they would silently not run.
 for page in $pages; do
-  if grep -qE '<script( [^>]*)?>[[:space:]]*[^<[:space:]]' "$page" || grep -E '<script' "$page" | grep -vq 'src='; then
+  # <script type="application/ld+json"> is data, not code. The CSP ignores it, so it is allowed.
+  nold=$(grep -vE '<script type="application/ld\+json">' "$page" || true)
+  if echo "$nold" | grep -qE '<script( [^>]*)?>[[:space:]]*[^<[:space:]]' || echo "$nold" | grep -E '<script' | grep -vq 'src='; then
     err "$page has an inline <script>. Move it to a .js file."
   fi
 done
+
+# 1c2. Brand files: the logo, icons, manifest and default social image exist, and the manifest's icons resolve.
+for f in favicon.svg apple-touch-icon.png site.webmanifest shared/brand/logo.svg shared/brand/logo-on-dark.svg shared/brand/logo-mono.svg \
+  shared/brand/logo-wordmark.svg shared/brand/icon-32.png shared/brand/icon-192.png shared/brand/icon-512.png shared/brand/og-default.png; do
+  [ -s "$f" ] || err "brand file $f is missing"
+done
+if [ -s site.webmanifest ]; then
+  for src in $(grep -oE '"src": *"[^"]+"' site.webmanifest | sed -E 's/.*"(\/[^"]+)"/\1/'); do
+    [ -s ".$src" ] || err "site.webmanifest points at $src, which is missing"
+  done
+fi
 
 # 1d. The glass top bar and plain footer are on every page; the old thumb index and folio are gone.
 # It is <header class="bar"> holding <nav class="bar-nav" aria-label="Sections"> with five links, plus a brand link home.
@@ -99,7 +112,8 @@ for page in $pages; do
     echo "$nb" | grep -q "href=\"/$t/\"" || err "$page top bar has no link to /$t/"
   done
   n=$(echo "$nb" | grep -oE '<a ' | wc -l | tr -d ' ')
-  [ "$n" = 5 ] || err "$page top bar nav has $n links, want 5"
+  echo "$nb" | grep -q 'href="/code/"' || err "$page top bar has no link to /code/"
+  [ "$n" = 6 ] || err "$page top bar nav has $n links, want 6"
   echo "$block" | grep -qE '<a class="bar-brand" href="/"' || err "$page top bar has no brand link home"
   echo "$block" | grep -q 'class="bar-menu"' || err "$page top bar has no menu button"
   grep -q 'class="site-footer"' "$page" || err "$page has no footer (footer.site-footer)"
@@ -115,6 +129,10 @@ for page in $pages; do
   sk=$(grep -n 'class="skip"' "$page" | head -1 | cut -d: -f1); hb=$(grep -n '<header class="bar"' "$page" | head -1 | cut -d: -f1)
   [ -z "$sk" ] || [ -z "$hb" ] || [ "$sk" -lt "$hb" ] || err "$page has the skip link after the top bar"
 done
+# shared/nav.js adds a sixth link, Code, to the bar on every page. Say so while its page is not built yet (does not fail).
+if grep -q "'/code/'" shared/nav.js && [ ! -f code/index.html ]; then
+  echo "NOTE: the top bar links to /code/ (shared/nav.js) but code/index.html does not exist yet." >&2
+fi
 # A tab page marks its tab aria-current="page" (home marks none).
 for page in $tabpages; do
   [ -f "$page" ] || { err "$page is missing"; continue; }
@@ -158,6 +176,20 @@ if grep -rIilE 'park[ -]?with[ -]?love' --exclude-dir=.git --exclude-dir=.github
   err "the site mentions a project the owner asked to keep off it: $(grep -rIilE 'park[ -]?with[ -]?love' --exclude-dir=.git --exclude-dir=.github . | tr '\n' ' ')"
 fi
 
+# 1d6. The /code/ page reads data/github.json. It must exist, parse, carry a date, and list no private repo.
+if [ -f code/index.html ]; then
+  if [ ! -s data/github.json ]; then err "data/github.json is missing (code/ needs it)"
+  else
+    grep -qE '"fetched_at": *"[0-9]{4}-[0-9]{2}-[0-9]{2}"' data/github.json || err "data/github.json has no fetched_at date"
+    grep -qE '"counts": *\[' data/github.json || err "data/github.json has no calendar counts"
+    if grep -qE '"isPrivate"|"is_private": *true' data/github.json; then err "data/github.json carries private repo entries"; fi
+    if command -v node >/dev/null 2>&1; then
+      node -e 'JSON.parse(require("fs").readFileSync("data/github.json","utf8"))' 2>/dev/null || err "data/github.json is not valid JSON"
+    fi
+  fi
+  grep -q "<loc>https://endyland.com/code/</loc>" sitemap.xml || err "sitemap.xml does not list /code/"
+fi
+
 # 1e. Every sitemap address is a real page.
 if [ -f sitemap.xml ]; then
   for loc in $(grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed -E 's|<loc>https://endyland\.com/?||; s|</loc>||'); do
@@ -177,10 +209,70 @@ for f in $(find shared -maxdepth 1 -type f \( -name '*.css' -o -name '*.js' \));
   if grep -qE 'prefers-reduced-motion|first-letter|dropcap|colophon' "$f"; then err "$f has a reduced-motion rule, a drop cap or a colophon"; fi
 done
 
+# 1e4. Search metadata on every sitemap page: unique title (60 characters or fewer, home may be longer) and description
+# (155 or fewer), canonical equal to the sitemap address, an og:image that exists with width and height, a Twitter card,
+# icons, one <h1>, valid JSON-LD with a BreadcrumbList on non-home pages, no noindex, and no clashes between pages.
+if command -v python3 >/dev/null 2>&1 && [ -f sitemap.xml ]; then
+  python3 - <<'PY' || fail=1
+import re, os, json, sys
+bad = 0
+def err(m):
+    global bad; bad = 1; print("FAIL: " + m, file=sys.stderr)
+locs = re.findall(r"<loc>https://endyland\.com/([^<]*)</loc>", open("sitemap.xml").read())
+titles, descs = {}, {}
+for loc in locs:
+    f = loc + "index.html"
+    if not os.path.isfile(f): continue  # missing pages are reported by the sitemap check
+    s = open(f).read(); head = s.split("</head>")[0]; body = s[len(head):]
+    if "noindex" in head: err(f + " is in the sitemap but has noindex")
+    if not re.search(r'<html lang="[a-z-]+"', s): err(f + " has no lang on <html>")
+    if 'name="viewport"' not in head: err(f + " has no viewport meta")
+    t = re.search(r"<title>(.*?)</title>", head, re.S)
+    t = t.group(1).strip() if t else ""
+    if not t: err(f + " has no <title>")
+    elif len(t) > 60 and loc != "": err(f + " title is %d characters, want 60 or fewer" % len(t))
+    if t in titles: err(f + " has the same title as " + titles[t])
+    titles[t] = f
+    d = re.search(r'<meta name="description" content="([^"]*)"', head)
+    d = d.group(1) if d else ""
+    if not d: err(f + " has no meta description")
+    elif len(d) > 155: err(f + " description is %d characters, want 155 or fewer" % len(d))
+    if d in descs: err(f + " has the same description as " + descs[d])
+    descs[d] = f
+    c = re.search(r'<link rel="canonical" href="([^"]*)"', head)
+    if not c or c.group(1) != "https://endyland.com/" + loc: err(f + " canonical is not https://endyland.com/" + loc)
+    for p in ("og:title", "og:description", "og:url", "og:type", "og:site_name", "og:image", "og:image:width", "og:image:height", "og:image:alt"):
+        if 'property="%s"' % p not in head: err(f + " has no " + p)
+    if 'name="twitter:card" content="summary_large_image"' not in head: err(f + " has no summary_large_image Twitter card")
+    m = re.search(r'property="og:image" content="https://endyland\.com/([^"]+)"', head)
+    if not m or not os.path.isfile(m.group(1)): err(f + " og:image does not point at a file in the site")
+    og = re.search(r'property="og:url" content="([^"]*)"', head)
+    if not og or og.group(1) != "https://endyland.com/" + loc: err(f + " og:url differs from the canonical")
+    for need in ('rel="icon" href="/favicon.svg"', 'rel="apple-touch-icon"', 'rel="manifest"', 'name="theme-color"'):
+        if need not in head: err(f + " head lacks " + need)
+    if len(re.findall(r"<h1[ >]", body)) != 1: err(f + " does not have exactly one <h1>")
+    blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', head, re.S)
+    if not blocks: err(f + " has no JSON-LD")
+    for b in blocks:
+        try: data = json.loads(b)
+        except Exception as e: err(f + " JSON-LD does not parse: %s" % e); continue
+        types = json.dumps(data)
+        if loc == "":
+            for need in ('"Person"', '"WebSite"'):
+                if need not in types: err(f + " JSON-LD lacks " + need)
+        elif '"BreadcrumbList"' not in types: err(f + " JSON-LD has no BreadcrumbList")
+if bad: sys.exit(1)
+PY
+fi
+
 # 1f. No em dashes in page text. House style.
 for page in $pages; do
   if grep -qE '—|&mdash;' "$page"; then err "$page has an em dash"; fi
 done
+
+# 1e5. robots.txt names the sitemap and does not block the whole site.
+grep -qE '^Sitemap: https://endyland\.com/sitemap\.xml' robots.txt 2>/dev/null || err "robots.txt does not point at the sitemap"
+if grep -qE '^Disallow:[[:space:]]*/[[:space:]]*$' robots.txt 2>/dev/null; then err "robots.txt blocks the whole site"; fi
 
 # 2. _redirects: 2 or 3 fields, status 301/302/307/308.
 if [ -f _redirects ]; then
